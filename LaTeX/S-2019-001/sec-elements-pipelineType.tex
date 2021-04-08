@@ -1,0 +1,60 @@
+\subsection{\texttt{aces:pipelineType}}
+
+\element{aces:pipelineType / aces:inputTransform}
+        {This element contains all the elements containing information about the ACES input transform for a given ACES viewing pipeline.  The required \texttt{applied} attribute is used to indicate if the ACES input transform indicated has been applied to the media files or not.  If \texttt{applied="true"} the media files shall be encoded as according to SMPTE ST 2065-1. If \texttt{applied="false"} the media files may be transcoded to ACES using the transform indicated in the child element \texttt{transformId}.}
+        {images/acesMetadataFile_xsd_Element_aces_inputTransform.png}
+        {\texttt{aces:inputTransformType}}
+        {Optional}{0}{1}
+        {\texttt{applied (xs:boolean)}}{None}
+        {\texttt{aces:pipeline}, \texttt{aces:archivedPipeline}}
+        {\texttt{aces:description, aces:file, aces:hash, aces:inverseOutputDeviceTransform, \\
+        aces:inverseOutputTransform, aces:inverseReferenceRenderingTransform, \\
+        aces:transformId, aces:uuid}}
+        {\lstinline{<aces:inputTransform>} \\
+        ... \\
+        \lstinline{</aces:inputTransform>}}
+
+ \element{aces:pipelineType / aces:lookTransform}
+        {This element contains a look transform (LMT) for a given ACES viewing pipeline.  If the AMF includes multiple \texttt{<lookTransform>} elements, they shall be applied in the order in which they are written in the AMF (top to bottom).
+
+        The required \texttt{applied} attribute is used to indicate if the ACES look transform has been applied to the media files or not.  If \texttt{applied="true"}, the media files shall have the look transform "baked" into the image data (but is still included for diagnostic purposes). If \texttt{applied="false"}, the media files shall not have the look transform "baked" into the image data.
+
+        The input values and output values of ACES Look Transforms are ACES 2065-1. This is to avoid linking the Look Transforms to project specific working spaces. Look Transforms may convert ACES 2065-1 to a more appropriate working space for internal look application. Care should be taken when building Look Transforms as 3D LUTs, given Look Transforms input and output values are linear. In practice, smart implementations may modify the Look Transform to avoid unnecessary conversions within the context of an ACES pipeline as long as the results match those specified by the transforms in the AMF.
+
+        ASC-CDL does not have a mechanism to convert to a non-linear working space appropriate for the application of ASC-CDL values. For this reason, the \texttt{<aces:cdlTransformWorkingSpace>} element can be used to indicate the working space via transformsIDs in which ASC-CDL values are to be applied.}
+        {images/acesMetadataFile_xsd_Element_aces_lookTransform.png}
+        {\texttt{aces:lookTransformType}}
+        {Optional}{0}{unbounded}
+        {\texttt{applied (xs:boolean)}}{None}
+        {\texttt{aces:pipeline}, \texttt{aces:archivedPipeline}}
+        {\texttt{aces:cdlWorkingSpace, aces:description, aces:file, aces:hash,\\
+        aces:transformId, aces:uuid, cdl:ColorCorrectionRef, \\
+        cdl:SOPNode, cdl:SatNode}}
+        {\lstinline{<aces:lookTransform>} \\
+        ... \\
+        \lstinline{</aces:lookTransform>}}
+        
+ \element{aces:pipelineType / aces:outputTransform}
+        {This element contains all the elements containing information about the ACES output transform for a given ACES viewing pipeline.  The transform used for the \texttt{aces:outputTransform} may be referred to by the \texttt{aces:transformId} or a file name using \texttt{aces:file}.  When using \texttt{aces:file} to communicate the usage of a specific file a universal unique identifier for that transform shall be noted using the \texttt{aces:uuid} element.   Optionally, an additional a file hash value may be specified with \texttt{aces:hash} to further communicate the file used.}
+        {images/acesMetadataFile_xsd_Element_aces_outputTransform.png}
+        {\texttt{aces:outputTransformType}}
+        {Required}{1}{1}
+        {None}{None}
+        {\texttt{aces:pipeline}, \texttt{aces:archivedPipeline}}
+        {\texttt{aces:description, aces:file, aces:hash, aces:outputDeviceTransform, \\aces:referenceRenderingTransform, aces:transformId, aces:uuid}}
+        {\lstinline{<aces:outputTransform>} \\
+        ... \\
+        \lstinline{</aces:outputTransform>}}
+
+\element{aces:pipelineType / aces:pipelineInfo}
+        {This element contains all the elements containing metadata information such as description, author, date and time, etc. for a given ACES viewing pipeline. }
+        {images/acesMetadataFile_xsd_Element_aces_pipelineInfo.png}
+        {\texttt{aces:piplineInfoType}}
+        {Required}{1}{1}
+        {None}{None}
+        {\texttt{aces:pipeline, aces:archivedPipeline}}
+        {\texttt{aces:author, aces:dateTime, aces:description, aces:systemVersion,\\ aces:uuid}}
+        {\lstinline{<aces:pipelineInfo>} \\
+        ... \\
+        \lstinline{</aces:pipelineInfo>}}
+        

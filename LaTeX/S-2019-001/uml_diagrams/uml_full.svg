@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2596px" preserveAspectRatio="none" style="width:1863px;height:2596px;" version="1.1" viewBox="0 0 1863 2596" width="1863px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="68.8906" style="stroke:#000000;stroke-width:1.5;" width="275" x="7" y="452.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="105" x="92" y="465.6387">acesMetadataFile</text><line style="stroke:#000000;stroke-width:1.5;" x1="8" x2="281" y1="470.4688" y2="470.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="88" x="13" y="483.751">xs:complexType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="8" x2="281" y1="490.1094" y2="490.1094"/><ellipse cx="18" cy="501.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="106" x="27" y="503.3916">version : xs:decimal</text><ellipse cx="18" cy="512.75" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="85" x="27" y="515.0322">xmlns : xs:string</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="118"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="44" x="437.5" y="131.1387">amfInfo</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="135.9688" y2="135.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="76" x="328" y="149.251">aces:infoType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="155.6094" y2="155.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="740.5" y="21.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="25.9688" y2="25.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="643" y="39.251">xs:string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="45.6094" y2="45.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="64"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="38" x="755.5" y="77.1387">author</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="81.9688" y2="81.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="91" x="643" y="95.251">aces:authorType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="101.6094" y2="101.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="33" x="1073" y="20.1387">name</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="24.9688" y2="24.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="958" y="38.251">xs:string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="44.6094" y2="44.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="63"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="1048" y="76.1387">emailAddress</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="80.9688" y2="80.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="128" x="958" y="94.251">aces:emailAddressType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="100.6094" y2="100.6094"/><rect fill="#FFFFFF" height="37.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="122"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="56" x="746.5" y="135.1387">dateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="139.9688" y2="139.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="108" x="643" y="153.251">aces:dateTimeType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="119"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="1036.5" y="132.1387">creationDateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="136.9688" y2="136.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="67" x="958" y="150.251">xs:dateTime</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="156.6094" y2="156.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="175"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="130" x="1024.5" y="188.1387">modificationDateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="192.9688" y2="192.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="67" x="958" y="206.251">xs:dateTime</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="212.6094" y2="212.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="170"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="762" y="183.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="187.9688" y2="187.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="643" y="201.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="207.6094" y2="207.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="374"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="32" x="443.5" y="387.1387">clipId</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="391.9688" y2="391.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="328" y="405.251">aces:clipIdType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="411.6094" y2="411.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="226"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="55" x="747" y="239.1387">clipName</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="243.9688" y2="243.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="643" y="257.251">xs:string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="263.6094" y2="263.6094"/><rect fill="#FFFFFF" height="80.5313" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="282.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="60" x="744.5" y="295.6387">sequence</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="300.4688" y2="300.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="108" x="643" y="313.751">aces:sequenceType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="320.1094" y2="320.1094"/><ellipse cx="648" cy="331.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="69" x="657" y="333.3916">idx : xs:string</text><ellipse cx="648" cy="342.75" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153" x="657" y="345.0322">min : xs:nonNegativeInteger</text><ellipse cx="648" cy="354.3906" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="156" x="657" y="356.6729">max : xs:nonNegativeInteger</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="374"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="765.5" y="387.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="391.9688" y2="391.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="643" y="405.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="411.6094" y2="411.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="430"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="762" y="443.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="447.9688" y2="447.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="643" y="461.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="467.6094" y2="467.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="486"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="70" x="739.5" y="499.1387">pipelineInfo</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="503.9688" y2="503.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120" x="643" y="517.251">aces:pipelineInfoType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="523.6094" y2="523.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="251"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1055.5" y="264.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="268.9688" y2="268.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="958" y="282.251">xs:string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="288.6094" y2="288.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="307"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="38" x="1070.5" y="320.1387">author</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="324.9688" y2="324.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="91" x="958" y="338.251">aces:authorType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="344.6094" y2="344.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="240"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="33" x="1388" y="253.1387">name</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="257.9688" y2="257.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="1273" y="271.251">xs:string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="277.6094" y2="277.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="296"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="1363" y="309.1387">emailAddress</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="313.9688" y2="313.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="128" x="1273" y="327.251">aces:emailAddressType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="333.6094" y2="333.6094"/><rect fill="#FFFFFF" height="37.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="392"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="56" x="1061.5" y="405.1387">dateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="409.9688" y2="409.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="108" x="958" y="423.251">aces:dateTimeType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="352"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="1351.5" y="365.1387">creationDateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="369.9688" y2="369.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="67" x="1273" y="383.251">xs:dateTime</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="389.6094" y2="389.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="408"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="130" x="1339.5" y="421.1387">modificationDateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="425.9688" y2="425.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="67" x="1273" y="439.251">xs:dateTime</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="445.6094" y2="445.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="440"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1077" y="453.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="457.9688" y2="457.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="958" y="471.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="477.6094" y2="477.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="496"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="90" x="1044.5" y="509.1387">systemVersion</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="513.9688" y2="513.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="94" x="958" y="527.251">aces:versionType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="533.6094" y2="533.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="464"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="80" x="1364.5" y="477.1387">majorVersion</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="481.9688" y2="481.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="112" x="1273" y="495.251">aces:singleDigitType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="501.6094" y2="501.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="520"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="80" x="1364.5" y="533.1387">minorVersion</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="537.9688" y2="537.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="112" x="1273" y="551.251">aces:singleDigitType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="557.6094" y2="557.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="576"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="79" x="1365" y="589.1387">patchVersion</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="593.9688" y2="593.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="112" x="1273" y="607.251">aces:singleDigitType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="613.6094" y2="613.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="726.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="90" x="729.5" y="739.6387">inputTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="744.4688" y2="744.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="139" x="643" y="757.751">aces:inputTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="764.1094" y2="764.1094"/><ellipse cx="648" cy="775.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="88" x="657" y="777.3916">applied : xs:bool</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="552"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1055.5" y="565.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="569.9688" y2="569.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="958" y="583.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="589.6094" y2="589.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="608.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1075.5" y="621.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="626.4688" y2="626.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="958" y="639.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="646.1094" y2="646.1094"/><ellipse cx="963" cy="657.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="972" y="659.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="676"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1077" y="689.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="693.9688" y2="693.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="958" y="707.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="713.6094" y2="713.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="732"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1080.5" y="745.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="749.9688" y2="749.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="958" y="763.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="769.6094" y2="769.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="788"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1055" y="801.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="805.9688" y2="805.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="123" x="958" y="819.251">aces:tnInputTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="825.6094" y2="825.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="844"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="146" x="1016.5" y="857.1387">inverseOutputTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="861.9688" y2="861.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="188" x="958" y="875.251">aces:inverseOutputTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="881.6094" y2="881.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="632"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1370.5" y="645.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="649.9688" y2="649.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="1273" y="663.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="669.6094" y2="669.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="688.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1390.5" y="701.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="706.4688" y2="706.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="1273" y="719.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="726.1094" y2="726.1094"/><ellipse cx="1278" cy="737.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="1287" y="739.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="756"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1392" y="769.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="773.9688" y2="773.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="1273" y="787.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="793.6094" y2="793.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="812"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1395.5" y="825.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="829.9688" y2="829.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="1273" y="843.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="849.6094" y2="849.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="868"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1370" y="881.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="885.9688" y2="885.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="172" x="1273" y="899.251">aces:tnInverseOutputTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="905.6094" y2="905.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1017"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="188" x="995.5" y="1030.1387">inverseOutputDeviceTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1034.9688" y2="1034.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="225" x="958" y="1048.251">aces:inverseOutputDeviceTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1054.6094" y2="1054.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="924"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1370.5" y="937.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="941.9688" y2="941.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="1273" y="955.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="961.6094" y2="961.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="980.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1390.5" y="993.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="998.4688" y2="998.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="1273" y="1011.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1018.1094" y2="1018.1094"/><ellipse cx="1278" cy="1029.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="1287" y="1031.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1048"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1392" y="1061.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1065.9688" y2="1065.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="1273" y="1079.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1085.6094" y2="1085.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1104"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1395.5" y="1117.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1121.9688" y2="1121.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="1273" y="1135.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1141.6094" y2="1141.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1160"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1370" y="1173.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1177.9688" y2="1177.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="209" x="1273" y="1191.251">aces:tnInverseOutputDeviceTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1197.6094" y2="1197.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1278"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="229" x="975" y="1291.1387">inverseReferenceRenderingTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1295.9688" y2="1295.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="262" x="958" y="1309.251">aces:inverseReferenceRenderingTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1315.6094" y2="1315.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1216"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1370.5" y="1229.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1233.9688" y2="1233.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="1273" y="1247.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1253.6094" y2="1253.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1272.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1390.5" y="1285.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1290.4688" y2="1290.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="1273" y="1303.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1310.1094" y2="1310.1094"/><ellipse cx="1278" cy="1321.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="1287" y="1323.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1340"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1392" y="1353.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1357.9688" y2="1357.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="1273" y="1371.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1377.6094" y2="1377.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1396"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1395.5" y="1409.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1413.9688" y2="1413.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="1273" y="1427.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1433.6094" y2="1433.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1452"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1370" y="1465.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1469.9688" y2="1469.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="246" x="1273" y="1483.251">aces:tnInverseReferenceRenderingTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1489.6094" y2="1489.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="1550.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="87" x="731" y="1563.6387">lookTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="1568.4688" y2="1568.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="134" x="643" y="1581.751">aces:lookTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="1588.1094" y2="1588.1094"/><ellipse cx="648" cy="1599.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="88" x="657" y="1601.3916">applied : xs:bool</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1348"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1055.5" y="1361.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1365.9688" y2="1365.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="958" y="1379.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1385.6094" y2="1385.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1404.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1075.5" y="1417.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1422.4688" y2="1422.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="958" y="1435.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1442.1094" y2="1442.1094"/><ellipse cx="963" cy="1453.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="972" y="1455.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1472"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1077" y="1485.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1489.9688" y2="1489.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="958" y="1503.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1509.6094" y2="1509.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1528"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1080.5" y="1541.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1545.9688" y2="1545.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="958" y="1559.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1565.6094" y2="1565.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1584"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1055" y="1597.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1601.9688" y2="1601.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="121" x="958" y="1615.251">aces:tnLookTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1621.6094" y2="1621.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1508"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="119" x="1345" y="1521.1387">toCdlWorkingSpace</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1525.9688" y2="1525.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="162" x="1273" y="1539.251">aces:toCdlWorkingSpaceType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1545.6094" y2="1545.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1300"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1685.5" y="1313.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1317.9688" y2="1317.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="1588" y="1331.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1337.6094" y2="1337.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1356.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1705.5" y="1369.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1374.4688" y2="1374.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="1588" y="1387.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1394.1094" y2="1394.1094"/><ellipse cx="1593" cy="1405.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="1602" y="1407.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1424"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1707" y="1437.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1441.9688" y2="1441.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="1588" y="1455.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1461.6094" y2="1461.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1480"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1710.5" y="1493.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1497.9688" y2="1497.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="1588" y="1511.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1517.6094" y2="1517.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1536"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1685" y="1549.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1553.9688" y2="1553.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="219" x="1588" y="1567.251">aces:tnColorSpaceConversionTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1573.6094" y2="1573.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1640"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="135" x="1337" y="1653.1387">fromCdlWorkingSpace</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1657.9688" y2="1657.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="177" x="1273" y="1671.251">aces:fromCdlWorkingSpaceType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1677.6094" y2="1677.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1592"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1685.5" y="1605.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1609.9688" y2="1609.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="1588" y="1623.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1629.6094" y2="1629.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1648.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1705.5" y="1661.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1666.4688" y2="1666.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="1588" y="1679.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1686.1094" y2="1686.1094"/><ellipse cx="1593" cy="1697.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="1602" y="1699.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1716"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1707" y="1729.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1733.9688" y2="1733.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="1588" y="1747.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1753.6094" y2="1753.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1772"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1710.5" y="1785.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1789.9688" y2="1789.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="1588" y="1803.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1809.6094" y2="1809.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1582" y="1828"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1685" y="1841.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="1583" x2="1856" y1="1845.9688" y2="1845.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="219" x="1588" y="1859.251">aces:tnColorSpaceConversionTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1583" x2="1856" y1="1865.6094" y2="1865.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1640"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="1036.5" y="1653.1387">cdlWorkingSpace</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1657.9688" y2="1657.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="149" x="958" y="1671.251">aces:cdlWorkingSpaceType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1677.6094" y2="1677.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1696"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="78" x="1050.5" y="1709.1387">cdl:SOPNode</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1713.9688" y2="1713.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="97" x="958" y="1727.251">cdl:SOPNodeType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1733.6094" y2="1733.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1752"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="1053" y="1765.1387">cdl:SatNode</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1769.9688" y2="1769.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="93" x="958" y="1783.251">cdl:SatNodeType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1789.6094" y2="1789.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1808.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="136" x="1021.5" y="1821.6387">cdl:ColorCorrectionRef</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1826.4688" y2="1826.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="150" x="958" y="1839.751">cdl:ColorCorrectionRefType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1846.1094" y2="1846.1094"/><ellipse cx="963" cy="1857.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="76" x="972" y="1859.3916">ref : xs:anyURI</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1696"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="57" x="1376" y="1709.1387">cdl:Slope</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1713.9688" y2="1713.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="161" x="1273" y="1727.251">cdl:nonNegativeFloatListType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1733.6094" y2="1733.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1752"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="59" x="1375" y="1765.1387">cdl:Offset</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1769.9688" y2="1769.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="89" x="1273" y="1783.251">cdl:floatListType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1789.6094" y2="1789.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1808"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="59" x="1375" y="1821.1387">cdl:Power</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1825.9688" y2="1825.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="133" x="1273" y="1839.251">cdl:positiveFloatListType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1845.6094" y2="1845.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="1864"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="82" x="1363.5" y="1877.1387">cdl:Saturation</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="1881.9688" y2="1881.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="143" x="1273" y="1895.251">cdl:nonNegativeFloatType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="1901.6094" y2="1901.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="2028"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="99" x="725" y="2041.1387">outputTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="2045.9688" y2="2045.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="147" x="643" y="2059.251">aces:outputTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="2065.6094" y2="2065.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1876"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1055.5" y="1889.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1893.9688" y2="1893.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="958" y="1907.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1913.6094" y2="1913.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="1932.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1075.5" y="1945.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="1950.4688" y2="1950.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="958" y="1963.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="1970.1094" y2="1970.1094"/><ellipse cx="963" cy="1981.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="972" y="1983.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="2000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1077" y="2013.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="2017.9688" y2="2017.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="958" y="2031.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="2037.6094" y2="2037.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="2056"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1080.5" y="2069.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="2073.9688" y2="2073.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="958" y="2087.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="2093.6094" y2="2093.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="2112"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1055" y="2125.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="2129.9688" y2="2129.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="133" x="958" y="2143.251">aces:tnOutputTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="2149.6094" y2="2149.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="2168"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="141" x="1019" y="2181.1387">outputDeviceTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="2185.9688" y2="2185.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="184" x="958" y="2199.251">aces:outputDeviceTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="2205.6094" y2="2205.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2016"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1370.5" y="2029.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2033.9688" y2="2033.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="1273" y="2047.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2053.6094" y2="2053.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2072.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1390.5" y="2085.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2090.4688" y2="2090.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="1273" y="2103.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2110.1094" y2="2110.1094"/><ellipse cx="1278" cy="2121.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="1287" y="2123.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2140"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1392" y="2153.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2157.9688" y2="2157.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="1273" y="2171.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2177.6094" y2="2177.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2196"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1395.5" y="2209.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2213.9688" y2="2213.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="1273" y="2227.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2233.6094" y2="2233.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2252"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1370" y="2265.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2269.9688" y2="2269.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="170" x="1273" y="2283.251">aces:tnOutputDeviceTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2289.6094" y2="2289.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="2401"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="182" x="998.5" y="2414.1387">referenceRenderingTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="2418.9688" y2="2418.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="220" x="958" y="2432.251">aces:referenceRenderingTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="2438.6094" y2="2438.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2308"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1370.5" y="2321.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2325.9688" y2="2325.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="1273" y="2339.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2345.6094" y2="2345.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2364.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1390.5" y="2377.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2382.4688" y2="2382.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="1273" y="2395.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2402.1094" y2="2402.1094"/><ellipse cx="1278" cy="2413.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="1287" y="2415.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2432"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1392" y="2445.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2449.9688" y2="2449.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="1273" y="2463.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2469.6094" y2="2469.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2488"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1395.5" y="2501.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2505.9688" y2="2505.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="1273" y="2519.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2525.6094" y2="2525.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="1267" y="2544"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1370" y="2557.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="1268" x2="1541" y1="2561.9688" y2="2561.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="207" x="1273" y="2575.251">aces:tnReferenceRenderingTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="1268" x2="1541" y1="2581.6094" y2="2581.6094"/><rect fill="#FFFFFF" height="37.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="647"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="48" x="435.5" y="660.1387">pipeline</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="664.9688" y2="664.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="99" x="328" y="678.251">aces:pipelineType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="695"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="98" x="410.5" y="708.1387">archivedPipeline</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="712.9688" y2="712.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="99" x="328" y="726.251">aces:pipelineType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="732.6094" y2="732.6094"/><!--MD5=[c0906f46fa81be371ed53d4120ea2545]
+link amfInfo.root to amfInfo.description--><path codeLine="54" d="M414,117.94 C414,85.68 414,31 414,31 C414,31 631.925,31 631.925,31 " fill="none" id="amfInfo.root-to-amfInfo.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.925,31,627.925,27,631.925,31,627.925,35,636.925,31" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[d75c1269b00a3557d7e5f0a6aaeecb1b]
+link amfInfo.root to amfInfo.author--><path codeLine="55" d="M506,117.79 C506,103.15 506,87 506,87 C506,87 631.711,87 631.711,87 " fill="none" id="amfInfo.root-to-amfInfo.author" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.711,87,627.711,83,631.711,87,627.711,91,636.711,87" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[bdb926176cebd80a089c6daf3a0658e1]
+link amfInfo.root to amfInfo.dateTime--><path codeLine="56" d="M597.205,141 C597.205,141 631.627,141 631.627,141 " fill="none" id="amfInfo.root-to-amfInfo.dateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,141,627.627,137,631.627,141,627.627,145,636.627,141" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f94ca94c23c3af8f620c5b74267b330c]
+link amfInfo.root to amfInfo.uuid--><path codeLine="57" d="M529,164.26 C529,178.11 529,193 529,193 C529,193 631.68,193 631.68,193 " fill="none" id="amfInfo.root-to-amfInfo.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.68,193,627.68,189,631.68,193,627.68,197,636.68,193" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f9e1759156f752eda47957b2ba369445]
+link amfInfo.author to amfInfo.name--><path codeLine="59" d="M912.117,79 C932.055,79 946,79 946,79 C946,79 946,30.5 946,30.5 C946,30.5 946.803,30.5 946.803,30.5 " fill="none" id="amfInfo.author-to-amfInfo.name" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.803,30.5,942.803,26.5,946.803,30.5,942.803,34.5,951.803,30.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[8638a72c694189ccfc891e109f863d31]
+link amfInfo.author to amfInfo.emailAddress--><path codeLine="60" d="M912.205,94 C912.205,94 946.627,94 946.627,94 " fill="none" id="amfInfo.author-to-amfInfo.emailAddress" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,94,942.627,90,946.627,94,942.627,98,951.627,94" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e37f42697d048360b00b1e2954179f25]
+link amfInfo.dateTime to amfInfo.creationDateTime--><path codeLine="62" d="M912.205,134.67 C912.205,134.67 946.627,134.67 946.627,134.67 " fill="none" id="amfInfo.dateTime-to-amfInfo.creationDateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,134.67,942.627,130.67,946.627,134.67,942.627,138.67,951.627,134.67" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[df8aa2b13faa0229acc8f1ed7720fb0c]
+link amfInfo.dateTime to amfInfo.modificationDateTime--><path codeLine="63" d="M912.204,147.33 C928.231,147.33 939,147.33 939,147.33 C939,147.33 939,195.5 939,195.5 C939,195.5 946.832,195.5 946.832,195.5 " fill="none" id="amfInfo.dateTime-to-amfInfo.modificationDateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.832,195.5,942.832,191.5,946.832,195.5,942.832,199.5,951.832,195.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[5e23f978831b472f7a4acdd36f395d5b]
+link clipId.root to clipId.clipName--><path codeLine="253" d="M391,373.88 C391,332.25 391,249 391,249 C391,249 631.86,249 631.86,249 " fill="none" id="clipId.root-to-clipId.clipName" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.86,249,627.86,245,631.86,249,627.86,253,636.86,249" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[ce1792039cf368bbd5c7f936d41a195e]
+link clipId.root to clipId.sequence--><path codeLine="254" d="M460,373.99 C460,352.27 460,323 460,323 C460,323 631.556,323 631.556,323 " fill="none" id="clipId.root-to-clipId.sequence" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.556,323,627.556,319,631.556,323,627.556,327,636.556,323" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[020dafed0a9b2955035de9eb69ccc219]
+link clipId.root to clipId.file--><path codeLine="255" d="M597.205,397 C597.205,397 631.627,397 631.627,397 " fill="none" id="clipId.root-to-clipId.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,397,627.627,393,631.627,397,627.627,401,636.627,397" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[4d57ed344c52369eea543d25d4b77bfe]
+link clipId.root to clipId.uuid--><path codeLine="256" d="M542,420.16 C542,430.87 542,441.25 542,441.25 C542,441.25 631.902,441.25 631.902,441.25 " fill="none" id="clipId.root-to-clipId.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.902,441.25,627.902,437.25,631.902,441.25,627.902,445.25,636.902,441.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[2318c7b2480de28c1d973a637f4acb17]
+link pipelineInfo.root to pipelineInfo.description--><path codeLine="54" d="M912.03,490 C916.451,490 919,490 919,490 C919,490 919,289.75 919,289.75 C919,289.75 946.874,289.75 946.874,289.75 " fill="none" id="pipelineInfo.root-to-pipelineInfo.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.874,289.75,942.874,285.75,946.874,289.75,942.874,293.75,951.874,289.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[479c571ca2abf21f9e3b27c9c8f4791c]
+link pipelineInfo.root to pipelineInfo.author--><path codeLine="55" d="M912.019,492 C920.674,492 926,492 926,492 C926,492 926,330 926,330 C926,330 946.907,330 946.907,330 " fill="none" id="pipelineInfo.root-to-pipelineInfo.author" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.907,330,942.907,326,946.907,330,942.907,334,951.907,330" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f301000ce9a847e0c0564cc72c17229a]
+link pipelineInfo.root to pipelineInfo.dateTime--><path codeLine="56" d="M912.053,494 C924.192,494 932,494 932,494 C932,494 932,425 932,425 C932,425 946.947,425 946.947,425 " fill="none" id="pipelineInfo.root-to-pipelineInfo.dateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.947,425,942.947,421,946.947,425,942.947,429,951.947,425" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e9c0fd90e237fa2619fecfe0bbb710be]
+link pipelineInfo.root to pipelineInfo.uuid--><path codeLine="57" d="M912.424,488 C997.32,488 1090,488 1090,488 C1090,488 1090,487.8 1090,487.8 " fill="none" id="pipelineInfo.root-to-pipelineInfo.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1090,486.04,1086,495.04,1090,491.04,1094,495.04,1090,486.04" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[ec2cb71e36a847756b37156a05fd4e27]
+link pipelineInfo.author to pipelineInfo.name--><path codeLine="59" d="M1227.09,318.67 C1247.59,318.67 1262,318.67 1262,318.67 C1262,318.67 1262,268.5 1262,268.5 C1262,268.5 1262.47,268.5 1262.47,268.5 " fill="none" id="pipelineInfo.author-to-pipelineInfo.name" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.74,268.5,1257.74,264.5,1261.74,268.5,1257.74,272.5,1266.74,268.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[7d6a08438178cf7b105eb4dcf543ef3c]
+link pipelineInfo.author to pipelineInfo.emailAddress--><path codeLine="60" d="M1227.21,330.33 C1227.21,330.33 1261.63,330.33 1261.63,330.33 " fill="none" id="pipelineInfo.author-to-pipelineInfo.emailAddress" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,330.33,1257.63,326.33,1261.63,330.33,1257.63,334.33,1266.63,330.33" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[2f6aecf8c33d352c71b50de98e46fd8d]
+link pipelineInfo.dateTime to pipelineInfo.creationDateTime--><path codeLine="62" d="M1227.42,403 C1312.32,403 1405,403 1405,403 C1405,403 1405,402.51 1405,402.51 " fill="none" id="pipelineInfo.dateTime-to-pipelineInfo.creationDateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1405,398.12,1401,407.12,1405,403.12,1409,407.12,1405,398.12" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[460f518aaa71fe3da84eaa45a1a4918e]
+link pipelineInfo.dateTime to pipelineInfo.modificationDateTime--><path codeLine="63" d="M1227.21,419 C1227.21,419 1261.63,419 1261.63,419 " fill="none" id="pipelineInfo.dateTime-to-pipelineInfo.modificationDateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,419,1257.63,415,1261.63,419,1257.63,423,1266.63,419" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[bff0b5f961a8685eead11f63aeadbdb0]
+link pipelineInfo.root to pipelineInfo.systemVersion--><path codeLine="85" d="M912.205,514 C912.205,514 946.627,514 946.627,514 " fill="none" id="pipelineInfo.root-to-pipelineInfo.systemVersion" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,514,942.627,510,946.627,514,942.627,518,951.627,514" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[7361b63daaf023c70577292789b8be08]
+link pipelineInfo.systemVersion to pipelineInfo.majorVersion--><path codeLine="87" d="M1227.21,503 C1227.21,503 1261.63,503 1261.63,503 " fill="none" id="pipelineInfo.systemVersion-to-pipelineInfo.majorVersion" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,503,1257.63,499,1261.63,503,1257.63,507,1266.63,503" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[12ccab681c228bea04c9eb0950b25fe0]
+link pipelineInfo.systemVersion to pipelineInfo.minorVersion--><path codeLine="88" d="M1227.21,527.33 C1227.21,527.33 1261.63,527.33 1261.63,527.33 " fill="none" id="pipelineInfo.systemVersion-to-pipelineInfo.minorVersion" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,527.33,1257.63,523.33,1261.63,527.33,1257.63,531.33,1266.63,527.33" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[aa2f6633e19e4c3157cd28925042facf]
+link pipelineInfo.systemVersion to pipelineInfo.patchVersion--><path codeLine="89" d="M1227.12,534.67 C1245.96,534.67 1259,534.67 1259,534.67 C1259,534.67 1259,587 1259,587 C1259,587 1261.82,587 1261.82,587 " fill="none" id="pipelineInfo.systemVersion-to-pipelineInfo.patchVersion" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.82,587,1257.82,583,1261.82,587,1257.82,591,1266.82,587" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[b93f56550002988e6090399f2b61f3b6]
+link inputTransform.root to inputTransform.description--><path codeLine="130" d="M747,726.48 C747,675.72 747,575 747,575 C747,575 946.673,575 946.673,575 " fill="none" id="inputTransform.root-to-inputTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.673,575,942.673,571,946.673,575,942.673,579,951.673,575" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e673929ea2432c844316ba75115531e2]
+link inputTransform.root to inputTransform.hash--><path codeLine="131" d="M802,726.44 C802,697.27 802,656.25 802,656.25 C802,656.25 946.645,656.25 946.645,656.25 " fill="none" id="inputTransform.root-to-inputTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.645,656.25,942.645,652.25,946.645,656.25,942.645,660.25,951.645,656.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[68c0e1a3e279ce3229b6100894da2ac0]
+link inputTransform.root to inputTransform.uuid--><path codeLine="132" d="M857,726.35 C857,716.78 857,708.5 857,708.5 C857,708.5 946.902,708.5 946.902,708.5 " fill="none" id="inputTransform.root-to-inputTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.902,708.5,942.902,704.5,946.902,708.5,942.902,712.5,951.902,708.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[b02c31c929887794d868e5372996a8a0]
+link inputTransform.root to inputTransform.file--><path codeLine="133" d="M912.205,755 C912.205,755 946.627,755 946.627,755 " fill="none" id="inputTransform.root-to-inputTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,755,942.627,751,946.627,755,942.627,759,951.627,755" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[299b6c34d43e954e7cc64e99cb2f384b]
+link inputTransform.root to inputTransform.transformId--><path codeLine="134" d="M878,783.66 C878,797.43 878,811 878,811 C878,811 946.972,811 946.972,811 " fill="none" id="inputTransform.root-to-inputTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.972,811,942.972,807,946.972,811,942.972,815,951.972,811" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[630602e12730e4dc9d4996861819edca]
+link inverseOutputTransform.root to inverseOutputTransform.description--><path codeLine="130" d="M1227.07,846.8 C1228.96,846.8 1230,846.8 1230,846.8 C1230,846.8 1230,670.75 1230,670.75 C1230,670.75 1261.58,670.75 1261.58,670.75 " fill="none" id="inverseOutputTransform.root-to-inverseOutputTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.58,670.75,1257.58,666.75,1261.58,670.75,1257.58,674.75,1266.58,670.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[c95114213761c7e8001fe1dab1806c80]
+link inverseOutputTransform.root to inverseOutputTransform.hash--><path codeLine="131" d="M1227.02,849.6 C1234.48,849.6 1239,849.6 1239,849.6 C1239,849.6 1239,738.75 1239,738.75 C1239,738.75 1261.7,738.75 1261.7,738.75 " fill="none" id="inverseOutputTransform.root-to-inverseOutputTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.7,738.75,1257.7,734.75,1261.7,738.75,1257.7,742.75,1266.7,738.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[dd73c951e791a7ed93bf8cebe925bc14]
+link inverseOutputTransform.root to inverseOutputTransform.uuid--><path codeLine="132" d="M1227.38,852.4 C1244.42,852.4 1256,852.4 1256,852.4 C1256,852.4 1256,795 1256,795 C1256,795 1261.68,795 1261.68,795 " fill="none" id="inverseOutputTransform.root-to-inverseOutputTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.68,795,1257.68,791,1261.68,795,1257.68,799,1266.68,795" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[d6c98893b11b38911c6b6adf12f0a151]
+link inverseOutputTransform.root to inverseOutputTransform.file--><path codeLine="133" d="M1227.21,855.2 C1227.21,855.2 1261.63,855.2 1261.63,855.2 " fill="none" id="inverseOutputTransform.root-to-inverseOutputTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,855.2,1257.63,851.2,1261.63,855.2,1257.63,859.2,1266.63,855.2" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[4e74d0234945cd087153cddac3c6eb99]
+link inverseOutputTransform.root to inverseOutputTransform.transformId--><path codeLine="134" d="M1227.21,879 C1227.21,879 1261.63,879 1261.63,879 " fill="none" id="inverseOutputTransform.root-to-inverseOutputTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,879,1257.63,875,1261.63,879,1257.63,883,1266.63,879" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[682897e770b5e6bdaacf03ffe6f8be13]
+link inverseOutputDeviceTransform.root to inverseOutputDeviceTransform.description--><path codeLine="130" d="M1090,1016.53 C1090,988.98 1090,947 1090,947 C1090,947 1261.56,947 1261.56,947 " fill="none" id="inverseOutputDeviceTransform.root-to-inverseOutputDeviceTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.56,947,1257.56,943,1261.56,947,1257.56,951,1266.56,947" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[63dfa6d813cecfc99c02cc5d97bdbd86]
+link inverseOutputDeviceTransform.root to inverseOutputDeviceTransform.hash--><path codeLine="131" d="M1227.21,1027.25 C1227.21,1027.25 1261.63,1027.25 1261.63,1027.25 " fill="none" id="inverseOutputDeviceTransform.root-to-inverseOutputDeviceTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,1027.25,1257.63,1023.25,1261.63,1027.25,1257.63,1031.25,1266.63,1027.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[fb8cb3ea8cb1bf6a0fdb96ae8527d5d0]
+link inverseOutputDeviceTransform.root to inverseOutputDeviceTransform.uuid--><path codeLine="132" d="M1227.21,1055.5 C1227.21,1055.5 1261.63,1055.5 1261.63,1055.5 " fill="none" id="inverseOutputDeviceTransform.root-to-inverseOutputDeviceTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,1055.5,1257.63,1051.5,1261.63,1055.5,1257.63,1059.5,1266.63,1055.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[39c269a516456cfc88968dc2b301f006]
+link inverseOutputDeviceTransform.root to inverseOutputDeviceTransform.file--><path codeLine="133" d="M1090,1063.31 C1090,1089.08 1090,1127 1090,1127 C1090,1127 1261.56,1127 1261.56,1127 " fill="none" id="inverseOutputDeviceTransform.root-to-inverseOutputDeviceTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.56,1127,1257.56,1123,1261.56,1127,1257.56,1131,1266.56,1127" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[fa62c8d9ff46196daaeb40062eb1680e]
+link inverseOutputDeviceTransform.root to inverseOutputDeviceTransform.transformId--><path codeLine="134" d="M1021,1063.29 C1021,1103.81 1021,1183 1021,1183 C1021,1183 1261.86,1183 1261.86,1183 " fill="none" id="inverseOutputDeviceTransform.root-to-inverseOutputDeviceTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.86,1183,1257.86,1179,1261.86,1183,1257.86,1187,1266.86,1183" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[471042f7127e9529a1b692feaa5477ef]
+link inverseReferenceRenderingTransform.root to inverseReferenceRenderingTransform.description--><path codeLine="130" d="M1159,1277.91 C1159,1260.29 1159,1239 1159,1239 C1159,1239 1261.68,1239 1261.68,1239 " fill="none" id="inverseReferenceRenderingTransform.root-to-inverseReferenceRenderingTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.68,1239,1257.68,1235,1261.68,1239,1257.68,1243,1266.68,1239" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[3a9c3a4d5b72b775e9effb1e52daaafa]
+link inverseReferenceRenderingTransform.root to inverseReferenceRenderingTransform.hash--><path codeLine="131" d="M1227.21,1289.5 C1227.21,1289.5 1261.63,1289.5 1261.63,1289.5 " fill="none" id="inverseReferenceRenderingTransform.root-to-inverseReferenceRenderingTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,1289.5,1257.63,1285.5,1261.63,1289.5,1257.63,1293.5,1266.63,1289.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f6223b16102020429b068a6cd42b3d3f]
+link inverseReferenceRenderingTransform.root to inverseReferenceRenderingTransform.uuid--><path codeLine="132" d="M1090,1324.01 C1090,1334.23 1090,1344 1090,1344 C1090,1344 1261.56,1344 1261.56,1344 " fill="none" id="inverseReferenceRenderingTransform.root-to-inverseReferenceRenderingTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.56,1344,1257.56,1340,1261.56,1344,1257.56,1348,1266.56,1344" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f2c6a7024015e464107e98b0eda41559]
+link inverseReferenceRenderingTransform.root to inverseReferenceRenderingTransform.file--><path codeLine="133" d="M1227.16,1301 C1238.08,1301 1245,1301 1245,1301 C1245,1301 1245,1400.25 1245,1400.25 C1245,1400.25 1261.84,1400.25 1261.84,1400.25 " fill="none" id="inverseReferenceRenderingTransform.root-to-inverseReferenceRenderingTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.84,1400.25,1257.84,1396.25,1261.84,1400.25,1257.84,1404.25,1266.84,1400.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[611672c75efd4e43d301cacc9833cde0]
+link inverseReferenceRenderingTransform.root to inverseReferenceRenderingTransform.transformId--><path codeLine="134" d="M1227.2,1312.5 C1230.9,1312.5 1233,1312.5 1233,1312.5 C1233,1312.5 1233,1456.75 1233,1456.75 C1233,1456.75 1261.88,1456.75 1261.88,1456.75 " fill="none" id="inverseReferenceRenderingTransform.root-to-inverseReferenceRenderingTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.88,1456.75,1257.88,1452.75,1261.88,1456.75,1257.88,1460.75,1266.88,1456.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e72fe5c2f6a1c4a042114722e1e22f73]
+link inputTransform.root to inverseOutputTransform.root--><path codeLine="143" d="M809,783.55 C809,816.73 809,867 809,867 C809,867 946.715,867 946.715,867 " fill="none" id="inputTransform.root-to-inverseOutputTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.715,867,942.715,863,946.715,867,942.715,871,951.715,867" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[130b328e7ab84e1f24da67bdb791a380]
+link inputTransform.root to inverseOutputDeviceTransform.root--><path codeLine="144" d="M706,783.63 C706,855.9 706,1040 706,1040 C706,1040 946.86,1040 946.86,1040 " fill="none" id="inputTransform.root-to-inverseOutputDeviceTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.86,1040,942.86,1036,946.86,1040,942.86,1044,951.86,1040" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[2d48fc619f09334b39968e8ba41fe60b]
+link inputTransform.root to inverseReferenceRenderingTransform.root--><path codeLine="145" d="M672,783.59 C672,895.93 672,1301 672,1301 C672,1301 946.927,1301 946.927,1301 " fill="none" id="inputTransform.root-to-inverseReferenceRenderingTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.927,1301,942.927,1297,946.927,1301,942.927,1305,951.927,1301" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[69dda3d2cb85c571ffc987f9ccc6d601]
+link lookTransform.root to lookTransform.description--><path codeLine="130" d="M741,1550.08 C741,1492.93 741,1371 741,1371 C741,1371 946.764,1371 946.764,1371 " fill="none" id="lookTransform.root-to-lookTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.764,1371,942.764,1367,946.764,1371,942.764,1375,951.764,1371" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[387e2267d51c5211d036a5cd70d87619]
+link lookTransform.root to lookTransform.hash--><path codeLine="131" d="M775,1550.16 C775,1507.61 775,1433 775,1433 C775,1433 946.556,1433 946.556,1433 " fill="none" id="lookTransform.root-to-lookTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.556,1433,942.556,1429,946.556,1433,942.556,1437,951.556,1433" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[28fb5e5c6b37259fb44e62d19eafb475]
+link lookTransform.root to lookTransform.uuid--><path codeLine="132" d="M844,1550.09 C844,1525.79 844,1495 844,1495 C844,1495 946.68,1495 946.68,1495 " fill="none" id="lookTransform.root-to-lookTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.68,1495,942.68,1491,946.68,1495,942.68,1499,951.68,1495" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[418fe5c1d5eda47e97afd0781934c4e2]
+link lookTransform.root to lookTransform.file--><path codeLine="133" d="M912.205,1562.25 C912.205,1562.25 946.627,1562.25 946.627,1562.25 " fill="none" id="lookTransform.root-to-lookTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,1562.25,942.627,1558.25,946.627,1562.25,942.627,1566.25,951.627,1562.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[57a87cccbc3429cc6756cc7a1bff53cd]
+link lookTransform.root to lookTransform.transformId--><path codeLine="134" d="M912.205,1595.75 C912.205,1595.75 946.627,1595.75 946.627,1595.75 " fill="none" id="lookTransform.root-to-lookTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,1595.75,942.627,1591.75,946.627,1595.75,942.627,1599.75,951.627,1595.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[70d0deb5510cf3270d6ad89f15be6bd6]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.description--><path codeLine="130" d="M1542.2,1511.6 C1545.9,1511.6 1548,1511.6 1548,1511.6 C1548,1511.6 1548,1334.75 1548,1334.75 C1548,1334.75 1576.88,1334.75 1576.88,1334.75 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.88,1334.75,1572.88,1330.75,1576.88,1334.75,1572.88,1338.75,1581.88,1334.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[9cb6e7f5de4142356be3059c0f1afc46]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.hash--><path codeLine="131" d="M1542.16,1515.2 C1553.08,1515.2 1560,1515.2 1560,1515.2 C1560,1515.2 1560,1404.75 1560,1404.75 C1560,1404.75 1576.84,1404.75 1576.84,1404.75 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.84,1404.75,1572.84,1400.75,1576.84,1404.75,1572.84,1408.75,1581.84,1404.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[18704f2558bf5aa77a65726c4abf4036]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.uuid--><path codeLine="132" d="M1542.38,1518.8 C1559.42,1518.8 1571,1518.8 1571,1518.8 C1571,1518.8 1571,1461 1571,1461 C1571,1461 1576.68,1461 1576.68,1461 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.68,1461,1572.68,1457,1576.68,1461,1572.68,1465,1581.68,1461" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e5c47cb7bb899a3f4a2b82fcbe4c3b0b]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.file--><path codeLine="133" d="M1542.21,1522.4 C1542.21,1522.4 1576.63,1522.4 1576.63,1522.4 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.63,1522.4,1572.63,1518.4,1576.63,1522.4,1572.63,1526.4,1581.63,1522.4" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[ca6677153a47689d112dcbff6ab19358]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.transformId--><path codeLine="134" d="M1542.21,1545 C1542.21,1545 1576.63,1545 1576.63,1545 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.63,1545,1572.63,1541,1576.63,1545,1572.63,1549,1581.63,1545" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[cb66264cec54574d332014de6e656cdc]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.description--><path codeLine="130" d="M1542.42,1644.25 C1627.32,1644.25 1720,1644.25 1720,1644.25 C1720,1644.25 1720,1643.047 1720,1643.047 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1720,1638.047,1716,1647.047,1720,1643.047,1724,1647.047,1720,1638.047" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[51daaf575f9b179deebb73c800dac712]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.hash--><path codeLine="131" d="M1542.21,1656 C1542.21,1656 1576.63,1656 1576.63,1656 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.63,1656,1572.63,1652,1576.63,1656,1572.63,1660,1581.63,1656" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[36f197d86fc55a5239fe0e6d55758b83]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.uuid--><path codeLine="132" d="M1542.09,1663.5 C1562.59,1663.5 1577,1663.5 1577,1663.5 C1577,1663.5 1577,1729 1577,1729 C1577,1729 1577.47,1729 1577.47,1729 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.74,1729,1572.74,1725,1576.74,1729,1572.74,1733,1581.74,1729" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[5f7d2c3120352d12a8bdf01ef9a4966e]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.file--><path codeLine="133" d="M1542,1671 C1555.89,1671 1565,1671 1565,1671 C1565,1671 1565,1785 1565,1785 C1565,1785 1576.83,1785 1576.83,1785 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.83,1785,1572.83,1781,1576.83,1785,1572.83,1789,1581.83,1785" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[0010b6073db6d9332f460a57244bd300]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.transformId--><path codeLine="134" d="M1542.02,1678.5 C1549.48,1678.5 1554,1678.5 1554,1678.5 C1554,1678.5 1554,1841 1554,1841 C1554,1841 1576.7,1841 1576.7,1841 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1581.7,1841,1572.7,1837,1576.7,1841,1572.7,1845,1581.7,1841" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[a424aaa5407982eb947662ffcdcfc10c]
+link lookTransform.root to lookTransform.cdlWorkingSpace--><path codeLine="187" d="M873,1607.908 C873,1632.206 873,1663 873,1663 C873,1663 946.774,1663 946.774,1663 " fill="none" id="lookTransform.root-to-lookTransform.cdlWorkingSpace" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.774,1663,942.774,1659,946.774,1663,942.774,1667,951.774,1663" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[d41542966b12aaf0e845f54ec98dfc47]
+link lookTransform.root to lookTransform.cdlSOPNode--><path codeLine="188" d="M795,1607.669 C795,1648.628 795,1719 795,1719 C795,1719 946.735,1719 946.735,1719 " fill="none" id="lookTransform.root-to-lookTransform.cdlSOPNode" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.735,1719,942.735,1715,946.735,1719,942.735,1723,951.735,1719" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[520f7d0b1e29d75c991ebb6b02a85413]
+link lookTransform.root to lookTransform.cdlSatNode--><path codeLine="189" d="M716,1607.5 C716,1661.86 716,1775 716,1775 C716,1775 946.749,1775 946.749,1775 " fill="none" id="lookTransform.root-to-lookTransform.cdlSatNode" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.749,1775,942.749,1771,946.749,1775,942.749,1779,951.749,1775" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[b4d35dae57b4eb5b910f6339869088c6]
+link lookTransform.root to lookTransform.cdlColorCorrectionRef--><path codeLine="190" d="M677,1607.596 C677,1674.77 677,1837 677,1837 C677,1837 946.857,1837 946.857,1837 " fill="none" id="lookTransform.root-to-lookTransform.cdlColorCorrectionRef" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.857,1837,942.857,1833,946.857,1837,942.857,1841,951.857,1837" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e2924a0a3cedd67bd8540771d2a95fd3]
+link lookTransform.cdlWorkingSpace to toCdlWorkingSpace.root--><path codeLine="192" d="M1227.1,1655.333 C1236.3,1655.333 1242,1655.333 1242,1655.333 C1242,1655.333 1242,1541 1242,1541 C1242,1541 1261.68,1541 1261.68,1541 " fill="none" id="lookTransform.cdlWorkingSpace-to-toCdlWorkingSpace.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.68,1541,1257.68,1537,1261.68,1541,1257.68,1545,1266.68,1541" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[74174315b9904692980563af856ad169]
+link lookTransform.cdlWorkingSpace to fromCdlWorkingSpace.root--><path codeLine="193" d="M1227.21,1670.667 C1227.21,1670.667 1261.63,1670.667 1261.63,1670.667 " fill="none" id="lookTransform.cdlWorkingSpace-to-fromCdlWorkingSpace.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,1670.667,1257.63,1666.667,1261.63,1670.667,1257.63,1674.667,1266.63,1670.667" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[02013caf20c663b30f858111888a2e65]
+link lookTransform.cdlSOPNode to lookTransform.cdlSlope--><path codeLine="195" d="M1227.21,1707.5 C1227.21,1707.5 1261.63,1707.5 1261.63,1707.5 " fill="none" id="lookTransform.cdlSOPNode-to-lookTransform.cdlSlope" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,1707.5,1257.63,1703.5,1261.63,1707.5,1257.63,1711.5,1266.63,1707.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[74cbb4d14816c36b7d4265a745b95e1c]
+link lookTransform.cdlSOPNode to lookTransform.cdlOffset--><path codeLine="196" d="M1227.35,1719 C1249.33,1719 1265,1719 1265,1719 C1265,1719 1265,1767.333 1265,1767.333 C1265,1767.333 1265.2,1767.333 1265.2,1767.333 " fill="none" id="lookTransform.cdlSOPNode-to-lookTransform.cdlOffset" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.97,1767.333,1257.97,1763.333,1261.97,1767.333,1257.97,1771.333,1266.97,1767.333" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[6ce86a8f0e1f540e8c457f5ec70c355c]
+link lookTransform.cdlSOPNode to lookTransform.cdlPower--><path codeLine="197" d="M1227,1730.5 C1240.89,1730.5 1250,1730.5 1250,1730.5 C1250,1730.5 1250,1831.25 1250,1831.25 C1250,1831.25 1261.83,1831.25 1261.83,1831.25 " fill="none" id="lookTransform.cdlSOPNode-to-lookTransform.cdlPower" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.83,1831.25,1257.83,1827.25,1261.83,1831.25,1257.83,1835.25,1266.83,1831.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[0887e9431ec2a45bde371e8f89ffdb82]
+link lookTransform.cdlSatNode to lookTransform.cdlSaturation--><path codeLine="199" d="M1227.05,1782.667 C1239.19,1782.667 1247,1782.667 1247,1782.667 C1247,1782.667 1247,1870.75 1247,1870.75 C1247,1870.75 1261.95,1870.75 1261.95,1870.75 " fill="none" id="lookTransform.cdlSatNode-to-lookTransform.cdlSaturation" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.95,1870.75,1257.95,1866.75,1261.95,1870.75,1257.95,1874.75,1266.95,1870.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[97b0f29cb23503fd67f1e338d936edc1]
+link outputTransform.root to outputTransform.description--><path codeLine="130" d="M755,2027.914 C755,1985.393 755,1899 755,1899 C755,1899 946.998,1899 946.998,1899 " fill="none" id="outputTransform.root-to-outputTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.998,1899,942.998,1895,946.998,1899,942.998,1903,951.998,1899" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[0a6341e604d87b2afe5201b46191a90e]
+link outputTransform.root to outputTransform.hash--><path codeLine="131" d="M834,2027.823 C834,2001.156 834,1961 834,1961 C834,1961 946.654,1961 946.654,1961 " fill="none" id="outputTransform.root-to-outputTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.654,1961,942.654,1957,946.654,1961,942.654,1965,951.654,1961" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e7f68b4daded4506200fd3559971349e]
+link outputTransform.root to outputTransform.uuid--><path codeLine="132" d="M912.205,2037 C912.205,2037 946.627,2037 946.627,2037 " fill="none" id="outputTransform.root-to-outputTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,2037,942.627,2033,946.627,2037,942.627,2041,951.627,2037" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[9c8d58d520be6e60bc0407b883331676]
+link outputTransform.root to outputTransform.file--><path codeLine="133" d="M912.205,2065 C912.205,2065 946.627,2065 946.627,2065 " fill="none" id="outputTransform.root-to-outputTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,2065,942.627,2061,946.627,2065,942.627,2069,951.627,2065" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[543a1dad3b5f0f2d5a803ea3c2ffcfe8]
+link outputTransform.root to outputTransform.transformId--><path codeLine="134" d="M844,2074.399 C844,2099.254 844,2135 844,2135 C844,2135 946.68,2135 946.68,2135 " fill="none" id="outputTransform.root-to-outputTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.68,2135,942.68,2131,946.68,2135,942.68,2139,951.68,2135" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[0b0cee84ef358a659d02930dd3773e09]
+link outputDeviceTransform.root to outputDeviceTransform.description--><path codeLine="130" d="M1227.27,2172.5 C1232.77,2172.5 1236,2172.5 1236,2172.5 C1236,2172.5 1236,2051 1236,2051 C1236,2051 1261.91,2051 1261.91,2051 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.91,2051,1257.91,2047,1261.91,2051,1257.91,2055,1266.91,2051" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[086d98ef37c59d88d6470020d650e80f]
+link outputDeviceTransform.root to outputDeviceTransform.hash--><path codeLine="131" d="M1227.09,2177 C1242.62,2177 1253,2177 1253,2177 C1253,2177 1253,2120.75 1253,2120.75 C1253,2120.75 1261.98,2120.75 1261.98,2120.75 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.98,2120.75,1257.98,2116.75,1261.98,2120.75,1257.98,2124.75,1266.98,2120.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[4059b03b166e71660895f17e02ee95fa]
+link outputDeviceTransform.root to outputDeviceTransform.uuid--><path codeLine="132" d="M1227.21,2181.5 C1227.21,2181.5 1261.63,2181.5 1261.63,2181.5 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,2181.5,1257.63,2177.5,1261.63,2181.5,1257.63,2185.5,1266.63,2181.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[696a260e7803618a27ff545578c82364]
+link outputDeviceTransform.root to outputDeviceTransform.file--><path codeLine="133" d="M1227.21,2205 C1227.21,2205 1261.63,2205 1261.63,2205 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,2205,1257.63,2201,1261.63,2205,1257.63,2209,1266.63,2205" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[43b70eb0d13de0207fbc3684600008f6]
+link outputDeviceTransform.root to outputDeviceTransform.transformId--><path codeLine="134" d="M1136,2214.399 C1136,2239.254 1136,2275 1136,2275 C1136,2275 1261.71,2275 1261.71,2275 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.71,2275,1257.71,2271,1261.71,2275,1257.71,2279,1266.71,2275" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[deb74aefe06a04e336869c3e918829c6]
+link referenceRenderingTransform.root to referenceRenderingTransform.description--><path codeLine="130" d="M1044,2400.532 C1044,2372.982 1044,2331 1044,2331 C1044,2331 1261.92,2331 1261.92,2331 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.92,2331,1257.92,2327,1261.92,2331,1257.92,2335,1266.92,2331" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[6c6b34955daba8049e2f5e3619bdbb4a]
+link referenceRenderingTransform.root to referenceRenderingTransform.hash--><path codeLine="131" d="M1227.21,2411.25 C1227.21,2411.25 1261.63,2411.25 1261.63,2411.25 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,2411.25,1257.63,2407.25,1261.63,2411.25,1257.63,2415.25,1266.63,2411.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[28c603bb291d25fa76304d5fe0421c23]
+link referenceRenderingTransform.root to referenceRenderingTransform.uuid--><path codeLine="132" d="M1227.21,2439.5 C1227.21,2439.5 1261.63,2439.5 1261.63,2439.5 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.63,2439.5,1257.63,2435.5,1261.63,2439.5,1257.63,2443.5,1266.63,2439.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f5314c44021c5d4aac1cb98e50990511]
+link referenceRenderingTransform.root to referenceRenderingTransform.file--><path codeLine="133" d="M1136,2447.314 C1136,2473.085 1136,2511 1136,2511 C1136,2511 1261.71,2511 1261.71,2511 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.71,2511,1257.71,2507,1261.71,2511,1257.71,2515,1266.71,2511" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[287c54beaf5e3394059e6e3d36a0c6d3]
+link referenceRenderingTransform.root to referenceRenderingTransform.transformId--><path codeLine="134" d="M1044,2447.294 C1044,2487.814 1044,2567 1044,2567 C1044,2567 1261.92,2567 1261.92,2567 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="1266.92,2567,1257.92,2563,1261.92,2567,1257.92,2571,1266.92,2567" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[8d515ace6b9c7e345d7b9dfded55f786]
+link outputTransform.root to outputDeviceTransform.root--><path codeLine="208" d="M775,2074.118 C775,2113.882 775,2191 775,2191 C775,2191 946.556,2191 946.556,2191 " fill="none" id="outputTransform.root-to-outputDeviceTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.556,2191,942.556,2187,946.556,2191,942.556,2195,951.556,2191" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[fd496f60fb6b53d2da834e94c9e98aa2]
+link outputTransform.root to referenceRenderingTransform.root--><path codeLine="209" d="M706,2074.051 C706,2155.374 706,2424 706,2424 C706,2424 946.86,2424 946.86,2424 " fill="none" id="outputTransform.root-to-referenceRenderingTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.86,2424,942.86,2420,946.86,2424,942.86,2428,951.86,2424" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[328748a32998170853d32eff75fde679]
+link pipeline.root to pipelineInfo.root--><path codeLine="222" d="M432,646.93 C432,608.79 432,526.75 432,526.75 C432,526.75 631.673,526.75 631.673,526.75 " fill="none" id="pipeline.root-to-pipelineInfo.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.673,526.75,627.673,522.75,631.673,526.75,627.673,530.75,636.673,526.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[79ff088e48e3b0195655e46b4b750a89]
+link pipeline.root to inputTransform.root--><path codeLine="223" d="M597.098,678.25 C647.299,678.25 692,678.25 692,678.25 C692,678.25 692,721.42 692,721.42 " fill="none" id="pipeline.root-to-inputTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="692,726.42,696,717.42,692,721.42,688,717.42,692,726.42" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f7abc22c81548e49b0400db8b38c203b]
+link pipeline.root to lookTransform.root--><path codeLine="224" d="M597.204,680.5 C613.231,680.5 624,680.5 624,680.5 C624,680.5 624,1579 624,1579 C624,1579 631.832,1579 631.832,1579 " fill="none" id="pipeline.root-to-lookTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.832,1579,627.832,1575,631.832,1579,627.832,1583,636.832,1579" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[66977c5fa8f614eeacbf3f22377ef161]
+link pipeline.root to outputTransform.root--><path codeLine="225" d="M597.019,682.75 C605.674,682.75 611,682.75 611,682.75 C611,682.75 611,2051 611,2051 C611,2051 631.907,2051 631.907,2051 " fill="none" id="pipeline.root-to-outputTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.907,2051,627.907,2047,631.907,2051,627.907,2055,636.907,2051" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e133120c120599d08e63f662f3be84b1]
+link acesMetadataFile.root to amfInfo.root--><path codeLine="275" d="M145,452.24 C145,364.5 145,141 145,141 C145,141 316.556,141 316.556,141 " fill="none" id="acesMetadataFile.root-to-amfInfo.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,141,312.556,137,316.556,141,312.556,145,321.556,141" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f379c654afefe7f42b876a5b41a57bc5]
+link acesMetadataFile.root to clipId.root--><path codeLine="276" d="M282.327,464.25 C377.499,464.25 487,464.25 487,464.25 C487,464.25 487,425.14 487,425.14 " fill="none" id="acesMetadataFile.root-to-clipId.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="487,420.14,483,429.14,487,425.14,491,429.14,487,420.14" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[fb1b2dd1d666bd465c089917e2c177e5]
+link acesMetadataFile.root to pipeline.root--><path codeLine="277" d="M282.098,503.75 C332.299,503.75 377,503.75 377,503.75 C377,503.75 377,641.75 377,641.75 " fill="none" id="acesMetadataFile.root-to-pipeline.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="377,646.75,381,637.75,377,641.75,373,637.75,377,646.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[2cb68b3561988eef9fb264aeafd57d91]
+link acesMetadataFile.root to acesMetadataFile.archivedPipeline--><path codeLine="278" d="M145,521.58 C145,586.02 145,718 145,718 C145,718 316.556,718 316.556,718 " fill="none" id="acesMetadataFile.root-to-acesMetadataFile.archivedPipeline" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,718,312.556,714,316.556,718,312.556,722,321.556,718" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[07fa4d3b94b40db3b6b91cfdb6f6b63b]
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure info($as, $type="")
+	object "$as" as $as.root {
+		!if %strlen($type) > 0
+			$type
+		!else
+			%string("aces:" + $as + "Type")
+		!endif
+		..
+	}
+	object "description" as $as.description {
+		xs:string
+		..
+	}
+	object "author" as $as.author {
+		aces:authorType
+		..
+	}
+	object "name" as $as.name {
+		xs:string
+		..
+	}
+	object "emailAddress" as $as.emailAddress {
+		aces:emailAddressType
+		..
+	}
+	object "dateTime" as $as.dateTime {
+		aces:dateTimeType
+	}
+	object "creationDateTime" as $as.creationDateTime {
+		xs:dateTime
+		..
+	}
+	object "modificationDateTime" as $as.modificationDateTime {
+		xs:dateTime
+		..
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	$as.root - -> $as.description
+	$as.root - -> $as.author
+	$as.root - -> $as.dateTime
+	$as.root - -> $as.uuid
+
+	$as.author - -> $as.name
+	$as.author - -> $as.emailAddress
+
+	$as.dateTime - -> $as.creationDateTime
+	$as.dateTime - -> $as.modificationDateTime
+!end procedure
+
+!unquoted procedure pipelineInfo($as)
+	info(pipelineInfo)
+	object "systemVersion" as $as.systemVersion {
+		aces:versionType
+		..
+	}
+	object "majorVersion" as $as.majorVersion {
+		aces:singleDigitType
+		..
+	}
+	object "minorVersion" as $as.minorVersion {
+		aces:singleDigitType
+		..
+	}
+	object "patchVersion" as $as.patchVersion {
+		aces:singleDigitType
+		..
+	}
+
+	$as.root - -> $as.systemVersion
+
+ 	$as.systemVersion - -> $as.majorVersion
+	$as.systemVersion - -> $as.minorVersion
+ 	$as.systemVersion - -> $as.patchVersion
+!end procedure
+
+
+!unquoted procedure transform($as, $tn="", $attr="")
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+		!if %strlen($attr) > 0
+			$attr
+		!endif
+	}
+	object "description" as $as.description {
+		xs: string
+		..
+	}
+	object "hash" as $as.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as $as.transformId {
+		!if %strlen($tn) > 0
+			$tn
+		!else
+			!$pre = "aces:tn"
+			!$cap = %upper(%substr($as,0,1))
+			!$post = %substr($as,1,%strlen($as))
+			%string($pre + $cap + $post)
+		!endif
+		..
+	}
+
+	$as.root - -> $as.description
+	$as.root - -> $as.hash
+	$as.root - -> $as.uuid
+	$as.root - -> $as.file
+	$as.root - -> $as.transformId
+!end procedure
+
+!unquoted procedure inputTransform($as)
+	transform($as, $attr="+ applied : xs:bool")
+	transform(inverseOutputTransform)
+	transform(inverseOutputDeviceTransform)
+	transform(inverseReferenceRenderingTransform)
+
+	$as.root - -> inverseOutputTransform.root
+	$as.root - -> inverseOutputDeviceTransform.root
+	$as.root - -> inverseReferenceRenderingTransform.root
+!end procedure
+
+!unquoted procedure lookTransform($as)
+	transform($as, $attr="+ applied : xs:bool")
+	transform(toCdlWorkingSpace, $tn="aces:tnColorSpaceConversionTransform")
+	transform(fromCdlWorkingSpace, $tn="aces:tnColorSpaceConversionTransform")
+	object "cdlWorkingSpace" as $as.cdlWorkingSpace {
+		aces:cdlWorkingSpaceType
+		..
+	}
+	object "cdl:SOPNode" as $as.cdlSOPNode {
+		cdl:SOPNodeType
+		..
+	}
+	object "cdl:SatNode" as $as.cdlSatNode {
+		cdl:SatNodeType
+		..
+	}
+	object "cdl:ColorCorrectionRef" as $as.cdlColorCorrectionRef {
+		cdl:ColorCorrectionRefType
+		..
+		+ ref : xs:anyURI
+	}
+	object "cdl:Slope" as $as.cdlSlope {
+		cdl:nonNegativeFloatListType
+		..
+	}
+	object "cdl:Offset" as $as.cdlOffset {
+		cdl:floatListType
+		..
+	}
+	object "cdl:Power" as $as.cdlPower {
+		cdl:positiveFloatListType
+		..
+	}
+	object "cdl:Saturation" as $as.cdlSaturation {
+		cdl:nonNegativeFloatType
+		..
+	}
+
+
+	$as.root - -> $as.cdlWorkingSpace
+	$as.root - -> $as.cdlSOPNode
+	$as.root - -> $as.cdlSatNode
+	$as.root - -> $as.cdlColorCorrectionRef
+
+	$as.cdlWorkingSpace - -> toCdlWorkingSpace.root
+	$as.cdlWorkingSpace - -> fromCdlWorkingSpace.root
+
+	$as.cdlSOPNode - -> $as.cdlSlope
+	$as.cdlSOPNode - -> $as.cdlOffset
+	$as.cdlSOPNode - -> $as.cdlPower
+
+	$as.cdlSatNode - -> $as.cdlSaturation
+
+!end procedure
+
+!unquoted procedure outputTransform($as)
+	transform($as)
+	transform(outputDeviceTransform)
+	transform(referenceRenderingTransform)
+
+	$as.root - -> outputDeviceTransform.root
+	$as.root - -> referenceRenderingTransform.root
+!end procedure
+
+!unquoted procedure pipeline($as)
+	pipelineInfo(pipelineInfo)
+	inputTransform(inputTransform)
+	lookTransform(lookTransform)
+	outputTransform(outputTransform)
+
+	object "$as" as $as.root{
+		aces:pipelineType
+	}
+
+	$as.root - -> pipelineInfo.root
+	$as.root - -> inputTransform.root
+	$as.root - -> lookTransform.root
+	$as.root - -> outputTransform.root
+!end procedure
+
+!unquoted procedure clipId($as)
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+	}
+	object "clipName" as $as.clipName {
+		xs:string
+		..
+	}
+	object "sequence" as $as.sequence {
+		aces:sequenceType
+		..
+		+ idx : xs:string
+		+ min : xs:nonNegativeInteger
+		+ max : xs:nonNegativeInteger
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	$as.root - -> $as.clipName
+	$as.root - -> $as.sequence
+	$as.root - -> $as.file
+	$as.root - -> $as.uuid
+
+!end procedure
+
+!unquoted procedure amf($as)
+	object "$as" as $as.root {
+		xs:complexType
+		..
+		+ version : xs:decimal
+		+ xmlns : xs:string
+	}
+	info(amfInfo, "aces:infoType")
+	clipId(clipId)
+	pipeline(pipeline)
+	object "archivedPipeline" as $as.archivedPipeline {
+		aces:pipelineType
+		..
+	}
+
+	$as.root - -> amfInfo.root
+	$as.root - -> clipId.root
+	$as.root - -> pipeline.root
+	$as.root - -> $as.archivedPipeline
+!end procedure
+
+amf(acesMetadataFile)
+@enduml
+
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+
+
+
+
+
+
+
+
+
+
+	object "acesMetadataFile" as acesMetadataFile.root {
+		xs:complexType
+		..
+		+ version : xs:decimal
+		+ xmlns : xs:string
+	}
+		object "amfInfo" as amfInfo.root {
+			aces:infoType
+		..
+	}
+	object "description" as amfInfo.description {
+		xs:string
+		..
+	}
+	object "author" as amfInfo.author {
+		aces:authorType
+		..
+	}
+	object "name" as amfInfo.name {
+		xs:string
+		..
+	}
+	object "emailAddress" as amfInfo.emailAddress {
+		aces:emailAddressType
+		..
+	}
+	object "dateTime" as amfInfo.dateTime {
+		aces:dateTimeType
+	}
+	object "creationDateTime" as amfInfo.creationDateTime {
+		xs:dateTime
+		..
+	}
+	object "modificationDateTime" as amfInfo.modificationDateTime {
+		xs:dateTime
+		..
+	}
+	object "uuid" as amfInfo.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	amfInfo.root - -> amfInfo.description
+	amfInfo.root - -> amfInfo.author
+	amfInfo.root - -> amfInfo.dateTime
+	amfInfo.root - -> amfInfo.uuid
+
+	amfInfo.author - -> amfInfo.name
+	amfInfo.author - -> amfInfo.emailAddress
+
+	amfInfo.dateTime - -> amfInfo.creationDateTime
+	amfInfo.dateTime - -> amfInfo.modificationDateTime
+		object "clipId" as clipId.root {
+		aces:clipIdType
+		..
+	}
+	object "clipName" as clipId.clipName {
+		xs:string
+		..
+	}
+	object "sequence" as clipId.sequence {
+		aces:sequenceType
+		..
+		+ idx : xs:string
+		+ min : xs:nonNegativeInteger
+		+ max : xs:nonNegativeInteger
+	}
+	object "file" as clipId.file {
+		xs:anyURI
+		..
+	}
+	object "uuid" as clipId.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	clipId.root - -> clipId.clipName
+	clipId.root - -> clipId.sequence
+	clipId.root - -> clipId.file
+	clipId.root - -> clipId.uuid
+
+		object "pipelineInfo" as pipelineInfo.root {
+			aces:pipelineInfoType
+		..
+	}
+	object "description" as pipelineInfo.description {
+		xs:string
+		..
+	}
+	object "author" as pipelineInfo.author {
+		aces:authorType
+		..
+	}
+	object "name" as pipelineInfo.name {
+		xs:string
+		..
+	}
+	object "emailAddress" as pipelineInfo.emailAddress {
+		aces:emailAddressType
+		..
+	}
+	object "dateTime" as pipelineInfo.dateTime {
+		aces:dateTimeType
+	}
+	object "creationDateTime" as pipelineInfo.creationDateTime {
+		xs:dateTime
+		..
+	}
+	object "modificationDateTime" as pipelineInfo.modificationDateTime {
+		xs:dateTime
+		..
+	}
+	object "uuid" as pipelineInfo.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	pipelineInfo.root - -> pipelineInfo.description
+	pipelineInfo.root - -> pipelineInfo.author
+	pipelineInfo.root - -> pipelineInfo.dateTime
+	pipelineInfo.root - -> pipelineInfo.uuid
+
+	pipelineInfo.author - -> pipelineInfo.name
+	pipelineInfo.author - -> pipelineInfo.emailAddress
+
+	pipelineInfo.dateTime - -> pipelineInfo.creationDateTime
+	pipelineInfo.dateTime - -> pipelineInfo.modificationDateTime
+	object "systemVersion" as pipelineInfo.systemVersion {
+		aces:versionType
+		..
+	}
+	object "majorVersion" as pipelineInfo.majorVersion {
+		aces:singleDigitType
+		..
+	}
+	object "minorVersion" as pipelineInfo.minorVersion {
+		aces:singleDigitType
+		..
+	}
+	object "patchVersion" as pipelineInfo.patchVersion {
+		aces:singleDigitType
+		..
+	}
+
+	pipelineInfo.root - -> pipelineInfo.systemVersion
+
+ 	pipelineInfo.systemVersion - -> pipelineInfo.majorVersion
+	pipelineInfo.systemVersion - -> pipelineInfo.minorVersion
+ 	pipelineInfo.systemVersion - -> pipelineInfo.patchVersion
+		object "inputTransform" as inputTransform.root {
+		aces:inputTransformType
+		..
+			+ applied : xs:bool
+	}
+	object "description" as inputTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as inputTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as inputTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as inputTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as inputTransform.transformId {
+			aces:tnInputTransform
+		..
+	}
+
+	inputTransform.root - -> inputTransform.description
+	inputTransform.root - -> inputTransform.hash
+	inputTransform.root - -> inputTransform.uuid
+	inputTransform.root - -> inputTransform.file
+	inputTransform.root - -> inputTransform.transformId
+		object "inverseOutputTransform" as inverseOutputTransform.root {
+		aces:inverseOutputTransformType
+		..
+	}
+	object "description" as inverseOutputTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as inverseOutputTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as inverseOutputTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as inverseOutputTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as inverseOutputTransform.transformId {
+			aces:tnInverseOutputTransform
+		..
+	}
+
+	inverseOutputTransform.root - -> inverseOutputTransform.description
+	inverseOutputTransform.root - -> inverseOutputTransform.hash
+	inverseOutputTransform.root - -> inverseOutputTransform.uuid
+	inverseOutputTransform.root - -> inverseOutputTransform.file
+	inverseOutputTransform.root - -> inverseOutputTransform.transformId
+		object "inverseOutputDeviceTransform" as inverseOutputDeviceTransform.root {
+		aces:inverseOutputDeviceTransformType
+		..
+	}
+	object "description" as inverseOutputDeviceTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as inverseOutputDeviceTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as inverseOutputDeviceTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as inverseOutputDeviceTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as inverseOutputDeviceTransform.transformId {
+			aces:tnInverseOutputDeviceTransform
+		..
+	}
+
+	inverseOutputDeviceTransform.root - -> inverseOutputDeviceTransform.description
+	inverseOutputDeviceTransform.root - -> inverseOutputDeviceTransform.hash
+	inverseOutputDeviceTransform.root - -> inverseOutputDeviceTransform.uuid
+	inverseOutputDeviceTransform.root - -> inverseOutputDeviceTransform.file
+	inverseOutputDeviceTransform.root - -> inverseOutputDeviceTransform.transformId
+		object "inverseReferenceRenderingTransform" as inverseReferenceRenderingTransform.root {
+		aces:inverseReferenceRenderingTransformType
+		..
+	}
+	object "description" as inverseReferenceRenderingTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as inverseReferenceRenderingTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as inverseReferenceRenderingTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as inverseReferenceRenderingTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as inverseReferenceRenderingTransform.transformId {
+			aces:tnInverseReferenceRenderingTransform
+		..
+	}
+
+	inverseReferenceRenderingTransform.root - -> inverseReferenceRenderingTransform.description
+	inverseReferenceRenderingTransform.root - -> inverseReferenceRenderingTransform.hash
+	inverseReferenceRenderingTransform.root - -> inverseReferenceRenderingTransform.uuid
+	inverseReferenceRenderingTransform.root - -> inverseReferenceRenderingTransform.file
+	inverseReferenceRenderingTransform.root - -> inverseReferenceRenderingTransform.transformId
+
+	inputTransform.root - -> inverseOutputTransform.root
+	inputTransform.root - -> inverseOutputDeviceTransform.root
+	inputTransform.root - -> inverseReferenceRenderingTransform.root
+		object "lookTransform" as lookTransform.root {
+		aces:lookTransformType
+		..
+			+ applied : xs:bool
+	}
+	object "description" as lookTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as lookTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as lookTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as lookTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as lookTransform.transformId {
+			aces:tnLookTransform
+		..
+	}
+
+	lookTransform.root - -> lookTransform.description
+	lookTransform.root - -> lookTransform.hash
+	lookTransform.root - -> lookTransform.uuid
+	lookTransform.root - -> lookTransform.file
+	lookTransform.root - -> lookTransform.transformId
+		object "toCdlWorkingSpace" as toCdlWorkingSpace.root {
+		aces:toCdlWorkingSpaceType
+		..
+	}
+	object "description" as toCdlWorkingSpace.description {
+		xs: string
+		..
+	}
+	object "hash" as toCdlWorkingSpace.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as toCdlWorkingSpace.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as toCdlWorkingSpace.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as toCdlWorkingSpace.transformId {
+			aces:tnColorSpaceConversionTransform
+		..
+	}
+
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.description
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.hash
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.uuid
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.file
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.transformId
+		object "fromCdlWorkingSpace" as fromCdlWorkingSpace.root {
+		aces:fromCdlWorkingSpaceType
+		..
+	}
+	object "description" as fromCdlWorkingSpace.description {
+		xs: string
+		..
+	}
+	object "hash" as fromCdlWorkingSpace.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as fromCdlWorkingSpace.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as fromCdlWorkingSpace.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as fromCdlWorkingSpace.transformId {
+			aces:tnColorSpaceConversionTransform
+		..
+	}
+
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.description
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.hash
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.uuid
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.file
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.transformId
+	object "cdlWorkingSpace" as lookTransform.cdlWorkingSpace {
+		aces:cdlWorkingSpaceType
+		..
+	}
+	object "cdl:SOPNode" as lookTransform.cdlSOPNode {
+		cdl:SOPNodeType
+		..
+	}
+	object "cdl:SatNode" as lookTransform.cdlSatNode {
+		cdl:SatNodeType
+		..
+	}
+	object "cdl:ColorCorrectionRef" as lookTransform.cdlColorCorrectionRef {
+		cdl:ColorCorrectionRefType
+		..
+		+ ref : xs:anyURI
+	}
+	object "cdl:Slope" as lookTransform.cdlSlope {
+		cdl:nonNegativeFloatListType
+		..
+	}
+	object "cdl:Offset" as lookTransform.cdlOffset {
+		cdl:floatListType
+		..
+	}
+	object "cdl:Power" as lookTransform.cdlPower {
+		cdl:positiveFloatListType
+		..
+	}
+	object "cdl:Saturation" as lookTransform.cdlSaturation {
+		cdl:nonNegativeFloatType
+		..
+	}
+
+
+	lookTransform.root - -> lookTransform.cdlWorkingSpace
+	lookTransform.root - -> lookTransform.cdlSOPNode
+	lookTransform.root - -> lookTransform.cdlSatNode
+	lookTransform.root - -> lookTransform.cdlColorCorrectionRef
+
+	lookTransform.cdlWorkingSpace - -> toCdlWorkingSpace.root
+	lookTransform.cdlWorkingSpace - -> fromCdlWorkingSpace.root
+
+	lookTransform.cdlSOPNode - -> lookTransform.cdlSlope
+	lookTransform.cdlSOPNode - -> lookTransform.cdlOffset
+	lookTransform.cdlSOPNode - -> lookTransform.cdlPower
+
+	lookTransform.cdlSatNode - -> lookTransform.cdlSaturation
+
+		object "outputTransform" as outputTransform.root {
+		aces:outputTransformType
+		..
+	}
+	object "description" as outputTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as outputTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as outputTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as outputTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as outputTransform.transformId {
+			aces:tnOutputTransform
+		..
+	}
+
+	outputTransform.root - -> outputTransform.description
+	outputTransform.root - -> outputTransform.hash
+	outputTransform.root - -> outputTransform.uuid
+	outputTransform.root - -> outputTransform.file
+	outputTransform.root - -> outputTransform.transformId
+		object "outputDeviceTransform" as outputDeviceTransform.root {
+		aces:outputDeviceTransformType
+		..
+	}
+	object "description" as outputDeviceTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as outputDeviceTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as outputDeviceTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as outputDeviceTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as outputDeviceTransform.transformId {
+			aces:tnOutputDeviceTransform
+		..
+	}
+
+	outputDeviceTransform.root - -> outputDeviceTransform.description
+	outputDeviceTransform.root - -> outputDeviceTransform.hash
+	outputDeviceTransform.root - -> outputDeviceTransform.uuid
+	outputDeviceTransform.root - -> outputDeviceTransform.file
+	outputDeviceTransform.root - -> outputDeviceTransform.transformId
+		object "referenceRenderingTransform" as referenceRenderingTransform.root {
+		aces:referenceRenderingTransformType
+		..
+	}
+	object "description" as referenceRenderingTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as referenceRenderingTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as referenceRenderingTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as referenceRenderingTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as referenceRenderingTransform.transformId {
+			aces:tnReferenceRenderingTransform
+		..
+	}
+
+	referenceRenderingTransform.root - -> referenceRenderingTransform.description
+	referenceRenderingTransform.root - -> referenceRenderingTransform.hash
+	referenceRenderingTransform.root - -> referenceRenderingTransform.uuid
+	referenceRenderingTransform.root - -> referenceRenderingTransform.file
+	referenceRenderingTransform.root - -> referenceRenderingTransform.transformId
+
+	outputTransform.root - -> outputDeviceTransform.root
+	outputTransform.root - -> referenceRenderingTransform.root
+
+	object "pipeline" as pipeline.root{
+		aces:pipelineType
+	}
+
+	pipeline.root - -> pipelineInfo.root
+	pipeline.root - -> inputTransform.root
+	pipeline.root - -> lookTransform.root
+	pipeline.root - -> outputTransform.root
+	object "archivedPipeline" as acesMetadataFile.archivedPipeline {
+		aces:pipelineType
+		..
+	}
+
+	acesMetadataFile.root - -> amfInfo.root
+	acesMetadataFile.root - -> clipId.root
+	acesMetadataFile.root - -> pipeline.root
+	acesMetadataFile.root - -> acesMetadataFile.archivedPipeline
+@enduml
+
+PlantUML version 1.2021.3beta4(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,28 @@
+\subsection{\texttt{aces:versionType}}
+
+\element{aces:versionType / aces:majorVersion}
+        {This element contains information on the ACES system major version number associated with an ACES viewing pipeline.  If the system reading the AFM has not implemented the major version specified the system shall indicate that the major version of the system and AMF do not match and produce an error.}
+        {images/acesMetadataFile_xsd_Element_aces_majorVersion.png}
+        {\texttt{aces:singleDigitType}}
+        {Required}{1}{1}
+        {None}{None}
+        {/texttt{aces:systemVersion}}{None}
+        {\lstinline{<aces:majorVersion>1</aces:majorVersion>}}
+
+\element{aces:versionType / aces:minorVersion}
+        {This element contains information on the ACES system minor version number associated with an ACES viewing pipeline.  If the system reading the AFM has not implemented the minor version specified the system shall indicate that the minor version of the system and AMF do not match and produce an error.}
+        {images/acesMetadataFile_xsd_Element_aces_minorVersion.png}
+        {\texttt{aces:singleDigitType}}
+        {Required}{1}{1}
+        {None}{None}
+        {/texttt{aces:systemVersion}}{None}
+        {\lstinline{<aces:minorVersion>2</aces:minorVersion>}}
+
+\element{aces:versionType / aces:patchVersion}
+        {This element contains information on the ACES system patch version number associated with an ACES viewing pipeline.  If the system reading the AFM has not implemented the patch version specified the system shall indicate that the patch version of the system and AMF do not match with a warning and fall back to the most recent patch version available.}
+        {images/acesMetadataFile_xsd_Element_aces_patchVersion.png}
+        {\texttt{aces:singleDigitType}}
+        {Required}{1}{1}
+        {None}{None}
+        {/texttt{aces:systemVersion}}{None}
+        {\lstinline{<aces:patchVersion>2</aces:patchVersion>}}

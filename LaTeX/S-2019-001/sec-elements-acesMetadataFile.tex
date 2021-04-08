@@ -1,0 +1,68 @@
+\subsection{\texttt{aces:acesMetadataFile}}
+
+\element{aces:acesMetadataFile}
+        {The top level element of an ACES Metadata File.  This element defines first level child elements.}
+        {images/acesMetadataFile_xsd_Element_aces_acesMetadataFile.png}
+        {xs:element}
+        {Required}
+        {1}{1}
+        {\texttt{version="1.0", xmlns:aces="urn:ampas:aces:amf:v1.0"}}{\texttt{xmlns, xsi:schemeLocation}}
+        {None}
+        {\texttt{aces:amfInfo, aces:archivedPipeline, aces:clipId, aces:pipeline}}
+        { \lstinline{<aces:acesMetadataFile} \\
+        \lstinline{xmlns:aces="urn:ampas:aces:amf:v1.0"} \\
+        \lstinline{xsi:schemaLocation="urn:ampas:aces:amf:v1.0 file:acesMetadataFile.xsd"} \\ \lstinline{xmlns:cdl="urn:ASC:CDL:v1.01"}\\
+        \lstinline{xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"}\\
+        \lstinline{version="1.0">}\\
+        ... \\
+        \lstinline{</aces:acesMetadataFile>}}
+
+\element{aces:acesMetadataFile / aces:amfInfo}
+        {This element contains all the elements containing information about the AMF itself including author elements, date and time elements, a description element, and a UUID element.}
+        {images/acesMetadataFile_xsd_Element_aces_amfInfo.png}
+        {aces:infoType}
+        {Required}
+        {1}{1}
+        {none}{none}
+        {\texttt{aces:acesMetadataFile}}
+        {\texttt{aces:author, aces:dateTime, aces:description, aces:uuid}}
+        {\lstinline{<aces:amfInfo>} \\
+        ... \\
+        \lstinline{</aces:amfInfo>}}
+
+\element{aces:acesMetadataFile / aces:archivedPipeline}
+        {This element contains all the elements describing an ACES viewing pipeline archived for historical purposes.}
+        {images/acesMetadataFile_xsd_Element_aces_archivedPipeline.png}
+        {aces:pipelineType}
+        {Optional}
+        {0}
+        {unbounded}
+        {none}{none}
+        {\texttt{aces:acesMetadataFile}}
+        {\texttt{aces:inputTransform, aces:lookTransform, aces:outputTransform, aces:pipelineInfo}}
+        {\lstinline{<aces:archivedPipeline>} \\
+        ... \\
+        \lstinline{</aces:archivedPipeline>}}
+
+\element{aces:acesMetadataFile / aces:clipId}
+        {This optional element contains all the elements describing the location of the media files associated with the AMF.}
+        {images/acesMetadataFile_xsd_Element_aces_clipId.png}
+        {aces:clipIdType}
+        {Optional}{0}{1}
+        {none}{none}{\texttt{aces:acesMetadataFile}}
+        {\texttt{aces:clipName, aces:file, aces:sequence, aces:uuid}}
+        {\lstinline{<aces:clipId>} \\
+        ... \\
+        \lstinline{</aces:clipId>}}
+
+\element{aces:acesMetadataFile / aces:pipeline}
+        {This element contains all the elements describing the ACES viewing pipeline.}
+        {images/acesMetadataFile_xsd_Element_aces_pipeline.png}
+        {aces:pipelineType}
+        {Required}{1}{1}
+        {none}{none}
+        {\texttt{aces:acesMetadataFile}}
+        {\texttt{aces:inputTransform, aces:lookTransform, aces:outputTransform,\\ aces:pipelineInfo}}
+        {\lstinline{<aces:pipeline>} \\
+        ... \\
+        \lstinline{</aces:pipeline>}}

@@ -1,0 +1,18 @@
+\subsection{\texttt{aces:authorType}}
+
+\element{aces:authorType / aces:emailAddress}
+        {This element used to communicate the AMF author's email address.}
+        {images/acesMetadataFile_xsd_Element_aces_emailAddress.png}
+        {aces:emailAddressType}
+        {Required}{1}{1}
+        {none}{none}
+        {\texttt{aces:author}}
+        {None}
+        {\lstinline{<aces:emailAddress>joe@onset.com</aces:emailAddress>}}
+
+\element{aces:authorType / aces:name}
+        {This element is used to communicate the name of the AMF author.}
+        {images/acesMetadataFile_xsd_Element_aces_name.png}
+        {\texttt{xs:string}}
+        {Required}{1}{1}
+        {None}{None}{\texttt{aces:author}}{None}{\lstinline{<aces:name>Joe Onset</aces:name>}}

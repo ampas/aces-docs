@@ -236,19 +236,19 @@
                 
 % inverseOutputDeviceTransformType
 \complexType{aces:inverseOutputDeviceTransformType}
-                {Type defining the elements to communicate information about an ACES Inverse Output Device Transform.  This type is used to define an inverse ACES pipeline to specify how output referred image data should be converted to ACES.}
+                {Type defining the elements to communicate information about an ACES Inverse Output Device Transform.  This type is used to define an inverse ACES pipeline to specify how output referred image data should be converted to ACES 2065-1.}
                 {extension of \texttt{aces:transformType}}
                 {aces:description, aces:hash, aces:transformId}
                 
 % inverseOutputTransformType
 \complexType{aces:inverseOutputTransformType}
-                {Type defining the elements to communicate information about an ACES Inverse Output Transform. This type is used to define an inverse ACES pipeline to specify how output referred image data should be converted to ACES.}
-                {extension of texttt{aces:transformType}}
+                {Type defining the elements to communicate information about an ACES Inverse Output Transform. This type is used to define an inverse ACES pipeline to specify how output referred image data should be converted to ACES 2065-1.}
+                {extension of \texttt{aces:transformType}}
                 {aces:description, aces:hash, aces:transformId}
 
 % inverseReferenceRenderingTransformType
 \complexType{aces:inverseReferenceRenderingTransformType}
-                {Type defining the elements to communicate information about an ACES Inverse Reference Rendering Transform.  This type is used to define an inverse ACES pipeline to specify how output referred image data should be converted to ACES.}
+                {Type defining the elements to communicate information about an ACES Inverse Reference Rendering Transform.  This type is used to define an inverse ACES pipeline to specify how output referred image data should be converted to ACES 2065-1.}
                 {extension of \texttt{aces:transformType}}
                 {aces:description, aces:hash, aces:transformId}
 
@@ -269,8 +269,8 @@
 % outputTransformType
 \complexTypeCWA{aces:outputTransformType}
                 {Type defining the elements to communicate information about an ACES Output Transform associated with an ACES viewing pipeline.}
-                {extension of texttt{aces:transformType}}
-                {aces:description, aces:hash, aces:outputDeviceTransform,\\ aces:referenceRenderingTransform, aces:transformId}
+                {extension of \texttt{xs:choice}}
+                {aces:description, aces:hash, aces:uuid, aces:file, aces:transformId, \\ aces:outputDeviceTransform, aces:referenceRenderingTransform}
                 {applied}
 
 % pipelineInfoType

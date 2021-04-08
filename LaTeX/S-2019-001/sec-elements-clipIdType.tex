@@ -1,0 +1,34 @@
+\subsection{\texttt{aces:clipIdType}}
+
+\element{clipIdType / aces:clipName}
+        {This element is used to communicate the clip name associated with the media files.}
+        {images/acesMetadataFile_xsd_Element_aces_clipName.png}
+        {\texttt{xs:string}}
+        {Required}{1}{1}
+        {None}{None}{\texttt{aces:clipId}}{None}{\lstinline{<aces:clipName>A001C012</aces:clipId>}}
+
+\element{aces:clipIdType / aces:file}
+        {This element is used to communicate the name of the media file.  Care should be taken when using the file name as an identifier as file locations and names typically change during production and post-production.}
+        {images/acesMetadataFile_xsd_Element_aces_file.png}
+        {\texttt{xs:anyURI}}
+        {Choice of \texttt{aces:file}, \texttt{aces:sequence} or \texttt{aces:uuid} is required}{1}{1}
+        {None}{None}{\texttt{aces:clipId}}{None}
+        {\lstinline{<aces:file>file:///foo.mxf</aces:file>}}
+
+\element{aces:clipIdType / aces:sequence}
+        {This element is used to communicate the file sequence information associated with the media files.  The file sequence includes an index indicated by the \texttt{idx} attribute (e.g. \#) that is used to denote the location of frame numbers within the sequence string.  The \texttt{min} and \texttt{max} attributes are used to indicate the minimum frame number and maximum frame number of the sequence.  For example, if the sequence string is \texttt{movieFrame\#\#\#\#.exr} and attributes of \texttt{aces:sequence} are \texttt{idx='\#'}, \texttt{min='0'} and \texttt{min='1000'} the the media files associated with the AMF would be the frames numbered \texttt{movieFrame0000.exr} through \texttt{movieFrame1000.exr}}
+        {images/acesMetadataFile_xsd_Element_aces_sequence.png}
+        {\texttt{aces:sequenceType}}
+        {Choice of \texttt{aces:file}, \texttt{aces:sequence} or \texttt{aces:uuid} is required}{1}{1}
+        {\texttt{idx}, \texttt{min}, \texttt{max}}{None}{\texttt{aces:clipId}}{None}
+        {\lstinline{<aces:sequence idx="#" min="1" max="240">A01_C012_AE0306_###.exr</aces:sequence>}}
+
+\element{aces:clipIdType / aces:uuid}
+		{This element is used to communicate a UUID associated with the media files referred to in the ClipID.}
+		{images/acesMetadataFile_xsd_Element_aces_uuid.png}
+		{\texttt{dcml:UUIDType}}
+		{Choice of \texttt{aces:file}, \texttt{aces:sequence} or \texttt{aces:uuid} is required}{1}{1}
+		{None}{None}
+		{\texttt{aces:clipId}}{None}
+		{\lstinline{<aces:uuid>urn:uuid:797c7cd8-4eb1-4f67-afce-af2b0a1d0285</aces:uuid>}}
+		

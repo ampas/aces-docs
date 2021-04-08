@@ -1,0 +1,42 @@
+\subsection{\texttt{aces:infoType}}
+
+\element{aces:infoType / aces:author}
+		{This element contains all the elements describing the AMF author information.}
+		{images/acesMetadataFile_xsd_Element_aces_author.png}
+		{\texttt{xs:sequence}}
+		{Optional}{1}{unbounded}
+		{None}{None}
+		{\texttt{aces:amfInfo}}{\texttt{aces:name, aces:emailAddress}}
+		{\lstinline{<aces:author>} \\
+        ... \\
+        \lstinline{</aces:author>}}
+
+\element{aces:infoType / aces:dateTime}
+		{This element contains all the elements describing the date and time of the creation and modification of the AMF or an AMF pipeline.}
+		{images/acesMetadataFile_xsd_Element_aces_dateTime.png}
+		{\texttt{xs:sequence}}
+		{Required}{1}{1}
+		{None}{None}
+		{\texttt{aces:amfInfo, aces:pipelineInfo}}{\texttt{aces:creationDateTime, modificationDateTime}}
+		{\lstinline{<aces:dateTime>} \\
+        ... \\
+        \lstinline{</aces:dateTime>}}
+
+\element{aces:infoType / aces:description}
+		{This element is used to communicate description information for an AMF file or an ACES pipeline.}
+		{images/acesMetadataFile_xsd_Element_aces_description.png}
+		{\texttt{xs:string}}
+		{Optional}{0}{1}
+		{None}{None}
+		{\texttt{aces:amfInfo, aces:piplineInfo}}{None}
+		{\lstinline{<aces:description>Example movie</aces:description>}\\
+		 \lstinline{<aces:description>Theatrical deliverable pipeline</aces:description>}}
+
+\element{aces:infoType / aces:uuid}
+		{This element is used to communicate a UUID associated with the AMF or an ACES pipeline.}
+		{images/acesMetadataFile_xsd_Element_aces_uuid_10.png}
+		{\texttt{dcml:UUIDType}}
+		{Required}{0}{1}
+		{None}{None}
+		{\texttt{aces:amfInfo, aces:pipelineInfo}}{None}
+		{\lstinline{<aces:uuid>urn:uuid:797c7cd8-4eb1-4f67-afce-af2b0a1d0285</aces:uuid>}}

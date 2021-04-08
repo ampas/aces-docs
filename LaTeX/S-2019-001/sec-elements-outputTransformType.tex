@@ -1,0 +1,57 @@
+\subsection{\texttt{aces:outputTransformType}}
+
+\element{aces:outputTransformType / aces:file}
+		{This element is used to communicate the location of a file used as an ACES Output Transform that converts images encoded in ACES color space to device code values.}
+		{images/acesMetadataFile_xsd_Element_aces_file_7.png}
+		{\texttt{xs:anyURI}}
+		{Required}{0}{1}
+		{None}{None}
+		{\texttt{aces:outputTransform}}{None}
+		{\lstinline{<aces:file>file:///outputTransform.clf</aces:file>}}
+
+
+\element{aces:outputTransformType / aces:outputDeviceTransform}
+        {This element contains all the elements containing information about the ACES Output Device Transform for a given ACES viewing pipeline.}
+        {images/acesMetadataFile_xsd_Element_aces_outputDeviceTransform.png}
+        {aces:outputDeviceTransformType}
+        {Choice of \texttt{aces:transformId, aces:uuid, or aces:file}, or \\
+        \texttt{aces:outputDeviceTransform} and \texttt{aces:referenceRenderingTransform} required}{1}{1}
+        {None}{None}{\texttt{aces:OutputTransform}}
+        {\texttt{aces:description, aces:file, aces:hash, aces:transformId, aces:uuid}}
+        {\lstinline{<aces:outputDeviceTransform>} \\
+        ... \\
+        \lstinline{</aces:outputDeviceTransform>}}
+        
+\element{aces:outputTransformType / aces:referenceRenderingTransform}
+        {This element contains all the elements containing information about the ACES Reference Rendering Transform for a given ACES viewing pipeline.}
+        {images/acesMetadataFile_xsd_Element_aces_referenceRenderingTransform.png}
+        {\texttt{aces:referenceRenderingTransformType}}
+        {Choice of \texttt{aces:transformId, aces:uuid, or aces:file}, or \\
+        \texttt{aces:outputDeviceTransform} and \texttt{aces:referenceRenderingTransform} required}
+        {1}{1}{None}{None}
+        {\texttt{aces:OutputTransform}}
+        {\texttt{aces:description, aces:file, aces:hash, aces:transformId, aces:uuid}}
+        {\lstinline{<aces:referenceRenderingTransform>} \\
+        ... \\
+        \lstinline{</aces:referenceRenderingTransform>}}
+        
+\element{aces:outputTransformType / aces:transformId}
+        {This element is used to communicate the transformID of the ACES Output Transform.  For more information on transformIDs see S-2014-002 Academy Color Encoding System -- Versioning system.  Valid transforms for this element are Output Transforms (RRTODT).  The element is restricted to enforce the use of transformIDs that follow the RRTODT naming conventions established in the versioning system specification.  As noted in the versioning system specification, manufacturer and user created transforms shall be assigned a transformID according to patterns established in the document.}
+        {images/acesMetadataFile_xsd_Element_aces_transformId_6.png}
+        {\texttt{aces:tnOutputTransform}}
+        {Required}{1}{1}
+        {None}{None}
+        {\texttt{aces:outputTransform}}
+        {None}
+        {\lstinline{<aces:transformId>}\\
+        \lstinline{urn:ampas:aces:transformId:v1.5:RRTODT.Academy.Rec2020_1000nits_15nits_HLG.a1.1.0}\\
+        \lstinline{</aces:transformId>}}
+        
+\element{aces:outputTransformType / aces:uuid}
+		{This element is used to communicate the UUID of a transform used as an ACES Output Transform that converts images encoded in OCES color space to device code values.}
+		{images/acesMetadataFile_xsd_Element_aces_uuid_7.png}
+		{\texttt{dcml:UUIDType}}
+		{Required}{0}{1}
+		{None}{None}
+		{\texttt{aces:outputDeviceTransform}}{None}
+		{\lstinline{<aces:uuid>urn:uuid:797c7cd8-4eb1-4f67-afce-af2b0a1d0285</aces:uuid>}}

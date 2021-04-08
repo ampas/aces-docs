@@ -1,0 +1,26 @@
+\subsection{\texttt{aces:cdlWorkingSpaceType}}
+
+\element{aces:cdlWorkingSpaceType / aces:fromCdlWorkingSpace}
+        {This element contains all the elements describing the ACES Color Space Conversion transform used to convert from the Look Transform working color space in which an ASC-CDL is applied to ACES 2065-1.}
+        {images/acesMetadataFile_xsd_Element_aces_fromCdlWorkingSpace.png}
+        {\texttt{aces:workingSpaceTransformType}}
+        {Required}{1}{1}
+        {None}{None}
+        {\texttt{aces:cdlWorkingSpace}}
+        {aces:description, aces:file, aces:hash, aces:transformId, aces:uuid}
+        {\lstinline{<aces:fromCdlWorkingSpace>} \\
+        ... \\
+        \lstinline{</aces:fromCdlWorkingSpace>}}
+
+\element{aces:cdlWorkingSpaceType / aces:toCdlWorkingSpace}
+        {This element contains all the elements describing the ACES Color Space Conversion transform used to convert from ACES 2065-1 to the Look Transform working color space in which an ASC-CDL transform is applied.  This transform shall be included when the working color space for the ASC-CDL Transform is not a working color space described in one of the Color Space Conversion transform included in the ACES core transforms.  When the working color space for the ASC-CDL Transform is a working color space described in one of the Color Space Conversion transform included in the ACES core transforms, the \texttt{aces:toCdlWorkingSpace} is optional.}
+        {images/acesMetadataFile_xsd_Element_aces_toCdlWorkingSpace.png}
+        {\texttt{aces:workingSpaceTransformType}}
+        {Optional}{0}{1}
+        {None}{None}
+        {\texttt{aces:cdlWorkingSpace}}
+        {\texttt{aces:description, aces:file, aces:hash, aces:transformId, aces:uuid}}
+        {\lstinline{<aces:toCdlWorkingSpace>} \\
+        ... \\
+        \lstinline{</aces:toCdlWorkingSpace>}}
+        

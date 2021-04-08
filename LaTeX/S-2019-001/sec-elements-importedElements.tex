@@ -1,0 +1,44 @@
+\subsection{Imported Elements}
+
+\element{cdl:SOPNode}
+        {This element is imported from the ASC-CDL schema (\texttt{ASC-CDL\_schema\_v1.01.xsd}).  It defines a Slope, Offset, Power node.  \texttt{<cdl:SOPNode>} may be substituted with \texttt{<cdl:ASC\_SOP>}.  See the ASC-CDL documentation for more information on its usage.}
+        {images/ASC-CDL_schema_v1_01_xsd_Element_cdl_SOPNode.png}
+        {\texttt{cdl:SOPNodeType}}
+        {Choice of \texttt{aces:file, aces:transformId, or aces:uuid} and \texttt{cdl:ColorCorrectionRef},\\ 
+        or \texttt{cdl:SOPNode} and \texttt{cdl:SatNode} required}
+        {1}{1}
+        {None}{None}
+        {\texttt{aces:lookTransform}}
+        {\texttt{cdl:Description, cdl:Offset, cdl:Power, cdl:Slope}}
+        {\lstinline{<cdl:ASC_SOP>}\\
+                    \lstinline{<cdl:Slope>2.0 2.0 2.0</cdl:Slope>}\\
+                    \lstinline{<cdl:Offset>0.1 0.1 0.1</cdl:Offset>}\\
+                    \lstinline{<cdl:Power>1 1 1</cdl:Power>}\\
+                    \lstinline{</cdl:ASC_SOP>}}
+
+\element{cdl:SATNode}
+        {This element is imported from the ASC-CDL schema (\texttt{ASC-CDL\_schema\_v1.01.xsd}).  It defines a saturation node.  \texttt{<cdl:SATNode>} may be substituted with \texttt{<cdl:ASC\_SAT>}.  See the ASC-CDL documentation for more information on its usage.}
+        {images/ASC-CDL_schema_v1_01_xsd_Element_cdl_SatNode.png}
+        {\texttt{cdl:SATNodeType}}
+                {Choice of \texttt{aces:file, aces:transformId, or aces:uuid} and \texttt{cdl:ColorCorrectionRef},\\ 
+        or \texttt{cdl:SOPNode} and \texttt{cdl:SatNode} required}
+        {1}{1}
+        {None}{None}
+        {\texttt{aces:lookTransform}}
+        {\texttt{cdl:Description, cdl:Saturation}}
+        {\lstinline{<cdl:ASC_SAT>}\\
+                    \lstinline{<cdl:Saturation>1.0</cdl:Saturation>}\\
+                    \lstinline{</cdl:ASC_SAT>}}
+
+\element{cdl:ColorCorrectionRef}
+        {This element is imported from the ASC-CDL schema (\texttt{ASC-CDL\_schema\_v1.01.xsd}).  It defines a Color Correction Reference node for referencing ASC-CDL values that exist in transport containers other than the AMF.  \texttt{<cdl:ColorCorrectionRef>} may be substituted with \texttt{<cdl:ASC\_CC\_XML>}.  It is recommended the \texttt{cdl:InputDescription} and \texttt{cdl:ViewingDescription} nodes not be used as this information is included in other locations within the AMF.  See the ASC-CDL documentation for more information on the usage of this node.}
+        {images/ASC-CDL_schema_v1_01_xsd_Element_cdl_ColorCorrectionRef.png}
+        {\texttt{cdl:ColorCorrectionRefType}}
+                {Choice of \texttt{aces:file, aces:transformId, or aces:uuid} and \texttt{cdl:ColorCorrectionRef},\\ 
+        or \texttt{cdl:SOPNode} and \texttt{cdl:SatNode} required}
+        {1}{1}{\texttt{ref} (xs:anyURI)}{None}
+        {\texttt{aces:lookTransform}}
+        {\texttt{cdl:Description, cdl:InputDescription, cdl:ViewingDescription}}
+        {\lstinline{<cdl:ColorCorrectionRef ref="file:///foo.edl>}\\
+                    \lstinline{<cdl:Description>Technical Grade</cdl:Description>}\\
+                    \lstinline{</cdl:ColorCorrectionRef>}}

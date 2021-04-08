@@ -1,0 +1,44 @@
+\subsection{\texttt{aces:lookTransformType}}
+
+\element{aces:lookTransformType / aces:cdlWorkingSpace}
+        {This element contains all the elements describing the ACES color space transform used to convert to and/or from the working color space in which a ASC-CDL transform is applied. This element allows for CDLs to be applied in color spaces other than ACES RGB, since CDLs cannot contain ACES transforms themselves. The input and output of the parent \texttt{<lookTransform>} element is still ACES RGB per SMPTE ST.2065-1. }
+        {images/acesMetadataFile_xsd_Element_aces_cdlWorkingSpace.png}
+        {\texttt{aces:cdlWorkingSpaceType}}
+        {Required}{1}{1}
+        {None}{None}
+        {\texttt{aces:lookTransform}}{\texttt{aces:fromCdlWorkingSpace, aces:toCdlWorkingSpace}}
+        {\lstinline{<aces:cdlWorkingSpace>} \\
+        ... \\
+        \lstinline{</aces:cdlWorkingSpace>}}
+        
+\element{aces:lookTransformType / aces:file}
+		{This element is used to communicate the location of a file used as an ACES Look Transform that converts images encoded in ACES color space to ACES color space with the desired look applied.}
+		{images/acesMetadataFile_xsd_Element_aces_file_9.png}
+		{\texttt{xs:anyURI}}
+		{Required}{0}{1}
+		{None}{None}
+		{\texttt{aces:lookTransform}}{None}
+		{\lstinline{<aces:file>file:///lookTransform.clf</aces:file>}}
+
+\element{aces:lookTransformType / aces:transformId}
+        {This element is used to communicate the transformID of an ACES Look Transform that converts images encoded in ACES color space to ACES color space with the desired look applied.  For more information on transformIDs see S-2014-002 Academy Color Encoding System -- Versioning system.  Valid transforms for this element are Look Transforms (LMT).  The element is restricted to enforce the use of transformIDs that follow the LMT naming conventions established in the versioning system specification.  As noted in the versioning system specification, manufacturer and user created transforms shall be assigned a transformID according to patterns established in the document.}
+        {images/acesMetadataFile_xsd_Element_aces_transformId_8.png}
+        {\texttt{aces:tnLookTransform}}
+        {Choice of \texttt{aces:transformId, aces:uuid, aces:file} and \texttt{cdl:ColorCorrectionRef}, or \texttt{cdl:SOPNode} and \texttt{cdl:SatNode} required}
+        {0}{1}
+        {None}{None}
+        {\texttt{aces:lookTransform}}
+        {None}
+        {\lstinline{<aces:transformId>}\\
+        \lstinline{urn:ampas:aces:transformId:v1.5:LMT.ACME.BleachBypass.a1.v1</aces:transformId>}\\
+        \lstinline{</aces:transformId>}
+        }
+        
+\element{aces:lookTransformType / aces:uuid}
+		{This element is used to communicate the UUID of a transform used as an ACES Look Transform that converts images encoded in ACES color space to ACES color space with the desired look applied.}
+		{images/acesMetadataFile_xsd_Element_aces_uuid_9.png}
+		{\texttt{dcml:UUIDType}}
+		{Required}{0}{1}
+		{None}{None}
+		{\texttt{aces:lookTransform}}{None}
+		{\lstinline{<aces:uuid>urn:uuid:797c7cd8-4eb1-4f67-afce-af2b0a1d0285</aces:uuid>}}

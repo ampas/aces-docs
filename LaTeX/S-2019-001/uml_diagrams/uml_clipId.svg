@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="263px" preserveAspectRatio="none" style="width:603px;height:263px;" version="1.1" viewBox="0 0 603 263" width="603px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="7" y="118"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="32" x="128.5" y="131.1387">clipId</text><line style="stroke:#000000;stroke-width:1.5;" x1="8" x2="281" y1="135.9688" y2="135.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="13" y="149.251">aces:clipIdType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="8" x2="281" y1="155.6094" y2="155.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="55" x="432" y="20.1387">clipName</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="24.9688" y2="24.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="328" y="38.251">xs:string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="44.6094" y2="44.6094"/><rect fill="#FFFFFF" height="80.5313" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="63.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="60" x="429.5" y="76.6387">sequence</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="81.4688" y2="81.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="108" x="328" y="94.751">aces:sequenceType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="101.1094" y2="101.1094"/><ellipse cx="333" cy="112.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="69" x="342" y="114.3916">idx : xs:string</text><ellipse cx="333" cy="123.75" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="153" x="342" y="126.0322">min : xs:nonNegativeInteger</text><ellipse cx="333" cy="135.3906" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="156" x="342" y="137.6729">max : xs:nonNegativeInteger</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="155"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="450.5" y="168.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="172.9688" y2="172.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="328" y="186.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="192.6094" y2="192.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="211"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="447" y="224.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="228.9688" y2="228.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="328" y="242.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="248.6094" y2="248.6094"/><!--MD5=[5e23f978831b472f7a4acdd36f395d5b]
+link clipId.root to clipId.clipName--><path codeLine="38" d="M145,117.731 C145,85.182 145,30 145,30 C145,30 316.556,30 316.556,30 " fill="none" id="clipId.root-to-clipId.clipName" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,30,312.556,26,316.556,30,312.556,34,321.556,30" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[ce1792039cf368bbd5c7f936d41a195e]
+link clipId.root to clipId.sequence--><path codeLine="39" d="M282.205,131.25 C282.205,131.25 316.627,131.25 316.627,131.25 " fill="none" id="clipId.root-to-clipId.sequence" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.627,131.25,312.627,127.25,316.627,131.25,312.627,135.25,321.627,131.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[020dafed0a9b2955035de9eb69ccc219]
+link clipId.root to clipId.file--><path codeLine="40" d="M282.205,159.5 C282.205,159.5 316.627,159.5 316.627,159.5 " fill="none" id="clipId.root-to-clipId.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.627,159.5,312.627,155.5,316.627,159.5,312.627,163.5,321.627,159.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[4d57ed344c52369eea543d25d4b77bfe]
+link clipId.root to clipId.uuid--><path codeLine="41" d="M145,164.4678 C145,192.0183 145,234 145,234 C145,234 316.556,234 316.556,234 " fill="none" id="clipId.root-to-clipId.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,234,312.556,230,316.556,234,312.556,238,321.556,234" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[21baebcf70d6b12bf36ac9fb26a55b0d]
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure clipId($as)
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+	}
+	object "clipName" as $as.clipName {
+		xs:string
+		..
+	}
+	object "sequence" as $as.sequence {
+		aces:sequenceType
+		..
+		+ idx : xs:string
+		+ min : xs:nonNegativeInteger
+		+ max : xs:nonNegativeInteger
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	$as.root - -> $as.clipName
+	$as.root - -> $as.sequence
+	$as.root - -> $as.file
+	$as.root - -> $as.uuid
+
+!end procedure
+
+clipId(clipId)
+@enduml
+
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+
+	object "clipId" as clipId.root {
+		aces:clipIdType
+		..
+	}
+	object "clipName" as clipId.clipName {
+		xs:string
+		..
+	}
+	object "sequence" as clipId.sequence {
+		aces:sequenceType
+		..
+		+ idx : xs:string
+		+ min : xs:nonNegativeInteger
+		+ max : xs:nonNegativeInteger
+	}
+	object "file" as clipId.file {
+		xs:anyURI
+		..
+	}
+	object "uuid" as clipId.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	clipId.root - -> clipId.clipName
+	clipId.root - -> clipId.sequence
+	clipId.root - -> clipId.file
+	clipId.root - -> clipId.uuid
+
+@enduml
+
+PlantUML version 1.2021.3beta4(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

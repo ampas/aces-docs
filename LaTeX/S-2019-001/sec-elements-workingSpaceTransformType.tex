@@ -1,0 +1,32 @@
+\subsection{\texttt{aces:workingSpaceTransformType}}
+
+\element{aces:workingSpaceTransformType / aces:file}
+		{This element is used to communicate the location of a file used as an ACES Color Space Conversion Transform that converts images between the Look Transform working color space and ACES 2065-1.}
+		{images/acesMetadataFile_xsd_Element_aces_file_8.png}
+		{\texttt{xs:anyURI}}
+		{Required}{0}{1}
+		{None}{None}
+		{\texttt{aces:outputDeviceTransform}}{None}
+		{\lstinline{<aces:file>file:///inputTranforms.clf</aces:file>}}
+
+\element{aces:workingSpaceTransformType / aces:transformId}
+        {This element is used to communicate the transformID of the ACES Color Space Conversion Transform used to converts images between the Look Transform working color space and ACES 2065-1.  For more information on transformIDs see S-2014-002 Academy Color Encoding System -- Versioning system.  Valid transforms for this element are Reference Rendering Transform (ACEScsc).  The element is restricted to enforce the use of transformIDs that follow the ACEScsc naming conventions established in the versioning system specification.}
+        {images/acesMetadataFile_xsd_Element_aces_transformId_7.png}
+        {\texttt{aces:tnColorSpaceConversionTransform}}
+        {Required}{1}{1}
+        {None}{None}
+        {\texttt{aces:toCdlWorkingSpace, aces:fromCdlWorkingSpace}}
+        {None}
+        {\lstinline{<aces:transformId>}\\
+        \lstinline{urn:ampas:aces:transformId:v1.5:ACEScsc.Academy.ACEScct_to_ACES.a1.0.3}\\
+        \lstinline{</aces:transformId>}}
+        
+\element{aces:workingSpaceTransformType / aces:uuid}
+		{This element is used to communicate the UUID of a transform used as an ACES Color Space Conversion Transform that converts images between the Look Transform working color space and ACES 2065-1.}
+		{images/acesMetadataFile_xsd_Element_aces_uuid_8.png}
+		{\texttt{dcml:UUIDType}}
+		{Required}{0}{1}
+		{None}{None}
+		{\texttt{aces:outputDeviceTransform}}{None}
+		{\lstinline{<aces:uuid>urn:uuid:797c7cd8-4eb1-4f67-afce-af2b0a1d0285</aces:uuid>}}
+		

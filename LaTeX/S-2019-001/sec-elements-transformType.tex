@@ -1,0 +1,28 @@
+\subsection{\texttt{aces:transformType}}
+
+\element{aces:transformType / aces:description}
+		{This element is used to communicate description information for a transform referenced by the AMF file.}
+		{images/acesMetadataFile_xsd_Element_aces_description.png}
+		{\texttt{xs:string}}
+		{Optional}{0}{1}
+		{None}{None}
+		{\texttt{aces:inputTransformType, aces:inverseOutputDeviceTransformType, \\
+        aces:inverseOutputTransformType, aces:inverseReferenceRenderingTransformType, \\
+        aces:lookTransformType, aces:outputDeviceTransformType, aces:outputTransformType, \\
+        aces:referenceRenderingTransformType, aces:workingSpaceTransformType}}{None}
+		{\lstinline{<aces:description>Camera A Input Transform</aces:description>}\\
+		 \lstinline{<aces:description>Technical Grade</aces:description>}}
+
+\element{transformType \ aces:hash}
+        {This element is used to communicate the cryptographic hash for a transform referenced by the AMF.}
+        {images/acesMetadataFile_xsd_Element_aces_hash.png}
+        {\texttt{aces:hashType}}
+        {Optional}{0}{1}
+        {\texttt{algorithm (restricted xs:anyURI)}}{None}
+        {\texttt{aces:inputTransformType, aces:inverseOutputDeviceTransformType, \\
+        aces:inverseOutputTransformType, aces:inverseReferenceRenderingTransformType, \\
+        aces:lookTransformType, aces:outputDeviceTransformType, aces:outputTransformType, \\
+        aces:referenceRenderingTransformType, aces:workingSpaceTransformType}}{None}
+        {
+        \lstinline{<aces:hash algorithm="http://www.w3.org/2001/04/xmlenc#sha256">c81af4fb4a22ee}\\      \lstinline{0353308e4582708951df4682bf73f838c24bf44e585fc3bb61</aces:hash>}
+        }
