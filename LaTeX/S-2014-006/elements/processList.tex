@@ -18,7 +18,7 @@ The \xml{ProcessList} is the root element for any CLF file and is composed of on
 
 \emph{Elements:}
 \begin{xmlfields}
-    \xmlitem[Description][required] a string for comments describing the function, usage, or any notes about the \xml{ProcessList}. A \xml{ProcessList} may contain one or more \xml{Description}s.
+    \xmlitem[Description][optional] a string for comments describing the function, usage, or any notes about the \xml{ProcessList}. A \xml{ProcessList} can contain zero or more \xml{Description} elements.
     \xmlitem[InputDescriptor][optional] an arbitrary string used to describe the intended source code values of the \xml{ProcessList}.
     \xmlitem[OutputDescriptor][optional] an arbitrary string used to describe the intended output target of the \xml{ProcessList} (e.g. target display)
     \xmlitem[ProcessNode][required] a generic XML element that in practice is substituted with a particular color operator. The \xml{ProcessList} must contain at least one \xml{ProcessNode}. The \xml{ProcessNode} is described in \autoref{sec:ProcessNode}.
