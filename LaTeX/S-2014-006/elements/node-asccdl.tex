@@ -52,8 +52,8 @@ The math for \xml{style="Fwd"} is:
 \end{equation}
 \begin{equation}
     \begin{aligned}
-        \var{luma} &= 0.2126 \times in_R + 0.7152 \times in_G + 0.0722 \times in_B \\
-        \var{out} &= \mathrm{CLAMP}(luma + saturation \times (\var{out}_{SOP} - luma))
+        \var{luma} &= 0.2126 \times \var{out}_{SOP,R} + 0.7152 \times \var{out}_{SOP,G} + 0.0722 \times \var{out}_{SOP,B} \\
+        \var{out} &= \mathrm{CLAMP}(\var{luma} + \var{saturation} \times (\var{out}_{SOP} - \var{luma}))
     \end{aligned}
 \end{equation}
 
@@ -65,9 +65,9 @@ The math for \xml{style="FwdNoClamp"} is the same as for \xml{"Fwd"} but the two
 The math for \xml{style="Rev"} is:
 \begin{equation}
     \begin{aligned}
-        \var{in}_{clamp} &= \mathrm{CLAMP}(in) \\
-        luma &= 0.2126 \times \var{in}_{clamp,R} + 0.7152 \times \var{in}_{clamp,G} + 0.0722 \times \var{in}_{clamp,B} \\
-        \var{out}_{SAT} &= luma + \frac{(in_{clamp} - luma)}{saturation}
+        \var{in}_{clamp} &= \mathrm{CLAMP}(\var{in}) \\
+        \var{luma} &= 0.2126 \times \var{in}_{clamp,R} + 0.7152 \times \var{in}_{clamp,G} + 0.0722 \times \var{in}_{clamp,B} \\
+        \var{out}_{SAT} &= \var{luma} + \frac{(\var{in}_{clamp} - \var{luma})}{\var{saturation}}
     \end{aligned}
 \end{equation}
 \begin{equation}  \label{eq:cdl-rev}
