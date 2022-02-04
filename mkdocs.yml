@@ -10,6 +10,7 @@ docs_dir: mkdocs/docs
 
 extra:
   generator: false
+  homepage: https://www.acescentral.com
 
 extra_css: 
   - stylesheets/extra.css
