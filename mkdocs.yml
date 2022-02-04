@@ -1,0 +1,90 @@
+site_name: ACES Technical Documentation
+copyright: Copyright &copy; 2022 Academy of Motion Picture Arts & Sciences
+
+repo_url: https://github.com/ampas/aces-dev
+repo_name: aces-dev
+edit_uri: https://github.com/aforsythe/aces-docs/edit/amf-userguide/mkdocs/docs
+
+site_dir: /site
+docs_dir: mkdocs/docs
+
+extra:
+  generator: false
+
+extra_css: 
+  - stylesheets/extra.css
+
+theme:
+  name: 'material'
+  custom_dir: mkdocs/overrides
+  features:
+    - navigation.tabs
+    # - navigation.indexes
+    - navigation.tracking
+    - navigation.expand
+    - navigation.top
+    - navigation.instant
+  favicon: assets/images/favicon.png
+  logo: assets/images/logo.png
+  font:
+    text: Pontano Sans
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+  - media: "(prefers-color-scheme: light)" 
+    scheme: aces-light
+    toggle:
+      icon: material/toggle-switch-off-outline
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)" 
+    scheme: slate
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to light mode
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - attr_list
+  - md_in_html
+  - abbr
+  - def_list
+  - toc:
+      permalink: true
+      toc_depth: 3
+      
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js
+  - extra/refresh_on_toggle_dark_light.js
+  
+plugins:
+  - search
+  - mermaid2:
+      version: 8.8.4
+      arguments:
+        securityLevel: 'loose'
+        themeVariables:
+          primaryColor: '#ff0000'
+        theme: |
+          ^(JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'light'
+  - git-revision-date-localized:
+      type: date
+      locale: en
+
+nav:
+  - 'ACES Documentation':
+    - 'Implementation Guides':
+      - 'ACES Metadata File (AMF)': guides/amf/index.md
+  - 'Glossary': glossary/index.md
