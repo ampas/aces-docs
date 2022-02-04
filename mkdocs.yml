@@ -11,6 +11,15 @@ docs_dir: mkdocs/docs
 extra:
   generator: false
   homepage: https://www.acescentral.com
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/academyaces
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/AcademyACESColor/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw
+    - icon: fontawesome/brands/github
+      link: https://www.github.com/ampas
 
 extra_css: 
   - stylesheets/extra.css
