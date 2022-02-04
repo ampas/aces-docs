@@ -50,7 +50,7 @@ jobs:
           git add .;
           git commit -m 'Gitbot actions site change';
           git push origin;
-      - name: Commit main updates to site branch
+      - name: Commit main updates to site/production branch
         if: endsWith(github.ref, '/main')
         run: |
           sudo chown -R runner:docker site;
