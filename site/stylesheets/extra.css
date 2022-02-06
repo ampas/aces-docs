@@ -61,11 +61,12 @@
 .md-nav__title .md-nav__button.md-logo :is(img, svg) {
 	height: auto;
 	max-width: 100%;
+}
 
  /* Center Mermaid Diagrams */
 .mermaid {
     text-align: center;
- }
+}
 
 /* Format heading level 5 */
  .md-typeset h5 { 
@@ -73,3 +74,13 @@
     font-size: 1em; 
     text-transform: none;
  }
+
+ /* Gold top line */
+ .md-header {
+    border-style: solid;
+	border-color: var(--md-accent-fg-color);
+    border-top-width: 4px;
+	border-right-width: 0px;
+	border-left-width: 0px;
+	border-bottom-width: 0px;
+}
