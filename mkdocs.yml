@@ -85,13 +85,15 @@ plugins:
       version: 8.8.4
       arguments:
         securityLevel: 'loose'
-        themeVariables:
-          primaryColor: '#ff0000'
         theme: |
           ^(JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'light'
   - git-revision-date-localized:
-      type: date
+      type: datetime
+      timezone: America/Los_Angeles
       locale: en
+      exclude:
+          - index.md
+      enabled: true
 
 nav:
   - 'ACES Documentation':

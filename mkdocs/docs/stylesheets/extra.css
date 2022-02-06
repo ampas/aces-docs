@@ -58,6 +58,10 @@
     opacity: 1.0;
 }
 
+.md-nav__title .md-nav__button.md-logo :is(img, svg) {
+	height: auto;
+	max-width: 100%;
+
  /* Center Mermaid Diagrams */
 .mermaid {
     text-align: center;
