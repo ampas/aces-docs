@@ -3,7 +3,7 @@ copyright: Copyright &copy; 2022 Academy of Motion Picture Arts & Sciences
 
 repo_url: https://github.com/ampas/aces-dev
 repo_name: aces-dev
-edit_uri: https://github.com/aforsythe/aces-docs/edit/amf-userguide/mkdocs/docs
+edit_uri: https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs
 
 site_dir: /site
 docs_dir: mkdocs/docs
