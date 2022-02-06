@@ -6,7 +6,6 @@
   --md-primary-fg-color--dark:  #8a8a8a;
   --md-primary-bg-color:        #ffffff;
   --md-accent-fg-color:        #957100;
-  --aces-central-header-gold: #c1a138;
 }
 
 /* Dark mode colors */
@@ -19,7 +18,6 @@
     --md-accent-fg-color: #BCA14B;
     --md-typeset-a-color: var(--md-default-fg-color--light);
     --md-footer-bg-color--dark: var(--md-primary-fg-color);
-    --aces-central-header-gold: #c1a138;
   }
 
  /* Table header colors */
@@ -80,7 +78,7 @@
  /* Gold top line */
  .md-header {
     border-style: solid;
-	border-color: var(--aces-central-header-gold);
+	border-color: var(--md-accent-fg-color);
     border-top-width: 4px;
 	border-right-width: 0px;
 	border-left-width: 0px;
