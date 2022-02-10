@@ -99,4 +99,7 @@ nav:
   - 'ACES Documentation':
     - 'Implementation Guides':
       - 'ACES Metadata File (AMF)': guides/amf/index.md
+      - 'ACES Reference Gamut Compression (RGC)': guides/rgc-implementation/index.md
+    - 'User Guides':
+      - 'ACES Reference Gamut Compression (RGC)': guides/rgc-user/index.md
   - 'Glossary': glossary/index.md
