@@ -1,4 +1,4 @@
-ACES 1.3 Reference Gamut Compression <br/> User Guide
+ACES Reference Gamut Compression <br/> User Guide
 ================
 
 
@@ -6,7 +6,7 @@ Introduction
 ----------------
 
 The purpose of this document is to elaborate on suggested user workflows for on
-set, dailies, visual effects, and finishing using the ACES 1.3 Reference Gamut
+set, dailies, visual effects, and finishing using the ACES Reference Gamut
 Compression (RGC). For detailed technical specifications, please refer to the
 Technical Documentation:
 
@@ -40,15 +40,21 @@ which are less problematic when used in subsequent compositing or grading
 operations. Creative modifications are left for the user to apply as necessary
 downstream of the RGC.
 
-The [ACES Reference Gamut Compression](https://github.com/ampas/aces-dev/blob/master/transforms/ctl/lmt/LMT.Academy.GamutCompress.ctl) uses fixed values for the thresholds where
-compression begins, and for the amount of compression. These values have been
-calculated such that the colors of the ColorChecker 24 will remain unchanged,
-and that any colors that are within the encoding gamuts of all the commonly used
-digital cinema cameras (those with official ACES IDTs) will be brought within
-AP1, thus ensuring positive ACEScg values.  In most workflows, these constants
-will be invisible to the user, as demonstrated in the screenshots from
-Resolve 17.4 below - the user has the option to apply the RGC at a project or a
-clip level.
+The ACES [Reference Gamut
+Compression](https://github.com/ampas/aces-dev/blob/master/transforms/ctl/lmt/LMT.Academy.GamutCompress.ctl) 
+uses fixed values [^1] for the thresholds where compression begins, and for the
+amount of compression. These values have been calculated such that the colors of
+the ColorChecker 24 will remain unchanged, and that any colors that are within
+the encoding gamuts of all the commonly used digital cinema cameras (those with
+official ACES IDTs) will be brought within AP1, thus ensuring positive ACEScg
+values.  In most workflows, these constants will be invisible to the user, as
+demonstrated in the screenshots from Resolve 17.4 below - the user has the
+option to apply the RGC at a project or a clip level.
+
+[^1]: Some implementations may also include a parametric version of the
+    ACES gamut compression. If you choose to use this, it falls outside the scope
+    of published ACES workflows, and therefore will need to be tracked manually.
+    At that point it is simply another creative tool in the colorist’s arsenal.
 
 ![Resolve Project Settings](./images/resolve-cm-settings.png)
 <figure markdown>
@@ -244,7 +250,7 @@ Implementation Guide
 ----------------
 
 If you are a software developer or engineer looking for technical implementation
-guidelines for integrating the ACES 1.3 Reference Gamut Compression in software,
+guidelines for integrating the ACES Reference Gamut Compression in software,
 please see our [Implementation Guide](../rgc-implementation/index.md).
 
 

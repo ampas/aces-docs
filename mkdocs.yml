@@ -72,6 +72,7 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 3
+  - footnotes
       
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -88,7 +89,7 @@ plugins:
         theme: |
           ^(JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'light'
   - git-revision-date-localized:
-      type: datetime
+      type: date
       timezone: America/Los_Angeles
       locale: en
       exclude:
@@ -97,9 +98,7 @@ plugins:
 
 nav:
   - 'ACES Documentation':
-    - 'Implementation Guides':
-      - 'ACES Metadata File (AMF)': guides/amf/index.md
-      - 'ACES Reference Gamut Compression (RGC)': guides/rgc-implementation/index.md
-    - 'User Guides':
-      - 'ACES Reference Gamut Compression (RGC)': guides/rgc-user/index.md
+    - 'Implementation and User Guides':
+      - 'ACES Metadata File (AMF) Implementation Guide': guides/amf/index.md
+      - 'Reference Gamut Compression (RGC) User Guide': guides/rgc-user/index.md
   - 'Glossary': glossary/index.md
