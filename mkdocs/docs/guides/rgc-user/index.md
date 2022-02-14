@@ -1,16 +1,26 @@
-ACES Reference Gamut Compression <br/> User Guide
+ACES Reference Gamut Compression User Guide
 ================
 
-
-Introduction
+Scope 
 ----------------
 
 The purpose of this document is to elaborate on suggested user workflows for on
 set, dailies, visual effects, and finishing using the ACES Reference Gamut
 Compression (RGC). For detailed technical specifications, please refer to the
-Technical Documentation:
+ACES Gamut Mapping Architecture VWG - Technical Documentation.
 
-[ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
+
+References 
+----------------
+
+The following standards, specifications, articles, presentations, and texts are referenced in this text:
+
+* [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
+
+
+
+Introduction
+----------------
 
 A common complaint from users of ACES has been the artifacts resulting from out
 of gamut values in source images. These artifacts are most known for appearing
