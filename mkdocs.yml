@@ -73,6 +73,8 @@ markdown_extensions:
       permalink: true
       toc_depth: 3
   - footnotes
+  - admonition
+  - pymdownx.details
       
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
