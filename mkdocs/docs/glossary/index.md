@@ -91,13 +91,18 @@ Internet Engineering Task Force (IETF)
 ## K
 
 ## L
+Look (Modification) Transform (LMT)
+: ACES transform which applies a global look or other modification to scene-referred image data.
 ## M
 ## N
 ## O
 ## P
 ## Q
 ## R
-Reference Rendering Transform(RRT)
+Reference Gamut Compression (RGC)
+: ACES LMT which compresses scene-referred image data to within the AP1 gamut.
+
+Reference Rendering Transform (RRT)
 : Core ACES transform that converts scene-referred image data that conforms to SMPTE ST 2065-1:2012 to output-referred image data.
 
 RFN

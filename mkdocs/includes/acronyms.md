@@ -25,3 +25,7 @@
 *[HDR]: High Dynamic Range
 *[RAW]: Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.
 *[RGB]: Red, Green, and Blue
+*[RGC]: Reference Gamut Compression
+*[WIP]: Work In Progress
+*[QT]: QuickTime
+*[VFX]: Visual Effects
