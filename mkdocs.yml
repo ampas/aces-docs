@@ -103,4 +103,5 @@ nav:
     - 'Implementation and User Guides':
       - 'ACES Metadata File (AMF) Implementation Guide': guides/amf/index.md
       - 'Reference Gamut Compression (RGC) User Guide': guides/rgc-user/index.md
+      - 'Common LUT Format (CLF)': guides/clf/index.md
   - 'Glossary': glossary/index.md
