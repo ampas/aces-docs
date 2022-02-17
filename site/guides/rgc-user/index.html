@@ -173,6 +173,11 @@
         ACES Metadata File (AMF) Implementation Guide
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../clf/">
+        Common LUT Format (CLF) Implementation Guide
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -474,9 +479,9 @@ below.</p>
 <h4 id="live-grading">Live Grading<a class="headerlink" href="#live-grading" title="Permanent link">¶</a></h4>
 <p>If your production is utilizing an on set grading software, such as Pomfort
 Livegrade, use it to apply the Reference Gamut Compression. This will embed the
-<abbr title="Reference Gamut Compression">RGC</abbr> in the 3D LUT which is passed to the LUT box for viewing on a monitor.</p>
+<abbr title="Reference Gamut Compression">RGC</abbr> in the 3D <abbr title="look-up table">LUT</abbr> which is passed to the <abbr title="look-up table">LUT</abbr> box for viewing on a monitor.</p>
 <h4 id="in-camera">In-Camera<a class="headerlink" href="#in-camera" title="Permanent link">¶</a></h4>
-<p>The production can create a 3D LUT of the appropriate size (normally 33x33x33
+<p>The production can create a 3D <abbr title="look-up table">LUT</abbr> of the appropriate size (normally 33x33x33
 max) with the Reference Gamut Compression added to the existing viewing pipeline
 to load into the camera.</p>
 <h3 id="dailies">Dailies<a class="headerlink" href="#dailies" title="Permanent link">¶</a></h3>
@@ -572,21 +577,21 @@ Until <abbr title="ACES Metadata File">AMF</abbr> automates this process, carefu
 standard practices will be required. Please note that the workflows outlined in
 this guide are recommendations, but the needs may vary by facility and
 production.</p>
-<h3 id="3d-lut-implementation">3D LUT Implementation<a class="headerlink" href="#3d-lut-implementation" title="Permanent link">¶</a></h3>
+<h3 id="3d-lut-implementation">3D <abbr title="look-up table">LUT</abbr> Implementation<a class="headerlink" href="#3d-lut-implementation" title="Permanent link">¶</a></h3>
 <p>While it is generally recommended to use full precision CPU/GPU implementations
-of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Reference Gamut Compression">RGC</abbr> transform some use cases may still require a 3D LUT based
+of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Reference Gamut Compression">RGC</abbr> transform some use cases may still require a 3D <abbr title="look-up table">LUT</abbr> based
 implementation instead. Examples for this include (but are not limited to):</p>
 <ul>
 <li>On-set monitoring of live camera feeds</li>
 <li>Implementations using legacy versions of OpenColorIO (v2.0 or earlier)</li>
 <li>Other DCC applications that do not yet support <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> v1.3</li>
 </ul>
-<p>The two main considerations for a 3D LUT implementation of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Reference Gamut Compression">RGC</abbr> are the
-LUT input color space and the transform precision.</p>
-<h4 id="lut-input-color-space">LUT Input Color Space:<a class="headerlink" href="#lut-input-color-space" title="Permanent link">¶</a></h4>
-<p>3D LUT input domains are usually in a 0.0 to 1.0 range (or equivalent integer
+<p>The two main considerations for a 3D <abbr title="look-up table">LUT</abbr> implementation of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Reference Gamut Compression">RGC</abbr> are the
+<abbr title="look-up table">LUT</abbr> input color space and the transform precision.</p>
+<h4 id="lut-input-color-space"><abbr title="look-up table">LUT</abbr> Input Color Space:<a class="headerlink" href="#lut-input-color-space" title="Permanent link">¶</a></h4>
+<p>3D <abbr title="look-up table">LUT</abbr> input domains are usually in a 0.0 to 1.0 range (or equivalent integer
 ranges). Since out-of-gamut color samples have component values below zero an
-appropriate LUT input color space must be used in which all expected color
+appropriate <abbr title="look-up table">LUT</abbr> input color space must be used in which all expected color
 samples map into the 0.0 to 1.0 range.</p>
 <p>For on-set monitoring, where the input gamut is known and fixed, such an input
 color space could be the camera’s specific log-encoding (e.g.
@@ -594,16 +599,16 @@ LogC3/ARRIWideGamut, Log3G10/REDWideGamutRGB). These encodings are optimized for
 the particular camera model and are expected to map all color samples into the
 0.0→1.0 domain. Please note that ACEScct does not fulfill this requirement, even
 if it is available as a camera <abbr title="Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.">RAW</abbr> development target, and is therefore not
-recommended to be used as an input encoding for a 3D LUT implementation of the
+recommended to be used as an input encoding for a 3D <abbr title="look-up table">LUT</abbr> implementation of the
 <abbr title="Reference Gamut Compression">RGC</abbr>. So for visual effects, review or mastering applications that have to
 account for multiple input gamuts and are not able to rely on a specific camera
 vendor encoding an analytic implementation is required.</p>
-<h4 id="lut-precision">LUT Precision:<a class="headerlink" href="#lut-precision" title="Permanent link">¶</a></h4>
-<p>To achieve a reasonable approximation of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Reference Gamut Compression">RGC</abbr> transform a 3D LUT
+<h4 id="lut-precision"><abbr title="look-up table">LUT</abbr> Precision:<a class="headerlink" href="#lut-precision" title="Permanent link">¶</a></h4>
+<p>To achieve a reasonable approximation of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Reference Gamut Compression">RGC</abbr> transform a 3D <abbr title="look-up table">LUT</abbr>
 implementation should use the highest practical resolution (e.g. 65x65x65) as
-well as tetrahedral interpolation. However, even with high resolution LUTs, the
+well as tetrahedral interpolation. However, even with high resolution <abbr title="look-up tables">LUTs</abbr>, the
 residual interpolation errors are significant enough to prevent accurate
-inversion of the transform, especially at the gamut boundaries. Therefore 3D LUT
+inversion of the transform, especially at the gamut boundaries. Therefore 3D <abbr title="look-up table">LUT</abbr>
 implementations of the <abbr title="Reference Gamut Compression">RGC</abbr> should be considered non-invertible.</p>
 <h2 id="implementation-guide">Implementation Guide<a class="headerlink" href="#implementation-guide" title="Permanent link">¶</a></h2>
 <p>If you are a software developer or engineer looking for technical implementation

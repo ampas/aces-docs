@@ -371,6 +371,11 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../clf/">
+        Common LUT Format (CLF) Implementation Guide
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../rgc-user/">
         Reference Gamut Compression (RGC) User Guide
       </a>
@@ -705,8 +710,8 @@ settings for video and file output, or exported to a camera card when using a
 camera’s <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> viewing pipeline. See section 7 for more on cameras
 reading/writing <abbr title="ACES Metadata File">AMF</abbr>.</p>
 <h3 id="monitor">Monitor<a class="headerlink" href="#monitor" title="Permanent link">¶</a></h3>
-<p>Some professional monitors allow import of LUTs to apply looks in-device. <abbr title="ACES Metadata File">AMF</abbr>
-could replace proprietary or uncommon LUT formats for improved interoperability.</p>
+<p>Some professional monitors allow import of <abbr title="look-up tables">LUTs</abbr> to apply looks in-device. <abbr title="ACES Metadata File">AMF</abbr>
+could replace proprietary or uncommon <abbr title="look-up table">LUT</abbr> formats for improved interoperability.</p>
 <h3 id="on-set-live-grading">On-set live grading<a class="headerlink" href="#on-set-live-grading" title="Permanent link">¶</a></h3>
 <p>An <abbr title="ACES Metadata File">AMF</abbr> may be read by on-set live grading software for the purpose of on-set
 monitoring and color grading within <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>.</p>
@@ -763,7 +768,7 @@ to imported media.</p>
 </tr>
 <tr>
 <td>Output Transform Conflict</td>
-<td>If the <abbr title="ACES Metadata File">AMF</abbr> specifies an Output Transform that is in conflict with the respective shot’s Output Transform, then this conflict must be handled. The default behaviour should be to stick with the project-wide Output Transform, but it may be useful to indicate a conflict to the user.<br/>Example: An <abbr title="ACES Metadata File">AMF</abbr> is generated from a software platform that uses the Rec709_100nits transform, and is then read by a software platform that is using an <abbr title="High Dynamic Range">HDR</abbr> Output Transform.</td>
+<td>If the <abbr title="ACES Metadata File">AMF</abbr> specifies an Output Transform that is in conflict with the respective shot’s Output Transform, then this conflict must be handled. The default behaviour should be to stick with the project-wide Output Transform, but it may be useful to indicate a conflict to the user.<br/>Example: An <abbr title="ACES Metadata File">AMF</abbr> is generated from a software platform that uses the Rec709_100nits transform, and is then read by a software platform that is using an HDR Output Transform.</td>
 <td>The Output Transform that was indeed used for viewing should be specified in the <abbr title="ACES Metadata File">AMF</abbr>.</td>
 </tr>
 <tr>
@@ -793,7 +798,7 @@ to imported media.</p>
 </tr>
 <tr>
 <td>Cameras</td>
-<td>Import <abbr title="ACES Metadata File">AMF</abbr> in-camera and apply pipeline settings for video and file output.<br/>An <abbr title="ACES Metadata File">AMF</abbr> loaded in camera could specify over SDI how to treat the incoming signal (ie Output Transform)<br/>There are reasonable expectations that any in-camera processing, for the foreseeable future, will be done utilizing small 3D LUTs at the highest complexity. Therefore, applications of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline in-camera may be limited in precision.</td>
+<td>Import <abbr title="ACES Metadata File">AMF</abbr> in-camera and apply pipeline settings for video and file output.<br/>An <abbr title="ACES Metadata File">AMF</abbr> loaded in camera could specify over SDI how to treat the incoming signal (ie Output Transform)<br/>There are reasonable expectations that any in-camera processing, for the foreseeable future, will be done utilizing small 3D <abbr title="look-up tables">LUTs</abbr> at the highest complexity. Therefore, applications of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline in-camera may be limited in precision.</td>
 <td>When should a camera generate an <abbr title="ACES Metadata File">AMF</abbr>?<br/>If a camera generates an <abbr title="ACES Metadata File">AMF</abbr>, where should it be written?<br/><br/>#1 Preferred Method:<br/><em> Embedded in the <abbr title="Original Camera File">OCF</abbr>, e.g.REDCODE <abbr title="Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.">RAW</abbr> R3D <br/><br/>#2 Preferred Method:<br/></em> <abbr title="ACES Metadata File">AMF</abbr> should live in the same directory as its associated clip<br/><br/>#3 Preferred Method:<br/>* A single folder with all <abbr title="ACES Metadata File">AMF</abbr> files</td>
 </tr>
 <tr>
@@ -1054,7 +1059,7 @@ that can be found in the <code>aces:pipeline</code> element:</p>
 <p>Although these steps are described separately, this does not imply that a system
 has to process all pixels in a frame of visual material one step at a time. Some
 systems might do it while some others might need to crunch the various
-processing steps into a single transform, typically a 3D Lookup Table (3D LUT).
+processing steps into a single transform, typically a 3D Lookup Table (3D <abbr title="look-up table">LUT</abbr>).
 Moreover a system may choose to optimize the processing of the various steps,
 depending on the given situation. The only constraint is that the color
 processing must follow the steps in the order described above.</p>
@@ -1210,7 +1215,7 @@ rules:</p>
 <li>Restrict the file name extension to 3 characters</li>
 <li>Use only alphabetical characters for the file name extension</li>
 <li>Use the native or recommended file name extension for the external resource
-(e.g. <abbr title="Common LUT Format">CLF</abbr> or clf for the Common LUT Format)</li>
+(e.g. <abbr title="Common LUT Format">CLF</abbr> or clf for the Common <abbr title="look-up table">LUT</abbr> Format)</li>
 </ol>
 <h3 id="file-naming-conventions">File naming conventions<a class="headerlink" href="#file-naming-conventions" title="Permanent link">¶</a></h3>
 <p><abbr title="ACES Metadata File">AMF</abbr> does not impose a strict file naming convention on the external resources.
