@@ -20,6 +20,9 @@ extra:
       link: https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw
     - icon: fontawesome/brands/github
       link: https://www.github.com/ampas
+    - icon: fontawesome/solid/fish
+      link: https://www.zonephoto.it/images/pdf/kodak-grey-card1903061.pdf
+      name: The Great Cod
 
 extra_css: 
   - stylesheets/extra.css

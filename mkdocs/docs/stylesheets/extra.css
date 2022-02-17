@@ -93,3 +93,20 @@ figcaption {
     position: relative;
     top: -20px;
 }
+
+.md-typeset :is(.admonition, details):is(.note) {
+    background-color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+}
+
+.md-typeset :is(.note) > :is(.admonition-title, summary) { 
+    background-color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+}
+
+.md-typeset :is(.note) > :is(.admonition-title, summary)::before { 
+    background-color: var(--md-accent-fg-color);
+}
+
+
+
