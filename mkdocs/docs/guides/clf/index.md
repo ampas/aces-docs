@@ -23,9 +23,10 @@ The Common LUT Format (CLF) provides flexibility to enclose transforms from simp
 Because CLF files are floating-point capable, extremely flexible, and well documented, they are an excellent candidate for use in modern workflows. CLFs are also ideal for archival purposes because the format is well-specified and documented. There is also a high-quality, open source implementation freely available on GitHub.
 
 ### Format Comparison Table
+
 | **Features/Formats** | CLF | 3dl | Adobe (Iridas) cube | Resolve cube | Truelight cube | Cinespace cube | ASC CDL | Imageworks spi3d | ICC Profile |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Provider | Academy/ASC | Discreet | Adobe | Blackmagic | Filmlight | Rising Sun | ASC | Imageworks | ICC |
+| Provider | Academy / ASC | Discreet | Adobe | Blackmagic | Filmlight | Rising Sun | ASC | Imageworks | ICC |
 | Maintained public documentation | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |
 | Implementation guide | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
 | Allows shaper LUT | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
@@ -38,7 +39,6 @@ Because CLF files are floating-point capable, extremely flexible, and well docum
 | Can define operations in linear floating-point space | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
 | GUID support | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
 | Supports mathematical operators | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-
 
 Target Audience
 ---------------
@@ -66,7 +66,7 @@ There are a few key points that these examples demonstrate:
 Color coding: <span style="color:red">red</span> is required, <span style="color:blue">blue</span> is optional, <span style="color:green">green</span> are comments.
 
 #### Example 1: ASC CDL Implementation {#example-1}
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Required: XML Version and Encoding declaration -->
 
@@ -100,7 +100,7 @@ Color coding: <span style="color:red">red</span> is required, <span style="color
 ```
 
 #### Example 2: BT.709 YCbCr (SMPTE/legal range) to RGB (full range) {#example-2}
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Line above is required: XML Version and Encoding declaration -->
  
@@ -454,7 +454,7 @@ Finishing Tier products should, whenever possible, encapsulate discrete math ope
 ### Precision and Range of Numeric Values
 Ensure your implementation writes a sufficient number of digits. Even though image processing will typically be done at 32-bit floating-point precision, intermediate calculations (for example, combining matrices) may be done at higher precision.
 
-Also, take note that the bit-depth attributes do not impose range or quantization limits. Hence you should not impose these limits unnecessarily. For example, for a LUT1D with an `outBitDepth` of `10i`, although the normal range would be 0 to 1023 it is legal to exceed this range and also to use fractional values. For example, these are examples of legal values: `[-10.5, 0.01, 1055.2]`. Please refer to [Section 5.1 of the specification]() for more detail.
+Also, take note that the bit-depth attributes do not impose range or quantization limits. Hence you should not impose these limits unnecessarily. For example, for a LUT1D with an `outBitDepth` of `10i`, the normal range would be expected to be 0 to 1023. However, it is legal to exceed this range and also to use fractional values. Thus, values such as `[-10.5, 0.01, 1055.2]` could be legal values. Please refer to [Section 5.1 of the specification](http://j.mp/S-2014-006) for more detail.
 
 ### The `id` Attribute
 Every CLF is required to have an `id` attribute at the `ProcessList` level. The specification does not impose any restrictions on the formatting of this attribute. However, it should be noted that an ACES Metadata File that references a CLF file prefers that the `id` attribute contains a UUID object according to RFC 4122. Therefore, it is recommended that implementations use a UUID to fill the `id` attribute when writing new CLF files. Note that the `id` attribute is optional at the `ProcessNode` level.
