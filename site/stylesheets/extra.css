@@ -5,18 +5,21 @@
   --md-primary-fg-color--light: #343434;
   --md-primary-fg-color--dark:  #8a8a8a;
   --md-primary-bg-color:        #ffffff;
-  --md-accent-fg-color:        #957100;
+  --md-accent-fg-color:         #957100;
+  --md-typeset-a-color:         #BCA14B;
+  --top-border-gold-color:      #c1a138;
 }
 
 /* Dark mode colors */
 [data-md-color-scheme="slate"] {
     --md-hue: 220; 
-    --md-default-fg-color--light: #c5c5c5;
-    --md-primary-fg-color: #1d2026; /* BCA14B*/
-    --md-primary-fg-color--dark:  #343434;
-    --md-primary-bg-color:        #ffffff;
-    --md-accent-fg-color: #BCA14B;
-    --md-typeset-a-color: var(--md-default-fg-color--light);
+    --md-default-fg-color--light:   #c5c5c5;
+    --md-primary-fg-color:          #1d2026; /* BCA14B*/
+    --md-primary-fg-color--dark:    #343434;
+    --md-primary-bg-color:          #ffffff;
+    --md-accent-fg-color:           #BCA14B;
+    --md-typeset-a-color:           #BCA14B;
+    --top-border-gold-color:        #c1a138;
     --md-footer-bg-color--dark: var(--md-primary-fg-color);
   }
 
@@ -78,7 +81,7 @@
  /* Gold top line */
  .md-header {
     border-style: solid;
-	border-color: var(--md-accent-fg-color);
+	border-color: var( --top-border-gold-color);
     border-top-width: 4px;
 	border-right-width: 0px;
 	border-left-width: 0px;
@@ -90,4 +93,3 @@ figcaption {
     position: relative;
     top: -20px;
 }
-  
