@@ -16,12 +16,15 @@
 *[XML]: Extensible Markup Language
 *[UTC]: Coordinated Universal Time
 *[ISO]: International Standards Organization
+*[LUT]: look-up table
+*[LUTs]: look-up tables
 *[CTL]: Color Transform Language
 *[ALE]: Avid Log Exchange
 *[OCF]: Original Camera File
 *[OCIO]: OpenColorIO
 *[GUID]: Globally Unique Identifier
 *[SDR]: Standard Dynamic Range
+*[SDI[: Serial Digital Interface
 *[HDR]: High Dynamic Range
 *[RAW]: Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.
 *[RGB]: Red, Green, and Blue
