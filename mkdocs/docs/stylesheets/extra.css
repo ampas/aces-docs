@@ -7,6 +7,7 @@
   --md-primary-bg-color:        #ffffff;
   --md-accent-fg-color:         #957100;
   --md-typeset-a-color:         #BCA14B;
+  --top-border-gold-color:      #c1a138;
 }
 
 /* Dark mode colors */
@@ -18,6 +19,7 @@
     --md-primary-bg-color:          #ffffff;
     --md-accent-fg-color:           #BCA14B;
     --md-typeset-a-color:           #BCA14B;
+    --top-border-gold-color:        #c1a138;
     --md-footer-bg-color--dark: var(--md-primary-fg-color);
   }
 
@@ -79,7 +81,7 @@
  /* Gold top line */
  .md-header {
     border-style: solid;
-	border-color: var(--md-accent-fg-color);
+	border-color: var( --top-border-gold-color);
     border-top-width: 4px;
 	border-right-width: 0px;
 	border-left-width: 0px;
