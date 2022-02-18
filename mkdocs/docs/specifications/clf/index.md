@@ -509,7 +509,7 @@ $$
 </Matrix>
 ```
 <figure markdown="1">
-  <figcaption>Example 3 – Example of a `Matrix` node with `dim="3 3 3"`</figcaption>
+  <figcaption>Example 3 – Example of a <code>Matrix</code> node with <code>dim="3 3 3"</code></figcaption>
 </figure>
 
 ```xml
@@ -523,7 +523,7 @@ $$
 </Matrix>
 ```
 <figure markdown="1">
-  <figcaption>Example 4 – Example of a `Matrix` node</figcaption>
+  <figcaption>Example 4 – Example of a <code>Matrix</code> node</figcaption>
 </figure>
 
 
@@ -555,10 +555,8 @@ $$
 $$
 
 where: <br>
-<div style="padding-left: 50px;" markdown="1">
-$\mathrm{MAX}(a,b)$ returns $a$ if $a > b$ and $b$ if $b \geq a$ <br>
+$\mathrm{MAX}(a,b)$ returns $a$ if $a > b$ and $b$ if $b \geq a$<br>
 $\mathrm{MIN}(a,b)$ returns $a$ if $a < b$ and $b$ if $b \leq a$
-</div>
 
 The `Range` element can also be used to clamp values on only the top or bottom end. In such instances, no offset is applied, and the formula simplifies because only one pair of min or max values are required. (The `style` shall not be `"noClamp"` for this use-case.)
 
@@ -632,8 +630,385 @@ The options for `style` are:
 </Range>
 ```
 <figure markdown="1">
-  <figcaption>Example 5 – Using "Range" for scaling 10-bit full range to 10-bit SMPTE (legal) range.</figcaption>
+  <figcaption>Example 5 – Using <code>"Range"</code> for scaling 10-bit full range to 10-bit SMPTE (legal) range.</figcaption>
 </figure>
 
 
 ### Log
+
+*Description:*<br>
+This node contains parameters for processing pixels through a logarithmic or anti-logarithmic function. A couple of main formulations are supported. The most basic formula follows a pure logarithm or anti-logarithm of either base 2 or base 10. Another supported formula allows for a logarithmic function with a gain factor and offset. This formulation can be used to convert from linear to Cineon. Another style of log formula follows a piece-wise function consisting of a logarithmic function with a gain factor, an offset, and a linear segment. This style can be used to implement many common “camera-log” encodings.
+
+!!! note
+    The equations for the `Log` node assume integer data is normalized to floating-point scaling. `LogParams` do not change based on the input and output bit-depths.
+
+!!! note
+    On occasion it may be necessary to transform a logarithmic function specified in terms of traditional Cineon-style parameters to the parameters used by CLF. Guidance on how to do this is provided in [Appendix C](#appendixC).
+
+*Attributes:*
+`style` (required
+: specifies the form of the of log function to be applied<br>
+Supported values for ”style” are:
+
+    - `"log10"`
+    - `"antiLog10"`
+    - `"log2"`
+    - `"antiLog2"`
+    - `"linToLog"`
+    - `"logToLin"`
+    - `"cameraLinToLog"`
+    - `"cameraLogToLin"`
+
+: The formula to be applied for each style is described by the equations below, for all of which:
+
+    $\texttt{FLT_MIN} = 1.175494e−38$
+
+    $\textrm{MAX}(a, b)$ returns $a$ if $a \gt b$ and $b$ if $b \geq a$
+
+    - `"log10"`: applies a base 10 logarithm according to
+$$ 
+y = log_{10}(\textrm{MAX}(x,\texttt{FLT_MIN}))
+$$
+
+    - `"antiLog10"`: applies a base 10 anti-logarithm according to
+$$ 
+x = 10^{y}
+$$
+
+    - `"log2"`: applies a base 2 logarithm according to
+$$ 
+y = log_{2}(\textrm{MAX}(x,\texttt{FLT_MIN}))
+$$
+
+    - `"antiLog2"`: applies a base 2 anti-logarithm according to
+$$ 
+x = 2^{y}
+$$
+
+    - `"linToLog"`: applies a logarithm according to
+
+    $$ 
+    y = \text{logSideSlope} \times \text{log}_\text{base}(\textrm{MAX}(\text{linSideSlope} \times x + \text{linSideOffset}, \texttt{FLT_MIN}))+\text{logSideOffset}
+    $$
+
+    - `"logToLin"`: applies an anti-logarithm according to
+
+    $$
+    x = \frac{\left(\text{base}^{\frac{y-\text{logSideOffset}}{\text{logSideSlope}}} - \text{linSideOffset}\right)}{\text{linSideSlope}}
+    $$
+
+    - `"cameraLinToLog"`: applies a piecewise function with logarithmic and linear segments on linear values, converting them to non-linear values
+
+    $$
+    y = \begin{cases} 
+    \text{linearSlope} \times x + \text{linearOffset} & \text{if } x \leq \text{linSideBreak}\\
+    \text{logSideSlope} \times \text{log}_{\text{base}}(\mathrm{MAX}(\text{linSideSlope} \times x + \text{linSideOffset},\texttt{FLT_MIN})) + \text{logSideOffset} & \text{otherwise} \\
+    \end{cases} \\
+    $$
+
+    <div style="padding-left: 90px;" markdown="1">
+    where: <br>
+    $\text{linearSlope}$ is calculated using Eq.<br>
+    $\text{linearOffset}$ is calculated using Eq.
+    </div>
+
+    - `"cameraLogToLin"`: applies a piecewise function with logarithmic and linear segments on non-linear values, converting them to linear values
+
+    $$
+    x = \begin{cases}
+    \frac{(y - \text{linearOffset})}{\text{linearSlope}} & \text{if } y \leq \text{logSideBreak} \\                    \frac{\left(\text{base}^{\frac{y-\text{logSideOffset}}{\text{logSideSlope}}} - \text{linSideOffset}\right)}{\text{linSideSlope}} & \text{otherwise}
+    \end{cases}
+    $$
+
+    <div style="padding-left: 90px;" markdown="1">
+    where: <br>
+    $\text{logSideBreak}$ is calculated using Eq.<br>
+    $\text{linearSlope}$ is calculated using Eq.
+    $\text{linearOffset}$ is calculated using Eq.    
+    </div>
+
+*Elements:*
+`LogParams` (required - if `"style"` is not a basic logarithm)
+: contains the attributes that control the `"linToLog"`, `"logToLin"`, `"cameraLinToLog"`,
+or `"cameraLogToLin"` functions <br>
+This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cameraLinToLog"`, or `"cameraLogToLin"`. <br>
+*Attributes:*
+
+    `"base"` (optional)
+    : the base of the logarithmic function <br>
+    Default is 2
+
+    `"logSideOffset"` (optional) 
+    : offset applied to the log side of the logarithmic segment.<br>
+    Default is 0.
+    
+    `"linSideSlope"` (optional) 
+    : slope of the linear side of the logarithmic segment. <br>
+    Default is 1.
+    
+    `"linSideOffset"` (optional) 
+    : offset applied to the linear side of the logarithmic segment. <br>
+    Default is 0.
+    
+    `"linSideBreak"` (optional)
+    : the break-point, defined in linear space, at which the piece-wise function transitions between the logarithmic and linear segments.<br>
+    This is required if `style="cameraLinToLog"` or `"cameraLogToLin"`
+
+    `"linearSlope"` (optional)
+    : the slope of the linear segment of the piecewise function. This attribute does not need to be provided unless the formula being implemented requires it. The default is to calculate using `linSideBreak` such that the linear portion is continuous in value with the logarithmic portion of the curve, by using the value of the logarithmic portion of the curve at the break-point. This is described in the following note below.
+    
+    `"channel"` (optional)
+    : the color channel to which the exponential function is applied. Possible values are `"R"`, `"G"`, `"B"`. If this attribute is utilized to target different adjustments per channel, then up to three `LogParams` elements may be used, provided that `"channel"` is set differently in each. However, the same value of base must be used for all channels. If this attribute is not otherwise specified, the logarithmic function is applied identically to all three color channels.
+
+!!! note "Solving for `LogParams`"
+    $\text{linearOffset}$ is the offset of the linear segment of the piecewise function. This value is calculated using the position of the break-point and the linear slope in order to ensure continuity of the two segments. Equations 4.18-4.20 describe the steps for calculating $\text{linearOffset}$.
+    First, the value of the break-point on the log-axis is calculated using the value of $\text{linSideBreak}$ as input to the logarithmic segment of Eq. 4.16, as shown in Eq. 4.18.
+    $$
+    logSideBreak = logSideSlope × logbase(linSideSlope × linSideBreak + linSideOffset) + logSideOffset
+    $$
+    Then, if $\text{linearSlope}$ was not provided, the value of $\text{linSideBreak}$ is used again to solve for the derivative of Eq. 4.14. The value of $\text{linearSlope}$ is set to equal the the instantaneous slope at the break-point, or derivative which is shown being solved for by Eq. 4.19:
+    $$ 
+    \text{linearSlope} = \text{logSideSlope} \times \left(\frac{\text{linSideSlope}}{(\text{linSideSlope} \times \textbf{linSideBreak} + \text{linSideOffset}) \times \text{ln}(\text{base})}\right)
+    $$
+    Finally, the value of $\text{linearOffset}$ can be solved for by rearranging the linear segment of Eq. 4.16 to get Equation 4.20 and using the values of $\text{logSideBreak|$ (obtained from Eq. 4.18) and $\text{linearSlope}$ (obtained from Eq. 4.19).
+    $$
+    \text{linearOffset} = \textbf{logSideBreak} - \textbf{ linearSlope} \times \text{linSideBreak}
+    $$
+ 
+*Examples:*
+```xml
+<Log inBitDepth="16f" outBitDepth="16f" style="log10"> 
+    <Description>Base 10 Logarithm</Description>
+</Log>
+```
+
+<figure markdown="1">
+  <figcaption>Example 6 – Example <code>Log</code> node applying a base 10 logarithm.</figcaption>
+</figure>
+
+
+```xml
+<Log inBitDepth="32f" outBitDepth="32f" style="cameraLinToLog">
+    <Description>Linear to DJI D-Log</Description>
+    <LogParams base="10" logSideSlope="0.256663" logSideOffset="0.584555"
+        linSideSlope="0.9892" linSideOffset="0.0108" linSideBreak="0.0078"
+        linearSlope="6.025"/>
+</Log>
+```
+
+<figure markdown="1">
+  <figcaption>Example 7 – Example <code>Log</code> node applying the DJI D-Log formula.</figcaption>
+</figure>
+
+
+### Exponent
+
+*Description:*
+This node contains parameters for processing pixels through a power law function. Two main formulations are supported. The first follows a pure power law. The second is a piecewise function that follows a power function for larger values and has a linear segment that is followed for small and negative values. The latter formulation can be used to represent the Rec. 709, sRGB, and CIE L* equations.
+
+*Attributes:*
+`style` (required) 
+: specifies the form of the exponential function to be applied. Supported values are:
+
+    - `"basicFwd"`
+    - `"basicRev"`
+    - `"basicMirrorFwd"`
+    - `"basicMirrorRev"`
+    - `"basicPassThruFwd"`
+    - `"basicPassThruRev"`
+    - `"monCurveFwd"`
+    - `"monCurveRev"`
+    - `"monCurveMirrorFwd"`
+    - `"monCurveMirrorRev"`
+
+    The formula to be applied for each style is included in Equations 4.21-4.28 for all of which:
+    <div style="padding-left: 150px;" markdown="1">
+    $g =$ `exponent` <br>
+    $k =$ `offset` <br>
+    $\textrm{MAX}(a, b)$ returns $a$ if $a \gt b$ and $b$ if $b \geq a$
+    </div>
+
+    `"basicFwd"`
+    : applies a power law using the exponent value specified in the `ExponentParams` element. <br>
+    Values less than zero are clamped.
+
+    $$
+        \text{basicFwd}(x) = [\textrm{MAX}(0,x)]^g
+    $$
+
+    `"basicRev"`
+    : applies power law using the exponent value specified in the `ExponentParams` element. <br>
+    Values less than zero are clamped.
+
+    $$
+        \text{basicRev}(y) = [\textrm{MAX}(0,y)]^{1/g}
+    $$
+
+    `"basicMirrorFwd"`
+    : applies a basic power law using the exponent value specified in the `ExponentParams` element for values greater than or equal to zero and mirrors the function for values less than zero (i.e. rotationally symmetric around the origin):
+
+    $$
+    \text{basicMirrorFwd}(x) = \begin{cases}
+    x^{g} & \text{if } x \geq 0 \\ [6pt]
+    -\Big[(-x)^{g}\Big] & \text{otherwise}
+    \end{cases}
+    $$
+
+    `"basicMirrorRev"`
+    : applies a basic power law using the exponent value specified in the `ExponentParams` element for values greater than or equal to zero and mirrors the function for values less than zero (i.e. rotationally symmetric around the origin):
+
+    $$
+    \text{basicMirrorRev}(y) = \begin{cases}
+    y^{1/g} & \text{if } y \geq 0 \\[6pt]
+    -\Big[(-y)^{1/g}\Big] & \text{otherwise}
+    \end{cases}
+    $$
+
+    `"basicPassThruFwd"`
+    : applies a basic power law using the exponent value specified in the `ExponentParams`
+    element for values greater than or equal to zero and passes values less than zero unchanged:
+
+    $$
+    \text{basicPassThruFwd}(x) = \begin{cases}
+    x^{g} & \text{if } x \geq 0 \\[6pt]
+    x & \text{otherwise}
+    \end{cases}
+    $$
+
+    `"basicPassThruRev"`
+    : applies a basic power law using the exponent value specified in the `ExponentParams` element for values greater than or equal to zero and and passes values less than zero un- changed:
+
+    $$
+    \text{basicPassThruRev}(y) = \begin{cases}
+    y^{1/g} & \text{if } y \geq 0 \\[6pt]
+    y & \text{otherwise}
+    \end{cases}
+    $$
+    
+    `"monCurveFwd"`
+    : applies a power law function with a linear segment near the origin
+
+    $$
+    \text{monCurveFwd}(x) = \begin{cases}
+    \left( \frac{x\:+\:k}{1\:+\:k} \right)^{g} & \text{if } x \geq xBreak \\[8pt]
+    x\:s & \text{otherwise}
+    \end{cases}
+    $$
+
+    <div style="padding-left: 220px;" markdown="1">
+    where: <br>
+    $xBreak = \dfrac{k}{g-1}$ <br>
+    and, for the above and below equations: <br>
+    $s = \left(\dfrac{g-1}{k}\right)  \left(\dfrac{k g}{(g-1)(1+k)}\right)^{g}$
+    </div>
+    
+    `"monCurveRev"`
+    : applies a power law function with a linear segment near the origin
+
+    $$
+    \text{monCurveRev}(y) = \begin{cases}
+    (1 + k)\:y^{(1/g)} - k & \text{if } y \geq yBreak \\[8pt]
+    \dfrac{y}{s} & \text{otherwise}
+    \end{cases}
+    $$
+
+    <div style="padding-left: 220px;" markdown="1">
+    where: <br>
+    $yBreak = \left(\dfrac{k g}{(g-1)(1+k)}\right)^g$
+    </div>
+
+    `"monCurveMirrorFwd"`
+    : applies a power law function with a linear segment near the origin and mirrors the function for values less than zero (i.e. rotationally symmetric around the origin):
+    
+    $$
+    \text{monCurveMirrorFwd}(x) = \begin{cases}
+    \text{monCurveFwd}(x) & \text{if } x \geq 0 \\[8pt]
+    -[\text{monCurveFwd}(-x)] & \text{otherwise}
+    \end{cases}    
+    $$
+    
+    `"monCurveMirrorRev"`
+    : applies a power law function with a linear segment near the origin and mirrors the function for values less than zero (i.e. rotationally symmetric around the origin):
+    
+    $$
+    \text{monCurveMirrorRev}(y) = \begin{cases}
+    \text{monCurveRev}(y) & \text{if } y \geq 0 \\[8pt]
+    -[\text{monCurveRev}(-y)] & \text{otherwise}
+    \end{cases}
+    $$
+
+!!! note
+    The above equations assume that the input and output bit-depths are floating-point. Integer values are normalized to the range $[0.0, 1.0]$.
+
+*Elements:*
+`Description` (optional) 
+: See [ProcessNode](#processNode)
+
+`ExponentParams` (required)
+: contains one or more attributes that provide the values to be used by the enclosing `Exponent` element. <br>
+If `style` is any of the “basic” types, then only `exponent` is required. <br>
+If `style` is any of the “monCurve” types, then `exponent` and `offset` are required.
+
+    *Attributes:*
+    `"exponent"` (required)
+    : the power to which the value is to be raised <br>
+    If style is any of the “monCurve” types, the valid range is $[1.0, 10.0]$. The nominal value is 1.0.
+
+    !!! note
+        When using a “monCurve” style, a value of 1.0 assigned to `exponent` could result in a divide-by-zero error. Implementors should protect against this case.
+        
+    `"offset"` (optional)
+    : the offset value to use <br>
+    If offset is used, the enclosing `Exponent` element’s style attribute must be set to one of the “monCurve” types. Offset is not allowed when `style` is any of the “basic” types. <br>
+    The valid range is $[0.0, 0.9]$. The nominal value is 0.0.
+
+    !!! note 
+        If zero is provided as a value for `offset`, the calculation of $xBreak$ or $yBreak$ could result in a divide-by-zero error. Implementors should protect against this case.
+
+    `"channel"` (optional)
+    : the color channel to which the exponential function is applied. <br>
+    Possible values are `"R"`, `"G"`, `"B"`. <br>
+    If this attribute is utilized to target different adjustments per channel, up to three `ExponentParams` elements may be used, provided that `"channel"` is set differently in each. If this attribute is not otherwise specified, the exponential function is applied identi- cally to all three color channels.
+
+
+*Examples:*
+``` xml
+<Exponent inBitDepth="32f" outBitDepth="32f" style="basicFwd">
+    <Description>Basic 2.2 Gamma</Description>
+    <ExponentParams exponent="2.2"/>
+</Exponent>
+```
+<figure markdown="1">
+  <figcaption>Example 8 – Using <code>Exponent</code> node for applying a 2.2 gamma.</figcaption>
+</figure>
+
+
+``` xml
+<Exponent inBitDepth="32f" outBitDepth="32f" style="monCurveFwd">
+    <Description>EOTF (sRGB)</Description>
+    <ExponentParams exponent="2.4" offset="0.055" />
+</Exponent>
+```
+<figure markdown="1">
+  <figcaption>Example 9 – Using <code>Exponent</code> node for applying the intended EOTF found in IEC 61966-2-1:1999 (sRGB). </figcaption>
+</figure>
+
+```xml
+<Exponent inBitDepth="32f" outBitDepth="32f" style="monCurveRev">
+    <Description>CIE L*</Description>
+    <ExponentParams exponent="3.0" offset="0.16" />
+</Exponent>
+```
+<figure markdown="1">
+  <figcaption>Example 10 – Using <code>Exponent</code> node to apply CIE L* formula.</figcaption>
+</figure>
+
+``` xml
+<Exponent inBitDepth="32f" outBitDepth="32f" style="monCurveRev">
+    <Description>Rec. 709 OETF</Description>
+    <ExponentParams exponent="2.2222222222222222" offset="0.099" />
+</Exponent>
+```
+<figure markdown="1">
+  <figcaption>Example 11 – Using <code>Exponent</code> node to apply Rec. 709 OETF.</figcaption>
+</figure>
