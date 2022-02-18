@@ -46,7 +46,10 @@ This document is primarily intended for application developers who want to add C
 
 The document may also be of interest to those using CLF to author transforms and who want to understand how the CLFs will be used by applications.
 
-This guide should be read in conjunction with the CLF specification (v 3.0). The CLF spec may be downloaded from: http://j.mp/S-2014-006. Note: Although the spec has "2014" in the name, the document has been updated more recently than that. Version 3 of CLF was introduced with the release of ACES 1.2 in 2020 and the most recent editorial updates were in 2021.
+This guide should be read in conjunction with the [CLF Specification (v 3.0)](/specification/clf). 
+
+!!! note
+    The specificataion was previously referred to by it's document number - "S-2014-006". Although the spec had "2014" in the name, the document has been updated more recently than that. Version 3 of CLF was introduced with the release of ACES 1.2 in 2020 and the most recent editorial updates were in 2021. The current version of the specification now lives at the above link.
 
 
 A Quick Introduction to CLF
@@ -248,7 +251,7 @@ This section describes the general requirements for parsing CLF files, the provi
 
 1. **Version Support**
 
-    Implementations are expected to support v3 of the CLF specification. Backwards compatibility for versions prior to v3 is optional.
+    Implementations are expected to support v3 of the [CLF Specification](/specifications/clf). Backwards compatibility for versions prior to v3 is optional.
 
 2. **Error Handling**
 
@@ -263,7 +266,7 @@ This section describes the general requirements for parsing CLF files, the provi
 
 4. **Precision and formatting of numeric values**
 
-    Implementations must be able to read at least 32-bit float precision, though 64-bit precision is desirable for ProcessNodes other than `LUT1D` and `LUT3D`. Note that the specification defines the numeric values as “xs:float” type, that is, XML Schema floats. Parsers should be able to handle all of the details of this format (e.g., integers without a decimal point, missing leading 0 on decimal values, the presence of a leading “+”, etc.). Note that an integer is a legal xs:float.
+    Implementations must be able to read at least 32-bit float precision, though 64-bit precision is desirable for ProcessNodes other than `LUT1D` and `LUT3D`. Note that the CLF specification defines the numeric values as “xs:float” type, that is, XML Schema floats. Parsers should be able to handle all of the details of this format (e.g., integers without a decimal point, missing leading 0 on decimal values, the presence of a leading “+”, etc.). Note that an integer is a legal xs:float.
 
 #### Recommendations
 XML is designed to be extensible, and XML files often contain data that was not defined in the specification. However, the desire for extensibility must be balanced against the need to detect erroneous content. On occasion, unrecognized XML elements may be detected. In those instances, the following logic is recommended:
@@ -276,7 +279,7 @@ XML is designed to be extensible, and XML files often contain data that was not 
 ### CLF File Test Suite
 A number of test files are provided for implementers to test their system and demonstrate that their implementation can robustly handle all features of CLF v3. The tests provided in the [**OpenColorIO repository on Github**](https://github.com/AcademySoftwareFoundation/OpenColorIO/tree/master/tests/data/files/clf) include both legal and illegal test files. The file name and description in each file identifies what the file is testing.
 
-The test files confirm that each `ProcessNode` is functioning per the specification. For `ProcessNodes` that allow for different styles or parameters, either separate test files or single test files with multiple `ProcessNode` variations are provided to check that all styles and parameters are functional. Standard files are expected to be processed without error. 
+The test files confirm that each `ProcessNode` is functioning per the CLF specification. For `ProcessNodes` that allow for different styles or parameters, either separate test files or single test files with multiple `ProcessNode` variations are provided to check that all styles and parameters are functional. Standard files are expected to be processed without error. 
 
 A number of "illegal" test files with various syntax errors are also provided to test the error handling capability of implementations. Illegal files should not be processed and the system should generate an appropriate error message.
 
@@ -454,7 +457,7 @@ Finishing Tier products should, whenever possible, encapsulate discrete math ope
 ### Precision and Range of Numeric Values
 Ensure your implementation writes a sufficient number of digits. Even though image processing will typically be done at 32-bit floating-point precision, intermediate calculations (for example, combining matrices) may be done at higher precision.
 
-Also, take note that the bit-depth attributes do not impose range or quantization limits. Hence you should not impose these limits unnecessarily. For example, for a LUT1D with an `outBitDepth` of `10i`, the normal range would be expected to be 0 to 1023. However, it is legal to exceed this range and also to use fractional values. Thus, values such as `[-10.5, 0.01, 1055.2]` could be legal values. Please refer to [Section 5.1 of the specification](http://j.mp/S-2014-006) for more detail.
+Also, take note that the bit-depth attributes do not impose range or quantization limits. Hence you should not impose these limits unnecessarily. For example, for a LUT1D with an `outBitDepth` of `10i`, the normal range would be expected to be 0 to 1023. However, it is legal to exceed this range and also to use fractional values. Thus, values such as `[-10.5, 0.01, 1055.2]` could be legal values. Please refer to the [Implementation Notes on Bit Depth section of the CLF specification](/specifications/clf/#bit-depth) for more detail.
 
 ### The `id` Attribute
 Every CLF is required to have an `id` attribute at the `ProcessList` level. The specification does not impose any restrictions on the formatting of this attribute. However, it should be noted that an ACES Metadata File that references a CLF file prefers that the `id` attribute contains a UUID object according to RFC 4122. Therefore, it is recommended that implementations use a UUID to fill the `id` attribute when writing new CLF files. Note that the `id` attribute is optional at the `ProcessNode` level.
@@ -479,20 +482,19 @@ Helpful Hints for a Successful Implementation
 ---------------------------------------------
 
 ### `Matrix` Order
-Take note that the order of coefficients in the `Matrix` ProcessNode follows the usual convention in color science but that this is the transposition of both the order sometimes used in computer graphics and the order used in CTL. **[Section 4.4.4]** of the specification clearly documents the ordering of matrix coefficients that must be used. Also, note that the 3x4 matrix includes an offset value after each of the three matrix values.
+Take note that the order of coefficients in the `Matrix` ProcessNode follows the usual convention in color science but that this is the transposition of both the order sometimes used in computer graphics and the order used in CTL. The [`Matrix` section of the CLF Specification](/specifications/clf/#matrix) clearly documents the ordering of matrix coefficients that must be used. Also, note that the 3x4 matrix includes an offset value after each of the three matrix values.
 
 ### `LUT3D` Serialization Order
-As described in **[Section 4.4.3]** of the CLF Specification, take note that the `LUT3D` ProcessNode serializes the LUT entries in blue-fastest order. This is a commonly used ordering (for example it is used by the common .3dl format) but some other formats use red-fastest ordering (e.g., .cube format).
+As described in the [`LUT3D` section of the CLF Specification](/specifications/clf/#lut3d), take note that the `LUT3D` ProcessNode serializes the LUT entries in blue-fastest order. This is a commonly used ordering (for example it is used by the common .3dl format) but some other formats use red-fastest ordering (e.g., .cube format).
 
 ### Gamma Polarity
-As described in **[Section 4.4.7]** of the spec, take note that the `Exponent` ProcessNode uses the specified parameter directly in the power function for the forward direction. This is the same usage as in an ASC CDL power. But take care since often "gamma" operators in color processing software apply the inverse of the power for the forward direction.
-
+As described in the [`Exponent` section of the CLF Specification](/specification/clf/#exponent), take note that the `Exponent` ProcessNode uses the specified parameter directly in the power function for the forward direction. This is the same usage as in an ASC CDL power. But take care since often "gamma" operators in color processing software apply the inverse of the power for the forward direction.
 
 ### Bit-Depth Attributes Don't Affect Processing Precision
-As called out in the CLF specification, the `inBitDepth` and `outBitDepth` attributes of `ProcessNodes` are not intended to control the processing precision, which should normally be 32-bit floating-point. Rather, these attributes simply determine the scaling of various parameter values such as matrix and LUT entries. Please refer to section 5.1 of the **[CLF specification]** for the details.
+As called out in the CLF specification, the `inBitDepth` and `outBitDepth` attributes of `ProcessNodes` are not intended to control the processing precision, which should normally be 32-bit floating-point. Rather, these attributes simply determine the scaling of various parameter values such as matrix and LUT entries. Please refer to the [Bit Depth section of the CLF Specification](/specification/clf/#bit-depth) for the details.
 
 ### Conversion Between Bit-Depths
-When interpreting the `inBitDepth` and `outBitDepth` attributes, conversions happen using "power of two minus 1" scaling rather than "power of 2" scaling. Please refer to section 5.1.4 of the **[CLF Specification]** for the details.
+When interpreting the `inBitDepth` and `outBitDepth` attributes, conversions happen using "power of two minus 1" scaling rather than "power of 2" scaling. Please refer to the [section on conversion between bit depths in the CLF Specification](/specifications/clf/#scaling) for the details.
 
 Appendices
 ----------
