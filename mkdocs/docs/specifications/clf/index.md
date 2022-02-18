@@ -395,7 +395,7 @@ ponents. The first three values define the dimensions of the LUT and if multipli
 
 
 
-### Matrix {#matrix}
+### `Matrix` {#matrix}
 
 *Description:*<br>
 This node specifies a matrix transformation to be applied to the input values. The input and output of a `Matrix` are always 3-component values.
@@ -528,7 +528,7 @@ $$
 
 
 
-### Range {#range}
+### `Range` {#range}
 
 *Description:*<br>
 This node maps the input domain to the output range by scaling and offsetting values. The `Range` element can also be used to clamp values.
@@ -634,7 +634,7 @@ The options for `style` are:
 </figure>
 
 
-### Log
+### `Log`
 
 *Description:*<br>
 This node contains parameters for processing pixels through a logarithmic or anti-logarithmic function. A couple of main formulations are supported. The most basic formula follows a pure logarithm or anti-logarithm of either base 2 or base 10. Another supported formula allows for a logarithmic function with a gain factor and offset. This formulation can be used to convert from linear to Cineon. Another style of log formula follows a piece-wise function consisting of a logarithmic function with a gain factor, an offset, and a linear segment. This style can be used to implement many common “camera-log” encodings.
@@ -801,7 +801,7 @@ This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cam
 </figure>
 
 
-### Exponent
+### `Exponent`
 
 *Description:*
 This node contains parameters for processing pixels through a power law function. Two main formulations are supported. The first follows a pure power law. The second is a piecewise function that follows a power function for larger values and has a linear segment that is followed for small and negative values. The latter formulation can be used to represent the Rec. 709, sRGB, and CIE L* equations.
