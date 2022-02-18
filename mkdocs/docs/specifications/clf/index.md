@@ -62,7 +62,7 @@ Each CLF file shall be completely self-contained requiring no external informati
 
 Each ProcessList shall be given a unique ID for reference.
 
-The data for LUTs shall be an ordered array that is either all floats or all integers. When three RGB color components are present, it is assumed that these are red, green, and blue in that order. There is only one order for how the data array elements are specified in a LUT, which is in general from black to white (from the minimum input value position to the maximum input value position). Arbitrary ordering of list elements is not supported in the format (see **[XML Elements]**(#xml-elements) for details).
+The data for LUTs shall be an ordered array that is either all floats or all integers. When three RGB color components are present, it is assumed that these are red, green, and blue in that order. There is only one order for how the data array elements are specified in a LUT, which is in general from black to white (from the minimum input value position to the maximum input value position). Arbitrary ordering of list elements is not supported in the format (see [XML Elements](#xml-elements) for details).
 
 !!! note
     For 3D LUTs, the indexes to the cube are assumed to have regular spacing across the range of input values. To accommodate irregular spacing, a "`halfDomain`" 1D LUT or Log node should be used as a shaper function prior to the 3D LUT.
@@ -276,7 +276,7 @@ The scaling of the array values is based on the `outBitDepth` (the `inBitDepth` 
 
 The length of a 1D LUT should be limited to at most 65536 entries, and implementations are not required to support `LUT1D`s longer than 65536 entries.
 
-Linear interpolation shall be used for `LUT1D`. More information about linear interpolation can be found in [Appendix B](link).
+Linear interpolation shall be used for `LUT1D`. More information about linear interpolation can be found in [Appendix A](#appendix-interpolation).
 
 *Elements:*
 `Array` (required)
@@ -353,7 +353,7 @@ Supported values are:
     - `"tetrahedral"`: perform tetrahedral interpolation 
     
     !!! note
-        Interpolation methods are specified in [Appendix B](#appendixB).
+        Interpolation methods are specified in [Appendix A](#appendix-interpolation).
 
 *Elements:*
 `Array` (required)
@@ -643,7 +643,7 @@ This node contains parameters for processing pixels through a logarithmic or ant
     The equations for the `Log` node assume integer data is normalized to floating-point scaling. `LogParams` do not change based on the input and output bit-depths.
 
 !!! note
-    On occasion it may be necessary to transform a logarithmic function specified in terms of traditional Cineon-style parameters to the parameters used by CLF. Guidance on how to do this is provided in [Appendix C](#appendixC).
+    On occasion it may be necessary to transform a logarithmic function specified in terms of traditional Cineon-style parameters to the parameters used by CLF. Guidance on how to do this is provided in [Appendix B](#appendix-cineon-style).
 
 *Attributes:*
 `style` (required
@@ -1012,3 +1012,556 @@ If `style` is any of the “monCurve” types, then `exponent` and `offset` are 
 <figure markdown="1">
   <figcaption>Example 11 – Using <code>Exponent</code> node to apply Rec. 709 OETF.</figcaption>
 </figure>
+
+
+### `ASC_CDL`
+
+*Description:*<br>
+This node processes values according to the American Society of Cinematographers’ Color Decision List (ASC CDL) equations. Color correction using ASC CDL is an industry-wide method of recording and exchanging basic color correction adjustments via parameters that set particular color processing equations.
+
+The ASC CDL equations are designed to work on an input domain of floating-point values of [0 to 1.0] although values greater than 1.0 can be present. The output data may or may not be clamped depending on the processing style used.
+
+!!! note
+    Equations 4.31-4.34 assume that $in$ and $out$ are scaled to normalized floating-point range. If the `ASC_CDL` node has `inBitDepth` or `outBitDepth` that are integer types, then the input or output values must be normalized to or from 0-1 scaling. In other words, the slope, offset, power, and saturation values stored in the `ProcessNode` do not depend on `inBitDepth` and `outBitDepth`; they are always interpreted as if the bit depths were float.
+
+*Attributes:*
+
+`id` (optional)
+: This should match the id attribute of the ColorCorrection element in the ASC CDL XML format.
+
+`style` (required)
+: Determines the formula applied by the operator. The valid options are:
+
+    `"Fwd"`
+    : implementation of v1.2 ASC CDL equation
+
+    `"Rev"`
+    : inverse equation
+
+    `"FwdNoClamp"`
+    : similar to the Fwd equation, but without clamping
+
+    `"RevNoClamp"`
+    : inverse equation, without clamping
+
+    The first two implement the math provided in version 1.2 of the ASC CDL specification. The second two omit the clamping step and are intended to provide compatibility with the many applications that take that alternative approach.
+
+*Elements:*
+
+`SOPNode` (optional)
+: The `SOPNode` is optional, and if present, must contain each of the following sub-elements:
+
+    `Slope`
+    : three decimal values representing the R, G, and B slope values, which is similar to gain, but changes the slope of the transfer function without shifting the black level established by `offset` <br>
+    Valid values for slope must be greater than or equal to zero ($\geq$ 0).<br>
+    The nominal value is 1.0 for all channels.
+
+    `Offset`
+    : three decimal values representing the R, G, and B offset values, which raise or lower overall brightness of a color component by shifting the transfer function up or down while holding the slope constant <br>
+    The nominal value is 0.0 for all channels.
+
+    `Power`
+    : three decimal values representing the R, G, and B power values, which change the inter- mediate shape of the transfer function <br>
+    Valid values for power must be greater than zero ($\gt$ 0). <br>
+    The nominal value is 1.0 for all channels.
+
+`SatNode` (optional)
+: The `SatNode` is optional, but if present, must contain one of the following sub-element:
+
+    `Saturation`
+    : a single decimal value applied to all color channels <br>
+    Valid values for saturation must be greater than or equal to zero ($\geq$ 0). <br>
+    The nominal value is 1.0.
+
+!!! note
+If either element is not specified, values  should default to the nominal values for each element. If using the `"noClamp"` style, the result of the defaulting to the nominal values is a no-op.
+
+!!! note
+The structure of this `ProcessNode` matches the structure of the XML format described in the v1.2 ASC CDL specification. However, unlike the ASC CDL XML format, there are no alternate spellings allowed for these elements.
+
+The math for `style="Fwd"` is:
+
+$$
+out_{\textrm{SOP}} = \textrm{CLAMP}(in \times \textrm{slope} + \textrm{offset})^{\textrm{power}}
+$$
+
+$$
+\begin{aligned}
+luma &= 0.2126 \times out_{\textrm{SOP,R}} + 0.7152 \times out_{\textrm{SOP,G}} + 0.0722 \times out_{\textrm{SOP,B}} \\
+out &= \textrm{CLAMP}\Big[luma + \textrm{saturation} \times (out_{\textrm{SOP}} − luma)\Big]
+\end{aligned}
+$$
+
+<div style="padding-left: 150px;" markdown="1">
+Where: <br>
+$\textrm{CLAMP()}$ clamps the argument to $[0,1]$
+</div>
+
+The math for `style="FwdNoClamp"` is the same as for `"Fwd"` but the two clamp() functions are omitted. <br>
+Also, if $(in \times \textrm{slope} + \textrm{offset}) < 0$, then no power function is applied.
+
+The math for `style="Rev"` is:
+
+$$
+\begin{aligned}
+in_{\textrm{clamp}} &= \mathrm{CLAMP}(in) \\
+luma &= 0.2126 \times in_{\textrm{clamp,R}} + 0.7152 \times in_{\textrm{clamp,G}} + 0.0722 \times in_{\textrm{clamp,B}} \\
+out_{\textrm{SAT}} &= luma + \frac{(in_{\textrm{clamp}} - luma)}{\textrm{saturation}}
+\end{aligned}
+$$
+
+$$
+out = \mathrm{CLAMP}\left(\frac{\mathrm{CLAMP}(out_{\textrm{SAT}})^{\frac{1}{\textrm{power}}} - \textrm{offset}}{\textrm{slope}}\right) \\
+$$ 
+
+<div style="padding-left: 150px;" markdown="1">
+Where: <br>
+$\textrm{CLAMP()}$ clamps the argument to $[0,1]$
+</div>
+
+The math for `style="RevNoClamp"` is the same as for `"Rev"` but the $\textrm{CLAMP}()$ functions are omitted. <br>
+Also, if $out_{\textrm{SAT}} \lt 0$, then no power function is applied.
+
+*Examples:*
+``` xml
+<ASC_CDL id="cc01234" inBitDepth="16f" outBitDepth="16f" style="Fwd">
+    <Description>scene 1 exterior look</Description>
+    <SOPNode>
+        <Slope>1.000000 1.000000 0.900000</Slope>
+        <Offset>-0.030000 -0.020000 0.000000</Offset>
+        <Power>1.2500000 1.000000 1.000000</Power>
+    </SOPNode>
+    <SatNode>
+        <Saturation>1.700000</Saturation>
+    </SatNode>
+</ASC_CDL>
+```
+<figure markdown="1">
+  <figcaption>Example 12 – Example of an <code>ASC_CDL</code> node.</figcaption>
+</figure>
+
+
+
+Implementation Notes
+--------------------
+
+### Bit Depth
+
+#### Processing Precision {#precision}
+All processing shall be performed using 32-bit floating-point values. The values of the `inBitDepth` and `outBitDepth` attributes shall not affect the quantization of color values.
+
+!!! note
+    For some hardware devices, 32-bit float processing might not be possible. In such instances, process- ing should be performed at the highest precision available. Because CLF permits complex series of discrete operations, CLF LUT files are unlikely to run on hardware devices without some form of pre-processing. Any pre-processing to prepare a CLF for more limited hardware applications should adhere to the processing precision requirements.
+
+#### Input To and Output From a ProcessList {#in-out-processlist}
+Applications often support multiple pixel formats (e.g. 8i, 10i, 16f, 32f, etc.). Often the actual pixel format to be processed may not agree with the `inBitDepth` of the first ProcessNode or the `outBitDepth` of the last ProcessNode. (Note that the `ProcessList` element itself does not contain global `inBitDepth` or `outBitDepth` attributes.) Therefore, in some cases an application may need to rescale a given `ProcessNode` to be appropriate for the actual image data being processed.
+
+For example, if the last ProcessNode in a ProcessList is a `LUT1D` with an `outBitDepth` of 12i, it indicates that the LUT Array values are scaled relative to 4095. If the application wants to produce floating-point pixel values, it should therefore divide the LUT Array values by 4095 before processing the pixels (according to [Conversion](#scaling)). Likewise, if the `outBitDepth` was instead 32f and the application wants to produce 12i pixel values, it should multiply the LUT Array values by 4095. (Note that in this case, since the result of the computations may exceed 4095 and the application wants to produce 12-bit integer output, the application would want to clamp, round, and quantize the value.)
+
+#### Input To and Output From a ProcessNode {#in-out-processnode}
+In order to ensure the scaling of parameter values of all ProcessNodes in a ProcessList are consistent, the `inBitDepth` of each ProcessNode must match the `outBitDepth` of the previous ProcessNode (if any).
+
+Please note that an integer `inBitDepth` or `outBitDepth` of a ProcessNode does not indicate that any clamping or quantization should be done. These attributes are strictly used to indicate the scaling of parameter and array values. As discussed [above](#precision), processing precision shall be floating-point.
+
+Furthermore, because the processing precision is intended to be floating-point, the `inBitDepth` and `outBitDepth` only control the scaling of parameter and array values and do not impose range limits. For example, even if the `outBitDepth` of a LUT Array is 12i, it does not mean that the Array values must be limited to $[0,4095]$ or that they must be integer values. It simply means that in order to rescale to 32f that a scale factor of 1/4095 should be used (as per [Conversion](#scaling)).
+
+Because processing within a ProcessList should be done at floating-point precision, applications may optionally want to rescale the interfaces all ProcessNodes “interior” to a ProcessList to be 32f according to [Conversion](#scaling). As discussed in [Input To and Output From a ProcessList](#in-out-processlist), applications may want to rescale the “exterior” interfaces of the ProcessList based on the type of pixel data being processed.
+
+For some applications, it may be easiest to simply rescale all ProcessNodes to 32f input and output bit-depth when parsing the file. That way, the ProcessList may be considered a purely 32f set of operations and the implementation therefore does not need to track or deal with bit-depth differences at the ProcessNode level.
+
+#### Conversion Between Integer and Normalized Float Scaling {#scaling}
+As discussed above, the `inBitDepth` or `outBitDepth` of a ProcessNode may need to be rescaled in order to accommodate the pixel data type being processed by the application.
+
+The scale factor associated with the bit-depths 8i, 10i, 12i, and 16i is $2^n − 1$, where $n$ is the bit-depth. 
+
+The scale factor associated with the bit-depths 16f and 32f is 1.0.
+
+To rescale Matrix, LUT1D, or LUT3D `Array` values when the `outBitDepth` changes, the scale factor is equal to $\frac{\textrm{newScale}}{\textrm{oldScale}}$. For example, to convert from 12i to 10i, multiply array values by $1023/4095$.
+
+To rescale Matrix `Array` values when the `inBitDepth` changes, the scale factor is equal to $\frac{\textrm{oldScale}}{\textrm{newScale}}$. For example, to convert from 32f to 10i, multiply array values by $1/1023$.
+
+To rescale Range parameters when the `inBitDepth` changes, the scale factor for `minInValue` and `maxInValue` is $\frac{\textrm{newScale}}{\textrm{oldScale}}$. To rescale Range parameters when the `outBitDepth` changes, the scale factor for `minOutValue` and `maxOutValue` is $\frac{\textrm{newScale}}{\textrm{oldScale}}$.
+
+Please note that in all cases, the conversion shall be only a scale factor. In none of the above cases should clamping or quantization be applied.
+
+Aside from the specific cases listed above, changes to `inBitDepth` and `outBitDepth` do not affect the parameter or array values of a given ProcessNode.
+
+If an application needs to convert between different integer pixel formats or between integer and float (or vice versa) on the way into or out of a ProcessList, the same scale factors should be used. Note that when converting from floating-point to integer at the application level that values should be clamped, rounded, and quantized.
+
+### Required vs Optional
+The required or optional indicated in parentheses throughout this specification indicate the requirement for an element or attribute to be present for a valid CLF file. In the spirit of a LUT format to be used commonly across different software and hardware, none of the elements or attributes should be considered optional for implementors to support. All elements and attributes, if present, should be recognized and supported by an implementation.
+
+If, due to hardware or software limitations, a particular element or attribute is not able to be supported, a warning should be issued to the user of a LUT that contains one of the offending elements. The focus shall be on the user and maintaining utmost compatibility with the specification so that LUTs can be interchanged seamlessly.
+
+### Efficient Processing
+The transform engine may merge some ProcessNodes in order to obtain better performance. For example, adjacent `Matrix` operators may be combined into a single matrix. However, in general, combining operators in a way that preserves accuracy is difficult and should be avoided.
+
+Hardware implementations may need to convert all ProcessNodes into some other form that is consistent with what the hardware supports. For example, all ProcessNodes might need to be combined into a single 3D LUT. Using a grid size of 64 or larger is recommended to preserve as much accuracy as possible. Imple- mentors should be aware that the success of such approximations varies greatly with the nature of the input and output color spaces. For example, if the input color space is scene-linear in nature, it may be necessary to use a “shaper LUT” or similar non-linearity before the 3D LUT in order to convert values into a more perceptually uniform representation.
+
+### Extensions
+It is recommended that implementors of CLF file readers protect against unrecognized elements or attributes that are not defined in this specification. Unrecognized elements that are not children of the `Info` element should either raise an error or at least provide a warning message to the user to indicate that there is an operator present that is not recognized by the reader. Applications that need to add custom metadata should place it under the `Info` element rather than at the top level of the ProcessList.
+
+One or more `Description` elements in the ProcessList can and should be used for metadata that does not fit into a provided field in the `Info` element and/or is unlikely to be recognized by other applications.
+
+
+Examples
+--------
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcessList id="ACEScsc.ACES_to_ACEScg.a1.0.3" name="ACES2065-1 to ACEScg" 
+    compCLFversion="3.0">
+    <Info>
+        <ACEStransformID>ACEScsc.ACES_to_ACEScg.a1.0.3</ACEStransformID>
+        <ACESuserName>ACES2065-1 to ACEScg</ACESuserName>
+    </Info>
+    <Description>ACES2065-1 to ACEScg</Description>
+    <InputDescriptor>ACES2065-1</InputDescriptor>
+    <OutputDescriptor>ACEScg</OutputDescriptor>
+    <Matrix inBitDepth="16f" outBitDepth="16f">
+        <Array dim="3 3">
+             1.451439316146 -0.236510746894 -0.214928569252
+            -0.076553773396  1.176229699834 -0.099675926438
+             0.008316148426 -0.006032449791  0.997716301365
+        </Array>
+    </Matrix>
+</ProcessList>
+```
+<figure markdown="1">
+  <figcaption>Example 13 – ACES2065-1 to ACEScg</figcaption>
+</figure>
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcessList id="ACEScsc.ACES_to_ACEScct.a1.0.3" name="ACES2065-1 to ACEScct" 
+    compCLFversion="3.0">
+    <Description>ACES2065-1 to ACEScct Log working space</Description>
+    <InputDescriptor>Academy Color Encoding Specification (ACES2065-1)</InputDescriptor>
+    <OutputDescriptor>ACEScct Log working space</OutputDescriptor>
+    <Info>
+        <ACEStransformID>ACEScsc.ACES_to_ACEScct.a1.0.3</ACEStransformID>
+        <ACESuserName>ACES2065-1 to ACEScct</ACESuserName>
+    </Info>
+    <Matrix inBitDepth="16f" outBitDepth="16f">
+        <Array dim="3 3">
+             1.451439316146 -0.236510746894 -0.214928569252
+            -0.076553773396  1.176229699834 -0.099675926438
+             0.008316148426 -0.006032449791  0.997716301365
+        </Array>
+    </Matrix>
+    <Log inBitDepth="16f" outBitDepth="16f" style="cameraLinToLog">
+        <LogParams base="2" logSideSlope="0.05707762557" logSideOffset="0.5547945205" 
+            linSideBreak="0.0078125" />
+    </Log>
+</ProcessList>
+```
+<figure markdown="1">
+  <figcaption>Example 14 – ACES2065-1 to ACEScct</figcaption>
+</figure>
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcessList id="5ac02dc7-1e02-4f87-af46-fa5a83d5232d" compCLFversion="3.0">
+    <Description>CIE-XYZ D65 to CIELAB L*, a*, b* (scaled by 1/100, neutrals at 
+        0.0 chroma)</Description>
+    <InputDescriptor>CIE-XYZ, D65 white (scaled [0,1])</InputDescriptor>
+    <OutputDescriptor>CIELAB L*, a*, b* (scaled by 1/100, neutrals at 0.0 
+        chroma)</OutputDescriptor>
+    <Matrix inBitDepth="16f" outBitDepth="16f">
+        <Array dim="3 3">
+            1.052126639 0.000000000 0.000000000
+            0.000000000 1.000000000 0.000000000
+            0.000000000 0.000000000 0.918224951
+        </Array>
+    </Matrix>
+    <Exponent inBitDepth="16f" outBitDepth="16f" style="monCurveRev">
+        <ExponentParams exponent="3.0" offset="0.16" />
+    </Exponent>
+    <Matrix inBitDepth="16f" outBitDepth="16f">
+        <Array dim="3 3">
+            0.00000000  1.00000000  0.00000000
+            4.31034483 -4.31034483  0.00000000
+            0.00000000  1.72413793 -1.72413793
+        </Array>
+    </Matrix>
+</ProcessList>
+
+```
+<figure markdown="1">
+  <figcaption>Example 15 – CIE XYZ to CIELAB</figcaption>
+</figure>
+
+
+
+Appendices
+----------
+
+### Appendix A: Interpolation {#appendix-interpolation}
+
+When an input value falls between sampled positions in a LUT, the output value must be calculated as a proportion of the distance along some function that connects the nearest surrounding values in the LUT. There are many different types of interpolation possible, but only three types of interpolation are currently specified for use with the Common LUT Format (CLF). 
+
+The first type - linear interpolation - is specified for use with a `LUT1D` node. The other two - trilinear and tetrahedral interpolation - are specified for use with a `LUT3D` node.
+
+#### Linear Interpolation
+With a table of the sampled input values in $inValue[i]$ where $i$ ranges from $0$ to $(n-1)$, and a table of the corresponding output values in $outValue[j]$ where $j$ is equal to $i$,
+
+| index $i$ |  inValue |     | index $j$ | outValue |
+|:---------:|:--------:|:---:|:---------:|:--------:|
+|     0     |     0    |     |     0     |     0    |
+|  $\vdots$ | $\vdots$ |     |  $\vdots$ | $\vdots$ |
+|  $n - 1$  |     1    |     |  $n - 1$  |   1000   |
+
+the $output$ resulting from $input$ can be calculated after finding the nearest $inValue[i] < input$. 
+
+When $inValue[i] = input$, the result is evaluated directly.
+
+$$
+output = \dfrac{input-inValue[i]}{inValue[i+1]-inValue[i]} \times (outValue[j+1]-outValue[j])+outValue[j]
+$$
+
+#### Trilinear Interpolation
+Trilinear interpolation implements linear interpolation in three-dimensions by successively interpolating each direction. 
+
+<figure markdown>
+  ![Points in Mesh](./images/interp-pointsInMesh-light.png#only-light)
+  ![Points in Mesh](./images/interp-pointsInMesh-dark.png#only-dark)
+  <figcaption><br>Figure 3 - Illustration of a sampled point located within a basic 3D LUT mesh grid (left) and the same point but with only the vertices surrounding the sampled point (right).</figcaption>
+</figure>
+
+<figure markdown>
+  ![Labeled Cubelet](./images/interp-labeledCubelet-light.png#only-light){ width="65%" }
+  ![Labeled Cubelet](./images/interp-labeledCubelet-dark.png#only-dark){ width="65%" }
+  <figcaption><br>Figure 4 - Labeling the mesh points surrounding the sampled point (r,g,b).</figcaption>
+</figure>
+
+!!! note
+    The convention used for notation is uppercase variables for mesh points and lowercase variables for points on the grid.
+
+Consider a sampled point as depicted in Figure 4. Let $V(r,g,b)$ represent the value at the point with coordinate $(r,g,b)$. The distance between each node per color coordinate shows the proportion of each mesh point's color coordinate values that contribute to the sampled point.
+
+$$
+\Delta_r = \frac{r - R_0}{R_1 - R_0} \hspace{0.25in}
+\Delta_g = \frac{g - G_0}{G_1 - G_0} \hspace{0.25in}
+\Delta_b = \frac{b - B_0}{B_1 - B_0}
+$$
+
+The general expression for trilinear interpolation can be expressed as:
+
+$$
+V(r,g,b) = c_0 + c_1\Delta_b + c_2\Delta_r + c_3\Delta_g + c_4\Delta_b\Delta_r + c_5\Delta_r\Delta_g + c_6\Delta_g\Delta_b + c_7\Delta_r\Delta_g\Delta_b
+$$
+
+<div style="padding-left: 40px;" markdown="1">
+where: <br>
+
+$$
+\begin{aligned}
+c_0 &= V(R_0, G_0, B_0) \\
+c_1 &= V(R_0, G_0, B_1) - V(R_0, G_0, B_0) \\
+c_2 &= V(1_0, G_0, B_0) - V(R_0, G_0, B_0) \\
+c_3 &= V(R_0, G_1, B_0) - V(R_0, G_0, B_0) \\
+c_4 &= V(R_1, G_1, B_1) - V(R_1, G_0, B_0) - V(R_0, G_0, B_1) + V(R_0, G_0, B_0) \\
+c_5 &= V(R_1, G_1, B_0) - V(R_0, G_1, B_0) - V(R_1, G_0, B_0) + V(R_0, G_0, B_0) \\
+c_6 &= V(R_0, G_1, B_1) - V(R_1, G_1, B_0) - V(R_0, G_0, B_1) + V(R_0, G_0, B_0) \\
+c_7 &= V(R_1, G_1, B_1) - V(R_1, G_1, B_0) - V(R_0, G_1, B_1) - V(R_1, G_0, B_1) \\ 
+&+ V(R_0, G_0, B_1) + V(R_0, G_1, B_0) + V(R_1, G_0, B_0) - V(R_0, G_0, B_0) 
+\end{aligned}
+$$
+
+</div>
+
+Expressed in matrix form:
+
+$$
+\begin{gather}
+\mathbf{C} = [c_0 \enspace c_1 \enspace c_2 \enspace c_3 \enspace c_4 \enspace c_5 \enspace c_6 \enspace c_7]^T \\
+\mathbf{\Delta} = [1 \quad \Delta_b \quad \Delta_r \quad \Delta_g \quad \Delta_b\Delta_r \quad \Delta_r\Delta_g \quad \Delta_g\Delta_b \quad \Delta_r\Delta_g\Delta_b]^T \\
+V(r,g,b) = \mathbf{C}^T \mathbf{\Delta}
+\end{gather}
+$$
+
+$$
+\begin{bmatrix}
+c_0 \\ c_1 \\ c_2 \\ c_3 \\ c_4 \\ c_5 \\ c_6 \\ c_7
+\end{bmatrix} =
+\begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+-1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+1 & 0 & -1 & 0 & -1 & 0 & 1 & 0 \\
+1 & -1 & -1 & 1 & 0 & 0 & 0 & 0 \\
+1 & -1 & 0 & 0 & -1 & 1 & 0 & 0 \\
+-1 & 1 & 1 & -1 & 1 & -1 & -1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+V(R_0, G_0, B_0) \\
+V(R_0, G_1, B_0) \\
+V(R_1, G_0, B_0) \\
+V(R_1, G_1, B_0) \\
+V(R_0, G_0, B_1) \\
+V(R_0, G_1, B_1) \\
+V(R_1, G_0, B_1) \\
+V(R_1, G_1, B_1)
+\end{bmatrix}    
+$$
+
+The expression in above can be written as: $\mathbf{C} = \mathbf{A}\mathbf{V}$.
+
+Trilinear interpolation shall be done according to $V(r,g,b) = \mathbf{C}^T \mathbf{\Delta} = \mathbf{V}^T \mathbf{A}^T \mathbf{\Delta}$.
+
+!!! note
+    The term $\mathbf{V}^T \mathbf{A}^T$ does not depend on the variable $(r,g,b)$ and thus can be computed in advance for optimization. Each sub-cube can have the values of the vector $\mathbf{C}$ already stored in memory. Therefore the algorithm can be summarized as:
+
+    1. Find the sub-cube containing the point \((r,g,b)\)
+    2. Select the vector \(\mathbf{C}\) corresponding to that sub-cube
+    3. Compute \(\Delta_r\), \(\Delta_g\), \(\Delta_b\)
+    4. Return \(V(r,g,b) = \mathbf{C}^T \mathbf{\Delta}\)
+
+
+#### Tetrahedral Interpolation}
+Tetrahedral interpolation subdivides the cubelet defined by the vertices surrounding a sampled point into six tetrahedra by segmenting along the main (and usually neutral) diagonal (Figure 5). 
+
+<figure markdown>
+  ![Tetrahedra](./images/interp-tetrahedrons-light.png#only-light)
+  ![Tetrahedra](./images/interp-tetrahedrons-dark.png#only-dark)
+  <figcaption><br>Figure 5 - Illustration of the six subdivided tetrahedra.</figcaption>
+</figure>
+
+To find the tetrahedron containing the point \((r,g,b)\):
+
+* if $\Delta_b > \Delta_r > \Delta_g$, then use the first tetrahedron, $t1$
+* if $\Delta_b > \Delta_g > \Delta_r$, then use the first tetrahedron, $t2$
+* if $\Delta_g > \Delta_b > \Delta_r$, then use the first tetrahedron, $t3$
+* if $\Delta_r > \Delta_b > \Delta_g$, then use the first tetrahedron, $t4$
+* if $\Delta_r > \Delta_g > \Delta_b$, then use the first tetrahedron, $t5$
+* else, use the sixth tetrahedron, $t6$
+
+The matrix notation is:
+
+$$
+\mathbf{V} = \begin{bmatrix}
+V(R_0, G_0, B_0) \\
+V(R_0, G_1, B_0) \\
+V(R_1, G_0, B_0) \\
+V(R_1, G_1, B_0) \\
+V(R_0, G_0, B_1) \\
+V(R_0, G_1, B_1) \\
+V(R_1, G_0, B_1) \\
+V(R_1, G_1, B_1)
+\end{bmatrix}\\ \\
+$$
+
+$$
+\mathbf{\Delta_t} = [1 \enspace \Delta_b \enspace \Delta_r \enspace \Delta_g]^T
+$$
+
+$$
+\begin{aligned}
+\mathbf{T}_1 = \begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & -1 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & -1 & 1
+\end{bmatrix} \hspace{0.5in}
+\mathbf{T}_2 = \begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & -1 & 0 & 1 \\
+0 & 0 & 0 & 0 & -1 & 1 & 0 & 0
+\end{bmatrix} \\
+\mathbf{T}_3 = \begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & -1 & 0 & 1 \\
+-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix} \hspace{0.5in}
+\mathbf{T}_4 = \begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & -1 & 0 & 0 & 0 & 1 & 0 \\
+-1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & -1 & 1
+\end{bmatrix} \\
+\mathbf{T}_5 = \begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & -1 & 0 & 0 & 0 & 1 \\
+-1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & -1 & 1 & 0 & 0 & 0 & 0
+\end{bmatrix} \hspace{0.5in}
+\mathbf{T}_6 = \begin{bmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & -1 & 0 & 0 & 0 & 1 \\
+0 & -1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+-1 & 1 & 0 & 0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+\end{aligned}
+$$
+
+Trilinear interpolation shall be done according to:
+
+$$
+\begin{gather}
+V(r,g,b)_{t1} = \mathbf{\Delta}^T_t \mathbf{T}_1 \mathbf{V}\\
+V(r,g,b)_{t2} = \mathbf{\Delta}^T_t \mathbf{T}_2 \mathbf{V}\\
+V(r,g,b)_{t3} = \mathbf{\Delta}^T_t \mathbf{T}_3 \mathbf{V}\\
+V(r,g,b)_{t4} = \mathbf{\Delta}^T_t \mathbf{T}_4 \mathbf{V}\\
+V(r,g,b)_{t5} = \mathbf{\Delta}^T_t \mathbf{T}_5 \mathbf{V}\\
+V(r,g,b)_{t6} = \mathbf{\Delta}^T_t \mathbf{T}_6 \mathbf{V}
+\end{gather}
+$$
+
+!!! note
+    The vectors $\mathbf{T}_i \mathbf{V}$ for $i = 1,2,3,4,5,6$ does not depend on the variable $(r,g,b)$ and thus can be computed in advance for optimization.
+
+
+### Appendix B: Cineon-style Log Parameters {#appendix-cineon-style}
+When using a `Log` node, it might be desirable to conform an existing logarithmic function that uses Cineon style parameters to the parameters used by CLF. A translation from Cineon-style parameters to those used by CLF's `LogParams` element is quite straightforward using the following steps.
+
+Traditionally, $\textrm{refWhite}$ and $\textrm{refBlack}$ are provided as 10-bit quantities, and if they indeed are, first normalize them to floating point by dividing by 1023.
+
+$$
+\begin{align}
+\textrm{refWhite} = \frac{\textrm{refWhite}_{10i}}{1023.0} \\[12pt]
+\textrm{refBlack} = \frac{\textrm{refBlack}_{10i}}{1023.0}
+\end{align}
+$$
+
+Where subscript 10$i$ indicates a 10-bit quantity.
+
+The density range is assumed to be:
+
+$$
+\textrm{range} = 0.002 \times 1023.0
+$$
+
+Then solve the following quantities:
+
+$$
+\begin{align}
+\textrm{multFactor} =& \frac{\textrm{range}}{\textrm{gamma}} \\
+\textrm{gain} =& \frac{\textrm{highlight} - \textrm{shadow}}{1.0 - 10^{( MIN( \textrm{multFactor} \times (\textrm{refBlack}-\textrm{refWhite}), -0.0001)}} \\[6pt]
+\textrm{offset} =& \ \textrm{gain} - (\textrm{highlight} - \textrm{shadow}) \\
+\end{align}
+$$
+
+Where $MIN(x,y)$ returns $x$ if $x<y$, otherwise returns $y$
+
+The parameters for the `LogParams` element are then:
+
+\begin{align}
+    \texttt{base} =& \ 10.0 \\[6pt]
+    \texttt{logSlope} =& \ \frac{1}{\textrm{multFactor}} \\[6pt]
+    \texttt{logOffset} =& \ \textrm{refWhite} \\[6pt]
+    \texttt{linSlope} =& \ \frac{1}{\textrm{gain}} \\[6pt]
+    \texttt{linOffset} =& \ \frac{\textrm{offset}-\textrm{shadow}}{\textrm{gain}}
+\end{align}
+
+
+### Appendix C: Changes between v2.0 and v3.0
+
+* Add `Log` ProcessNode
+* Add `Exponent` ProcessNode
+* Revise formulas for defining use of `Range` ProcessNode to clamp at the low or high end.
+* `IndexMaps` removed. Use a `halfDomain` LUT to achieve reshaping of input to a LUT.
+* Move `ACEStransform` elements to `Info` element of ProcessList in main spec
+* Changed syntax for `dim` attribute of `Array` when contained in a `Matrix`. Two integers are now used to define the dimensions of the matrix instead of the previous three values which defined the dimensions of the matrix and the number of color components.
