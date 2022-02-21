@@ -1,618 +1,1012 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
+    
+    
+      
+        <title>ACES Metadata File (AMF) Implementation Guide - ACES Technical Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pontano+Sans:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Pontano Sans";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.2.3, mkdocs-material-8.2.1" name="generator"/>
-<title>ACES Metadata File (AMF) Implementation Guide - ACES Technical Documentation</title>
-<link href="../../assets/stylesheets/main.e8d9bf0c.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.e6a45f82.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Pontano+Sans:300,400,400i,700%7C&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Pontano Sans";--md-code-font:""}</style>
-<link href="../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="aces-light" dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#aces-metadata-file-implementation-guidelines-and-best-practices">
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aces-light" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aces-metadata-file-implementation-guidelines-and-best-practices" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="ACES Technical Documentation" class="md-header__button md-logo" data-md-component="logo" href="https://www.acescentral.com" title="ACES Technical Documentation">
-<img alt="logo" src="../../assets/images/logo.png"/>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.acescentral.com" title="ACES Technical Documentation" class="md-header__button md-logo" aria-label="ACES Technical Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             ACES Technical Documentation
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               ACES Metadata File (AMF) Implementation Guide
             
           </span>
-</div>
-</div>
-</div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="aces-light" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"></path></svg>
-</label>
-</form>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="aces-light" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/ampas/aces-dev/" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-</div>
-<div class="md-source__repository">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ampas/aces-dev/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
     aces-dev
   </div>
 </a>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
-<div class="md-tabs__inner md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         ACES Documentation
       </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../glossary/">
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../glossary/" class="md-tabs__link">
       Glossary
     </a>
-</li>
-</ul>
-</div>
+  </li>
+
+      
+    </ul>
+  </div>
 </nav>
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="ACES Technical Documentation" class="md-nav__button md-logo" data-md-component="logo" href="https://www.acescentral.com" title="ACES Technical Documentation">
-<img alt="logo" src="../../assets/images/logo.png"/>
-</a>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.acescentral.com" title="ACES Technical Documentation" class="md-nav__button md-logo" aria-label="ACES Technical Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
     ACES Technical Documentation
   </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/ampas/aces-dev/" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-</div>
-<div class="md-source__repository">
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ampas/aces-dev/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
     aces-dev
   </div>
 </a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_1">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
           ACES Documentation
           <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="ACES Documentation" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_1">
-<span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ACES Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
           ACES Documentation
         </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" id="__nav_1_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_1_1">
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
           Implementation and User Guides
           <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Implementation and User Guides" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_1">
-<span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Implementation and User Guides" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
           Implementation and User Guides
         </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
           ACES Metadata File (AMF) Implementation Guide
           <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         ACES Metadata File (AMF) Implementation Guide
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#scope">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
     Scope
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
     References
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
     Introduction
   </a>
-<nav aria-label="Introduction" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#target-audience">
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
     Target Audience
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-amf">
+      
+        <li class="md-nav__item">
+  <a href="#what-is-amf" class="md-nav__link">
     What is AMF
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-is-amf-needed">
+      
+        <li class="md-nav__item">
+  <a href="#why-is-amf-needed" class="md-nav__link">
     Why is AMF needed
   </a>
-<nav aria-label="Why is AMF needed" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-applied-attribute">
+  
+    <nav class="md-nav" aria-label="Why is AMF needed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-applied-attribute" class="md-nav__link">
     The “applied” attribute
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lifecycle-of-amf">
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-of-amf" class="md-nav__link">
     Lifecycle of AMF
   </a>
-<nav aria-label="Lifecycle of AMF" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#camera">
+  
+    <nav class="md-nav" aria-label="Lifecycle of AMF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camera" class="md-nav__link">
     Camera
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#monitor">
+        
+          <li class="md-nav__item">
+  <a href="#monitor" class="md-nav__link">
     Monitor
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#on-set-live-grading">
+        
+          <li class="md-nav__item">
+  <a href="#on-set-live-grading" class="md-nav__link">
     On-set live grading
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dailies">
+        
+          <li class="md-nav__item">
+  <a href="#dailies" class="md-nav__link">
     Dailies
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#editorial">
+        
+          <li class="md-nav__item">
+  <a href="#editorial" class="md-nav__link">
     Editorial
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#vfx">
+        
+          <li class="md-nav__item">
+  <a href="#vfx" class="md-nav__link">
     VFX
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#color-grading">
+        
+          <li class="md-nav__item">
+  <a href="#color-grading" class="md-nav__link">
     Color Grading
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#review">
+        
+          <li class="md-nav__item">
+  <a href="#review" class="md-nav__link">
     Review
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mastering-and-archiving">
+        
+          <li class="md-nav__item">
+  <a href="#mastering-and-archiving" class="md-nav__link">
     Mastering and Archiving
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#considerations-on-readingwriting-amf">
+      
+        <li class="md-nav__item">
+  <a href="#considerations-on-readingwriting-amf" class="md-nav__link">
     Considerations on reading/writing AMF
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#structure-of-amf">
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-amf" class="md-nav__link">
     Structure of AMF
   </a>
-<nav aria-label="Structure of AMF" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#amf-document-sections">
+  
+    <nav class="md-nav" aria-label="Structure of AMF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amf-document-sections" class="md-nav__link">
     AMF document sections
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#general-descriptive-information">
+        
+          <li class="md-nav__item">
+  <a href="#general-descriptive-information" class="md-nav__link">
     General descriptive information
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#clip-information-and-association">
+        
+          <li class="md-nav__item">
+  <a href="#clip-information-and-association" class="md-nav__link">
     Clip information and association
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#aces-pipeline-configuration">
+        
+          <li class="md-nav__item">
+  <a href="#aces-pipeline-configuration" class="md-nav__link">
     ACES pipeline configuration
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#amf-external-lmt-referencing-rules">
+      
+        <li class="md-nav__item">
+  <a href="#amf-external-lmt-referencing-rules" class="md-nav__link">
     AMF &amp; external LMT referencing rules
   </a>
-<nav aria-label="AMF &amp; external LMT referencing rules" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#using-acesfile">
+  
+    <nav class="md-nav" aria-label="AMF &amp; external LMT referencing rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-acesfile" class="md-nav__link">
     Using &lt;aces:file&gt;
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#file-name-characters">
+        
+          <li class="md-nav__item">
+  <a href="#file-name-characters" class="md-nav__link">
     File name characters
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#file-naming-conventions">
+        
+          <li class="md-nav__item">
+  <a href="#file-naming-conventions" class="md-nav__link">
     File naming conventions
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#retrieving-external-lmts-via-http">
+        
+          <li class="md-nav__item">
+  <a href="#retrieving-external-lmts-via-http" class="md-nav__link">
     Retrieving external LMTs via HTTP
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#using-acesuuid">
+        
+          <li class="md-nav__item">
+  <a href="#using-acesuuid" class="md-nav__link">
     Using &lt;aces:uuid&gt;
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annex">
+      
+        <li class="md-nav__item">
+  <a href="#annex" class="md-nav__link">
     Annex
   </a>
-<nav aria-label="Annex" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#avid-log-exchange-ale-support">
+  
+    <nav class="md-nav" aria-label="Annex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avid-log-exchange-ale-support" class="md-nav__link">
     Avid Log Exchange (ALE) support
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#edit-decision-list-edl-support">
+        
+          <li class="md-nav__item">
+  <a href="#edit-decision-list-edl-support" class="md-nav__link">
     Edit Decision List (EDL) support
   </a>
+  
 </li>
-</ul>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../clf/">
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clf/" class="md-nav__link">
         Common LUT Format (CLF) Implementation Guide
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../rgc-user/">
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rgc-user/" class="md-nav__link">
         Reference Gamut Compression (RGC) User Guide
       </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../glossary/">
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
         Glossary
       </a>
-</li>
-</ul>
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#scope">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
     Scope
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
     References
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
     Introduction
   </a>
-<nav aria-label="Introduction" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#target-audience">
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
     Target Audience
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-amf">
+      
+        <li class="md-nav__item">
+  <a href="#what-is-amf" class="md-nav__link">
     What is AMF
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-is-amf-needed">
+      
+        <li class="md-nav__item">
+  <a href="#why-is-amf-needed" class="md-nav__link">
     Why is AMF needed
   </a>
-<nav aria-label="Why is AMF needed" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-applied-attribute">
+  
+    <nav class="md-nav" aria-label="Why is AMF needed">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-applied-attribute" class="md-nav__link">
     The “applied” attribute
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lifecycle-of-amf">
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle-of-amf" class="md-nav__link">
     Lifecycle of AMF
   </a>
-<nav aria-label="Lifecycle of AMF" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#camera">
+  
+    <nav class="md-nav" aria-label="Lifecycle of AMF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#camera" class="md-nav__link">
     Camera
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#monitor">
+        
+          <li class="md-nav__item">
+  <a href="#monitor" class="md-nav__link">
     Monitor
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#on-set-live-grading">
+        
+          <li class="md-nav__item">
+  <a href="#on-set-live-grading" class="md-nav__link">
     On-set live grading
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dailies">
+        
+          <li class="md-nav__item">
+  <a href="#dailies" class="md-nav__link">
     Dailies
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#editorial">
+        
+          <li class="md-nav__item">
+  <a href="#editorial" class="md-nav__link">
     Editorial
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#vfx">
+        
+          <li class="md-nav__item">
+  <a href="#vfx" class="md-nav__link">
     VFX
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#color-grading">
+        
+          <li class="md-nav__item">
+  <a href="#color-grading" class="md-nav__link">
     Color Grading
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#review">
+        
+          <li class="md-nav__item">
+  <a href="#review" class="md-nav__link">
     Review
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mastering-and-archiving">
+        
+          <li class="md-nav__item">
+  <a href="#mastering-and-archiving" class="md-nav__link">
     Mastering and Archiving
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#considerations-on-readingwriting-amf">
+      
+        <li class="md-nav__item">
+  <a href="#considerations-on-readingwriting-amf" class="md-nav__link">
     Considerations on reading/writing AMF
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#structure-of-amf">
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-amf" class="md-nav__link">
     Structure of AMF
   </a>
-<nav aria-label="Structure of AMF" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#amf-document-sections">
+  
+    <nav class="md-nav" aria-label="Structure of AMF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amf-document-sections" class="md-nav__link">
     AMF document sections
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#general-descriptive-information">
+        
+          <li class="md-nav__item">
+  <a href="#general-descriptive-information" class="md-nav__link">
     General descriptive information
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#clip-information-and-association">
+        
+          <li class="md-nav__item">
+  <a href="#clip-information-and-association" class="md-nav__link">
     Clip information and association
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#aces-pipeline-configuration">
+        
+          <li class="md-nav__item">
+  <a href="#aces-pipeline-configuration" class="md-nav__link">
     ACES pipeline configuration
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#amf-external-lmt-referencing-rules">
+      
+        <li class="md-nav__item">
+  <a href="#amf-external-lmt-referencing-rules" class="md-nav__link">
     AMF &amp; external LMT referencing rules
   </a>
-<nav aria-label="AMF &amp; external LMT referencing rules" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#using-acesfile">
+  
+    <nav class="md-nav" aria-label="AMF &amp; external LMT referencing rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-acesfile" class="md-nav__link">
     Using &lt;aces:file&gt;
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#file-name-characters">
+        
+          <li class="md-nav__item">
+  <a href="#file-name-characters" class="md-nav__link">
     File name characters
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#file-naming-conventions">
+        
+          <li class="md-nav__item">
+  <a href="#file-naming-conventions" class="md-nav__link">
     File naming conventions
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#retrieving-external-lmts-via-http">
+        
+          <li class="md-nav__item">
+  <a href="#retrieving-external-lmts-via-http" class="md-nav__link">
     Retrieving external LMTs via HTTP
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#using-acesuuid">
+        
+          <li class="md-nav__item">
+  <a href="#using-acesuuid" class="md-nav__link">
     Using &lt;aces:uuid&gt;
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annex">
+      
+        <li class="md-nav__item">
+  <a href="#annex" class="md-nav__link">
     Annex
   </a>
-<nav aria-label="Annex" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#avid-log-exchange-ale-support">
+  
+    <nav class="md-nav" aria-label="Annex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avid-log-exchange-ale-support" class="md-nav__link">
     Avid Log Exchange (ALE) support
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#edit-decision-list-edl-support">
+        
+          <li class="md-nav__item">
+  <a href="#edit-decision-list-edl-support" class="md-nav__link">
     Edit Decision List (EDL) support
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs/guides/amf/index.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs/guides/amf/index.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
-<h1 id="aces-metadata-file-implementation-guidelines-and-best-practices"><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File Implementation Guidelines and Best Practices<a class="headerlink" href="#aces-metadata-file-implementation-guidelines-and-best-practices" title="Permanent link">¶</a></h1>
-<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">¶</a></h2>
+
+
+
+<h1 id="aces-metadata-file-implementation-guidelines-and-best-practices"><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File Implementation Guidelines and Best Practices<a class="headerlink" href="#aces-metadata-file-implementation-guidelines-and-best-practices" title="Permanent link">&para;</a></h1>
+<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
 <p>This document is a guide that recommends implementation guidelines and best
 practices related to the usage of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File (<abbr title="ACES Metadata File">AMF</abbr>) in various
 workflows. These workflows may involve one or more tools that support the <abbr title="ACES Metadata File">AMF</abbr>
 specification and this guide attempts to help both implementers and users in
 order to facilitate interoperability.</p>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">¶</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <p>The following standards, specifications, articles, presentations, and texts are referenced in this text:</p>
 <ul>
 <li><a href="https://aces.mp/S-2019-001">Academy S-2019-001, <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File (<abbr title="ACES Metadata File">AMF</abbr>)</a></li>
 <li><a href="https://standards.globalspec.com/std/1524451/RFC%204122"><abbr title="Internet Engineering Task Force">IETF</abbr> RFC 4122, A Universally Unique IDentifier (<abbr title="Universal(ly) Unique Identifier">UUID</abbr>) <abbr title="Uniform Resource Name">URN</abbr> Namespace</a></li>
 </ul>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The Academy Color Encoding System (<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>) is a color processing framework that
 enables the mix of various sources within a standardized color space in order to
 produce one or more outputs.</p>
@@ -628,13 +1022,13 @@ exists.</p>
 Besides this basic goal, <abbr title="ACES Metadata File">AMF</abbr> is also the tool of choice to transmit and exchange
 configuration parameters in order to ensure consistency within a workflow and
 across the entire ecosystem of tools that are used within that workflow.</p>
-<h3 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">¶</a></h3>
+<h3 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">&para;</a></h3>
 <p><abbr title="ACES Metadata File">AMF</abbr> is a sidecar file specified using the <abbr title="Extensible Markup Language">XML</abbr> markup language, and as such it
 can be processed by machines and at the same time created/modified by users.</p>
 <p>This document targets both <abbr title="ACES Metadata File">AMF</abbr> users and <abbr title="ACES Metadata File">AMF</abbr> implementers because both groups
 need the same level of understanding in order to design <abbr title="ACES Metadata File">AMF</abbr>-enabled workflows
 and tools that support those workflows.</p>
-<h2 id="what-is-amf">What is <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#what-is-amf" title="Permanent link">¶</a></h2>
+<h2 id="what-is-amf">What is <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#what-is-amf" title="Permanent link">&para;</a></h2>
 <p><abbr title="ACES Metadata File">AMF</abbr> is an <abbr title="Extensible Markup Language">XML</abbr> specification that describes the configuration of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> color
 pipeline, together with the various input transforms, look transforms and output
 transforms.</p>
@@ -649,12 +1043,12 @@ workflow, and tools implementing <abbr title="ACES Metadata File">AMF</abbr> sho
 flexibility.</p>
 <p>In general, the relationship between the visual elements and the <abbr title="ACES Metadata File">AMF</abbr> files can
 be described as a "many to many" relationship.</p>
-<h2 id="why-is-amf-needed">Why is <abbr title="ACES Metadata File">AMF</abbr> needed<a class="headerlink" href="#why-is-amf-needed" title="Permanent link">¶</a></h2>
+<h2 id="why-is-amf-needed">Why is <abbr title="ACES Metadata File">AMF</abbr> needed<a class="headerlink" href="#why-is-amf-needed" title="Permanent link">&para;</a></h2>
 <p>The <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> framework is expanding and becoming richer in terms of input, look, and
 output transforms. <abbr title="ACES Metadata File">AMF</abbr> describes the exact list of these different transforms,
 in the order in which they have been or should be applied to obtain the desired
 result.</p>
-<p><div class="mermaid">graph LR
+<p><pre class="mermaid"><code>graph LR
 A1[Input Media] --&gt; B(Input Transform)
 subgraph AMF Complete Processing Path Description
     B --&gt; C1(Look Transform)
@@ -663,35 +1057,33 @@ end
 A2[ACES Material] ---&gt; C2(Look Transform)
 subgraph AMF Partial Processing Path Description
     C2 --&gt; D2(Output Transform)
-end
-</div>
-<figure markdown="block">
-<figcaption markdown="off">AMF Processing Path Description</figcaption>
+end</code></pre>
+ <figure markdown="block">
+  <figcaption markdown="off">AMF Processing Path Description</figcaption>
 </figure></p>
 <p>This is a powerful feature because it can describe both configurations that must
 be used to create a specific output, or configurations that have been used to
 create a specific output.</p>
-<div class="mermaid">graph TB
-B1  --&gt; A1(AMF <br/>Look Modification Transform <br/> Chain)
+<pre class="mermaid"><code>graph TB
+B1  --&gt; A1(AMF &lt;br/&gt;Look Modification Transform &lt;br/&gt; Chain)
 B2  --&gt; A1
 B3  --&gt; A1
 subgraph  
-    B1("ASC-CDL<br/>or<br/>External LMT<br/>(active)") 
-    B2("ASC-CDL<br/>or<br/>External LMT<br/>(disabled)")
-    B3("ASC-CDL<br/>or<br/>External LMT<br/>(active)")
+    B1("ASC-CDL&lt;br/&gt;or&lt;br/&gt;External LMT&lt;br/&gt;(active)") 
+    B2("ASC-CDL&lt;br/&gt;or&lt;br/&gt;External LMT&lt;br/&gt;(disabled)")
+    B3("ASC-CDL&lt;br/&gt;or&lt;br/&gt;External LMT&lt;br/&gt;(active)")
 end
 
 classDef disabled opacity: 0.5
-class B2 disabled
-</div>
+class B2 disabled</code></pre>
 <figure>
 <figcaption>Each block in the chain can be an ASC-CDL or an external LUT.
-  <br/>Blocks can be enabled or disabled</figcaption>
+  <br>Blocks can be enabled or disabled</figcaption>
 </figure>
 <p>Finally, another feature of <abbr title="ACES Metadata File">AMF</abbr> is the ability to document a "change log" in an
 <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> color pipeline. This is called the "archived pipeline" and will be
 discussed later in the document.</p>
-<h3 id="the-applied-attribute">The “applied” attribute<a class="headerlink" href="#the-applied-attribute" title="Permanent link">¶</a></h3>
+<h3 id="the-applied-attribute">The “applied” attribute<a class="headerlink" href="#the-applied-attribute" title="Permanent link">&para;</a></h3>
 <p>Each transform in an <abbr title="ACES Metadata File">AMF</abbr> can be tagged with the attribute called <code>applied</code> -
 which indicates whether a transform <strong>has already been applied</strong>
 (<code>applied=true</code>), in which case the transform has already been baked into the
@@ -701,25 +1093,25 @@ case the transform should be loaded as part of the viewing pipeline.</p>
 which may be baked into <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1 <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> image data, and it is essential to
 communicate to downstream software that it has already been applied, as to not
 double-apply the transform, or invert it if necessary.</p>
-<h2 id="lifecycle-of-amf">Lifecycle of <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#lifecycle-of-amf" title="Permanent link">¶</a></h2>
+<h2 id="lifecycle-of-amf">Lifecycle of <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#lifecycle-of-amf" title="Permanent link">&para;</a></h2>
 <p>This section describes the life cycle of an <abbr title="ACES Metadata File">AMF</abbr> and how it could be used within
 each production stage.</p>
-<h3 id="camera">Camera<a class="headerlink" href="#camera" title="Permanent link">¶</a></h3>
+<h3 id="camera">Camera<a class="headerlink" href="#camera" title="Permanent link">&para;</a></h3>
 <p>While on set, <abbr title="ACES Metadata File">AMF</abbr> could be imported in-camera and used to apply color pipeline
 settings for video and file output, or exported to a camera card when using a
 camera’s <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> viewing pipeline. See section 7 for more on cameras
 reading/writing <abbr title="ACES Metadata File">AMF</abbr>.</p>
-<h3 id="monitor">Monitor<a class="headerlink" href="#monitor" title="Permanent link">¶</a></h3>
+<h3 id="monitor">Monitor<a class="headerlink" href="#monitor" title="Permanent link">&para;</a></h3>
 <p>Some professional monitors allow import of <abbr title="look-up tables">LUTs</abbr> to apply looks in-device. <abbr title="ACES Metadata File">AMF</abbr>
 could replace proprietary or uncommon <abbr title="look-up table">LUT</abbr> formats for improved interoperability.</p>
-<h3 id="on-set-live-grading">On-set live grading<a class="headerlink" href="#on-set-live-grading" title="Permanent link">¶</a></h3>
+<h3 id="on-set-live-grading">On-set live grading<a class="headerlink" href="#on-set-live-grading" title="Permanent link">&para;</a></h3>
 <p>An <abbr title="ACES Metadata File">AMF</abbr> may be read by on-set live grading software for the purpose of on-set
 monitoring and color grading within <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>.</p>
 <p>If anything is altered within the domain of the pipeline defined in the <abbr title="ACES Metadata File">AMF</abbr>, a
 new <abbr title="ACES Metadata File">AMF</abbr> is created to reflect those modifications. For example, an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline
 is established in an <abbr title="ACES Metadata File">AMF</abbr> before production, then <abbr title="Color Decision List">CDL</abbr> adjustments are created
 during production to create an updated <abbr title="ACES Metadata File">AMF</abbr> accordingly.</p>
-<h3 id="dailies">Dailies<a class="headerlink" href="#dailies" title="Permanent link">¶</a></h3>
+<h3 id="dailies">Dailies<a class="headerlink" href="#dailies" title="Permanent link">&para;</a></h3>
 <p>In a dailies tool, a pre-created <abbr title="ACES Metadata File">AMF</abbr> could be read and associated with <abbr title="Original Camera File">OCF</abbr>
 (Original Camera Files) to apply pipeline settings (for viewing and rendering).
 This could be done either by manual association or automatically.</p>
@@ -727,38 +1119,38 @@ This could be done either by manual association or automatically.</p>
 existing <abbr title="ACES Metadata File">AMF</abbr> may be modified and updated. AMFs are written out with media to be
 passed to editorial software. Commonly used interchange files (e.g. <abbr title="Edit Decision List">EDL</abbr> or <abbr title="Avid Log Exchange">ALE</abbr>)
 can be used to conform <abbr title="ACES Metadata File">AMF</abbr> files with <abbr title="Original Camera File">OCF</abbr>, see below for more details.</p>
-<h3 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">¶</a></h3>
+<h3 id="editorial">Editorial<a class="headerlink" href="#editorial" title="Permanent link">&para;</a></h3>
 <p>Editorial software can apply pipeline settings provided by <abbr title="ACES Metadata File">AMF</abbr>(s) when importing
 media to automatically set up viewing and rendering.</p>
-<h3 id="vfx"><abbr title="Visual Effects">VFX</abbr><a class="headerlink" href="#vfx" title="Permanent link">¶</a></h3>
+<h3 id="vfx"><abbr title="Visual Effects">VFX</abbr><a class="headerlink" href="#vfx" title="Permanent link">&para;</a></h3>
 <p>Read <abbr title="ACES Metadata File">AMF</abbr>(s) when importing plates into <abbr title="Visual Effects">VFX</abbr> software and apply pipeline settings
 for viewing. Given the prevalence of OpenColorIO across <abbr title="Visual Effects">VFX</abbr> software, it is
 likely that a translation from <abbr title="ACES Metadata File">AMF</abbr> to OpenColorIO (<abbr title="OpenColorIO">OCIO</abbr>) would be required.</p>
-<h3 id="color-grading">Color Grading<a class="headerlink" href="#color-grading" title="Permanent link">¶</a></h3>
+<h3 id="color-grading">Color Grading<a class="headerlink" href="#color-grading" title="Permanent link">&para;</a></h3>
 <p>When in color grading, <abbr title="ACES Metadata File">AMF</abbr> could be conformed to a timeline and associated with
 <abbr title="Original Camera File">OCF</abbr> to apply pipeline settings (for viewing and rendering). These applications
 should also allow for look development in <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> and subsequent exporting of <abbr title="ACES Metadata File">AMF</abbr>.</p>
-<h3 id="review">Review<a class="headerlink" href="#review" title="Permanent link">¶</a></h3>
+<h3 id="review">Review<a class="headerlink" href="#review" title="Permanent link">&para;</a></h3>
 <p>Review software could automatically apply <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline settings for viewing
 purposes by reading <abbr title="ACES Metadata File">AMF</abbr>(s) when importing media or by manually applying <abbr title="ACES Metadata File">AMF</abbr>(s)
 to imported media.</p>
-<h3 id="mastering-and-archiving">Mastering and Archiving<a class="headerlink" href="#mastering-and-archiving" title="Permanent link">¶</a></h3>
+<h3 id="mastering-and-archiving">Mastering and Archiving<a class="headerlink" href="#mastering-and-archiving" title="Permanent link">&para;</a></h3>
 <p>Read <abbr title="ACES Metadata File">AMF</abbr>(s) when importing media and apply pipeline settings for viewing.</p>
 <p>Consolidate <abbr title="ACES Metadata File">AMF</abbr>(s) to meet specific archival delivery requirements.</p>
-<h2 id="considerations-on-readingwriting-amf">Considerations on reading/writing <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#considerations-on-readingwriting-amf" title="Permanent link">¶</a></h2>
+<h2 id="considerations-on-readingwriting-amf">Considerations on reading/writing <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#considerations-on-readingwriting-amf" title="Permanent link">&para;</a></h2>
 <p>This section outlines various scenarios related to the reading and writing of <abbr title="ACES Metadata File">AMF</abbr> files.</p>
 <table>
 <thead>
 <tr>
 <th>Scenario</th>
 <th>Read - An <abbr title="ACES Metadata File">AMF</abbr> is read when importing media and used to populate a color pipeline for viewing and rendering.</th>
-<th>Write - A new <abbr title="ACES Metadata File">AMF</abbr> is written in order to be passed along to the next production stage. If a new <abbr title="ACES Metadata File">AMF</abbr> is done from a previous <abbr title="ACES Metadata File">AMF</abbr>, the previous pipeline might be archived in the <archived> section.</archived></th>
+<th>Write - A new <abbr title="ACES Metadata File">AMF</abbr> is written in order to be passed along to the next production stage. If a new <abbr title="ACES Metadata File">AMF</abbr> is done from a previous <abbr title="ACES Metadata File">AMF</abbr>, the previous pipeline might be archived in the <archived> section.</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><abbr title="Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.">RAW</abbr> Clips</td>
-<td><abbr title="ACES Metadata File">AMF</abbr> does not include any metadata for demosaic settings. Implementations need to ensure that the image is demosaicked to the appropriate color space before the Input Transform defined in the <abbr title="ACES Metadata File">AMF</abbr> is applied. User input may be required.<br/>If software chooses to directly demosaic a <abbr title="Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.">RAW</abbr> image to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>, the Input Transform defined in the <abbr title="ACES Metadata File">AMF</abbr> must be ignored.</td>
+<td><abbr title="ACES Metadata File">AMF</abbr> does not include any metadata for demosaic settings. Implementations need to ensure that the image is demosaicked to the appropriate color space before the Input Transform defined in the <abbr title="ACES Metadata File">AMF</abbr> is applied. User input may be required.<br>If software chooses to directly demosaic a <abbr title="Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.">RAW</abbr> image to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>, the Input Transform defined in the <abbr title="ACES Metadata File">AMF</abbr> must be ignored.</td>
 <td>n/a</td>
 </tr>
 <tr>
@@ -768,12 +1160,12 @@ to imported media.</p>
 </tr>
 <tr>
 <td>Output Transform Conflict</td>
-<td>If the <abbr title="ACES Metadata File">AMF</abbr> specifies an Output Transform that is in conflict with the respective shot’s Output Transform, then this conflict must be handled. The default behaviour should be to stick with the project-wide Output Transform, but it may be useful to indicate a conflict to the user.<br/>Example: An <abbr title="ACES Metadata File">AMF</abbr> is generated from a software platform that uses the Rec709_100nits transform, and is then read by a software platform that is using an HDR Output Transform.</td>
+<td>If the <abbr title="ACES Metadata File">AMF</abbr> specifies an Output Transform that is in conflict with the respective shot’s Output Transform, then this conflict must be handled. The default behaviour should be to stick with the project-wide Output Transform, but it may be useful to indicate a conflict to the user.<br>Example: An <abbr title="ACES Metadata File">AMF</abbr> is generated from a software platform that uses the Rec709_100nits transform, and is then read by a software platform that is using an HDR Output Transform.</td>
 <td>The Output Transform that was indeed used for viewing should be specified in the <abbr title="ACES Metadata File">AMF</abbr>.</td>
 </tr>
 <tr>
 <td>Manual <abbr title="ACES Metadata File">AMF</abbr> Batch Import/Export</td>
-<td>Consider the use of commonly used interchange files (e.g. <abbr title="Edit Decision List">EDL</abbr> or <abbr title="Avid Log Exchange">ALE</abbr>) to batch import <abbr title="ACES Metadata File">AMF</abbr>’s to a timeline.<br/>Ideally, the software would allow for a partial import of only the Input, Look, or Output Transforms of a given <abbr title="ACES Metadata File">AMF</abbr>.</td>
+<td>Consider the use of commonly used interchange files (e.g. <abbr title="Edit Decision List">EDL</abbr> or <abbr title="Avid Log Exchange">ALE</abbr>) to batch import <abbr title="ACES Metadata File">AMF</abbr>’s to a timeline.<br>Ideally, the software would allow for a partial import of only the Input, Look, or Output Transforms of a given <abbr title="ACES Metadata File">AMF</abbr>.</td>
 <td>When exporting a batch of <abbr title="ACES Metadata File">AMF</abbr>’s for an entire timeline, consider exporting commonly used interchange files (e.g. <abbr title="Edit Decision List">EDL</abbr> or <abbr title="Avid Log Exchange">ALE</abbr>) to create an association between Clips and the exported <abbr title="ACES Metadata File">AMF</abbr> files.</td>
 </tr>
 <tr>
@@ -783,7 +1175,7 @@ to imported media.</p>
 </tr>
 <tr>
 <td>Pipeline Override</td>
-<td>If an <abbr title="ACES Metadata File">AMF</abbr> has already been applied to a shot, or if project/timeline settings apply, and a subsequent <abbr title="ACES Metadata File">AMF</abbr> is read for that shot, consider prompting the user before overriding pipeline.<br/>Ideally, the software would allow for a partial import of only the Input, Look, or Output Transforms of a given <abbr title="ACES Metadata File">AMF</abbr>.</td>
+<td>If an <abbr title="ACES Metadata File">AMF</abbr> has already been applied to a shot, or if project/timeline settings apply, and a subsequent <abbr title="ACES Metadata File">AMF</abbr> is read for that shot, consider prompting the user before overriding pipeline.<br>Ideally, the software would allow for a partial import of only the Input, Look, or Output Transforms of a given <abbr title="ACES Metadata File">AMF</abbr>.</td>
 <td>Consider including multiple <abbr title="ACES Metadata File">AMF</abbr> transform pipelines by making use of <abbr title="ACES Metadata File">AMF</abbr>’s <code>aces:archivedPipeline</code> element.</td>
 </tr>
 <tr>
@@ -798,27 +1190,27 @@ to imported media.</p>
 </tr>
 <tr>
 <td>Cameras</td>
-<td>Import <abbr title="ACES Metadata File">AMF</abbr> in-camera and apply pipeline settings for video and file output.<br/>An <abbr title="ACES Metadata File">AMF</abbr> loaded in camera could specify over SDI how to treat the incoming signal (ie Output Transform)<br/>There are reasonable expectations that any in-camera processing, for the foreseeable future, will be done utilizing small 3D <abbr title="look-up tables">LUTs</abbr> at the highest complexity. Therefore, applications of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline in-camera may be limited in precision.</td>
-<td>When should a camera generate an <abbr title="ACES Metadata File">AMF</abbr>?<br/>If a camera generates an <abbr title="ACES Metadata File">AMF</abbr>, where should it be written?<br/><br/>#1 Preferred Method:<br/><em> Embedded in the <abbr title="Original Camera File">OCF</abbr>, e.g.REDCODE <abbr title="Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.">RAW</abbr> R3D <br/><br/>#2 Preferred Method:<br/></em> <abbr title="ACES Metadata File">AMF</abbr> should live in the same directory as its associated clip<br/><br/>#3 Preferred Method:<br/>* A single folder with all <abbr title="ACES Metadata File">AMF</abbr> files</td>
+<td>Import <abbr title="ACES Metadata File">AMF</abbr> in-camera and apply pipeline settings for video and file output.<br>An <abbr title="ACES Metadata File">AMF</abbr> loaded in camera could specify over SDI how to treat the incoming signal (ie Output Transform)<br>There are reasonable expectations that any in-camera processing, for the foreseeable future, will be done utilizing small 3D <abbr title="look-up tables">LUTs</abbr> at the highest complexity. Therefore, applications of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline in-camera may be limited in precision.</td>
+<td>When should a camera generate an <abbr title="ACES Metadata File">AMF</abbr>?<br>If a camera generates an <abbr title="ACES Metadata File">AMF</abbr>, where should it be written?<br><br>#1 Preferred Method:<br><em> Embedded in the <abbr title="Original Camera File">OCF</abbr>, e.g.REDCODE <abbr title="Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.">RAW</abbr> R3D <br><br>#2 Preferred Method:<br></em> <abbr title="ACES Metadata File">AMF</abbr> should live in the same directory as its associated clip<br><br>#3 Preferred Method:<br>* A single folder with all <abbr title="ACES Metadata File">AMF</abbr> files</td>
 </tr>
 <tr>
 <td>Metadata Population</td>
 <td>Parse the <abbr title="ACES Metadata File">AMF</abbr> for its filename and <code>aces:uuid</code> and write these to the appropriate metadata fields for each clip.</td>
-<td>If the <abbr title="ACES Metadata File">AMF</abbr> associated with a clip changes, the value relative to the <abbr title="ACES Metadata File">AMF</abbr> metadata fields within the editorial software should change and adopt the new values. So when writing<br/>commonly used interchange files (e.g. <abbr title="Edit Decision List">EDL</abbr> or <abbr title="Avid Log Exchange">ALE</abbr>) the correspondent values are correct.</td>
+<td>If the <abbr title="ACES Metadata File">AMF</abbr> associated with a clip changes, the value relative to the <abbr title="ACES Metadata File">AMF</abbr> metadata fields within the editorial software should change and adopt the new values. So when writing<br>commonly used interchange files (e.g. <abbr title="Edit Decision List">EDL</abbr> or <abbr title="Avid Log Exchange">ALE</abbr>) the correspondent values are correct.</td>
 </tr>
 <tr>
 <td>Applied Tag</td>
 <td>When reading an <abbr title="ACES Metadata File">AMF</abbr> file that has the <code>applied=true</code> attribute for a specific transform, the software should NOT apply the transform to the file, since it has already been applied to the image itself. Consider reporting it to the user if applicable (e.g. a “history” log of the transforms is accessible for each clip)</td>
-<td>When exporting <abbr title="ACES Metadata File">AMF</abbr>’s from a timeline of clips that have not been rendered yet, each transform in the <abbr title="ACES Metadata File">AMF</abbr> should be tagged as <code>applied=false</code>.<br/>However, when rendering new files, consider having the ability to export new <abbr title="ACES Metadata File">AMF</abbr>’s files simultaneously as part of the same deliverable and, in this case, each transform that is actually baked in should be tagged as <code>applied=true</code> in the <abbr title="ACES Metadata File">AMF</abbr> (e.g. the Input Transform if rendering OpenEXR <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 2065-1 <abbr title="Visual Effects">VFX</abbr> pulls, or everything when exporting 709 proxies for editorial).</td>
+<td>When exporting <abbr title="ACES Metadata File">AMF</abbr>’s from a timeline of clips that have not been rendered yet, each transform in the <abbr title="ACES Metadata File">AMF</abbr> should be tagged as <code>applied=false</code>.<br>However, when rendering new files, consider having the ability to export new <abbr title="ACES Metadata File">AMF</abbr>’s files simultaneously as part of the same deliverable and, in this case, each transform that is actually baked in should be tagged as <code>applied=true</code> in the <abbr title="ACES Metadata File">AMF</abbr> (e.g. the Input Transform if rendering OpenEXR <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 2065-1 <abbr title="Visual Effects">VFX</abbr> pulls, or everything when exporting 709 proxies for editorial).</td>
 </tr>
 <tr>
 <td>Archived Pipelines</td>
-<td>Consider allowing the user to toggle between different <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipelines that are recorded in the <code>aces:archivedPipeline</code> element.<br/>Otherwise, <code>aces:archivedPipeline</code> elements should be preserved for any new <abbr title="ACES Metadata File">AMF</abbr>’s subsequently created for the same shots.</td>
+<td>Consider allowing the user to toggle between different <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipelines that are recorded in the <code>aces:archivedPipeline</code> element.<br>Otherwise, <code>aces:archivedPipeline</code> elements should be preserved for any new <abbr title="ACES Metadata File">AMF</abbr>’s subsequently created for the same shots.</td>
 <td>If the software is updating a pre-existing <abbr title="ACES Metadata File">AMF</abbr>, the written <abbr title="ACES Metadata File">AMF</abbr> should include the appropriate <code>aces:archivedPipeline</code> element.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="structure-of-amf">Structure of <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#structure-of-amf" title="Permanent link">¶</a></h2>
+<h2 id="structure-of-amf">Structure of <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#structure-of-amf" title="Permanent link">&para;</a></h2>
 <p><abbr title="ACES Metadata File">AMF</abbr> is a specification based on the <abbr title="Extensible Markup Language">XML</abbr> markup language. It is fully described
 in <a href="https://aces.mp/S-2019-001">Academy Specification S-2019-001</a>. The
 specification also comes with an <abbr title="Extensible Markup Language">XML</abbr> Schema that can be used to validate the <abbr title="ACES Metadata File">AMF</abbr>
@@ -829,7 +1221,7 @@ documents.</p>
 implementers and users to take full advantage of <abbr title="ACES Metadata File">AMF</abbr>.</p>
 <p>It is strongly recommended to use the specification as a reference in order to
 better understand the concepts described here.</p>
-<h3 id="amf-document-sections"><abbr title="ACES Metadata File">AMF</abbr> document sections<a class="headerlink" href="#amf-document-sections" title="Permanent link">¶</a></h3>
+<h3 id="amf-document-sections"><abbr title="ACES Metadata File">AMF</abbr> document sections<a class="headerlink" href="#amf-document-sections" title="Permanent link">&para;</a></h3>
 <p><abbr title="ACES Metadata File">AMF</abbr> documents are mainly divided in 3 sections:</p>
 <ol>
 <li><code>aces:amfInfo</code> - this section provides descriptive information about the <abbr title="ACES Metadata File">AMF</abbr>
@@ -838,7 +1230,7 @@ better understand the concepts described here.</p>
     (<abbr title="Original Camera File">OCF</abbr> or rendered images) that this <abbr title="ACES Metadata File">AMF</abbr> is applicable for. </li>
 <li><code>aces:pipeline</code> - this section describes the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline configuration.</li>
 </ol>
-<h3 id="general-descriptive-information">General descriptive information<a class="headerlink" href="#general-descriptive-information" title="Permanent link">¶</a></h3>
+<h3 id="general-descriptive-information">General descriptive information<a class="headerlink" href="#general-descriptive-information" title="Permanent link">&para;</a></h3>
 <p>The <code>aces:amfInfo</code> element contains various sub-elements that provide
 descriptive information about the <abbr title="ACES Metadata File">AMF</abbr> document but also a mechanism to help
 identification. More specifically two sub-elements deserve some consideration:</p>
@@ -854,7 +1246,7 @@ The Universally Unique Identifier is specified in <abbr title="Internet Engineer
 <p>Both <code>aces:dateTime</code> and <code>aces:uuid</code> elements are not filled in by a human
 operator but rather automatically generated by the tool used to create the <abbr title="ACES Metadata File">AMF</abbr>
 document.</p>
-<h4 id="amf-naming-and-identification"><abbr title="ACES Metadata File">AMF</abbr> naming and identification<a class="headerlink" href="#amf-naming-and-identification" title="Permanent link">¶</a></h4>
+<h4 id="amf-naming-and-identification"><abbr title="ACES Metadata File">AMF</abbr> naming and identification<a class="headerlink" href="#amf-naming-and-identification" title="Permanent link">&para;</a></h4>
 <p>In general, the most common method that everyone uses to distinguish between two
 files is by comparing file names and/or their creation and/or modification date
 in the file system. However, this method quickly reveals itself ineffective when
@@ -882,7 +1274,7 @@ see below)</p>
 that results in the creation of the <abbr title="ACES Metadata File">AMF</abbr> file and the values are represented
 using the Coordinated Universal Time (<abbr title="Coordinated Universal Time">UTC</abbr>) standard.</p>
 <p>Example: <code>Dailies_ShowName_A002R2EC_2019-01-07_080228Z.amf</code></p>
-<h4 id="using-date-and-time-mechanism">Using date and time mechanism<a class="headerlink" href="#using-date-and-time-mechanism" title="Permanent link">¶</a></h4>
+<h4 id="using-date-and-time-mechanism">Using date and time mechanism<a class="headerlink" href="#using-date-and-time-mechanism" title="Permanent link">&para;</a></h4>
 <p>As mentioned above, the <code>aces:dateTime</code> is a mandatory element and it is defined
 using the standard <abbr title="Extensible Markup Language">XML</abbr> type <code>xs:dateTime.</code> Because this definition is very
 flexible, it is strongly recommended for the tools to always use the most
@@ -890,13 +1282,13 @@ explicit form that includes the year, month and day, the time of the day in
 hours, minutes and seconds as well as the time zone. This practice ensures that
 the creation and modification dates and times are giving a good indication on
 the location where the document was created/modified.</p>
-<h4 id="using-the-unique-identifier-mechanism">Using the unique identifier mechanism<a class="headerlink" href="#using-the-unique-identifier-mechanism" title="Permanent link">¶</a></h4>
+<h4 id="using-the-unique-identifier-mechanism">Using the unique identifier mechanism<a class="headerlink" href="#using-the-unique-identifier-mechanism" title="Permanent link">&para;</a></h4>
 <p>A more elaborate identification mechanism can also be used, by taking advantage
 of the <code>aces:uuid</code> element. Since this element is optional, one cannot count on
 its presence, however it is strongly recommended to use it. When doing so, the
 <abbr title="Universal(ly) Unique Identifier">UUID</abbr> becomes a much safer tool to distinguish between to <abbr title="ACES Metadata File">AMF</abbr> documents. UUIDs
 are automatically generated and they shall never be hand-crafted.</p>
-<h4 id="combining-several-identification-mechanisms">Combining several identification mechanisms<a class="headerlink" href="#combining-several-identification-mechanisms" title="Permanent link">¶</a></h4>
+<h4 id="combining-several-identification-mechanisms">Combining several identification mechanisms<a class="headerlink" href="#combining-several-identification-mechanisms" title="Permanent link">&para;</a></h4>
 <p>In order to improve the identification mechanism, one can combine both the <abbr title="Universal(ly) Unique Identifier">UUID</abbr>
 checks and creation/modification times. This might be helpful if two <abbr title="ACES Metadata File">AMF</abbr>
 documents contain the same <abbr title="Universal(ly) Unique Identifier">UUID</abbr> but have different creation/modification dates.</p>
@@ -908,13 +1300,13 @@ distinguish them. Such advanced methods will be discussed later in the document.
 documents can have the same unique identifier but have different creation dates
 and time. It is then recommended that tools encountering this situation switch
 to the most recent version of the <abbr title="ACES Metadata File">AMF</abbr> document based on the date and time.</p>
-<h4 id="informing-the-user-and-logging-conflicts">Informing the user and logging conflicts<a class="headerlink" href="#informing-the-user-and-logging-conflicts" title="Permanent link">¶</a></h4>
+<h4 id="informing-the-user-and-logging-conflicts">Informing the user and logging conflicts<a class="headerlink" href="#informing-the-user-and-logging-conflicts" title="Permanent link">&para;</a></h4>
 <p>Because of the large number of <abbr title="ACES Metadata File">AMF</abbr> documents involved in a workflow, it might
 not be practical to inform the user of every error encountered. However these
 errors should be logged by the tools using <abbr title="ACES Metadata File">AMF</abbr> and options should be offered to
 select the various identification rules, e.g. unique identifier first (if
 available), then the creation date and time.</p>
-<h3 id="clip-information-and-association">Clip information and association<a class="headerlink" href="#clip-information-and-association" title="Permanent link">¶</a></h3>
+<h3 id="clip-information-and-association">Clip information and association<a class="headerlink" href="#clip-information-and-association" title="Permanent link">&para;</a></h3>
 <p>As described in the previous sections, <abbr title="ACES Metadata File">AMF</abbr> can be used with different targets,
 i.e. single file video clips, image sequences, compositions, etc.</p>
 <p>This flexibility implies that the <abbr title="ACES Metadata File">AMF</abbr> specification does not prescribe a
@@ -935,7 +1327,7 @@ only will not be enough to distinguish between a valid <abbr title="ACES Metadat
 one, since the <code>aces:clipId</code> element is optional.</p>
 <p>In other words, the <code>aces:clipId</code> does not dictate how the <abbr title="ACES Metadata File">AMF</abbr> document is
 handled. It is the workflow that dictates the behavior.</p>
-<h4 id="acesclipid-is-not-present"><code>aces:clipId</code> is not present<a class="headerlink" href="#acesclipid-is-not-present" title="Permanent link">¶</a></h4>
+<h4 id="acesclipid-is-not-present"><code>aces:clipId</code> is not present<a class="headerlink" href="#acesclipid-is-not-present" title="Permanent link">&para;</a></h4>
 <p>The absence of the <code>aces:clipId</code> element is important when the connection between
 the <abbr title="ACES Metadata File">AMF</abbr> document and the visual material is handled by a higher level protocol.</p>
 <p>The simplest higher level protocol that comes immediately to mind is the use of
@@ -978,7 +1370,7 @@ used interchange files:</p>
 <p>The <abbr title="ACES Metadata File">AMF</abbr> Implementation Group explored the use of <abbr title="ACES Metadata File">AMF</abbr> with higher level protocols
 as well and those will eventually be described in a future version of this
 handbook.  A future version may also describe the use of <abbr title="ACES Metadata File">AMF</abbr> with OpenTimelineIO.</p>
-<h4 id="acesclipid-is-present"><code>aces:clipId</code> is present<a class="headerlink" href="#acesclipid-is-present" title="Permanent link">¶</a></h4>
+<h4 id="acesclipid-is-present"><code>aces:clipId</code> is present<a class="headerlink" href="#acesclipid-is-present" title="Permanent link">&para;</a></h4>
 <p>As briefly described before, the <code>aces:clipId</code> is a complex element, containing
 the following sub-elements:</p>
 <ul>
@@ -996,12 +1388,12 @@ important to remember that <code>aces:sequence,</code> aces:file and <code>aces:
 coexist. They are mutually excluding each other and therefore are used for
 specific variants in a workflow.</li>
 </ul>
-<h5 id="acesclipname"><code>aces:clipName</code><a class="headerlink" href="#acesclipname" title="Permanent link">¶</a></h5>
+<h5 id="acesclipname"><code>aces:clipName</code><a class="headerlink" href="#acesclipname" title="Permanent link">&para;</a></h5>
 <p>The <code>aces:clipName</code> is used to carry the name of the target visual material
 element, but not the file name of that element. Typically <code>aces:clipName</code> is the
 same as the file name but without the file extension or the frame number digits
 in the case of a file sequence.</p>
-<h5 id="acesfile"><code>aces:file</code><a class="headerlink" href="#acesfile" title="Permanent link">¶</a></h5>
+<h5 id="acesfile"><code>aces:file</code><a class="headerlink" href="#acesfile" title="Permanent link">&para;</a></h5>
 <p>The <code>aces:file</code> element is used to carry the actual file name of the target visual
 material element. It can carry the full absolute path and the file name, a
 relative path and the file name or simply the file name (base name and
@@ -1018,7 +1410,7 @@ the desired workflow to ensure that all the tools and operating systems involved
 correctly support the selected convention.</p>
 <p>A good practice however would be to stick with ASCII characters only and avoid
 using path-like structures in file names.</p>
-<h5 id="acessequence"><code>aces:sequence</code><a class="headerlink" href="#acessequence" title="Permanent link">¶</a></h5>
+<h5 id="acessequence"><code>aces:sequence</code><a class="headerlink" href="#acessequence" title="Permanent link">&para;</a></h5>
 <p>The <code>aces:sequence</code> is similar to <code>aces:file,</code> however it is primarily designed to
 handle image sequences. Image sequences usually follow a file name pattern and
 the only difference between two files of the same sequence, is a number which
@@ -1033,7 +1425,7 @@ requires three different attributes to fully define a sequence of files:</p>
 </ul>
 <p>In other words, min and max define a range of frame numbers and they are both
 part of the sequence (included).</p>
-<h5 id="acesuuid"><code>aces:uuid</code><a class="headerlink" href="#acesuuid" title="Permanent link">¶</a></h5>
+<h5 id="acesuuid"><code>aces:uuid</code><a class="headerlink" href="#acesuuid" title="Permanent link">&para;</a></h5>
 <p>The last method for connecting the <abbr title="ACES Metadata File">AMF</abbr> document to a visual material element is
 by using <code>aces:uuid.</code> In this particular case, the connection between the <abbr title="ACES Metadata File">AMF</abbr>
 document and the actual visual material element is clearly handled elsewhere and
@@ -1042,7 +1434,7 @@ make use of the <code>aces:uuid</code> instead of <code>aces:file</code> or <cod
 important to note that <strong>using <abbr title="Universal(ly) Unique Identifier">UUID</abbr> is probably the safest method</strong>, especially
 when the workflow is distributed across multiple tools, operating systems and
 even geographic locations.</p>
-<h3 id="aces-pipeline-configuration"><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline configuration<a class="headerlink" href="#aces-pipeline-configuration" title="Permanent link">¶</a></h3>
+<h3 id="aces-pipeline-configuration"><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline configuration<a class="headerlink" href="#aces-pipeline-configuration" title="Permanent link">&para;</a></h3>
 <p>The <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline section is a list of ordered elements that define various
 steps of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> color pipeline. The pipeline is described by the
 <code>aces:pipeline</code> element. In turn, this element contains a list of sub-elements
@@ -1063,7 +1455,7 @@ processing steps into a single transform, typically a 3D Lookup Table (3D <abbr 
 Moreover a system may choose to optimize the processing of the various steps,
 depending on the given situation. The only constraint is that the color
 processing must follow the steps in the order described above.</p>
-<h4 id="acespipelineinfo"><code>aces:pipelineInfo</code><a class="headerlink" href="#acespipelineinfo" title="Permanent link">¶</a></h4>
+<h4 id="acespipelineinfo"><code>aces:pipelineInfo</code><a class="headerlink" href="#acespipelineinfo" title="Permanent link">&para;</a></h4>
 <p>The <code>aces:pipelineInfo</code> element extends the set of properties found in the <abbr title="ACES Metadata File">AMF</abbr>
 document identification by adding an element to define the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system version.</p>
 <p>The role of this element is to specify the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system version targeted by this
@@ -1078,7 +1470,7 @@ version to ensure a match between the pipeline system version and the various
 transform identifiers.</p>
 <p>The validity of transform identifiers within the scope of a given <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system
 version will be described later in a dedicated section.</p>
-<h4 id="acesinputtransform"><code>aces:inputTransform</code><a class="headerlink" href="#acesinputtransform" title="Permanent link">¶</a></h4>
+<h4 id="acesinputtransform"><code>aces:inputTransform</code><a class="headerlink" href="#acesinputtransform" title="Permanent link">&para;</a></h4>
 <p>This element defines the input transform that is optionally applied to the
 source material referenced by <code>aces:clipId.</code> 
 The input transforms can be either standard transforms defined within the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>
@@ -1086,13 +1478,12 @@ framework or custom transforms.</p>
 <p>Custom transforms can be referenced by their transform ID or referenced as
 external files/resources.</p>
 <p>Standard transforms can only be referenced by their transform ID.</p>
-<div class="mermaid">graph BT
+<pre class="mermaid"><code>graph BT
 B1(ACES Input Transform Identifier)   --&gt; A1(AMF Input Transform)
 B2(Custom Input Transform Identifier) --&gt; A1
-B3("External Input Transform (e.g. CLF)")  --&gt; A1
-</div>
+B3("External Input Transform (e.g. CLF)")  --&gt; A1</code></pre>
 <figure>
-<figcaption>AMF Input Transform Support<br/>AMF can describe one Input Transform as an identifier<br/>or external reference</figcaption>
+<figcaption>AMF Input Transform Support<br>AMF can describe one Input Transform as an identifier<br>or external reference</figcaption>
 </figure>
 <p>An important observation must be made here: the <code>aces:inputTransform</code> is entirely
 optional. This implies that an <abbr title="ACES Metadata File">AMF</abbr> document can work in different environments,
@@ -1103,7 +1494,7 @@ document.</p>
 "applied" attribute that will allow an <abbr title="ACES Metadata File">AMF</abbr>-aware tool to know if the input
 transform is provided for information purposes only or if it needs to be
 executed.</p>
-<h4 id="aceslooktransform"><code>aces:lookTransform</code><a class="headerlink" href="#aceslooktransform" title="Permanent link">¶</a></h4>
+<h4 id="aceslooktransform"><code>aces:lookTransform</code><a class="headerlink" href="#aceslooktransform" title="Permanent link">&para;</a></h4>
 <p>This element is repeated for every step that defines a custom color processing
 in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> color space (e.g. color grading). There are 3 kinds of look
 transforms:</p>
@@ -1128,7 +1519,7 @@ processing framework.</li>
 "applied" attribute that will allow an <abbr title="ACES Metadata File">AMF</abbr>-aware tool to know if the look
 transform is provided for information purposes only or if it needs to be
 executed.</p>
-<h4 id="acesoutputtransform"><code>aces:outputTransform</code><a class="headerlink" href="#acesoutputtransform" title="Permanent link">¶</a></h4>
+<h4 id="acesoutputtransform"><code>aces:outputTransform</code><a class="headerlink" href="#acesoutputtransform" title="Permanent link">&para;</a></h4>
 <p>Finally, this element closes the list and defines both the <abbr title="Reference Rendering Transform">RRT</abbr> and <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr> (or a
 combined Output Transform) to use in order to produce a presentable result.</p>
 <p>The <abbr title="Reference Rendering Transform">RRT</abbr> and <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr> can be either specified independently of each other:</p>
@@ -1148,8 +1539,8 @@ combined Output Transform) to use in order to produce a presentable result.</p>
 </code></pre></div>
 <p>The <abbr title="Reference Rendering Transform">RRT</abbr> and <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr> (as well as the combined versions) are standard color transforms
 defined within the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> framework. </p>
-<h2 id="amf-external-lmt-referencing-rules"><abbr title="ACES Metadata File">AMF</abbr> &amp; external <abbr title="Look Transform (aka deprecated - Look Modification Transform)">LMT</abbr> referencing rules<a class="headerlink" href="#amf-external-lmt-referencing-rules" title="Permanent link">¶</a></h2>
-<h3 id="using-acesfile">Using <code>&lt;aces:file&gt;</code><a class="headerlink" href="#using-acesfile" title="Permanent link">¶</a></h3>
+<h2 id="amf-external-lmt-referencing-rules"><abbr title="ACES Metadata File">AMF</abbr> &amp; external <abbr title="Look Transform (aka deprecated - Look Modification Transform)">LMT</abbr> referencing rules<a class="headerlink" href="#amf-external-lmt-referencing-rules" title="Permanent link">&para;</a></h2>
+<h3 id="using-acesfile">Using <code>&lt;aces:file&gt;</code><a class="headerlink" href="#using-acesfile" title="Permanent link">&para;</a></h3>
 <p>The simplest way to reference external LMTs is to use the <code>aces:file</code> element.
 However, some care must be taken, depending on the workflow and also on the
 system or device generating the <abbr title="ACES Metadata File">AMF</abbr> document.</p>
@@ -1201,7 +1592,7 @@ system/device working with the <abbr title="ACES Metadata File">AMF</abbr> docum
 means to allow the selection of the location. If automation, without user
 intervention, is desired, the system/device should provide a configuration file
 to specify the location.</p>
-<h3 id="file-name-characters">File name characters<a class="headerlink" href="#file-name-characters" title="Permanent link">¶</a></h3>
+<h3 id="file-name-characters">File name characters<a class="headerlink" href="#file-name-characters" title="Permanent link">&para;</a></h3>
 <p>As stated before, modern file systems are very permissive in terms of file
 naming. Moreover, most systems have either no limit on the file name length or a
 very large limit that exceeds easily most of the use cases. Taking advantage of
@@ -1217,7 +1608,7 @@ rules:</p>
 <li>Use the native or recommended file name extension for the external resource
 (e.g. <abbr title="Common LUT Format">CLF</abbr> or clf for the Common <abbr title="look-up table">LUT</abbr> Format)</li>
 </ol>
-<h3 id="file-naming-conventions">File naming conventions<a class="headerlink" href="#file-naming-conventions" title="Permanent link">¶</a></h3>
+<h3 id="file-naming-conventions">File naming conventions<a class="headerlink" href="#file-naming-conventions" title="Permanent link">&para;</a></h3>
 <p><abbr title="ACES Metadata File">AMF</abbr> does not impose a strict file naming convention on the external resources.
 However it is also highly recommended that a proper and meaningful one is
 adopted when naming those resources.</p>
@@ -1226,7 +1617,7 @@ file system but also can provide a better reading when displayed in the
 graphical user interface of the system/device used to manage them. Since these
 systems/devices can have a limited display room, short names should be
 considered.</p>
-<h3 id="retrieving-external-lmts-via-http">Retrieving external LMTs via HTTP<a class="headerlink" href="#retrieving-external-lmts-via-http" title="Permanent link">¶</a></h3>
+<h3 id="retrieving-external-lmts-via-http">Retrieving external LMTs via HTTP<a class="headerlink" href="#retrieving-external-lmts-via-http" title="Permanent link">&para;</a></h3>
 <p>The resources identified by a URI using the "http" or "https" schemes can be
 retrieved as the response to a GET request to the URI. When working with
 <abbr title="Common LUT Format">CLF</abbr>-based LMTs, care must be taken to clearly indicate the content type in the
@@ -1243,22 +1634,22 @@ LMTs. Authentication and encryption topics are outside the scope of this
 document. Nevertheless it's important to consider these issues in a workflow
 that is distributed around various locations as not all systems/devices support
 the HTTP security features</p>
-<h3 id="using-acesuuid">Using <code>&lt;aces:uuid&gt;</code><a class="headerlink" href="#using-acesuuid" title="Permanent link">¶</a></h3>
+<h3 id="using-acesuuid">Using <code>&lt;aces:uuid&gt;</code><a class="headerlink" href="#using-acesuuid" title="Permanent link">&para;</a></h3>
 <p><abbr title="Common LUT Format">CLF</abbr> ProcessList root element shall have the id attribute set with the sameUUID, e.g:</p>
 <p><abbr title="ACES Metadata File">AMF</abbr>
 <div class="highlight"><pre><span></span><code>&lt;aces:uuid&gt;urn:uuid:1258F89C-0ED7-4A79-0E2-36F97E8FF9F1&lt;/aces:uuid&gt;
 </code></pre></div>
 <abbr title="Common LUT Format">CLF</abbr>
 <div class="highlight"><pre><span></span><code>&lt;ProcessList
-xmlns="urn:AMPAS:CLF:v3.0" id="urn:uuid:1258F89C-0ED7-4A79-B0E2-36F97E8FF9F1" compCLFversion="3.0"&gt;
+xmlns=&quot;urn:AMPAS:CLF:v3.0&quot; id=&quot;urn:uuid:1258F89C-0ED7-4A79-B0E2-36F97E8FF9F1&quot; compCLFversion=&quot;3.0&quot;&gt;
 &lt;/ProcessList&gt;
 </code></pre></div>
 The <abbr title="Common LUT Format">CLF</abbr> files can be located anywhere and the product supporting <abbr title="ACES Metadata File">AMF</abbr>+<abbr title="Common LUT Format">CLF</abbr> must
 provide the configuration options to locate the CLFassets, or,search for the <abbr title="Common LUT Format">CLF</abbr>
 files in the local folder for the corresponding <abbr title="Common LUT Format">CLF</abbr> files•recursive search in
 subfolders should be supported (option)</p>
-<h2 id="annex">Annex<a class="headerlink" href="#annex" title="Permanent link">¶</a></h2>
-<h3 id="avid-log-exchange-ale-support">Avid Log Exchange (<abbr title="Avid Log Exchange">ALE</abbr>) support<a class="headerlink" href="#avid-log-exchange-ale-support" title="Permanent link">¶</a></h3>
+<h2 id="annex">Annex<a class="headerlink" href="#annex" title="Permanent link">&para;</a></h2>
+<h3 id="avid-log-exchange-ale-support">Avid Log Exchange (<abbr title="Avid Log Exchange">ALE</abbr>) support<a class="headerlink" href="#avid-log-exchange-ale-support" title="Permanent link">&para;</a></h3>
 <p>The Avid Log Exchange (<abbr title="Avid Log Exchange">ALE</abbr>) format supports custom metadata elements through the
 definition of dedicated columns in the <abbr title="Avid Log Exchange">ALE</abbr> table. In order to support <abbr title="ACES Metadata File">AMF</abbr>
 linkage through <abbr title="Avid Log Exchange">ALE</abbr>, the following columns are defined:</p>
@@ -1268,7 +1659,7 @@ AMF_NAME
 <p>These two columns enable the linkage of <abbr title="ACES Metadata File">AMF</abbr> files, independently for every clip
 listed in the <abbr title="Avid Log Exchange">ALE</abbr> file. Both <code>AMF_UUID</code> and <code>AMF_NAME</code> are defined as optional. The
 linkage rules are described below.</p>
-<h4 id="amf_uuid"><code>AMF_UUID</code><a class="headerlink" href="#amf_uuid" title="Permanent link">¶</a></h4>
+<h4 id="amf_uuid"><code>AMF_UUID</code><a class="headerlink" href="#amf_uuid" title="Permanent link">&para;</a></h4>
 <p>The <code>AMF_UUID</code> column shall be used to convey the <abbr title="ACES Metadata File">AMF</abbr> <abbr title="Universal(ly) Unique Identifier">UUID</abbr> from the amf:Info/uuid
 element. The format of the column entries must use the canonical textual
 representation, the 16 octets of a <abbr title="Universal(ly) Unique Identifier">UUID</abbr> are represented as 32 hexadecimal
@@ -1277,7 +1668,7 @@ representation, the 16 octets of a <abbr title="Universal(ly) Unique Identifier"
 hyphens):</p>
 <p><code>afe122be-59d3-4360-ad69-33c10108fa7a</code></p>
 <p>The <code>AMF_UUID</code> column is optional.</p>
-<h4 id="amf_name">AMF_NAME<a class="headerlink" href="#amf_name" title="Permanent link">¶</a></h4>
+<h4 id="amf_name">AMF_NAME<a class="headerlink" href="#amf_name" title="Permanent link">&para;</a></h4>
 <p>AMF_NAME shall be used to convey the <abbr title="ACES Metadata File">AMF</abbr> file name located in the same folder as
 the .ale source file:</p>
 <p><code>clip_001.amf</code></p>
@@ -1286,7 +1677,7 @@ the .ale source file:</p>
 folder as the <abbr title="Avid Log Exchange">ALE</abbr> file. No sub-folder structure is permitted.
 While <abbr title="ACES Metadata File">AMF</abbr> files can have any name, it is recommended to follow the restrictions
 imposed by the <abbr title="Avid Log Exchange">ALE</abbr> Specification, i.e. to use the UNC Path syntax.</p>
-<h4 id="linkage-rules">Linkage Rules<a class="headerlink" href="#linkage-rules" title="Permanent link">¶</a></h4>
+<h4 id="linkage-rules">Linkage Rules<a class="headerlink" href="#linkage-rules" title="Permanent link">&para;</a></h4>
 <p>Since both <code>AMF_UUID</code> and <code>AMF_NAME</code> are optional, there are four possible
 combinations that can occur:</p>
 <p><code>AMF_UUID</code> and <code>AMF_NAME</code> are both absent:</p>
@@ -1307,7 +1698,7 @@ and 3). <strong>However, it is recommended to rely on the <abbr title="Universal
 product can provide an option to select the matching rule (<abbr title="Universal(ly) Unique Identifier">UUID</abbr> or file name).
 It is desirable to also provide a matching rule that checks both the <abbr title="Universal(ly) Unique Identifier">UUID</abbr> and
 file name.</p>
-<h4 id="remarks">Remarks<a class="headerlink" href="#remarks" title="Permanent link">¶</a></h4>
+<h4 id="remarks">Remarks<a class="headerlink" href="#remarks" title="Permanent link">&para;</a></h4>
 <p>Since the <abbr title="Avid Log Exchange">ALE</abbr> file can reference a large number of clips, it is recommended that
 the host product presents the issues encountered during the linkage and
 validation process as a log.</p>
@@ -1322,7 +1713,7 @@ in the <abbr title="Avid Log Exchange">ALE</abbr> files (e.g. file name).</p>
 use of <code>aces:clipId</code> or ignore it.</p>
 <p>A validation process can log any differences and present the results to the user
 of the product/tool processing the <abbr title="Avid Log Exchange">ALE</abbr>+<abbr title="ACES Metadata File">AMF</abbr> files</p>
-<h3 id="edit-decision-list-edl-support">Edit Decision List (<abbr title="Edit Decision List">EDL</abbr>) support<a class="headerlink" href="#edit-decision-list-edl-support" title="Permanent link">¶</a></h3>
+<h3 id="edit-decision-list-edl-support">Edit Decision List (<abbr title="Edit Decision List">EDL</abbr>) support<a class="headerlink" href="#edit-decision-list-edl-support" title="Permanent link">&para;</a></h3>
 <p>The CMX3600 Edit Decision List (<abbr title="Edit Decision List">EDL</abbr>) format supports custom extensions through
 the definition of dedicated directives following the edit statements in the
 decision list. In order to support <abbr title="ACES Metadata File">AMF</abbr> linkage through <abbr title="Edit Decision List">EDL</abbr>, the following
@@ -1333,7 +1724,7 @@ AMF_NAME
 <p>These two directives enable the linkage of <abbr title="ACES Metadata File">AMF</abbr> files, independently for every
 clip listed in the <abbr title="Edit Decision List">EDL</abbr> file. Both <code>AMF_UUID</code> and <code>AMF_NAME</code> are defined as optional.
 The linkage rules are described below.</p>
-<h4 id="amf_uuid_1"><code>AMF_UUID</code><a class="headerlink" href="#amf_uuid_1" title="Permanent link">¶</a></h4>
+<h4 id="amf_uuid_1"><code>AMF_UUID</code><a class="headerlink" href="#amf_uuid_1" title="Permanent link">&para;</a></h4>
 <p>The <code>AMF_UUID</code> column shall be used to convey the <abbr title="ACES Metadata File">AMF</abbr> <abbr title="Universal(ly) Unique Identifier">UUID</abbr> from the amf:Info/uuid
 element. The format of the column entries must use the canonical textual
 representation, the 16 octets of a <abbr title="Universal(ly) Unique Identifier">UUID</abbr> are represented as 32 hexadecimal
@@ -1348,7 +1739,7 @@ values, i.e. ".." and "." to avoid any confusion.
 The path and <abbr title="ACES Metadata File">AMF</abbr> file name must use characters from the set a-z, A-Z, 0-9, -
 (dash), _ (underscore) and ".". No path segment shall use more than 128
 characters and the total length shall not exceed 1024 characters.</p>
-<h4 id="amf_name_1"><code>AMF_NAME</code><a class="headerlink" href="#amf_name_1" title="Permanent link">¶</a></h4>
+<h4 id="amf_name_1"><code>AMF_NAME</code><a class="headerlink" href="#amf_name_1" title="Permanent link">&para;</a></h4>
 <p><code>AMF_NAME</code> shall be used to convey the <abbr title="ACES Metadata File">AMF</abbr> file name located in the same folder as
 the .edl source file:</p>
 <p><code>clip_001.amf</code></p>
@@ -1360,7 +1751,7 @@ the clip file that the <abbr title="ACES Metadata File">AMF</abbr> document rela
 across file systems and operating systems it is recommended to use characters
 from the set a-z, A-Z, 0-9, - (dash), _ (underscore) and ".".
 The <abbr title="ACES Metadata File">AMF</abbr> file name should use no more than 1024 characters.</p>
-<h4 id="linkage-rules_1">Linkage Rules<a class="headerlink" href="#linkage-rules_1" title="Permanent link">¶</a></h4>
+<h4 id="linkage-rules_1">Linkage Rules<a class="headerlink" href="#linkage-rules_1" title="Permanent link">&para;</a></h4>
 <p>Since both <code>AMF_UUID</code> and <code>AMF_NAME</code> are optional, there are four possible
 combinations that can occur:</p>
 <p><code>AMF_UUID</code> and <code>AMF_NAME</code> are both absent</p>
@@ -1381,14 +1772,14 @@ and 3). However, it is recommended to rely on the <abbr title="Universal(ly) Uni
 product can provide an option to select the matching rule (<abbr title="Universal(ly) Unique Identifier">UUID</abbr> or file name).
 It is desirable to also provide a matching rule that checks both the <abbr title="Universal(ly) Unique Identifier">UUID</abbr> and
 file name.</p>
-<h4 id="edl-event-example"><abbr title="Edit Decision List">EDL</abbr> event example<a class="headerlink" href="#edl-event-example" title="Permanent link">¶</a></h4>
+<h4 id="edl-event-example"><abbr title="Edit Decision List">EDL</abbr> event example<a class="headerlink" href="#edl-event-example" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>...
 010 Clip1 V C 05:40:12:18 05:40:14:09 01:00:29:16 01:00:31:07 
 * AMF_NAME clip_001.amf
 * AMF_UUID afe122be-59d3-4360-ad69-33c10108fa7a
 ...
 </code></pre></div>
-<h4 id="remarks_1">Remarks<a class="headerlink" href="#remarks_1" title="Permanent link">¶</a></h4>
+<h4 id="remarks_1">Remarks<a class="headerlink" href="#remarks_1" title="Permanent link">&para;</a></h4>
 <p>Since each entry in the <abbr title="Edit Decision List">EDL</abbr> file can use any of the combinations of <code>AMF_UUID</code> and
 <code>AMF_NAME</code> described above, it is recommended that the host product presents the
 issues encountered during the linkage and validation process as a log.</p>
@@ -1408,61 +1799,128 @@ of the product/tool processing the <abbr title="Edit Decision List">EDL</abbr>+<
 <style>
     @import "../../stylesheets/sections.css"
 </style>
-<hr/>
+
+  <hr>
 <div class="md-source-file">
-<small>
+  <small>
     
       Last update:
       <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 3, 2022</span>
-</small>
+      
+    
+  </small>
 </div>
-</article>
-</div>
-</div>
-<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
             Back to top
           </a>
-</main>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
-      Copyright © 2022 Academy of Motion Picture Arts &amp; Sciences
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="../clf/" class="md-footer__link md-footer__link--next" aria-label="Next: Common LUT Format (CLF) Implementation Guide" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Common LUT Format (CLF) Implementation Guide
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 Academy of Motion Picture Arts & Sciences
     </div>
+  
+  
 </div>
-<!-- Social links -->
-<div class="md-social">
-<a class="md-social__link" href="https://twitter.com/academyaces" rel="noopener" target="_blank" title="twitter.com">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
-</a>
-<a class="md-social__link" href="https://www.facebook.com/AcademyACESColor/" rel="noopener" target="_blank" title="www.facebook.com">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
-</a>
-<a class="md-social__link" href="https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw" rel="noopener" target="_blank" title="www.youtube.com">
-<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
-</a>
-<a class="md-social__link" href="https://www.github.com/ampas" rel="noopener" target="_blank" title="www.github.com">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-</a>
-<a class="md-social__link" href="https://www.dropbox.com/s/8klhkob6057ryse/kodak-grey-card1903061.pdf?dl=0" rel="noopener" target="_blank" title="The Great Cod">
-<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M180.5 141.5C219.7 108.5 272.6 80 336 80c63.4 0 116.3 28.5 155.5 61.5 39 33 66.8 71.6 80.9 99.8 4.8 9.2 4.8 20.2 0 29.4-14.1 27.3-41.9 66.8-80.9 99.8-39.2 33-92.1 61.5-155.5 61.5-63.4 0-116.3-28.5-155.5-61.5-16.2-13.8-30.5-28.6-42.7-43.2l-89.68 52.3c-12.51 7.3-28.36 5.3-38.646-4.9a31.989 31.989 0 0 1-5.258-38.6L50 256 4.216 175.9a31.989 31.989 0 0 1 5.258-38.6c10.286-10.2 26.136-12.2 38.646-4.9l89.68 52.3c12.2-14.6 26.5-29.4 42.7-43.2zM416 224c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"></path></svg>
-</a>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/academyaces" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/AcademyACESColor/" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.github.com/ampas" target="_blank" rel="noopener" title="www.github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="assets/pdfs/kodak-grey-card.pdf" target="_blank" rel="noopener" title="The Great Cod" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M180.5 141.5C219.7 108.5 272.6 80 336 80c63.4 0 116.3 28.5 155.5 61.5 39 33 66.8 71.6 80.9 99.8 4.8 9.2 4.8 20.2 0 29.4-14.1 27.3-41.9 66.8-80.9 99.8-39.2 33-92.1 61.5-155.5 61.5-63.4 0-116.3-28.5-155.5-61.5-16.2-13.8-30.5-28.6-42.7-43.2l-89.68 52.3c-12.51 7.3-28.36 5.3-38.646-4.9a31.989 31.989 0 0 1-5.258-38.6L50 256 4.216 175.9a31.989 31.989 0 0 1 5.258-38.6c10.286-10.2 26.136-12.2 38.646-4.9l89.68 52.3c12.2-14.6 26.5-29.4 42.7-43.2zM416 224c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"/></svg>
+    </a>
+  
 </div>
-</div>
-</div>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
-<script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js"></script>
-<script src="../../extra/refresh_on_toggle_dark_light.js"></script>
-<script>mermaid.initialize({
-    securityLevel: "loose",
-    theme: (JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'light'
-});</script></body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

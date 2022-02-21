@@ -1,782 +1,1245 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
+    
+    
+      
+        <title>Common LUT Format (CLF) Implementation Guide - ACES Technical Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pontano+Sans:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Pontano Sans";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.2.3, mkdocs-material-8.2.1" name="generator"/>
-<title>Common LUT Format (CLF) Implementation Guide - ACES Technical Documentation</title>
-<link href="../../assets/stylesheets/main.e8d9bf0c.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.e6a45f82.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Pontano+Sans:300,400,400i,700%7C&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Pontano Sans";--md-code-font:""}</style>
-<link href="../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="aces-light" dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#common-lut-format-clf-implementation-guide">
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aces-light" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#common-lut-format-clf-implementation-guide" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="ACES Technical Documentation" class="md-header__button md-logo" data-md-component="logo" href="https://www.acescentral.com" title="ACES Technical Documentation">
-<img alt="logo" src="../../assets/images/logo.png"/>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.acescentral.com" title="ACES Technical Documentation" class="md-header__button md-logo" aria-label="ACES Technical Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             ACES Technical Documentation
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Common LUT Format (CLF) Implementation Guide
             
           </span>
-</div>
-</div>
-</div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="aces-light" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"></path></svg>
-</label>
-</form>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="aces-light" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/ampas/aces-dev/" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-</div>
-<div class="md-source__repository">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ampas/aces-dev/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
     aces-dev
   </div>
 </a>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
-<div class="md-tabs__inner md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../amf/">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../amf/" class="md-tabs__link md-tabs__link--active">
         ACES Documentation
       </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../glossary/">
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../glossary/" class="md-tabs__link">
       Glossary
     </a>
-</li>
-</ul>
-</div>
+  </li>
+
+      
+    </ul>
+  </div>
 </nav>
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="ACES Technical Documentation" class="md-nav__button md-logo" data-md-component="logo" href="https://www.acescentral.com" title="ACES Technical Documentation">
-<img alt="logo" src="../../assets/images/logo.png"/>
-</a>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.acescentral.com" title="ACES Technical Documentation" class="md-nav__button md-logo" aria-label="ACES Technical Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
     ACES Technical Documentation
   </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/ampas/aces-dev/" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-</div>
-<div class="md-source__repository">
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ampas/aces-dev/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
     aces-dev
   </div>
 </a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_1">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
           ACES Documentation
           <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="ACES Documentation" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_1">
-<span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ACES Documentation" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
           ACES Documentation
         </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" id="__nav_1_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_1_1">
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
           Implementation and User Guides
           <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="Implementation and User Guides" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_1">
-<span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Implementation and User Guides" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
           Implementation and User Guides
         </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../amf/">
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amf/" class="md-nav__link">
         ACES Metadata File (AMF) Implementation Guide
       </a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
           Common LUT Format (CLF) Implementation Guide
           <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Common LUT Format (CLF) Implementation Guide
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
     Introduction
   </a>
-<nav aria-label="Introduction" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#format-comparison-table">
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format-comparison-table" class="md-nav__link">
     Format Comparison Table
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#target-audience">
+      
+        <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
     Target Audience
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#a-quick-introduction-to-clf">
+      
+        <li class="md-nav__item">
+  <a href="#a-quick-introduction-to-clf" class="md-nav__link">
     A Quick Introduction to CLF
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#open-source-example-implemention">
+      
+        <li class="md-nav__item">
+  <a href="#open-source-example-implemention" class="md-nav__link">
     Open Source Example Implemention
   </a>
-<nav aria-label="Open Source Example Implemention" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ociochecklut">
+  
+    <nav class="md-nav" aria-label="Open Source Example Implemention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ociochecklut" class="md-nav__link">
     ociochecklut
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ocioconvert">
+        
+          <li class="md-nav__item">
+  <a href="#ocioconvert" class="md-nav__link">
     ocioconvert
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ociomakeclf">
+        
+          <li class="md-nav__item">
+  <a href="#ociomakeclf" class="md-nav__link">
     ociomakeclf
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#minimum-requirements">
+      
+        <li class="md-nav__item">
+  <a href="#minimum-requirements" class="md-nav__link">
     Minimum Requirements
   </a>
-<nav aria-label="Minimum Requirements" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction_1">
+  
+    <nav class="md-nav" aria-label="Minimum Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_1" class="md-nav__link">
     Introduction
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#finishing-tier">
+        
+          <li class="md-nav__item">
+  <a href="#finishing-tier" class="md-nav__link">
     Finishing Tier
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#preview-tier">
+        
+          <li class="md-nav__item">
+  <a href="#preview-tier" class="md-nav__link">
     Preview Tier
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#reading-clfs">
+      
+        <li class="md-nav__item">
+  <a href="#reading-clfs" class="md-nav__link">
     Reading CLFs
   </a>
-<nav aria-label="Reading CLFs" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#general-parsing-requirements">
+  
+    <nav class="md-nav" aria-label="Reading CLFs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-parsing-requirements" class="md-nav__link">
     General Parsing Requirements
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#clf-file-test-suite">
+        
+          <li class="md-nav__item">
+  <a href="#clf-file-test-suite" class="md-nav__link">
     CLF File Test Suite
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#test-procedure">
+        
+          <li class="md-nav__item">
+  <a href="#test-procedure" class="md-nav__link">
     Test Procedure
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#applying">
+      
+        <li class="md-nav__item">
+  <a href="#applying" class="md-nav__link">
     Applying CLFs
   </a>
-<nav aria-label="Applying CLFs" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#general">
+  
+    <nav class="md-nav" aria-label="Applying CLFs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
     General
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#finishing-tier_1">
+        
+          <li class="md-nav__item">
+  <a href="#finishing-tier_1" class="md-nav__link">
     Finishing Tier
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#preview-tier_1">
+        
+          <li class="md-nav__item">
+  <a href="#preview-tier_1" class="md-nav__link">
     Preview Tier
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#writing">
+      
+        <li class="md-nav__item">
+  <a href="#writing" class="md-nav__link">
     Writing CLFs
   </a>
-<nav aria-label="Writing CLFs" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#file-extension">
+  
+    <nav class="md-nav" aria-label="Writing CLFs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-extension" class="md-nav__link">
     File Extension
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#indentation">
+        
+          <li class="md-nav__item">
+  <a href="#indentation" class="md-nav__link">
     Indentation
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-of-xml-comments">
+        
+          <li class="md-nav__item">
+  <a href="#use-of-xml-comments" class="md-nav__link">
     Use of XML Comments
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#discrete-operations">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-operations" class="md-nav__link">
     Discrete Operations
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#precision-and-range-of-numeric-values">
+        
+          <li class="md-nav__item">
+  <a href="#precision-and-range-of-numeric-values" class="md-nav__link">
     Precision and Range of Numeric Values
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-id-attribute">
+        
+          <li class="md-nav__item">
+  <a href="#the-id-attribute" class="md-nav__link">
     The id Attribute
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#storage-of-proprietary-metadata">
+        
+          <li class="md-nav__item">
+  <a href="#storage-of-proprietary-metadata" class="md-nav__link">
     Storage of Proprietary Metadata
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#other-metadata-considerations">
+        
+          <li class="md-nav__item">
+  <a href="#other-metadata-considerations" class="md-nav__link">
     Other Metadata Considerations
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#helpful-hints-for-a-successful-implementation">
+      
+        <li class="md-nav__item">
+  <a href="#helpful-hints-for-a-successful-implementation" class="md-nav__link">
     Helpful Hints for a Successful Implementation
   </a>
-<nav aria-label="Helpful Hints for a Successful Implementation" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#matrix-order">
+  
+    <nav class="md-nav" aria-label="Helpful Hints for a Successful Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matrix-order" class="md-nav__link">
     Matrix Order
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lut3d-serialization-order">
+        
+          <li class="md-nav__item">
+  <a href="#lut3d-serialization-order" class="md-nav__link">
     LUT3D Serialization Order
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#gamma-polarity">
+        
+          <li class="md-nav__item">
+  <a href="#gamma-polarity" class="md-nav__link">
     Gamma Polarity
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#bit-depth-attributes-dont-affect-processing-precision">
+        
+          <li class="md-nav__item">
+  <a href="#bit-depth-attributes-dont-affect-processing-precision" class="md-nav__link">
     Bit-Depth Attributes Don't Affect Processing Precision
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conversion-between-bit-depths">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-between-bit-depths" class="md-nav__link">
     Conversion Between Bit-Depths
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#appendices">
+      
+        <li class="md-nav__item">
+  <a href="#appendices" class="md-nav__link">
     Appendices
   </a>
-<nav aria-label="Appendices" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexA">
+  
+    <nav class="md-nav" aria-label="Appendices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annexA" class="md-nav__link">
     Annex A: Test Image
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexB">
+        
+          <li class="md-nav__item">
+  <a href="#annexB" class="md-nav__link">
     Annex B: CLF Test Suite Listing
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexC">
+        
+          <li class="md-nav__item">
+  <a href="#annexC" class="md-nav__link">
     Annex C: Finishing Tier Apply Test CLF List
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexD">
+        
+          <li class="md-nav__item">
+  <a href="#annexD" class="md-nav__link">
     Annex D: Preview Tier Apply Test CLF List
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexE">
+        
+          <li class="md-nav__item">
+  <a href="#annexE" class="md-nav__link">
     Annex E: Baking a CLF for Preview Tier Implementation
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexF">
+        
+          <li class="md-nav__item">
+  <a href="#annexF" class="md-nav__link">
     Annex F: Using CLF to represent ACES Look Transforms
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexG">
+        
+          <li class="md-nav__item">
+  <a href="#annexG" class="md-nav__link">
     Annex G: Using CLF with AMF
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexH">
+        
+          <li class="md-nav__item">
+  <a href="#annexH" class="md-nav__link">
     Annex H: Identity (no-op) CLF example
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexI">
+        
+          <li class="md-nav__item">
+  <a href="#annexI" class="md-nav__link">
     Annex I: Infinity and NaN handling
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexJ">
+        
+          <li class="md-nav__item">
+  <a href="#annexJ" class="md-nav__link">
     Annex J: Python code for creating the Preview Tier test LUT
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexK">
+        
+          <li class="md-nav__item">
+  <a href="#annexK" class="md-nav__link">
     Annex K: Generation of the reference images
   </a>
+  
 </li>
-</ul>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../rgc-user/">
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rgc-user/" class="md-nav__link">
         Reference Gamut Compression (RGC) User Guide
       </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../glossary/">
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
         Glossary
       </a>
-</li>
-</ul>
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
     Introduction
   </a>
-<nav aria-label="Introduction" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#format-comparison-table">
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format-comparison-table" class="md-nav__link">
     Format Comparison Table
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#target-audience">
+      
+        <li class="md-nav__item">
+  <a href="#target-audience" class="md-nav__link">
     Target Audience
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#a-quick-introduction-to-clf">
+      
+        <li class="md-nav__item">
+  <a href="#a-quick-introduction-to-clf" class="md-nav__link">
     A Quick Introduction to CLF
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#open-source-example-implemention">
+      
+        <li class="md-nav__item">
+  <a href="#open-source-example-implemention" class="md-nav__link">
     Open Source Example Implemention
   </a>
-<nav aria-label="Open Source Example Implemention" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ociochecklut">
+  
+    <nav class="md-nav" aria-label="Open Source Example Implemention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ociochecklut" class="md-nav__link">
     ociochecklut
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ocioconvert">
+        
+          <li class="md-nav__item">
+  <a href="#ocioconvert" class="md-nav__link">
     ocioconvert
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ociomakeclf">
+        
+          <li class="md-nav__item">
+  <a href="#ociomakeclf" class="md-nav__link">
     ociomakeclf
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#minimum-requirements">
+      
+        <li class="md-nav__item">
+  <a href="#minimum-requirements" class="md-nav__link">
     Minimum Requirements
   </a>
-<nav aria-label="Minimum Requirements" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction_1">
+  
+    <nav class="md-nav" aria-label="Minimum Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction_1" class="md-nav__link">
     Introduction
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#finishing-tier">
+        
+          <li class="md-nav__item">
+  <a href="#finishing-tier" class="md-nav__link">
     Finishing Tier
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#preview-tier">
+        
+          <li class="md-nav__item">
+  <a href="#preview-tier" class="md-nav__link">
     Preview Tier
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#reading-clfs">
+      
+        <li class="md-nav__item">
+  <a href="#reading-clfs" class="md-nav__link">
     Reading CLFs
   </a>
-<nav aria-label="Reading CLFs" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#general-parsing-requirements">
+  
+    <nav class="md-nav" aria-label="Reading CLFs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-parsing-requirements" class="md-nav__link">
     General Parsing Requirements
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#clf-file-test-suite">
+        
+          <li class="md-nav__item">
+  <a href="#clf-file-test-suite" class="md-nav__link">
     CLF File Test Suite
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#test-procedure">
+        
+          <li class="md-nav__item">
+  <a href="#test-procedure" class="md-nav__link">
     Test Procedure
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#applying">
+      
+        <li class="md-nav__item">
+  <a href="#applying" class="md-nav__link">
     Applying CLFs
   </a>
-<nav aria-label="Applying CLFs" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#general">
+  
+    <nav class="md-nav" aria-label="Applying CLFs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
     General
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#finishing-tier_1">
+        
+          <li class="md-nav__item">
+  <a href="#finishing-tier_1" class="md-nav__link">
     Finishing Tier
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#preview-tier_1">
+        
+          <li class="md-nav__item">
+  <a href="#preview-tier_1" class="md-nav__link">
     Preview Tier
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#writing">
+      
+        <li class="md-nav__item">
+  <a href="#writing" class="md-nav__link">
     Writing CLFs
   </a>
-<nav aria-label="Writing CLFs" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#file-extension">
+  
+    <nav class="md-nav" aria-label="Writing CLFs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-extension" class="md-nav__link">
     File Extension
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#indentation">
+        
+          <li class="md-nav__item">
+  <a href="#indentation" class="md-nav__link">
     Indentation
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-of-xml-comments">
+        
+          <li class="md-nav__item">
+  <a href="#use-of-xml-comments" class="md-nav__link">
     Use of XML Comments
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#discrete-operations">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-operations" class="md-nav__link">
     Discrete Operations
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#precision-and-range-of-numeric-values">
+        
+          <li class="md-nav__item">
+  <a href="#precision-and-range-of-numeric-values" class="md-nav__link">
     Precision and Range of Numeric Values
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-id-attribute">
+        
+          <li class="md-nav__item">
+  <a href="#the-id-attribute" class="md-nav__link">
     The id Attribute
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#storage-of-proprietary-metadata">
+        
+          <li class="md-nav__item">
+  <a href="#storage-of-proprietary-metadata" class="md-nav__link">
     Storage of Proprietary Metadata
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#other-metadata-considerations">
+        
+          <li class="md-nav__item">
+  <a href="#other-metadata-considerations" class="md-nav__link">
     Other Metadata Considerations
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#helpful-hints-for-a-successful-implementation">
+      
+        <li class="md-nav__item">
+  <a href="#helpful-hints-for-a-successful-implementation" class="md-nav__link">
     Helpful Hints for a Successful Implementation
   </a>
-<nav aria-label="Helpful Hints for a Successful Implementation" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#matrix-order">
+  
+    <nav class="md-nav" aria-label="Helpful Hints for a Successful Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matrix-order" class="md-nav__link">
     Matrix Order
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#lut3d-serialization-order">
+        
+          <li class="md-nav__item">
+  <a href="#lut3d-serialization-order" class="md-nav__link">
     LUT3D Serialization Order
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#gamma-polarity">
+        
+          <li class="md-nav__item">
+  <a href="#gamma-polarity" class="md-nav__link">
     Gamma Polarity
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#bit-depth-attributes-dont-affect-processing-precision">
+        
+          <li class="md-nav__item">
+  <a href="#bit-depth-attributes-dont-affect-processing-precision" class="md-nav__link">
     Bit-Depth Attributes Don't Affect Processing Precision
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conversion-between-bit-depths">
+        
+          <li class="md-nav__item">
+  <a href="#conversion-between-bit-depths" class="md-nav__link">
     Conversion Between Bit-Depths
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#appendices">
+      
+        <li class="md-nav__item">
+  <a href="#appendices" class="md-nav__link">
     Appendices
   </a>
-<nav aria-label="Appendices" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexA">
+  
+    <nav class="md-nav" aria-label="Appendices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annexA" class="md-nav__link">
     Annex A: Test Image
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexB">
+        
+          <li class="md-nav__item">
+  <a href="#annexB" class="md-nav__link">
     Annex B: CLF Test Suite Listing
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexC">
+        
+          <li class="md-nav__item">
+  <a href="#annexC" class="md-nav__link">
     Annex C: Finishing Tier Apply Test CLF List
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexD">
+        
+          <li class="md-nav__item">
+  <a href="#annexD" class="md-nav__link">
     Annex D: Preview Tier Apply Test CLF List
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexE">
+        
+          <li class="md-nav__item">
+  <a href="#annexE" class="md-nav__link">
     Annex E: Baking a CLF for Preview Tier Implementation
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexF">
+        
+          <li class="md-nav__item">
+  <a href="#annexF" class="md-nav__link">
     Annex F: Using CLF to represent ACES Look Transforms
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexG">
+        
+          <li class="md-nav__item">
+  <a href="#annexG" class="md-nav__link">
     Annex G: Using CLF with AMF
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexH">
+        
+          <li class="md-nav__item">
+  <a href="#annexH" class="md-nav__link">
     Annex H: Identity (no-op) CLF example
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexI">
+        
+          <li class="md-nav__item">
+  <a href="#annexI" class="md-nav__link">
     Annex I: Infinity and NaN handling
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexJ">
+        
+          <li class="md-nav__item">
+  <a href="#annexJ" class="md-nav__link">
     Annex J: Python code for creating the Preview Tier test LUT
   </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#annexK">
+        
+          <li class="md-nav__item">
+  <a href="#annexK" class="md-nav__link">
     Annex K: Generation of the reference images
   </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-</ul>
+      
+    </ul>
+  
 </nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs/guides/clf/index.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs/guides/clf/index.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
+
+
+
 <!-- Include acronyms-->
 <!-- Include section numbering -->
 <style>
     @import "../../stylesheets/sections.css"
 </style>
-<h1 id="common-lut-format-clf-implementation-guide">Common <abbr title="look-up table">LUT</abbr> Format (<abbr title="Common LUT Format">CLF</abbr>) Implementation Guide<a class="headerlink" href="#common-lut-format-clf-implementation-guide" title="Permanent link">¶</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h2>
+
+<h1 id="common-lut-format-clf-implementation-guide">Common <abbr title="look-up table">LUT</abbr> Format (<abbr title="Common LUT Format">CLF</abbr>) Implementation Guide<a class="headerlink" href="#common-lut-format-clf-implementation-guide" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Look-up tables, or <abbr title="look-up tables">LUTs</abbr>, are a common method for communicating color transformations. Many software and hardware providers develop <abbr title="look-up table">LUT</abbr> formats uniquely designed for use in their systems. Since these formats were designed to work in specific use cases, they often prove inadequate for interchangeability between applications or systems. To further complicate matters, some <abbr title="look-up table">LUT</abbr> formats use the same file extensions which make them appear to be compatible when they are not. If there are already a dozen or more confusing <abbr title="look-up table">LUT</abbr> formats, why should you as a developer consider adding support for yet another one?</p>
 <p>While the myriad <abbr title="look-up table">LUT</abbr> formats already available are fundamentally useful in theory, each lacks one or more features that can be critical in meeting the demands of today’s sophisticated workflows. Existing formats can lack the quality, versatility, and metadata required to meet the demands of modern systems. </p>
 <p>The Common <abbr title="look-up table">LUT</abbr> Format (<abbr title="Common LUT Format">CLF</abbr>) provides flexibility to enclose transforms from simple to complex. Due to a lack of interchangeability of color transforms between tools, <abbr title="look-up tables">LUTs</abbr> are frequently abused as a catch-all. Even simple color-space transformations, such as the application of a matrix or a logarithmic shaper function are often “baked” to crude <abbr title="look-up table">LUT</abbr> formats resulting in unfortunate losses in precision. As a solution, <abbr title="Common LUT Format">CLF</abbr> allows for a range of common mathematical operators to be specified precisely, in addition to supporting traditional 1D- and 3D-<abbr title="look-up tables">LUTs</abbr> in the file. </p>
 <p>Because <abbr title="Common LUT Format">CLF</abbr> files are floating-point capable, extremely flexible, and well documented, they are an excellent candidate for use in modern workflows. CLFs are also ideal for archival purposes because the format is well-specified and documented. There is also a high-quality, open source implementation freely available on GitHub.</p>
-<h3 id="format-comparison-table">Format Comparison Table<a class="headerlink" href="#format-comparison-table" title="Permanent link">¶</a></h3>
+<h3 id="format-comparison-table">Format Comparison Table<a class="headerlink" href="#format-comparison-table" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -951,11 +1414,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">¶</a></h2>
+<h2 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">&para;</a></h2>
 <p>This document is primarily intended for application developers who want to add <abbr title="Common LUT Format">CLF</abbr> support to their product. It defines requirements, tests, and provides recommendations that, if followed, will lead to robust support for <abbr title="Common LUT Format">CLF</abbr>. Implementers who follow the guidance in this document can have confidence that their product is implementing the specification correctly.</p>
 <p>The document may also be of interest to those using <abbr title="Common LUT Format">CLF</abbr> to author transforms and who want to understand how the CLFs will be used by applications.</p>
 <p>This guide should be read in conjunction with the <abbr title="Common LUT Format">CLF</abbr> specification (v 3.0). The <abbr title="Common LUT Format">CLF</abbr> spec may be downloaded from: <a href="http://j.mp/S-2014-006">http://j.mp/S-2014-006</a>. Note: Although the spec has "2014" in the name, the document has been updated more recently than that. Version 3 of <abbr title="Common LUT Format">CLF</abbr> was introduced with the release of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 1.2 in 2020 and the most recent editorial updates were in 2021.</p>
-<h2 id="a-quick-introduction-to-clf">A Quick Introduction to <abbr title="Common LUT Format">CLF</abbr><a class="headerlink" href="#a-quick-introduction-to-clf" title="Permanent link">¶</a></h2>
+<h2 id="a-quick-introduction-to-clf">A Quick Introduction to <abbr title="Common LUT Format">CLF</abbr><a class="headerlink" href="#a-quick-introduction-to-clf" title="Permanent link">&para;</a></h2>
 <p>Below is a basic example of a simple <abbr title="Common LUT Format">CLF</abbr> file. Despite the word '<abbr title="look-up table">LUT</abbr>' in the name of the format, these very simple examples do not contain any type of <abbr title="look-up table">LUT</abbr> whatsoever. Instead, the <abbr title="Common LUT Format">CLF</abbr> is being used to communicate a set of <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> adjustments (<a href="#example-1">Example 1</a>), and encapsulate a YCbCr to <abbr title="Red, Green, and Blue">RGB</abbr> conversion (<a href="#example-2">Example 2</a>).</p>
 <p>There are a few key points that these examples demonstrate:</p>
 <ul>
@@ -968,25 +1431,25 @@
 <li>The bit-depth attributes control formatting but not precision.</li>
 </ul>
 <p>Color coding: <span style="color:red">red</span> is required, <span style="color:blue">blue</span> is optional, <span style="color:green">green</span> are comments.</p>
-<h4 id="example-1">Example 1: <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> Implementation<a class="headerlink" href="#example-1" title="Permanent link">¶</a></h4>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<h4 id="example-1">Example 1: <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> Implementation<a class="headerlink" href="#example-1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="cm">&lt;!-- Required: XML Version and Encoding declaration --&gt;</span>
 
 <span class="cm">&lt;!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ --&gt;</span>
 <span class="cm">&lt;!-- name and xmlns are optional --&gt;</span>
 <span class="nt">&lt;ProcessList</span> 
-  <span class="na">compCLFversion=</span><span class="s">"3.0"</span> 
-  <span class="na">id=</span><span class="s">"b4cca59a-9428-49c0-8e91-868718c4e526"</span> 
-  <span class="na">name=</span><span class="s">"FwdNoClamp style"</span> 
-  <span class="na">xmlns=</span><span class="s">"urn:AMPAS:CLF:v3.0"</span><span class="nt">&gt;</span>
+  <span class="na">compCLFversion=</span><span class="s">&quot;3.0&quot;</span> 
+  <span class="na">id=</span><span class="s">&quot;b4cca59a-9428-49c0-8e91-868718c4e526&quot;</span> 
+  <span class="na">name=</span><span class="s">&quot;FwdNoClamp style&quot;</span> 
+  <span class="na">xmlns=</span><span class="s">&quot;urn:AMPAS:CLF:v3.0&quot;</span><span class="nt">&gt;</span>
 
   <span class="nt">&lt;Description&gt;</span>CDL with FwdNoClamp style<span class="nt">&lt;/Description&gt;</span>
 
   <span class="nt">&lt;ASC_CDL</span> 
-    <span class="na">id=</span><span class="s">"clf/ctf no-clamp fwd"</span> 
-    <span class="na">inBitDepth=</span><span class="s">"10i"</span> 
-    <span class="na">outBitDepth=</span><span class="s">"8i"</span> 
-    <span class="na">style=</span><span class="s">"FwdNoClamp"</span><span class="nt">&gt;</span>
+    <span class="na">id=</span><span class="s">&quot;clf/ctf no-clamp fwd&quot;</span> 
+    <span class="na">inBitDepth=</span><span class="s">&quot;10i&quot;</span> 
+    <span class="na">outBitDepth=</span><span class="s">&quot;8i&quot;</span> 
+    <span class="na">style=</span><span class="s">&quot;FwdNoClamp&quot;</span><span class="nt">&gt;</span>
 
     <span class="nt">&lt;SOPNode&gt;</span>
       <span class="nt">&lt;Slope&gt;</span>  1.000000  1.000000  0.800000<span class="nt">&lt;/Slope&gt;</span>
@@ -1000,14 +1463,14 @@
   <span class="nt">&lt;/ASC_CDL&gt;</span>
 <span class="nt">&lt;/ProcessList&gt;</span>
 </code></pre></div>
-<h4 id="example-2">Example 2: BT.709 YCbCr (<abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr>/legal range) to <abbr title="Red, Green, and Blue">RGB</abbr> (full range)<a class="headerlink" href="#example-2" title="Permanent link">¶</a></h4>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<h4 id="example-2">Example 2: BT.709 YCbCr (<abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr>/legal range) to <abbr title="Red, Green, and Blue">RGB</abbr> (full range)<a class="headerlink" href="#example-2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="cm">&lt;!-- Line above is required: XML Version and Encoding declaration --&gt;</span>
 
 <span class="cm">&lt;!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ --&gt;</span>
 <span class="nt">&lt;ProcessList</span> 
-  <span class="na">id=</span><span class="s">"0befc138-3757-45f0-a080-83bebb77baf2"</span>
-  <span class="na">compCLFversion=</span><span class="s">"3.0"</span><span class="nt">&gt;</span>
+  <span class="na">id=</span><span class="s">&quot;0befc138-3757-45f0-a080-83bebb77baf2&quot;</span>
+  <span class="na">compCLFversion=</span><span class="s">&quot;3.0&quot;</span><span class="nt">&gt;</span>
 
   <span class="cm">&lt;!-- Optional: ProcessList Description --&gt;</span>
   <span class="nt">&lt;Description&gt;</span>BT.709 YCbCr (legal) to RGB (full)<span class="nt">&lt;/Description&gt;</span>
@@ -1021,9 +1484,9 @@
   <span class="cm">&lt;!-- If in/outBitDepth values are different, the scale factor</span>
 <span class="cm">    between them must also be applied to the matrix coefficients! --&gt;</span>
   <span class="nt">&lt;Matrix</span> 
-    <span class="na">id=</span><span class="s">"815ebbac-550a-453b-a1e6-bf93779fc9c8"</span> 
-    <span class="na">inBitDepth=</span><span class="s">"32f"</span> 
-    <span class="na">outBitDepth=</span><span class="s">"32f"</span><span class="nt">&gt;</span>
+    <span class="na">id=</span><span class="s">&quot;815ebbac-550a-453b-a1e6-bf93779fc9c8&quot;</span> 
+    <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> 
+    <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span><span class="nt">&gt;</span>
 
     <span class="cm">&lt;!-- Optional: ProcessNode description --&gt;</span>
     <span class="nt">&lt;Description&gt;</span>Input offsets for legal range luma and color
@@ -1031,7 +1494,7 @@
 
     <span class="cm">&lt;!-- White space formatting is recommended, but optional --&gt;</span>
     <span class="cm">&lt;!-- Array element is required for a Matrix ProcessNode --&gt;</span>
-    <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">"3 4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">&quot;3 4&quot;</span><span class="nt">&gt;</span>
       <span class="cm">&lt;!-- when dim=”3 4”, the 4th column is offset terms --&gt;</span>
       1.0 0.0 0.0 -0.0625
       0.0 1.0 0.0 -0.5
@@ -1041,11 +1504,11 @@
 
   <span class="cm">&lt;!-- Additional ProcessNodes are applied in order --&gt;</span>
   <span class="nt">&lt;Matrix</span> 
-    <span class="na">id=</span><span class="s">"deceda6e-8fee-471a-8599-fa513c17f3cf"</span>
-    <span class="na">inBitDepth=</span><span class="s">"32f"</span> 
-    <span class="na">outBitDepth=</span><span class="s">"32f"</span><span class="nt">&gt;</span>
+    <span class="na">id=</span><span class="s">&quot;deceda6e-8fee-471a-8599-fa513c17f3cf&quot;</span>
+    <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> 
+    <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;Description&gt;</span>BT.709 YCbCr to RGB matrix<span class="nt">&lt;/Description&gt;</span>
-    <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">"3 3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">&quot;3 3&quot;</span><span class="nt">&gt;</span>
       1.16893193493151  0.000000000000000  1.799743966238840
       1.16893193493151 -0.214081616673236 -0.534991005624129
       1.16893193493151  2.120653355189730 -0.000000000000000
@@ -1053,9 +1516,9 @@
   <span class="nt">&lt;/Matrix&gt;</span>
 <span class="nt">&lt;/ProcessList&gt;</span>
 </code></pre></div>
-<h2 id="open-source-example-implemention">Open Source Example Implemention<a class="headerlink" href="#open-source-example-implemention" title="Permanent link">¶</a></h2>
+<h2 id="open-source-example-implemention">Open Source Example Implemention<a class="headerlink" href="#open-source-example-implemention" title="Permanent link">&para;</a></h2>
 <p>As you explore <abbr title="Common LUT Format">CLF</abbr> and work to implement it into your product(s), it may be helpful to refer to some existing tools that already provide full <abbr title="Common LUT Format">CLF</abbr> functionality. The tools described here are included in the open source project OpenColorIO (<abbr title="OpenColorIO">OCIO</abbr>) v2. More details and the full installation process for <abbr title="OpenColorIO">OCIO</abbr> can be found at <a href="https://www.opencolorio.org">https://www.opencolorio.org</a>.</p>
-<h3 id="ociochecklut"><code>ociochecklut</code><a class="headerlink" href="#ociochecklut" title="Permanent link">¶</a></h3>
+<h3 id="ociochecklut"><code>ociochecklut</code><a class="headerlink" href="#ociochecklut" title="Permanent link">&para;</a></h3>
 <p>The command-line utility <code>ociochecklut</code> can be used to load a <abbr title="Common LUT Format">CLF</abbr> file and process an <abbr title="Red, Green, and Blue">RGB</abbr> triplet through the <abbr title="Common LUT Format">CLF</abbr> file. It will report any errors that are encountered in parsing the file. If no <abbr title="Red, Green, and Blue">RGB</abbr> triplet is provided to process through the <abbr title="Common LUT Format">CLF</abbr> file, then a list of the <code>ProcessNodes</code> contained in the <abbr title="look-up table">LUT</abbr> are returned. This tool is installed as part of <abbr title="OpenColorIO">OCIO</abbr> v2.</p>
 <p>Here is sample output using the <abbr title="Common LUT Format">CLF</abbr> in the example section (assuming it is saved as a file called <code>709_ycbcr-to-rgb.clf</code>):</p>
 <p>Summarizing the contents of the <abbr title="Common LUT Format">CLF</abbr>:
@@ -1068,12 +1531,12 @@ Transform operators:
 <div class="highlight"><pre><span></span><code>$ ociochecklut 709_ycbcr-to-rgb.clf 0.5 0.4 0.3
 0.1514589 0.6398141 0.2993424
 </code></pre></div></p>
-<h3 id="ocioconvert"><code>ocioconvert</code><a class="headerlink" href="#ocioconvert" title="Permanent link">¶</a></h3>
+<h3 id="ocioconvert"><code>ocioconvert</code><a class="headerlink" href="#ocioconvert" title="Permanent link">&para;</a></h3>
 <p>The command-line utility <code>ocioconvert</code> can be used to apply a <abbr title="Common LUT Format">CLF</abbr> file to an image. To apply a <abbr title="Common LUT Format">CLF</abbr> file, use the <code>--lut</code> option. A variety of image file formats are supported. This tool is installed as a part of <abbr title="OpenColorIO">OCIO</abbr> v2, although it first requires installation of OpenImageIO.</p>
 <p>Processing the input image <code>syntheticChart.01.exr</code> to the output image <code>output_image.exr</code> through the <abbr title="Common LUT Format">CLF</abbr> from the previous example:
 <div class="highlight"><pre><span></span><code>$ ocioconvert --lut 709_ycbcr-to-rgb.clf syntheticChart.01.exr output_image.exr
 </code></pre></div></p>
-<h3 id="ociomakeclf"><code>ociomakeclf</code><a class="headerlink" href="#ociomakeclf" title="Permanent link">¶</a></h3>
+<h3 id="ociomakeclf"><code>ociomakeclf</code><a class="headerlink" href="#ociomakeclf" title="Permanent link">&para;</a></h3>
 <p>The command-line utility <code>ociomakeclf</code> will convert any <abbr title="look-up table">LUT</abbr> format supported by OpenColorIO into <abbr title="Common LUT Format">CLF</abbr> format. The <code>--csc</code> option may be used to create an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transform that is compatible with the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File (<abbr title="ACES Metadata File">AMF</abbr>). This tool is installed as a part of <abbr title="OpenColorIO">OCIO</abbr> v2.</p>
 <p>Convert the <abbr title="look-up table">LUT</abbr> oldLUT.3dl to <abbr title="Common LUT Format">CLF</abbr> format:
 <div class="highlight"><pre><span></span><code>$ ociomakeclf oldLUT.3dl oldLUT.clf
@@ -1081,19 +1544,19 @@ Transform operators:
 <p>Convert the look <abbr title="look-up table">LUT</abbr> acescctLUT.3dl that expects and produces ACEScct values to an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transform in <abbr title="Common LUT Format">CLF</abbr> format that expects and produces ACES2065-1 values:
 <div class="highlight"><pre><span></span><code>$ ociomakeclf acescctLUT.3dl LMT.clf --csc ACEScct
 </code></pre></div></p>
-<h2 id="minimum-requirements">Minimum Requirements<a class="headerlink" href="#minimum-requirements" title="Permanent link">¶</a></h2>
-<h3 id="introduction_1">Introduction<a class="headerlink" href="#introduction_1" title="Permanent link">¶</a></h3>
+<h2 id="minimum-requirements">Minimum Requirements<a class="headerlink" href="#minimum-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="introduction_1">Introduction<a class="headerlink" href="#introduction_1" title="Permanent link">&para;</a></h3>
 <p>The products anticipated to implement <abbr title="Common LUT Format">CLF</abbr> can be categorized into two broad categories: one for final production-level finished images and one for preview/proxy images. Due to the fundamental differences in the products, different requirements are provided for the two categories.</p>
-<h3 id="finishing-tier">Finishing Tier<a class="headerlink" href="#finishing-tier" title="Permanent link">¶</a></h3>
+<h3 id="finishing-tier">Finishing Tier<a class="headerlink" href="#finishing-tier" title="Permanent link">&para;</a></h3>
 <p>The primary category of products, dubbed the <em>Finishing Tier</em>, includes software implementations that have the logic and processing power available to parse and apply <code>ProcessNode</code> operations using floating-point calculations and in sequential order. Finishing Tier products provide the highest quality image processing and have the tightest tolerances, prioritizing accuracy in computation results. Finishing Tier products should be used to create images when the highest image fidelity is required in pipelines utilizing <abbr title="Common LUT Format">CLF</abbr> files.</p>
-<h4 id="minimum-requirements_1">Minimum Requirements<a class="headerlink" href="#minimum-requirements_1" title="Permanent link">¶</a></h4>
+<h4 id="minimum-requirements_1">Minimum Requirements<a class="headerlink" href="#minimum-requirements_1" title="Permanent link">&para;</a></h4>
 <p>Products in the Finishing Tier category shall:</p>
 <ol>
 <li>Pass all the Read Tests</li>
 <li>Pass the Finishing Tier Apply Tests</li>
 </ol>
 <p>In addition to the minimum requirements, Finishing Tier products should review the "<a href="#writing"><strong>Writing CLFs</strong></a>" section and conform their <abbr title="Common LUT Format">CLF</abbr> implementation to those recommendations wherever possible.</p>
-<h3 id="preview-tier">Preview Tier<a class="headerlink" href="#preview-tier" title="Permanent link">¶</a></h3>
+<h3 id="preview-tier">Preview Tier<a class="headerlink" href="#preview-tier" title="Permanent link">&para;</a></h3>
 <p>The second category of implementations are described as <em>Preview Tier</em> devices. These are products that, due to limited processing power or technical constraints, cannot implement a <abbr title="Common LUT Format">CLF</abbr> <code>ProcessList</code> exactly and instead require that <abbr title="Common LUT Format">CLF</abbr> files be ”baked” or collapsed into a simpler representation (for example, a single 3D-<abbr title="look-up table">LUT</abbr>). Hardware devices such as on-set <abbr title="look-up table">LUT</abbr> boxes would be an example of devices that might fall into this category. </p>
 <p>As the name implies, Preview Tier products are suitable for creating images such as for on-set viewing, where the requirements for accuracy and/or flexibility are lower than for the Finishing Tier.</p>
 <p><abbr title="Common LUT Format">CLF</abbr> is designed as a modern <abbr title="look-up table">LUT</abbr> format that can handle floating-point input and output pixels. However, the current ecosystem of devices still includes many products that work primarily on integer-encoded signals (e.g. HD-SDI and HDMI video) and do not support floating-point image data, including scene-linear encodings such as ACES2065-1. These types of devices would fall in the Preview Tier and <abbr title="Common LUT Format">CLF</abbr> may be used to encapsulate any of the <abbr title="look-up tables">LUTs</abbr> that are currently used in such devices. But there is no expectation that these devices will be able to accurately process other CLFs that contain transforms expecting scene-linear inputs or outputs.</p>
@@ -1102,16 +1565,16 @@ Transform operators:
 <li>Inform the user of this situation and do not attempt to process the file.</li>
 <li>Attempt to bake the <abbr title="Common LUT Format">CLF</abbr> down into a representation supported by the device. The user should be given some indication that they are seeing an approximation of the original <abbr title="Common LUT Format">CLF</abbr>.</li>
 </ol>
-<h4 id="minimum-requirements_2">Minimum Requirements<a class="headerlink" href="#minimum-requirements_2" title="Permanent link">¶</a></h4>
+<h4 id="minimum-requirements_2">Minimum Requirements<a class="headerlink" href="#minimum-requirements_2" title="Permanent link">&para;</a></h4>
 <p>Products in the Preview Tier category shall:</p>
 <ol>
 <li>Pass all the Read Tests</li>
 <li>Pass the Preview Tier Apply test</li>
 </ol>
-<h2 id="reading-clfs">Reading CLFs<a class="headerlink" href="#reading-clfs" title="Permanent link">¶</a></h2>
+<h2 id="reading-clfs">Reading CLFs<a class="headerlink" href="#reading-clfs" title="Permanent link">&para;</a></h2>
 <p>This section describes the general requirements for parsing <abbr title="Common LUT Format">CLF</abbr> files, the provided test suite, and the steps for validating an implementation using the test suite.</p>
-<h3 id="general-parsing-requirements">General Parsing Requirements<a class="headerlink" href="#general-parsing-requirements" title="Permanent link">¶</a></h3>
-<h4 id="requirements">Requirements:<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h4>
+<h3 id="general-parsing-requirements">General Parsing Requirements<a class="headerlink" href="#general-parsing-requirements" title="Permanent link">&para;</a></h3>
+<h4 id="requirements">Requirements:<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p><strong>Version Support</strong></p>
@@ -1134,18 +1597,18 @@ Transform operators:
 <p>Implementations must be able to read at least 32-bit float precision, though 64-bit precision is desirable for ProcessNodes other than <code>LUT1D</code> and <code>LUT3D</code>. Note that the specification defines the numeric values as “xs:float” type, that is, <abbr title="Extensible Markup Language">XML</abbr> Schema floats. Parsers should be able to handle all of the details of this format (e.g., integers without a decimal point, missing leading 0 on decimal values, the presence of a leading “+”, etc.). Note that an integer is a legal xs:float.</p>
 </li>
 </ol>
-<h4 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">¶</a></h4>
+<h4 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h4>
 <p><abbr title="Extensible Markup Language">XML</abbr> is designed to be extensible, and <abbr title="Extensible Markup Language">XML</abbr> files often contain data that was not defined in the specification. However, the desire for extensibility must be balanced against the need to detect erroneous content. On occasion, unrecognized <abbr title="Extensible Markup Language">XML</abbr> elements may be detected. In those instances, the following logic is recommended:</p>
 <ul>
 <li>If the unrecognized element is at the <code>ProcessNode</code> level (in other words, the top level of the <code>ProcessList</code>), it should produce an error, or at least a warning.</li>
 <li>If the unrecognized element is within a <code>ProcessNode</code>, a warning should be issued.</li>
 <li>If the unrecognized element is within the <code>Info</code> block, it may be ignored.</li>
 </ul>
-<h3 id="clf-file-test-suite"><abbr title="Common LUT Format">CLF</abbr> File Test Suite<a class="headerlink" href="#clf-file-test-suite" title="Permanent link">¶</a></h3>
+<h3 id="clf-file-test-suite"><abbr title="Common LUT Format">CLF</abbr> File Test Suite<a class="headerlink" href="#clf-file-test-suite" title="Permanent link">&para;</a></h3>
 <p>A number of test files are provided for implementers to test their system and demonstrate that their implementation can robustly handle all features of <abbr title="Common LUT Format">CLF</abbr> v3. The tests provided in the <a href="https://github.com/AcademySoftwareFoundation/OpenColorIO/tree/master/tests/data/files/clf"><strong>OpenColorIO repository on Github</strong></a> include both legal and illegal test files. The file name and description in each file identifies what the file is testing.</p>
 <p>The test files confirm that each <code>ProcessNode</code> is functioning per the specification. For <code>ProcessNodes</code> that allow for different styles or parameters, either separate test files or single test files with multiple <code>ProcessNode</code> variations are provided to check that all styles and parameters are functional. Standard files are expected to be processed without error. </p>
 <p>A number of "illegal" test files with various syntax errors are also provided to test the error handling capability of implementations. Illegal files should not be processed and the system should generate an appropriate error message.</p>
-<h3 id="test-procedure">Test Procedure<a class="headerlink" href="#test-procedure" title="Permanent link">¶</a></h3>
+<h3 id="test-procedure">Test Procedure<a class="headerlink" href="#test-procedure" title="Permanent link">&para;</a></h3>
 <p>Download the OpenColorIO repository from GitHub at the URL:
 <a href="https://github.com/AcademySoftwareFoundation/OpenColorIO">https://github.com/AcademySoftwareFoundation/OpenColorIO</a></p>
 <p>If you are not familiar with Git, that’s fine. Simply click on the green button that says Code and select “Download ZIP”. Unzip this file on your computer and you will have all of the test files. </p>
@@ -1161,16 +1624,16 @@ Transform operators:
 <li>Read the file into your product and ensure that the user is notified that it is not a legal <abbr title="Common LUT Format">CLF</abbr> file. Ideally, the nature of the problem should be communicated to the user.</li>
 <li>Verify that none of these files load successfully. They should not result in a processed image. If an implementation needs to pass through the unprocessed image, it should communicate clearly to the user in some other way that there was an error.</li>
 </ol>
-<h2 id="applying">Applying CLFs<a class="headerlink" href="#applying" title="Permanent link">¶</a></h2>
-<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">¶</a></h3>
+<h2 id="applying">Applying CLFs<a class="headerlink" href="#applying" title="Permanent link">&para;</a></h2>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
 <p>For <abbr title="Common LUT Format">CLF</abbr> to be useful, it is important that different products output the same results when applying the same <abbr title="Common LUT Format">CLF</abbr> to the same input. This section describes the different expectations for Finishing Tier and Preview Tier products. Each category has their own metric and defined tolerances.</p>
-<h3 id="finishing-tier_1">Finishing Tier<a class="headerlink" href="#finishing-tier_1" title="Permanent link">¶</a></h3>
-<h4 id="tolerances">Tolerances<a class="headerlink" href="#tolerances" title="Permanent link">¶</a></h4>
+<h3 id="finishing-tier_1">Finishing Tier<a class="headerlink" href="#finishing-tier_1" title="Permanent link">&para;</a></h3>
+<h4 id="tolerances">Tolerances<a class="headerlink" href="#tolerances" title="Permanent link">&para;</a></h4>
 <p>The Finishing Tier is intended to cover software-based implementations such as products for tasks including color correction and compositing. It is expected that these implementations will use floating-point math to apply the contents of the <abbr title="Common LUT Format">CLF</abbr>, without converting it into a significantly different representation. Hence fairly tight tolerances may be expected.</p>
 <p>A <abbr title="Common LUT Format">CLF</abbr> may be used to apply arbitrary color space conversions and so the input and output images may be in arbitrary color spaces, including video, logarithmic, and scene-linear color encodings. Both integer and wide-range floating-point pixel values are expected. Video and logarithmic encodings are typically sufficiently perceptually uniform that a simple absolute error metric such as <code>(actual – aim)</code> may be used. However, scene-linear encodings require a tolerance that is tighter for dark colors and looser for bright colors - in other words, a relative rather than absolute metric. This is due to the approximately logarithmic nature of human color perception (although the metric is actually computed per channel).</p>
 <p>When comparing an aim and actual value, a basic relative error metric has the form: </p>
 <p><code>(actual – aim) / aim</code></p>
-<p>However this can become overly sensitive when the values being compared become very small. In the limit, when the aim value is zero, the result is either infinity or NaN. Therefore it is useful to use a “safe-guarded relative error metric” that places a lower bound on the denominator:<br/>
+<p>However this can become overly sensitive when the values being compared become very small. In the limit, when the aim value is zero, the result is either infinity or NaN. Therefore it is useful to use a “safe-guarded relative error metric” that places a lower bound on the denominator:<br />
 <code>actual – aim) / max(aim, lower_bound)</code>. </p>
 <p>This effectively transitions the error metric from being a relative error metric for bright and normal colors to an absolute error metric when approaching a certain noise floor determined by the <code>lower_bound</code> constant. A reasonable <code>lower_bound</code> constant for images in ACES2065-1 color space would be 0.1. It is also necessary to handle the case where the aim value may be negative, in which case the final error metric becomes: </p>
 <p><code>abs(actual – aim) / max(abs(aim), 0.1) &lt;= 0.002</code></p>
@@ -1178,7 +1641,7 @@ Transform operators:
 <p>It is expected that implementations in the Finishing Tier will be using floating-point software calculations and the processing will be applied this way regardless of whether the color encodings involved are video, logarithmic, or scene-linear. Since relative tolerances are well-suited to verifying floating-point math, the safe-guarded relative error metric will be used for all Finishing Tier tolerances even though this may be perceptually either too tight or too loose when processing video or logarithmic pixel values.</p>
 <p>Above the lower bound transition, the tolerance for implementations in the Finishing Tier is a relative error of plus or minus one part in 500. For comparison, half-float numbers are spaced at a relative distance of one part in 1024. (In the literature on the subject of floating-point math, this distance is called a “unit of least precision,” or ULP.) So the tolerance for the metric is only slightly more loose than the precision imposed by the storage of images as half-float OpenEXR files.</p>
 <p>To validate the tolerance, testing was conducted using various processing modes in OpenColorIO. For example, various forms of CPU optimization were applied and the results were compared to the unoptimized reference version. These included optimizations such as concatenating adjacent matrices and approximating standard library logarithm and power functions with faster but less precise versions. Likewise, processing on the GPU was compared to the CPU reference version. The test image that was used is the one described in Annex A, so it sampled the full range of half-float numbers. The fact that all of these processing variations passed the specified error tolerance indicates that it should be an achievable performance level for a wide range of products.</p>
-<h4 id="test-procedure_1">Test Procedure<a class="headerlink" href="#test-procedure_1" title="Permanent link">¶</a></h4>
+<h4 id="test-procedure_1">Test Procedure<a class="headerlink" href="#test-procedure_1" title="Permanent link">&para;</a></h4>
 <p>The collection of test <abbr title="Common LUT Format">CLF</abbr> files are included in the OpenColorIO repository, as described in <a href="#annexB">Annex B</a>. Process the source image (whose contents are described in <a href="#annexA">Annex A</a>) through your implementation for each of the CLFs described in <a href="#annexC">Annex C</a>.</p>
 <p>The processed reference frames to be used for comparison may be downloaded as described in <a href="#annexC">Annex C</a>, or you may generate them yourself using the steps described in <a href="#annexK">Annex K</a></p>
 <p>The command-line application <code>oiiotool</code>, which is installed as a component of OpenImageIO, can be used to compare pixels between two images and evaluate the metric specified in this section. A Python script for doing this is provided with OpenColorIO. Here are the steps for how to install and run it:</p>
@@ -1199,7 +1662,7 @@ Transform operators:
 </li>
 </ol>
 <p>The script iterates over the images in the directory and prints the oiiotool command being run. It will then print either 'Test passed' or 'Test failed' after each command and then at the end will summarize with 'All tests passed' or 'These tests failed' with a list of the failed images.</p>
-<h4 id="alternate-test-procedure">Alternate Test Procedure<a class="headerlink" href="#alternate-test-procedure" title="Permanent link">¶</a></h4>
+<h4 id="alternate-test-procedure">Alternate Test Procedure<a class="headerlink" href="#alternate-test-procedure" title="Permanent link">&para;</a></h4>
 <p>Implementers may also choose to use other tools or implement their own tools to compare pixel values and calculate the metrics. In that case, proceed as follows to compare your actual images to the aim reference images described in <a href="#annexC">Annex C</a>:</p>
 <p>For each <abbr title="Common LUT Format">CLF</abbr> identified in the Finishing Tier test list in <a href="#annexC">Annex C</a>:</p>
 <ol>
@@ -1211,20 +1674,20 @@ Transform operators:
 </ol>
 </li>
 </ol>
-<h3 id="preview-tier_1">Preview Tier<a class="headerlink" href="#preview-tier_1" title="Permanent link">¶</a></h3>
-<h4 id="lut-baking"><abbr title="look-up table">LUT</abbr> Baking<a class="headerlink" href="#lut-baking" title="Permanent link">¶</a></h4>
+<h3 id="preview-tier_1">Preview Tier<a class="headerlink" href="#preview-tier_1" title="Permanent link">&para;</a></h3>
+<h4 id="lut-baking"><abbr title="look-up table">LUT</abbr> Baking<a class="headerlink" href="#lut-baking" title="Permanent link">&para;</a></h4>
 <p>Preview Tier devices/implementations typically are not able to handle the full flexibility of the <abbr title="Common LUT Format">CLF</abbr> processing model. If the contents of the <abbr title="Common LUT Format">CLF</abbr> correspond to what the device may natively apply, then it is reasonable to expect fairly tight processing tolerances. However, if the <abbr title="Common LUT Format">CLF</abbr> contains many ops that must be converted (or "baked") into some other representation in order to be applied in device hardware, then it may be unreasonable to demand the same level of performance. </p>
 <p>Different tolerances would need to be established for each <abbr title="Common LUT Format">CLF</abbr> in the test suite depending on the contents and complexity of each <abbr title="Common LUT Format">CLF</abbr> and on the details of how it is baked. Therefore, the current version of this guide only tests the ability to process a single <code>LUT3D</code> (e.g. a baked result, not the baking process itself).</p>
 <p>So all Preview Tier devices must at least handle the <code>LUT3D</code> apply test but implementers will need to decide how to handle CLFs that are more complicated. One approach is to simply inform the user that the <abbr title="Common LUT Format">CLF</abbr> contains operators that cannot be processed by that implementation. Another approach is to attempt to bake the <abbr title="Common LUT Format">CLF</abbr> into a form that the implementation is able to process. <a href="#annexE">Annex E</a> provides an introduction to the topic of baking.</p>
 <p>Implementations should notify users if their <abbr title="Common LUT Format">CLF</abbr> is being baked into a significantly different structure in order to be processed by the device. (Simple adjustments such as concatenating adjacent matrices into a single matrix do not fall into this category, but combining multiple operators into a single <code>LUT3D</code> certainly does.)</p>
 <p>Implementers are strongly advised to document the <abbr title="Common LUT Format">CLF</abbr> structures that they are able to apply exactly, without need of baking. This would allow users to plan their processing accordingly in order to make best use of the device. Advanced users will be able to generate CLFs in order to obtain the best accuracy possible, given the restrictions.</p>
-<h4 id="tolerances_1">Tolerances<a class="headerlink" href="#tolerances_1" title="Permanent link">¶</a></h4>
+<h4 id="tolerances_1">Tolerances<a class="headerlink" href="#tolerances_1" title="Permanent link">&para;</a></h4>
 <p>The Preview Tier is intended to cover devices such as on set <abbr title="look-up table">LUT</abbr> boxes that work on live SDI video signals. These devices are intended to process video or logarithmic encodings and typically do not handle floating-point pixel values. Therefore, a simple absolute error metric may be used. Integer values should be normalized to [0,1] by dividing by the maximum integer value (e.g., 1023, 4095, 65535), yielding an absolute error metric applied to normalized values:</p>
 <div class="arithmatex">\[
 {\text{abs}(actual – aim) &lt;= 0.002}
 \]</div>
 <p>This is essentially a tolerance of +/– two 10-bit code values, if applied to a 10-bit signal, or equivalently +/– eight 12-bit code values, if applied to a 12-bit signal, etc.</p>
-<h4 id="test-procedure_2">Test Procedure<a class="headerlink" href="#test-procedure_2" title="Permanent link">¶</a></h4>
+<h4 id="test-procedure_2">Test Procedure<a class="headerlink" href="#test-procedure_2" title="Permanent link">&para;</a></h4>
 <p>The process of verification for the Preview Tier is to check for correct implementation of a <code>LUT3D</code> with tetrahedral interpolation using an integer test image.</p>
 <p>For the <abbr title="Common LUT Format">CLF</abbr> identified in the Preview Tier test list in <a href="#annexD">Annex D</a>:</p>
 <ol>
@@ -1249,11 +1712,11 @@ Transform operators:
 <p>(Note that <code>oiiotool</code> works in normalized units, so 0.002 is actually equivalent to 0.002 x 1023 = 2.046 10-bit code values.)</p>
 </li>
 </ol>
-<h2 id="writing">Writing CLFs<a class="headerlink" href="#writing" title="Permanent link">¶</a></h2>
+<h2 id="writing">Writing CLFs<a class="headerlink" href="#writing" title="Permanent link">&para;</a></h2>
 <p>Not all products must support writing CLFs, depending on the way they are used. If your product supports the writing of <abbr title="Common LUT Format">CLF</abbr> files, it must adhere to the <abbr title="Common LUT Format">CLF</abbr> specification. Some important highlights and recommendations for implementation default behavior, or for users authoring CLFs by hand, are described in the following sections.</p>
-<h3 id="file-extension">File Extension<a class="headerlink" href="#file-extension" title="Permanent link">¶</a></h3>
+<h3 id="file-extension">File Extension<a class="headerlink" href="#file-extension" title="Permanent link">&para;</a></h3>
 <p>The extension used for <abbr title="Common LUT Format">CLF</abbr> files should be a  <code>.clf</code>  at the end of the file name.</p>
-<h3 id="indentation">Indentation<a class="headerlink" href="#indentation" title="Permanent link">¶</a></h3>
+<h3 id="indentation">Indentation<a class="headerlink" href="#indentation" title="Permanent link">&para;</a></h3>
 <p><abbr title="Common LUT Format">CLF</abbr> files may be opened and read by users during troubleshooting, so readability is desirable. In particular, the following formatting is recommended for indentation: </p>
 <ol>
 <li>Use 2-4 spaces to indent relative to a parent item.</li>
@@ -1261,31 +1724,31 @@ Transform operators:
 <li>Arrays (contained in <code>Matrix</code>, <code>LUT1D</code>, <code>LUT3D</code>) should use line breaks to present data visually (e.g., by aligning columns of R, G, B). Large blocks of lines of numbers do not need to be indented since they are already visually distinct and there is no point adding spaces in front of thousands of lines (e.g., in the case of large <abbr title="look-up tables">LUTs</abbr>).</li>
 <li>Long text strings (e.g. in a <code>Description</code> tag) should not contain embedded wrapping and indentation. It is better to let the application software determine where to wrap long lines of text in order to present them best in its own user interface.</li>
 </ol>
-<h4 id="indentation-example-using-made-up-element-names">Indentation example (using made-up element names):<a class="headerlink" href="#indentation-example-using-made-up-element-names" title="Permanent link">¶</a></h4>
+<h4 id="indentation-example-using-made-up-element-names">Indentation example (using made-up element names):<a class="headerlink" href="#indentation-example-using-made-up-element-names" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>&lt;aTag&gt;
    &lt;simpleType&gt;This does not require a line break.&lt;/simpleType&gt;
    &lt;complexType&gt;
       &lt;simpleType&gt;This is a simpleType in a complexType.&lt;/simpleType&gt;
-      &lt;simpleType&gt;Here's a long text line that shouldn't be wrapped in the CLF since the app will decide where to wrap it.&lt;/simpleType&gt;
+      &lt;simpleType&gt;Here&#39;s a long text line that shouldn&#39;t be wrapped in the CLF since the app will decide where to wrap it.&lt;/simpleType&gt;
    &lt;/complexType&gt;
    &lt;simpleTypeWithParam param=0.5 /&gt;
-   &lt;Array dim="3 4"&gt;
+   &lt;Array dim=&quot;3 4&quot;&gt;
 1.0  0.0  0.0  -0.3
 0.0  1.0  0.0  -0.5
 0.0  0.0  1.0  -0.5
    &lt;/Array&gt;
 &lt;/aTag&gt;
 </code></pre></div>
-<h3 id="use-of-xml-comments">Use of <abbr title="Extensible Markup Language">XML</abbr> Comments<a class="headerlink" href="#use-of-xml-comments" title="Permanent link">¶</a></h3>
+<h3 id="use-of-xml-comments">Use of <abbr title="Extensible Markup Language">XML</abbr> Comments<a class="headerlink" href="#use-of-xml-comments" title="Permanent link">&para;</a></h3>
 <p><abbr title="Common LUT Format">CLF</abbr> authors should avoid using <abbr title="Extensible Markup Language">XML</abbr> comments to encapsulate metadata or important information. Most parsers ignore comments, so if a <abbr title="Common LUT Format">CLF</abbr> gets read and rewritten, comments that were previously there may go missing. Any important information should be enclosed in provided metadata <abbr title="Extensible Markup Language">XML</abbr> elements and attributes (e.g., the ProcessList's <code>Info</code> element). </p>
-<h3 id="discrete-operations">Discrete Operations<a class="headerlink" href="#discrete-operations" title="Permanent link">¶</a></h3>
+<h3 id="discrete-operations">Discrete Operations<a class="headerlink" href="#discrete-operations" title="Permanent link">&para;</a></h3>
 <p>Finishing Tier products should, whenever possible, encapsulate discrete math operations with one or more <code>ProcessNodes</code> in a <code>ProcessList</code> rather than simply exporting a 1D- and/or 3D-<abbr title="look-up table">LUT</abbr>. For example, a common color space conversion should use discrete <code>Log</code> and <code>Matrix</code> nodes, where appropriate, rather than a single <code>LUT3D</code>.</p>
-<h3 id="precision-and-range-of-numeric-values">Precision and Range of Numeric Values<a class="headerlink" href="#precision-and-range-of-numeric-values" title="Permanent link">¶</a></h3>
+<h3 id="precision-and-range-of-numeric-values">Precision and Range of Numeric Values<a class="headerlink" href="#precision-and-range-of-numeric-values" title="Permanent link">&para;</a></h3>
 <p>Ensure your implementation writes a sufficient number of digits. Even though image processing will typically be done at 32-bit floating-point precision, intermediate calculations (for example, combining matrices) may be done at higher precision.</p>
 <p>Also, take note that the bit-depth attributes do not impose range or quantization limits. Hence you should not impose these limits unnecessarily. For example, for a LUT1D with an <code>outBitDepth</code> of <code>10i</code>, the normal range would be expected to be 0 to 1023. However, it is legal to exceed this range and also to use fractional values. Thus, values such as <code>[-10.5, 0.01, 1055.2]</code> could be legal values. Please refer to <a href="http://j.mp/S-2014-006">Section 5.1 of the specification</a> for more detail.</p>
-<h3 id="the-id-attribute">The <code>id</code> Attribute<a class="headerlink" href="#the-id-attribute" title="Permanent link">¶</a></h3>
+<h3 id="the-id-attribute">The <code>id</code> Attribute<a class="headerlink" href="#the-id-attribute" title="Permanent link">&para;</a></h3>
 <p>Every <abbr title="Common LUT Format">CLF</abbr> is required to have an <code>id</code> attribute at the <code>ProcessList</code> level. The specification does not impose any restrictions on the formatting of this attribute. However, it should be noted that an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File that references a <abbr title="Common LUT Format">CLF</abbr> file prefers that the <code>id</code> attribute contains a <abbr title="Universal(ly) Unique Identifier">UUID</abbr> object according to RFC 4122. Therefore, it is recommended that implementations use a <abbr title="Universal(ly) Unique Identifier">UUID</abbr> to fill the <code>id</code> attribute when writing new <abbr title="Common LUT Format">CLF</abbr> files. Note that the <code>id</code> attribute is optional at the <code>ProcessNode</code> level.</p>
-<h3 id="storage-of-proprietary-metadata">Storage of Proprietary Metadata<a class="headerlink" href="#storage-of-proprietary-metadata" title="Permanent link">¶</a></h3>
+<h3 id="storage-of-proprietary-metadata">Storage of Proprietary Metadata<a class="headerlink" href="#storage-of-proprietary-metadata" title="Permanent link">&para;</a></h3>
 <p>If an application wants to store "dark metadata" that is meaningful only for a special purpose within proprietary products or workflows, this is easily accomplished. Indeed this is one of the frequently cited benefits of the <abbr title="Extensible Markup Language">XML</abbr> encoding. However, it is important that <abbr title="Common LUT Format">CLF</abbr> writers are respectful of certain guidelines to ensure the <abbr title="Common LUT Format">CLF</abbr> file remains usable by other readers. If you need to add proprietary metadata, please respect the following:</p>
 <ol>
 <li>Check the <abbr title="Common LUT Format">CLF</abbr> spec to see if there is already an element whose purpose matches what you are trying to store.</li>
@@ -1293,24 +1756,24 @@ Transform operators:
 <li>Avoid using the standard existing elements such as <code>Description</code> in a way that is inconsistent with their purpose.</li>
 <li>Avoid placing custom elements at the <code>ProcessNode</code> level since that would make it an illegal file that most parsers will reject.</li>
 </ol>
-<h3 id="other-metadata-considerations">Other Metadata Considerations<a class="headerlink" href="#other-metadata-considerations" title="Permanent link">¶</a></h3>
+<h3 id="other-metadata-considerations">Other Metadata Considerations<a class="headerlink" href="#other-metadata-considerations" title="Permanent link">&para;</a></h3>
 <p>Inaccurate metadata is worse than no metadata. Implementers should make it as regular and easy as possible for the user to set required <abbr title="Common LUT Format">CLF</abbr> metadata when writing a file. Accurate metadata is critical for other users to be able to understand the intended usage of the <abbr title="Common LUT Format">CLF</abbr> file, especially the <code>Description</code>, <code>InputDescriptor</code>, and <code>OutputDescriptor</code> tags. If known by the application, the application should fill in the <code>InputDescriptor</code> and <code>OutputDescriptor</code> tags automatically. At this time, no standard list of values (i.e., text strings) for color spaces or other common settings is defined. </p>
 <p>When writing a <abbr title="Common LUT Format">CLF</abbr> to represent an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transform, the <abbr title="Common LUT Format">CLF</abbr> should adhere to the structure and metadata described in <a href="#annexF">Annex F</a>.</p>
 <p>If translating an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Color Transform Language">CTL</abbr> (Color Transformation Language) file into <abbr title="Common LUT Format">CLF</abbr>, set the <code>ACESTransformID</code> and <code>ACESUserName</code> (under the <code>Info</code> block of metadata) using the corresponding strings from the <abbr title="Color Transform Language">CTL</abbr> header. [Examples 13] and [14] in [section 6] of the specification show CLFs using this feature.</p>
-<h2 id="helpful-hints-for-a-successful-implementation">Helpful Hints for a Successful Implementation<a class="headerlink" href="#helpful-hints-for-a-successful-implementation" title="Permanent link">¶</a></h2>
-<h3 id="matrix-order"><code>Matrix</code> Order<a class="headerlink" href="#matrix-order" title="Permanent link">¶</a></h3>
+<h2 id="helpful-hints-for-a-successful-implementation">Helpful Hints for a Successful Implementation<a class="headerlink" href="#helpful-hints-for-a-successful-implementation" title="Permanent link">&para;</a></h2>
+<h3 id="matrix-order"><code>Matrix</code> Order<a class="headerlink" href="#matrix-order" title="Permanent link">&para;</a></h3>
 <p>Take note that the order of coefficients in the <code>Matrix</code> ProcessNode follows the usual convention in color science but that this is the transposition of both the order sometimes used in computer graphics and the order used in <abbr title="Color Transform Language">CTL</abbr>. <strong>[Section 4.4.4]</strong> of the specification clearly documents the ordering of matrix coefficients that must be used. Also, note that the 3x4 matrix includes an offset value after each of the three matrix values.</p>
-<h3 id="lut3d-serialization-order"><code>LUT3D</code> Serialization Order<a class="headerlink" href="#lut3d-serialization-order" title="Permanent link">¶</a></h3>
+<h3 id="lut3d-serialization-order"><code>LUT3D</code> Serialization Order<a class="headerlink" href="#lut3d-serialization-order" title="Permanent link">&para;</a></h3>
 <p>As described in <strong>[Section 4.4.3]</strong> of the <abbr title="Common LUT Format">CLF</abbr> Specification, take note that the <code>LUT3D</code> ProcessNode serializes the <abbr title="look-up table">LUT</abbr> entries in blue-fastest order. This is a commonly used ordering (for example it is used by the common .3dl format) but some other formats use red-fastest ordering (e.g., .cube format).</p>
-<h3 id="gamma-polarity">Gamma Polarity<a class="headerlink" href="#gamma-polarity" title="Permanent link">¶</a></h3>
+<h3 id="gamma-polarity">Gamma Polarity<a class="headerlink" href="#gamma-polarity" title="Permanent link">&para;</a></h3>
 <p>As described in <strong>[Section 4.4.7]</strong> of the spec, take note that the <code>Exponent</code> ProcessNode uses the specified parameter directly in the power function for the forward direction. This is the same usage as in an <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> power. But take care since often "gamma" operators in color processing software apply the inverse of the power for the forward direction.</p>
-<h3 id="bit-depth-attributes-dont-affect-processing-precision">Bit-Depth Attributes Don't Affect Processing Precision<a class="headerlink" href="#bit-depth-attributes-dont-affect-processing-precision" title="Permanent link">¶</a></h3>
+<h3 id="bit-depth-attributes-dont-affect-processing-precision">Bit-Depth Attributes Don't Affect Processing Precision<a class="headerlink" href="#bit-depth-attributes-dont-affect-processing-precision" title="Permanent link">&para;</a></h3>
 <p>As called out in the <abbr title="Common LUT Format">CLF</abbr> specification, the <code>inBitDepth</code> and <code>outBitDepth</code> attributes of <code>ProcessNodes</code> are not intended to control the processing precision, which should normally be 32-bit floating-point. Rather, these attributes simply determine the scaling of various parameter values such as matrix and <abbr title="look-up table">LUT</abbr> entries. Please refer to section 5.1 of the <strong>[<abbr title="Common LUT Format">CLF</abbr> specification]</strong> for the details.</p>
-<h3 id="conversion-between-bit-depths">Conversion Between Bit-Depths<a class="headerlink" href="#conversion-between-bit-depths" title="Permanent link">¶</a></h3>
+<h3 id="conversion-between-bit-depths">Conversion Between Bit-Depths<a class="headerlink" href="#conversion-between-bit-depths" title="Permanent link">&para;</a></h3>
 <p>When interpreting the <code>inBitDepth</code> and <code>outBitDepth</code> attributes, conversions happen using "power of two minus 1" scaling rather than "power of 2" scaling. Please refer to section 5.1.4 of the <strong>[<abbr title="Common LUT Format">CLF</abbr> Specification]</strong> for the details.</p>
-<h2 id="appendices">Appendices<a class="headerlink" href="#appendices" title="Permanent link">¶</a></h2>
-<h3 id="annexA">Annex A: Test Image<a class="headerlink" href="#annexA" title="Permanent link">¶</a></h3>
-<p><img src="images/CLF_testImagePrototype_v008.jpg" width="50%"><img src="images/clf-image-legend.png" width="50%"/></img></p>
+<h2 id="appendices">Appendices<a class="headerlink" href="#appendices" title="Permanent link">&para;</a></h2>
+<h3 id="annexA">Annex A: Test Image<a class="headerlink" href="#annexA" title="Permanent link">&para;</a></h3>
+<p><img src="images/CLF_testImagePrototype_v008.jpg" width="50%" /><img src="images/clf-image-legend.png" width="50%" /></p>
 <p>A 16-bit OpenEXR test image was designed with many ramps and other values which should be useful for testing any <abbr title="Common LUT Format">CLF</abbr> and/or <abbr title="Common LUT Format">CLF</abbr> implementation. The image includes:</p>
 <ul>
 <li>33x33 cube spanning -1.0 to 1.0 </li>
@@ -1323,12 +1786,12 @@ Transform operators:
 </ul>
 <p>Specific details for each of the image subsections can be found in the README at <a href="https://github.com/alexfry/CLFTestImage">https://github.com/alexfry/CLFTestImage</a></p>
 <p>The test image (named <code>CLF_Finishing_SourceImage_v008.exr</code>) is included along with the processed reference images in the download referenced in <a href="#annexC">Annex C</a> and <a href="#annexD">D</a>.</p>
-<h3 id="annexB">Annex B: <abbr title="Common LUT Format">CLF</abbr> Test Suite Listing<a class="headerlink" href="#annexB" title="Permanent link">¶</a></h3>
+<h3 id="annexB">Annex B: <abbr title="Common LUT Format">CLF</abbr> Test Suite Listing<a class="headerlink" href="#annexB" title="Permanent link">&para;</a></h3>
 <p>These test files may be found in the OpenColorIO repository on GitHub:
 <a href="https://github.com/AcademySoftwareFoundation/OpenColorIO">https://github.com/AcademySoftwareFoundation/OpenColorIO</a></p>
 <p>The files are in the sub-directory: <code>OpenColorIO/tests/data/files/clf</code></p>
 <p>Note: Some of the test files intentionally use unusual or difficult syntax to give a thorough test for parsers. They are not all intended as "best practice" examples.</p>
-<h4 id="legal-test-files">Legal test files<a class="headerlink" href="#legal-test-files" title="Permanent link">¶</a></h4>
+<h4 id="legal-test-files">Legal test files<a class="headerlink" href="#legal-test-files" title="Permanent link">&para;</a></h4>
 <p>An implementation should be able to load and process these files successfully.</p>
 <table>
 <thead>
@@ -1567,7 +2030,7 @@ Transform operators:
 </tr>
 </tbody>
 </table>
-<h4 id="illegal-test-files">Illegal test files<a class="headerlink" href="#illegal-test-files" title="Permanent link">¶</a></h4>
+<h4 id="illegal-test-files">Illegal test files<a class="headerlink" href="#illegal-test-files" title="Permanent link">&para;</a></h4>
 <p>These files should not load successfully and the implementation should indicate that it is not a legal file. The files are in the directory: <code>OpenColorIO/tests/data/files/clf/illegal</code></p>
 <table>
 <thead>
@@ -1745,7 +2208,7 @@ Transform operators:
 <td>0240</td>
 <td>matrix_end_missing.clf</td>
 <td>Matrix</td>
-<td>There is no  element</td>
+<td>There is no </Matrix> element</td>
 <td></td>
 </tr>
 <tr>
@@ -1876,14 +2339,14 @@ Transform operators:
 </tr>
 </tbody>
 </table>
-<h3 id="annexC">Annex C: Finishing Tier Apply Test <abbr title="Common LUT Format">CLF</abbr> List<a class="headerlink" href="#annexC" title="Permanent link">¶</a></h3>
+<h3 id="annexC">Annex C: Finishing Tier Apply Test <abbr title="Common LUT Format">CLF</abbr> List<a class="headerlink" href="#annexC" title="Permanent link">&para;</a></h3>
 <p>The list of <abbr title="Common LUT Format">CLF</abbr> files for the Finishing Tier apply test is the complete list of legal files in <a href="#annexB">Annex B</a>.</p>
 <p>Processed reference images may be downloaded from here: <a href="https://www.dropbox.com/s/qy4zm8g06uz7drc/CLF_ApplyTestImages_v01.zip?dl=0"><abbr title="Common LUT Format">CLF</abbr> Apply Test Images</a></p>
-<h3 id="annexD">Annex D: Preview Tier Apply Test <abbr title="Common LUT Format">CLF</abbr> List<a class="headerlink" href="#annexD" title="Permanent link">¶</a></h3>
+<h3 id="annexD">Annex D: Preview Tier Apply Test <abbr title="Common LUT Format">CLF</abbr> List<a class="headerlink" href="#annexD" title="Permanent link">&para;</a></h3>
 <p>The <abbr title="Common LUT Format">CLF</abbr> file for the Preview Tier apply test is simply: 
 <code>lut3d_preview_tier_test.clf</code></p>
 <p>Processed reference images may be downloaded from here: <a href="https://www.dropbox.com/s/qy4zm8g06uz7drc/CLF_ApplyTestImages_v01.zip?dl=0"><abbr title="Common LUT Format">CLF</abbr> Apply Test Images</a></p>
-<h3 id="annexE">Annex E: Baking a <abbr title="Common LUT Format">CLF</abbr> for Preview Tier Implementation<a class="headerlink" href="#annexE" title="Permanent link">¶</a></h3>
+<h3 id="annexE">Annex E: Baking a <abbr title="Common LUT Format">CLF</abbr> for Preview Tier Implementation<a class="headerlink" href="#annexE" title="Permanent link">&para;</a></h3>
 <p>Because <abbr title="Common LUT Format">CLF</abbr> allows a fairly powerful set of processing operators that may be assembled into pipelines of any ordering and any length, it will not be possible to exactly evaluate all CLFs on hardware or software that has a fixed processing pipeline. (In other words, the implementation must allow the <abbr title="Common LUT Format">CLF</abbr> file itself to specify the pipeline of operators for a given color transform.)</p>
 <p>Converting color transforms into a simpler structure to make them simpler to evaluate is known as <em>baking</em>. This is often done to meet the needs of a particular hardware implementation. </p>
 <p>There are a number of factors that make the process of accurately baking color transforms a difficult and complicated subject:</p>
@@ -1897,14 +2360,14 @@ Transform operators:
 <p>Integer-based implementations in the Preview Tier will typically be processing video or logarithmic color space encodings. So for example, if the documentation suggests avoiding use of CLFs expecting scene-linear color spaces on input, that is probably fine since (hopefully!) no one will be trying to send raw scene-linear values through an integer connection such as SDI video.</p>
 <p>The accuracy of the baking process may be judged by sending images through both the original <abbr title="Common LUT Format">CLF</abbr> and the baked <abbr title="Common LUT Format">CLF</abbr> and comparing them. OpenColorIO or any product that passes the Finishing Tier tests could be used for this type of comparison. But keep in mind that the result will depend on many factors, including the input and output color spaces and the internal structure of the original <abbr title="Common LUT Format">CLF</abbr>. So even though one <abbr title="Common LUT Format">CLF</abbr> may bake accurately through a given baking process, it certainly does not mean that all of them will. Testing with a range of user transforms is essential.</p>
 <p>OpenColorIO may be used to experiment with baking CLFs using the command-line tool <code>ociobakelut</code>. For example, here is a command that takes an original <abbr title="Common LUT Format">CLF</abbr> named <code>complicated.clf</code> and bakes it into a single <code>LUT3D</code> with a cube dimension of 33x33x33 called <code>simple.clf</code>:</p>
-<div class="highlight"><pre><span></span><code>$ ociobakelut --lut complicated.clf --cubesize 33 --format "Academy/ASC Common LUT Format" --v simple.clf
+<div class="highlight"><pre><span></span><code>$ ociobakelut --lut complicated.clf --cubesize 33 --format &quot;Academy/ASC Common LUT Format&quot; --v simple.clf
 </code></pre></div>
 <p>You may edit the resulting <abbr title="Common LUT Format">CLF</abbr> <abbr title="Extensible Markup Language">XML</abbr> file in a text editor to add the <code>interpolation="tetrahedral"</code> attribute to the <code>LUT3D</code> and any desired metadata.</p>
 <p>For CLFs that convert from one perceptually uniform color space to another (i.e., between most logarithmic and video color spaces), this will often be reasonably accurate for Preview Tier devices. Increasing the cube size will improve accuracy (the default <code>cubesize</code> is 64x64x64).</p>
 <p>However, this would not work well for baking a <abbr title="Common LUT Format">CLF</abbr> that expects a scene-linear color space on input. In those situations, the usual technique is to add some kind of a "shaper" <code>LUT1D</code> or other non-linear transform in front of the <code>LUT3D</code> that will convert the linear values into something more perceptually uniform. A more modern and compact technique that takes advantage of the <abbr title="Common LUT Format">CLF</abbr> capabilities would be to insert a <code>Log</code> ProcessNode rather than a <code>LUT1D</code>, but the most appropriate technique would be based on the needs of the given implementation.</p>
 <p>The <code>ociobakelut</code> tool is able to bake with shaper <abbr title="look-up tables">LUTs</abbr>, but it requires an <abbr title="OpenColorIO">OCIO</abbr> config file to define the input, output, and shaper spaces. But for the use-case here, the input is just a single <abbr title="Common LUT Format">CLF</abbr> file, so there is no <abbr title="OpenColorIO">OCIO</abbr> config file to use. OpenColorIO could still be used to do these more advanced types of baking, but it would require some scripting. One approach would be to create a config file that references the original <abbr title="Common LUT Format">CLF</abbr> as a file transform and includes an appropriate shaper space. Another approach would be to just use the <abbr title="OpenColorIO">OCIO</abbr> API directly to write your own baking tool, using the <code>ociobakelut</code> code for inspiration. (And if so, we encourage you to contribute it back to the <abbr title="OpenColorIO">OCIO</abbr> project!)</p>
 <p>The <code>ociobakelut</code> command supports many arguments; use the <code>-h</code> argument for a summary. For example, note that you may supply many <code>--lut</code> arguments on the command line and they will all be baked together into the result. You may also consult the <a href="https://opencolorio.readthedocs.io/en/latest/tutorials/baking_luts.html#userguide-bakelut">Baking <abbr title="look-up table">LUT</abbr>’s</a> section of the <abbr title="OpenColorIO">OCIO</abbr> documentation for a tutorial on using <code>ociobakelut</code>.</p>
-<h3 id="annexF">Annex F: Using <abbr title="Common LUT Format">CLF</abbr> to represent <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transforms<a class="headerlink" href="#annexF" title="Permanent link">¶</a></h3>
+<h3 id="annexF">Annex F: Using <abbr title="Common LUT Format">CLF</abbr> to represent <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transforms<a class="headerlink" href="#annexF" title="Permanent link">&para;</a></h3>
 <p>Historically, look workflows have been based on applying a look in some kind of logarithmic color space, for example, a camera log space. This is partly because the existing infrastructure was built for integer pixel formats and did not support floating-point pixel formats. (The Preview Tier described above is an attempt to define requirements for these integer-based devices.) And until <abbr title="Common LUT Format">CLF</abbr>, previous <abbr title="look-up table">LUT</abbr> formats did not support scene-linear color spaces well.</p>
 <p>However, the input values and output values of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transforms (also known as "LMTs") must be ACES2065-1. This is to maintain universality of Look Transforms and not link them to project-specific working spaces. Look Transforms may then convert ACES2065-1 to some other working space internally (e.g., a camera log space) for look application. This is the vision for the future and the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File (<abbr title="ACES Metadata File">AMF</abbr>) format expects implementations to work this way.</p>
 <p>As an aside, it is recommended that the <code>InputDescriptor</code> and <code>OutputDescriptor</code> be set to ACES2065-1 when authoring Look Transforms as CLFs so it is always clear what the expected input and output color spaces are. The <code>Description</code> tag and other metadata may also be used to provide a more complete description of the look.</p>
@@ -1916,8 +2379,8 @@ Transform operators:
 <div class="highlight"><pre><span></span><code>$ ociomakeclf OpenColorIO/tests/data/files/cdl_test2.cc LMT.clf --csc ACEScct
 </code></pre></div></p>
 <p>This generates the following <abbr title="Common LUT Format">CLF</abbr>:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;ProcessList</span> <span class="na">compCLFversion=</span><span class="s">"3"</span> <span class="na">id=</span><span class="s">"669980ac1ecd97ab18c1707250a13d20"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;ProcessList</span> <span class="na">compCLFversion=</span><span class="s">&quot;3&quot;</span> <span class="na">id=</span><span class="s">&quot;669980ac1ecd97ab18c1707250a13d20&quot;</span><span class="nt">&gt;</span>
 
 <span class="cm">&lt;!-- Header metadata --&gt;</span>
     <span class="nt">&lt;Description&gt;</span>ACES LMT transform built from a look LUT expecting color space: ACEScct<span class="nt">&lt;/Description&gt;</span>
@@ -1926,19 +2389,19 @@ Transform operators:
     <span class="nt">&lt;OutputDescriptor&gt;</span>ACES2065-1<span class="nt">&lt;/OutputDescriptor&gt;</span>
 
 <span class="cm">&lt;!-- Convert from ACES2065-1 to ACEScct --&gt;</span>
-    <span class="nt">&lt;Matrix</span> <span class="na">inBitDepth=</span><span class="s">"32f"</span> <span class="na">outBitDepth=</span><span class="s">"32f"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">"3 3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Matrix</span> <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">&quot;3 3&quot;</span><span class="nt">&gt;</span>
  1.45143931614567    -0.23651074689374   -0.214928569251925
 -0.0765537733960206 1.17622969983357   -0.0996759264375522
  0.00831614842569772 -0.00603244979102103 0.997716301365323
             <span class="nt">&lt;/Array&gt;</span>
     <span class="nt">&lt;/Matrix&gt;</span>
-    <span class="nt">&lt;Log</span> <span class="na">inBitDepth=</span><span class="s">"32f"</span> <span class="na">outBitDepth=</span><span class="s">"32f"</span> <span class="na">style=</span><span class="s">"cameraLinToLog"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;LogParams</span> <span class="na">base=</span><span class="s">"2"</span> <span class="na">linSideSlope=</span><span class="s">"1"</span> <span class="na">linSideOffset=</span><span class="s">"0"</span> <span class="na">logSideSlope=</span><span class="s">"0.0570776255707763"</span> <span class="na">logSideOffset=</span><span class="s">"0.554794520547945"</span> <span class="na">linSideBreak=</span><span class="s">"0.0078125"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Log</span> <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">style=</span><span class="s">&quot;cameraLinToLog&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;LogParams</span> <span class="na">base=</span><span class="s">&quot;2&quot;</span> <span class="na">linSideSlope=</span><span class="s">&quot;1&quot;</span> <span class="na">linSideOffset=</span><span class="s">&quot;0&quot;</span> <span class="na">logSideSlope=</span><span class="s">&quot;0.0570776255707763&quot;</span> <span class="na">logSideOffset=</span><span class="s">&quot;0.554794520547945&quot;</span> <span class="na">linSideBreak=</span><span class="s">&quot;0.0078125&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/Log&gt;</span>
 
-<span class="cm">&lt;!-- Apply the user's CDL look in the ACEScct working space --&gt;</span>
-    <span class="nt">&lt;ASC_CDL</span> <span class="na">id=</span><span class="s">"cc0001"</span> <span class="na">inBitDepth=</span><span class="s">"32f"</span> <span class="na">outBitDepth=</span><span class="s">"32f"</span> <span class="na">style=</span><span class="s">"FwdNoClamp"</span><span class="nt">&gt;</span>
+<span class="cm">&lt;!-- Apply the user&#39;s CDL look in the ACEScct working space --&gt;</span>
+    <span class="nt">&lt;ASC_CDL</span> <span class="na">id=</span><span class="s">&quot;cc0001&quot;</span> <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">style=</span><span class="s">&quot;FwdNoClamp&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;SOPNode&gt;</span>
             <span class="nt">&lt;Slope&gt;</span>1.0 1.0 0.9<span class="nt">&lt;/Slope&gt;</span>
             <span class="nt">&lt;Offset&gt;</span>-0.03 -0.02 0.0<span class="nt">&lt;/Offset&gt;</span>
@@ -1950,11 +2413,11 @@ Transform operators:
     <span class="nt">&lt;/ASC_CDL&gt;</span>
 
 <span class="cm">&lt;!-- Convert from ACEScct back to ACES2065-1 --&gt;</span>
-    <span class="nt">&lt;Log</span> <span class="na">inBitDepth=</span><span class="s">"32f"</span> <span class="na">outBitDepth=</span><span class="s">"32f"</span> <span class="na">style=</span><span class="s">"cameraLogToLin"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;LogParams</span> <span class="na">base=</span><span class="s">"2"</span> <span class="na">linSideSlope=</span><span class="s">"1"</span> <span class="na">linSideOffset=</span><span class="s">"0"</span> <span class="na">logSideSlope=</span><span class="s">"0.0570776255707763"</span> <span class="na">logSideOffset=</span><span class="s">"0.554794520547945"</span> <span class="na">linSideBreak=</span><span class="s">"0.0078125"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;Log</span> <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">style=</span><span class="s">&quot;cameraLogToLin&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;LogParams</span> <span class="na">base=</span><span class="s">&quot;2&quot;</span> <span class="na">linSideSlope=</span><span class="s">&quot;1&quot;</span> <span class="na">linSideOffset=</span><span class="s">&quot;0&quot;</span> <span class="na">logSideSlope=</span><span class="s">&quot;0.0570776255707763&quot;</span> <span class="na">logSideOffset=</span><span class="s">&quot;0.554794520547945&quot;</span> <span class="na">linSideBreak=</span><span class="s">&quot;0.0078125&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/Log&gt;</span>
-    <span class="nt">&lt;Matrix</span> <span class="na">inBitDepth=</span><span class="s">"32f"</span> <span class="na">outBitDepth=</span><span class="s">"32f"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">"3 3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Matrix</span> <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">&quot;3 3&quot;</span><span class="nt">&gt;</span>
   0.695452241357452    0.140678696470294    0.163869062172254
   0.0447945633720377   0.859671118456422    0.0955343181715404
  -0.00552588255811354  0.00402521030597866  1.00150067225213
@@ -1963,19 +2426,19 @@ Transform operators:
 <span class="nt">&lt;/ProcessList&gt;</span>
 </code></pre></div>
 <p>Note that an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transform is usually just one component in a larger pipeline of transforms. For example, Preview Tier implementations involving on-set <abbr title="look-up table">LUT</abbr> boxes will typically incorporate the Look Transform into a chain of transforms that expect a camera log color space on input and produce a video color space on output. As noted above, the use of explicit <code>Log</code> and <code>Matrix</code> ProcessNodes in a <abbr title="Common LUT Format">CLF</abbr> transform allows an implementation to detect unnecessary operations. For example, if an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Input Transform were added in front of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transform that begins with the inverse of that Input Transform, the redundant operations could be optimized out for efficiency. Though in some implementations, this will all be baked into a single <code>LUT3D</code>, making such optimizations less necessary.</p>
-<h3 id="annexG">Annex G: Using <abbr title="Common LUT Format">CLF</abbr> with <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#annexG" title="Permanent link">¶</a></h3>
+<h3 id="annexG">Annex G: Using <abbr title="Common LUT Format">CLF</abbr> with <abbr title="ACES Metadata File">AMF</abbr><a class="headerlink" href="#annexG" title="Permanent link">&para;</a></h3>
 <p>The <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File (<abbr title="ACES Metadata File">AMF</abbr>) is a "sidecar" <abbr title="Extensible Markup Language">XML</abbr> file designed to encapsulate the metadata required to recreate <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> viewing pipelines. An <abbr title="ACES Metadata File">AMF</abbr> can carry references to one or more <abbr title="Common LUT Format">CLF</abbr> files as external <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transform files. </p>
 <p>When using a <abbr title="Common LUT Format">CLF</abbr> file for <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> applications and especially when in conjunction with <abbr title="ACES Metadata File">AMF</abbr>, it is recommended that the <abbr title="Common LUT Format">CLF</abbr> <code>id</code> attribute of the <code>ProcessList</code> be populated with a <code>uuid</code>. </p>
 <p>Multiple CLFs can be included by using multiple <code>lookTransform</code> elements in the <abbr title="ACES Metadata File">AMF</abbr> file. The CLFs are applied in the order in which they appear in the <abbr title="ACES Metadata File">AMF</abbr>.</p>
 <p>See the <a href="/guides/amf"><abbr title="ACES Metadata File">AMF</abbr> Handbook</a> for more details.</p>
-<h3 id="annexH">Annex H: Identity (no-op) <abbr title="Common LUT Format">CLF</abbr> example<a class="headerlink" href="#annexH" title="Permanent link">¶</a></h3>
+<h3 id="annexH">Annex H: Identity (no-op) <abbr title="Common LUT Format">CLF</abbr> example<a class="headerlink" href="#annexH" title="Permanent link">&para;</a></h3>
 <p>To avoid doubt in cases where <abbr title="Common LUT Format">CLF</abbr> files are exchanged as “sidecar” files to batches of media, it may be desirable to use a standard <abbr title="Common LUT Format">CLF</abbr> form even when no transform or color modification has been assigned to certain media clips / files. In these cases it may be useful that a “No-Op” <abbr title="Common LUT Format">CLF</abbr> file be included as the associated sidecar file to communicate to downstream users that no transform is assigned. This may be preferred to not providing a sidecar <abbr title="Common LUT Format">CLF</abbr> file, as the absence of <abbr title="Common LUT Format">CLF</abbr> files for a subset of a larger media batch often raises questions in certain workflows about whether an expected file is missing.</p>
 <p>For this situation, implementers may generate a minimal <abbr title="Common LUT Format">CLF</abbr> file like that shown below, where the <code>ProcessList</code> has a single <code>ProcessNode</code> of the <code>Matrix</code> type with a 3x3 identity matrix. (Implementers do not need to copy this exactly, for example there are other operators that also give an identity and details like the <code>id</code> string will differ.)</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;ProcessList</span> <span class="na">id=</span><span class="s">"37efa85b-5bc8-40dc-8ffe-b488a3c013ea"</span> <span class="na">name=</span><span class="s">"No-Op"</span> <span class="na">compCLFversion=</span><span class="s">"3.0"</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;ProcessList</span> <span class="na">id=</span><span class="s">&quot;37efa85b-5bc8-40dc-8ffe-b488a3c013ea&quot;</span> <span class="na">name=</span><span class="s">&quot;No-Op&quot;</span> <span class="na">compCLFversion=</span><span class="s">&quot;3.0&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;Description&gt;</span>No-Op CLF<span class="nt">&lt;/Description&gt;</span>
-    <span class="nt">&lt;Matrix</span> <span class="na">name=</span><span class="s">"identity matrix"</span> <span class="na">inBitDepth=</span><span class="s">"32f"</span> <span class="na">outBitDepth=</span><span class="s">"32f"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">"3 3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Matrix</span> <span class="na">name=</span><span class="s">&quot;identity matrix&quot;</span> <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">&quot;3 3&quot;</span><span class="nt">&gt;</span>
           1.0 0.0 0.0
           0.0 1.0 0.0
           0.0 0.0 1.0
@@ -1983,7 +2446,7 @@ Transform operators:
     <span class="nt">&lt;/Matrix&gt;</span>
 <span class="nt">&lt;/ProcessList&gt;</span>
 </code></pre></div>
-<h3 id="annexI">Annex I: Infinity and NaN handling<a class="headerlink" href="#annexI" title="Permanent link">¶</a></h3>
+<h3 id="annexI">Annex I: Infinity and NaN handling<a class="headerlink" href="#annexI" title="Permanent link">&para;</a></h3>
 <p>The CLFs used for the apply tests were specially chosen to avoid floating-point overflows that could turn pixels in the test target image into infinity or NaN. However, with other CLFs, the comparison script described in the other sections may fail if the resulting images have infinity or NaN pixels.</p>
 <p>The handling of infinity and NaN is challenging in a number of regards. For example:</p>
 <ul>
@@ -1993,7 +2456,7 @@ Transform operators:
 <li>Once these values get into a chain of color processing, there can be somewhat unexpected results. For example, <code>(Inf – Inf)</code> is NaN, likewise, <code>(0 x Inf)</code> is NaN, so quite often an infinity going into a matrix or other operator that mixes the channels results in NaNs coming out.</li>
 </ul>
 <p>Due to issues such as these, neither the Academy reference <abbr title="Color Transform Language">CTL</abbr> for <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> transforms nor OpenColorIO have ideal behavior with respect to the handling of floating-point infinity and NaN. We expect this is true of most other practical implementations and so this initial version of the Implementation Guide does not attempt to validate handling of these values.</p>
-<h3 id="annexJ">Annex J: Python code for creating the Preview Tier test <abbr title="look-up table">LUT</abbr><a class="headerlink" href="#annexJ" title="Permanent link">¶</a></h3>
+<h3 id="annexJ">Annex J: Python code for creating the Preview Tier test <abbr title="look-up table">LUT</abbr><a class="headerlink" href="#annexJ" title="Permanent link">&para;</a></h3>
 <p>Here is some Python code that uses <abbr title="OpenColorIO">OCIO</abbr> to create the test <abbr title="look-up table">LUT</abbr> for the Preview Tier.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This script builds the file for the Preview Tier test from the CLF test suite.</span>
 
@@ -2016,9 +2479,9 @@ Transform operators:
 <span class="c1"># At this point, gr is a 35937 x 3 array with min=0 and max=1.</span>
 
 <span class="c1"># Build transforms to convert from ACEScct to Rec.709 using an ACES Output Transform.</span>
-<span class="n">bt1</span> <span class="o">=</span> <span class="n">ocio</span><span class="o">.</span><span class="n">BuiltinTransform</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">'ACEScct_to_ACES2065-1'</span><span class="p">)</span>
-<span class="n">bt2</span> <span class="o">=</span> <span class="n">ocio</span><span class="o">.</span><span class="n">BuiltinTransform</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">'ACES-OUTPUT - ACES2065-1_to_CIE-XYZ-D65 - SDR-VIDEO_1.0'</span><span class="p">)</span>
-<span class="n">bt3</span> <span class="o">=</span> <span class="n">ocio</span><span class="o">.</span><span class="n">BuiltinTransform</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">'DISPLAY - CIE-XYZ-D65_to_REC.1886-REC.709'</span><span class="p">)</span>
+<span class="n">bt1</span> <span class="o">=</span> <span class="n">ocio</span><span class="o">.</span><span class="n">BuiltinTransform</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ACEScct_to_ACES2065-1&#39;</span><span class="p">)</span>
+<span class="n">bt2</span> <span class="o">=</span> <span class="n">ocio</span><span class="o">.</span><span class="n">BuiltinTransform</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ACES-OUTPUT - ACES2065-1_to_CIE-XYZ-D65 - SDR-VIDEO_1.0&#39;</span><span class="p">)</span>
+<span class="n">bt3</span> <span class="o">=</span> <span class="n">ocio</span><span class="o">.</span><span class="n">BuiltinTransform</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;DISPLAY - CIE-XYZ-D65_to_REC.1886-REC.709&#39;</span><span class="p">)</span>
 <span class="n">dvt</span> <span class="o">=</span> <span class="n">ocio</span><span class="o">.</span><span class="n">GroupTransform</span><span class="p">(</span> <span class="p">[</span><span class="n">bt1</span><span class="p">,</span> <span class="n">bt2</span><span class="p">,</span> <span class="n">bt3</span><span class="p">]</span> <span class="p">)</span>
 
 <span class="c1"># Set up an OCIO Processor and process the values.</span>
@@ -2053,7 +2516,7 @@ Transform operators:
 <span class="n">lut</span><span class="o">.</span><span class="n">setFileOutputBitDepth</span><span class="p">(</span><span class="n">ocio</span><span class="o">.</span><span class="n">BIT_DEPTH_UINT10</span><span class="p">)</span>
 <span class="n">lut</span><span class="o">.</span><span class="n">setInterpolation</span><span class="p">(</span><span class="n">ocio</span><span class="o">.</span><span class="n">INTERP_TETRAHEDRAL</span><span class="p">)</span>
 <span class="n">fmd</span> <span class="o">=</span> <span class="n">lut</span><span class="o">.</span><span class="n">getFormatMetadata</span><span class="p">()</span>
-<span class="n">fmd</span><span class="o">.</span><span class="n">addChildElement</span><span class="p">(</span><span class="s1">'Description'</span><span class="p">,</span><span class="s1">'This LUT is an ACEScct to Rec.709 Output Transform, clamped to [4,1019]'</span><span class="p">)</span>
+<span class="n">fmd</span><span class="o">.</span><span class="n">addChildElement</span><span class="p">(</span><span class="s1">&#39;Description&#39;</span><span class="p">,</span><span class="s1">&#39;This LUT is an ACEScct to Rec.709 Output Transform, clamped to [4,1019]&#39;</span><span class="p">)</span>
 <span class="c1"># print(lut)</span>
 <span class="c1"># &lt;Lut3DTransform direction=forward, fileoutdepth=10ui, interpolation=tetrahedral, </span>
 <span class="c1">#  gridSize=33, minrgb=[0.00391007 0.00391007 0.00391007], maxrgb=[0.99609 0.99609 </span>
@@ -2063,22 +2526,22 @@ Transform operators:
 <span class="n">grp</span> <span class="o">=</span> <span class="n">ocio</span><span class="o">.</span><span class="n">GroupTransform</span><span class="p">()</span>
 <span class="n">grp</span><span class="o">.</span><span class="n">appendTransform</span><span class="p">(</span><span class="n">lut</span><span class="p">)</span>
 <span class="n">fmdg</span> <span class="o">=</span> <span class="n">grp</span><span class="o">.</span><span class="n">getFormatMetadata</span><span class="p">()</span>
-<span class="n">fmdg</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="s1">'00001'</span><span class="p">)</span>
-<span class="n">fmdg</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">'Preview-tier Lut3D test'</span><span class="p">)</span>
-<span class="n">fmdg</span><span class="o">.</span><span class="n">addChildElement</span><span class="p">(</span><span class="s1">'Description'</span><span class="p">,</span><span class="s1">'Test LUT for Preview-tier CLF validation test suite'</span><span class="p">)</span>
-<span class="n">fmdg</span><span class="o">.</span><span class="n">addChildElement</span><span class="p">(</span><span class="s1">'InputDescriptor'</span><span class="p">,</span><span class="s1">'ACEScct'</span><span class="p">)</span>
-<span class="n">fmdg</span><span class="o">.</span><span class="n">addChildElement</span><span class="p">(</span><span class="s1">'OutputDescriptor'</span><span class="p">,</span><span class="s1">'Rec.1886 / Rec.709 video'</span><span class="p">)</span>
+<span class="n">fmdg</span><span class="o">.</span><span class="n">setID</span><span class="p">(</span><span class="s1">&#39;00001&#39;</span><span class="p">)</span>
+<span class="n">fmdg</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">&#39;Preview-tier Lut3D test&#39;</span><span class="p">)</span>
+<span class="n">fmdg</span><span class="o">.</span><span class="n">addChildElement</span><span class="p">(</span><span class="s1">&#39;Description&#39;</span><span class="p">,</span><span class="s1">&#39;Test LUT for Preview-tier CLF validation test suite&#39;</span><span class="p">)</span>
+<span class="n">fmdg</span><span class="o">.</span><span class="n">addChildElement</span><span class="p">(</span><span class="s1">&#39;InputDescriptor&#39;</span><span class="p">,</span><span class="s1">&#39;ACEScct&#39;</span><span class="p">)</span>
+<span class="n">fmdg</span><span class="o">.</span><span class="n">addChildElement</span><span class="p">(</span><span class="s1">&#39;OutputDescriptor&#39;</span><span class="p">,</span><span class="s1">&#39;Rec.1886 / Rec.709 video&#39;</span><span class="p">)</span>
 <span class="c1"># print(grp)</span>
 <span class="c1"># &lt;GroupTransform direction=forward, transforms=</span>
 <span class="c1">#       &lt;Lut3DTransform direction=forward, fileoutdepth=10ui, interpolation=tetrahedral, </span>
 <span class="c1">#       gridSize=33, minrgb=[0.00391007 0.00391007 0.00391007], </span>
 <span class="c1">#       maxrgb=[0.99609 0.99609 0.99609]&gt;&gt;</span>
 
-<span class="n">grp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">formatName</span><span class="o">=</span><span class="s1">'Academy/ASC Common LUT Format'</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">fileName</span><span class="o">=</span><span class="s1">'/tmp/lut3d_preview_tier_test.clf'</span><span class="p">)</span>
+<span class="n">grp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">formatName</span><span class="o">=</span><span class="s1">&#39;Academy/ASC Common LUT Format&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">fileName</span><span class="o">=</span><span class="s1">&#39;/tmp/lut3d_preview_tier_test.clf&#39;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="annexK">Annex K: Generation of the reference images<a class="headerlink" href="#annexK" title="Permanent link">¶</a></h3>
+<h3 id="annexK">Annex K: Generation of the reference images<a class="headerlink" href="#annexK" title="Permanent link">&para;</a></h3>
 <p>The processed reference images may be downloaded from the URL provided in <a href="#annexC">Annex C</a> and <a href="#annexD">D</a> above. This section documents how those images were generated.</p>
-<h4 id="finishing-tier-reference-images">Finishing Tier Reference Images<a class="headerlink" href="#finishing-tier-reference-images" title="Permanent link">¶</a></h4>
+<h4 id="finishing-tier-reference-images">Finishing Tier Reference Images<a class="headerlink" href="#finishing-tier-reference-images" title="Permanent link">&para;</a></h4>
 <p>Since OpenColorIO is an actively maintained open source implementation of <abbr title="Common LUT Format">CLF</abbr>, it has been used to generate the processed reference images. There is a Python script in the <abbr title="OpenColorIO">OCIO</abbr> repository that may be run to generate these images. The script is run as follows (these steps assume a Linux or Mac platform but could also be done on Windows):</p>
 <ol>
 <li>Install OpenImageIO</li>
@@ -2090,7 +2553,7 @@ Transform operators:
 replacing <code>&lt;OUTPUT-DIR&gt;</code> with a directory that you want to write the images to.</li>
 </ol>
 <p>(There are also some other optional arguments that are described if you run the script with just a "-h" option, but these are not necessary to generate the reference image set.)</p>
-<h4 id="preview-tier-source-image">Preview Tier Source Image<a class="headerlink" href="#preview-tier-source-image" title="Permanent link">¶</a></h4>
+<h4 id="preview-tier-source-image">Preview Tier Source Image<a class="headerlink" href="#preview-tier-source-image" title="Permanent link">&para;</a></h4>
 <p>The Preview Tier test uses an integer source image in DPX format. That image was generated from the main Finishing Tier floating-point source image by applying a conversion from ACES2065-1 to ACEScct. It may be generated using the command-line tool <code>oiiotool</code> that is included with OpenImageIO using the following steps (these steps assume a Linux or Mac platform but could also be done on Windows):</p>
 <ol>
 <li>Install a recent version of OpenImageIO and <code>oiiotool</code>, compiled with OpenColorIO support.</li>
@@ -2101,7 +2564,7 @@ replacing <code>&lt;OUTPUT-DIR&gt;</code> with a directory that you want to writ
 <div class="highlight"><pre><span></span><code>$ oiiotool CLF_Finishing_SourceImage_v008.exr --colorconvert ACES2065-1 ACEScct -d uint10 -o CLF_Preview_SourceImage_v008.dpx
 </code></pre></div></li>
 </ol>
-<h4 id="preview-tier-reference-image">Preview Tier Reference Image<a class="headerlink" href="#preview-tier-reference-image" title="Permanent link">¶</a></h4>
+<h4 id="preview-tier-reference-image">Preview Tier Reference Image<a class="headerlink" href="#preview-tier-reference-image" title="Permanent link">&para;</a></h4>
 <p>The Preview Tier reference image may then be generated as follows:</p>
 <ol>
 <li>Follow steps 1-5 in the previous section. At this point the current directory will be the <code>share/clf</code> sub-directory of the OpenColorIO source code.</li>
@@ -2109,58 +2572,143 @@ replacing <code>&lt;OUTPUT-DIR&gt;</code> with a directory that you want to writ
 <div class="highlight"><pre><span></span><code>$ oiiotool CLF_Preview_SourceImage_v008.dpx --ociofiletransform ../../tests/data/files/clf/lut3d_preview_tier_test.clf -d uint10 -o lut3d_preview_tier_test.dpx
 </code></pre></div></li>
 </ol>
-<hr/>
+
+  <hr>
 <div class="md-source-file">
-<small>
+  <small>
     
       Last update:
       <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 16, 2022</span>
-</small>
+      
+    
+  </small>
 </div>
-</article>
-</div>
-</div>
-<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
             Back to top
           </a>
-</main>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
-      Copyright © 2022 Academy of Motion Picture Arts &amp; Sciences
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../amf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ACES Metadata File (AMF) Implementation Guide" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              ACES Metadata File (AMF) Implementation Guide
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../rgc-user/" class="md-footer__link md-footer__link--next" aria-label="Next: Reference Gamut Compression (RGC) User Guide" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Reference Gamut Compression (RGC) User Guide
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 Academy of Motion Picture Arts & Sciences
     </div>
+  
+  
 </div>
-<!-- Social links -->
-<div class="md-social">
-<a class="md-social__link" href="https://twitter.com/academyaces" rel="noopener" target="_blank" title="twitter.com">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
-</a>
-<a class="md-social__link" href="https://www.facebook.com/AcademyACESColor/" rel="noopener" target="_blank" title="www.facebook.com">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
-</a>
-<a class="md-social__link" href="https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw" rel="noopener" target="_blank" title="www.youtube.com">
-<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
-</a>
-<a class="md-social__link" href="https://www.github.com/ampas" rel="noopener" target="_blank" title="www.github.com">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
-</a>
-<a class="md-social__link" href="https://www.dropbox.com/s/8klhkob6057ryse/kodak-grey-card1903061.pdf?dl=0" rel="noopener" target="_blank" title="The Great Cod">
-<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M180.5 141.5C219.7 108.5 272.6 80 336 80c63.4 0 116.3 28.5 155.5 61.5 39 33 66.8 71.6 80.9 99.8 4.8 9.2 4.8 20.2 0 29.4-14.1 27.3-41.9 66.8-80.9 99.8-39.2 33-92.1 61.5-155.5 61.5-63.4 0-116.3-28.5-155.5-61.5-16.2-13.8-30.5-28.6-42.7-43.2l-89.68 52.3c-12.51 7.3-28.36 5.3-38.646-4.9a31.989 31.989 0 0 1-5.258-38.6L50 256 4.216 175.9a31.989 31.989 0 0 1 5.258-38.6c10.286-10.2 26.136-12.2 38.646-4.9l89.68 52.3c12.2-14.6 26.5-29.4 42.7-43.2zM416 224c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"></path></svg>
-</a>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/academyaces" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/AcademyACESColor/" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.github.com/ampas" target="_blank" rel="noopener" title="www.github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="assets/pdfs/kodak-grey-card.pdf" target="_blank" rel="noopener" title="The Great Cod" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M180.5 141.5C219.7 108.5 272.6 80 336 80c63.4 0 116.3 28.5 155.5 61.5 39 33 66.8 71.6 80.9 99.8 4.8 9.2 4.8 20.2 0 29.4-14.1 27.3-41.9 66.8-80.9 99.8-39.2 33-92.1 61.5-155.5 61.5-63.4 0-116.3-28.5-155.5-61.5-16.2-13.8-30.5-28.6-42.7-43.2l-89.68 52.3c-12.51 7.3-28.36 5.3-38.646-4.9a31.989 31.989 0 0 1-5.258-38.6L50 256 4.216 175.9a31.989 31.989 0 0 1 5.258-38.6c10.286-10.2 26.136-12.2 38.646-4.9l89.68 52.3c12.2-14.6 26.5-29.4 42.7-43.2zM416 224c-17.7 0-32 14.3-32 32s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32z"/></svg>
+    </a>
+  
 </div>
-</div>
-</div>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
-<script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js"></script>
-<script src="../../extra/refresh_on_toggle_dark_light.js"></script>
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

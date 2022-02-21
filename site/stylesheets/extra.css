@@ -93,3 +93,8 @@ figcaption {
     position: relative;
     top: -20px;
 }
+
+/* Hide next / previous */
+.md-footer__inner {
+    display: none;
+  }
