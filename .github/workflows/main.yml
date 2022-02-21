@@ -1,0 +1,66 @@
+name: Build Mkdocs Site
+on:
+  push:
+    branches:
+      - dev
+      - main
+jobs:
+  docker:
+    name: Build Mkdocs site from docker container
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev branch
+        if: endsWith(github.ref, '/dev')
+        uses: actions/checkout@v2
+        with:
+            ref: dev
+            fetch-depth: 0
+      - name: Checkout main branch
+        if: endsWith(github.ref, '/main')
+        uses: actions/checkout@v2
+        with:
+            ref: main
+            fetch-depth: 0
+      - name: Setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: Build docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: false
+          tags: app:latest
+      - name: Run mkdocs build via docker
+        uses: addnab/docker-run-action@v3
+        with:
+          image: app:latest
+          options: --rm -v ${{ github.workspace }}:/docs -v ${{ github.workspace }}/site:/site
+          run: mkdocs build;
+      - name: Commit dev updates to site/staging branch
+        if: endsWith(github.ref, '/dev')
+        run: |
+          sudo chown -R runner:docker site;
+          git stash -u;
+          git fetch;
+          git switch site/staging;
+          rm -rf site;
+          git clean -d -x -f;
+          git stash pop;
+          git add .;
+          git commit -m 'Gitbot actions site change';
+          git push origin;
+      - name: Commit main updates to site/production branch
+        if: endsWith(github.ref, '/main')
+        run: |
+          sudo chown -R runner:docker site;
+          git stash -u;
+          git fetch;
+          git switch site/production;
+          rm -rf site;
+          git clean -d -x -f;
+          git stash pop;
+          git add .;
+          git commit -m 'Gitbot actions site change';
+          git push origin;
+          

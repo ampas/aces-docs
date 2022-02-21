@@ -1,0 +1,105 @@
+site_name: ACES Technical Documentation
+copyright: Copyright &copy; 2022 Academy of Motion Picture Arts & Sciences
+
+repo_url: https://github.com/ampas/aces-dev
+repo_name: aces-dev
+edit_uri: https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs
+
+site_dir: /site
+docs_dir: mkdocs/docs
+
+extra:
+  generator: false
+  homepage: https://www.acescentral.com
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/academyaces
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/AcademyACESColor/
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw
+    - icon: fontawesome/brands/github
+      link: https://www.github.com/ampas
+    - icon: fontawesome/solid/fish
+      link: assets/pdfs/kodak-grey-card.pdf
+      name: The Great Cod
+
+extra_css: 
+  - stylesheets/extra.css
+
+theme:
+  name: 'material'
+  # custom_dir: mkdocs/overrides
+  features:
+    - navigation.tabs
+    # - navigation.indexes
+    - navigation.tracking
+    - navigation.expand
+    - navigation.top
+    - navigation.instant
+  favicon: assets/images/favicon.png
+  logo: assets/images/logo.png
+  font:
+    text: Pontano Sans
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+  - media: "(prefers-color-scheme: light)" 
+    scheme: aces-light
+    toggle:
+      icon: material/toggle-switch-off-outline
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)" 
+    scheme: slate
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to light mode
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - attr_list
+  - md_in_html
+  - abbr
+  - def_list
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - footnotes
+  - admonition
+  - pymdownx.details
+  - meta
+      
+extra_javascript:
+  - js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      timezone: America/Los_Angeles
+      locale: en
+      exclude:
+          - index.md
+      enabled: true
+
+nav:
+  - 'ACES Documentation':
+    - 'ACES Documentation': index.md
+    - 'ACES Metadata File (AMF) Implementation Guide': guides/amf/index.md
+    - 'Common LUT Format (CLF) Implementation Guide': guides/clf/index.md
+    - 'Reference Gamut Compression (RGC) User Guide': guides/rgc-user/index.md
+    - 'Common LUT Format (CLF)': specifications/clf/index.md
+  - 'Glossary': glossary/index.md
