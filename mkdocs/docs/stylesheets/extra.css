@@ -98,3 +98,7 @@ figcaption {
 .md-footer__inner {
     display: none;
   }
+
+.md-sidebar {
+    display: none;
+}
