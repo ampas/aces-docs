@@ -21,7 +21,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://www.github.com/ampas
     - icon: fontawesome/solid/fish
-      link: https://www.dropbox.com/s/8klhkob6057ryse/kodak-grey-card1903061.pdf?dl=0
+      link: assets/pdfs/kodak-grey-card.pdf
       name: The Great Cod
 
 extra_css: 
@@ -29,7 +29,7 @@ extra_css:
 
 theme:
   name: 'material'
-  custom_dir: mkdocs/overrides
+  # custom_dir: mkdocs/overrides
   features:
     - navigation.tabs
     # - navigation.indexes
@@ -62,7 +62,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
@@ -78,21 +78,15 @@ markdown_extensions:
   - footnotes
   - admonition
   - pymdownx.details
+  - meta
       
 extra_javascript:
+  - js/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js
-  - extra/refresh_on_toggle_dark_light.js
   
 plugins:
   - search
-  - mermaid2:
-      version: 8.8.4
-      arguments:
-        securityLevel: 'loose'
-        theme: |
-          ^(JSON.parse(__md_get("__palette").index == 1)) ? 'dark' : 'light'
   - git-revision-date-localized:
       type: date
       timezone: America/Los_Angeles
