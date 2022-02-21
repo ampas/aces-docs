@@ -29,7 +29,7 @@ extra_css:
 
 theme:
   name: 'material'
-  custom_dir: mkdocs/overrides
+  # custom_dir: mkdocs/overrides
   features:
     - navigation.tabs
     # - navigation.indexes
