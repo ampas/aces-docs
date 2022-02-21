@@ -99,6 +99,6 @@ figcaption {
     display: none;
   }
 
-.md-sidebar {
-    display: none;
+@media only screen and (min-width: 1220px) {
+.md-sidebar {display: none;}
 }
