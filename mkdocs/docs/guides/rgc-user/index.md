@@ -18,7 +18,6 @@ The following standards, specifications, articles, presentations, and texts are 
 * [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
 
 
-
 Introduction
 ----------------
 
@@ -261,7 +260,7 @@ Implementation Guide
 
 If you are a software developer or engineer looking for technical implementation
 guidelines for integrating the ACES Reference Gamut Compression in software,
-please see our [Implementation Guide](../rgc-implementation/index.md).
+please contact us.
 
 
 Appendix
