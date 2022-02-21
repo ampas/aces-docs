@@ -785,6 +785,53 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" data-md-state="indeterminate" type="checkbox" id="__nav_1_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Specifications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Specifications" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Specifications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specifications/clf/" class="md-nav__link">
+        Common LUT Format (CLF)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1417,7 +1464,11 @@
 <h2 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">&para;</a></h2>
 <p>This document is primarily intended for application developers who want to add <abbr title="Common LUT Format">CLF</abbr> support to their product. It defines requirements, tests, and provides recommendations that, if followed, will lead to robust support for <abbr title="Common LUT Format">CLF</abbr>. Implementers who follow the guidance in this document can have confidence that their product is implementing the specification correctly.</p>
 <p>The document may also be of interest to those using <abbr title="Common LUT Format">CLF</abbr> to author transforms and who want to understand how the CLFs will be used by applications.</p>
-<p>This guide should be read in conjunction with the <abbr title="Common LUT Format">CLF</abbr> specification (v 3.0). The <abbr title="Common LUT Format">CLF</abbr> spec may be downloaded from: <a href="http://j.mp/S-2014-006">http://j.mp/S-2014-006</a>. Note: Although the spec has "2014" in the name, the document has been updated more recently than that. Version 3 of <abbr title="Common LUT Format">CLF</abbr> was introduced with the release of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 1.2 in 2020 and the most recent editorial updates were in 2021.</p>
+<p>This guide should be read in conjunction with the <a href="/specification/clf"><abbr title="Common LUT Format">CLF</abbr> Specification (v 3.0)</a>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The specificataion was previously referred to by it's document number - "S-2014-006". Although the spec had "2014" in the name, the document has been updated more recently than that. Version 3 of <abbr title="Common LUT Format">CLF</abbr> was introduced with the release of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 1.2 in 2020 and the most recent editorial updates were in 2021. The current version of the specification now lives at the above link.</p>
+</div>
 <h2 id="a-quick-introduction-to-clf">A Quick Introduction to <abbr title="Common LUT Format">CLF</abbr><a class="headerlink" href="#a-quick-introduction-to-clf" title="Permanent link">&para;</a></h2>
 <p>Below is a basic example of a simple <abbr title="Common LUT Format">CLF</abbr> file. Despite the word '<abbr title="look-up table">LUT</abbr>' in the name of the format, these very simple examples do not contain any type of <abbr title="look-up table">LUT</abbr> whatsoever. Instead, the <abbr title="Common LUT Format">CLF</abbr> is being used to communicate a set of <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> adjustments (<a href="#example-1">Example 1</a>), and encapsulate a YCbCr to <abbr title="Red, Green, and Blue">RGB</abbr> conversion (<a href="#example-2">Example 2</a>).</p>
 <p>There are a few key points that these examples demonstrate:</p>
@@ -1578,7 +1629,7 @@ Transform operators:
 <ol>
 <li>
 <p><strong>Version Support</strong></p>
-<p>Implementations are expected to support v3 of the <abbr title="Common LUT Format">CLF</abbr> specification. Backwards compatibility for versions prior to v3 is optional.</p>
+<p>Implementations are expected to support v3 of the <a href="/specifications/clf"><abbr title="Common LUT Format">CLF</abbr> Specification</a>. Backwards compatibility for versions prior to v3 is optional.</p>
 </li>
 <li>
 <p><strong>Error Handling</strong></p>
@@ -1594,7 +1645,7 @@ Transform operators:
 </li>
 <li>
 <p><strong>Precision and formatting of numeric values</strong></p>
-<p>Implementations must be able to read at least 32-bit float precision, though 64-bit precision is desirable for ProcessNodes other than <code>LUT1D</code> and <code>LUT3D</code>. Note that the specification defines the numeric values as “xs:float” type, that is, <abbr title="Extensible Markup Language">XML</abbr> Schema floats. Parsers should be able to handle all of the details of this format (e.g., integers without a decimal point, missing leading 0 on decimal values, the presence of a leading “+”, etc.). Note that an integer is a legal xs:float.</p>
+<p>Implementations must be able to read at least 32-bit float precision, though 64-bit precision is desirable for ProcessNodes other than <code>LUT1D</code> and <code>LUT3D</code>. Note that the <abbr title="Common LUT Format">CLF</abbr> specification defines the numeric values as “xs:float” type, that is, <abbr title="Extensible Markup Language">XML</abbr> Schema floats. Parsers should be able to handle all of the details of this format (e.g., integers without a decimal point, missing leading 0 on decimal values, the presence of a leading “+”, etc.). Note that an integer is a legal xs:float.</p>
 </li>
 </ol>
 <h4 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h4>
@@ -1606,7 +1657,7 @@ Transform operators:
 </ul>
 <h3 id="clf-file-test-suite"><abbr title="Common LUT Format">CLF</abbr> File Test Suite<a class="headerlink" href="#clf-file-test-suite" title="Permanent link">&para;</a></h3>
 <p>A number of test files are provided for implementers to test their system and demonstrate that their implementation can robustly handle all features of <abbr title="Common LUT Format">CLF</abbr> v3. The tests provided in the <a href="https://github.com/AcademySoftwareFoundation/OpenColorIO/tree/master/tests/data/files/clf"><strong>OpenColorIO repository on Github</strong></a> include both legal and illegal test files. The file name and description in each file identifies what the file is testing.</p>
-<p>The test files confirm that each <code>ProcessNode</code> is functioning per the specification. For <code>ProcessNodes</code> that allow for different styles or parameters, either separate test files or single test files with multiple <code>ProcessNode</code> variations are provided to check that all styles and parameters are functional. Standard files are expected to be processed without error. </p>
+<p>The test files confirm that each <code>ProcessNode</code> is functioning per the <abbr title="Common LUT Format">CLF</abbr> specification. For <code>ProcessNodes</code> that allow for different styles or parameters, either separate test files or single test files with multiple <code>ProcessNode</code> variations are provided to check that all styles and parameters are functional. Standard files are expected to be processed without error. </p>
 <p>A number of "illegal" test files with various syntax errors are also provided to test the error handling capability of implementations. Illegal files should not be processed and the system should generate an appropriate error message.</p>
 <h3 id="test-procedure">Test Procedure<a class="headerlink" href="#test-procedure" title="Permanent link">&para;</a></h3>
 <p>Download the OpenColorIO repository from GitHub at the URL:
@@ -1745,7 +1796,7 @@ Transform operators:
 <p>Finishing Tier products should, whenever possible, encapsulate discrete math operations with one or more <code>ProcessNodes</code> in a <code>ProcessList</code> rather than simply exporting a 1D- and/or 3D-<abbr title="look-up table">LUT</abbr>. For example, a common color space conversion should use discrete <code>Log</code> and <code>Matrix</code> nodes, where appropriate, rather than a single <code>LUT3D</code>.</p>
 <h3 id="precision-and-range-of-numeric-values">Precision and Range of Numeric Values<a class="headerlink" href="#precision-and-range-of-numeric-values" title="Permanent link">&para;</a></h3>
 <p>Ensure your implementation writes a sufficient number of digits. Even though image processing will typically be done at 32-bit floating-point precision, intermediate calculations (for example, combining matrices) may be done at higher precision.</p>
-<p>Also, take note that the bit-depth attributes do not impose range or quantization limits. Hence you should not impose these limits unnecessarily. For example, for a LUT1D with an <code>outBitDepth</code> of <code>10i</code>, the normal range would be expected to be 0 to 1023. However, it is legal to exceed this range and also to use fractional values. Thus, values such as <code>[-10.5, 0.01, 1055.2]</code> could be legal values. Please refer to <a href="http://j.mp/S-2014-006">Section 5.1 of the specification</a> for more detail.</p>
+<p>Also, take note that the bit-depth attributes do not impose range or quantization limits. Hence you should not impose these limits unnecessarily. For example, for a LUT1D with an <code>outBitDepth</code> of <code>10i</code>, the normal range would be expected to be 0 to 1023. However, it is legal to exceed this range and also to use fractional values. Thus, values such as <code>[-10.5, 0.01, 1055.2]</code> could be legal values. Please refer to the <a href="/specifications/clf/#bit-depth">Implementation Notes on Bit Depth section of the <abbr title="Common LUT Format">CLF</abbr> specification</a> for more detail.</p>
 <h3 id="the-id-attribute">The <code>id</code> Attribute<a class="headerlink" href="#the-id-attribute" title="Permanent link">&para;</a></h3>
 <p>Every <abbr title="Common LUT Format">CLF</abbr> is required to have an <code>id</code> attribute at the <code>ProcessList</code> level. The specification does not impose any restrictions on the formatting of this attribute. However, it should be noted that an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File that references a <abbr title="Common LUT Format">CLF</abbr> file prefers that the <code>id</code> attribute contains a <abbr title="Universal(ly) Unique Identifier">UUID</abbr> object according to RFC 4122. Therefore, it is recommended that implementations use a <abbr title="Universal(ly) Unique Identifier">UUID</abbr> to fill the <code>id</code> attribute when writing new <abbr title="Common LUT Format">CLF</abbr> files. Note that the <code>id</code> attribute is optional at the <code>ProcessNode</code> level.</p>
 <h3 id="storage-of-proprietary-metadata">Storage of Proprietary Metadata<a class="headerlink" href="#storage-of-proprietary-metadata" title="Permanent link">&para;</a></h3>
@@ -1762,15 +1813,15 @@ Transform operators:
 <p>If translating an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Color Transform Language">CTL</abbr> (Color Transformation Language) file into <abbr title="Common LUT Format">CLF</abbr>, set the <code>ACESTransformID</code> and <code>ACESUserName</code> (under the <code>Info</code> block of metadata) using the corresponding strings from the <abbr title="Color Transform Language">CTL</abbr> header. [Examples 13] and [14] in [section 6] of the specification show CLFs using this feature.</p>
 <h2 id="helpful-hints-for-a-successful-implementation">Helpful Hints for a Successful Implementation<a class="headerlink" href="#helpful-hints-for-a-successful-implementation" title="Permanent link">&para;</a></h2>
 <h3 id="matrix-order"><code>Matrix</code> Order<a class="headerlink" href="#matrix-order" title="Permanent link">&para;</a></h3>
-<p>Take note that the order of coefficients in the <code>Matrix</code> ProcessNode follows the usual convention in color science but that this is the transposition of both the order sometimes used in computer graphics and the order used in <abbr title="Color Transform Language">CTL</abbr>. <strong>[Section 4.4.4]</strong> of the specification clearly documents the ordering of matrix coefficients that must be used. Also, note that the 3x4 matrix includes an offset value after each of the three matrix values.</p>
+<p>Take note that the order of coefficients in the <code>Matrix</code> ProcessNode follows the usual convention in color science but that this is the transposition of both the order sometimes used in computer graphics and the order used in <abbr title="Color Transform Language">CTL</abbr>. The <a href="/specifications/clf/#matrix"><code>Matrix</code> section of the <abbr title="Common LUT Format">CLF</abbr> Specification</a> clearly documents the ordering of matrix coefficients that must be used. Also, note that the 3x4 matrix includes an offset value after each of the three matrix values.</p>
 <h3 id="lut3d-serialization-order"><code>LUT3D</code> Serialization Order<a class="headerlink" href="#lut3d-serialization-order" title="Permanent link">&para;</a></h3>
-<p>As described in <strong>[Section 4.4.3]</strong> of the <abbr title="Common LUT Format">CLF</abbr> Specification, take note that the <code>LUT3D</code> ProcessNode serializes the <abbr title="look-up table">LUT</abbr> entries in blue-fastest order. This is a commonly used ordering (for example it is used by the common .3dl format) but some other formats use red-fastest ordering (e.g., .cube format).</p>
+<p>As described in the <a href="/specifications/clf/#lut3d"><code>LUT3D</code> section of the <abbr title="Common LUT Format">CLF</abbr> Specification</a>, take note that the <code>LUT3D</code> ProcessNode serializes the <abbr title="look-up table">LUT</abbr> entries in blue-fastest order. This is a commonly used ordering (for example it is used by the common .3dl format) but some other formats use red-fastest ordering (e.g., .cube format).</p>
 <h3 id="gamma-polarity">Gamma Polarity<a class="headerlink" href="#gamma-polarity" title="Permanent link">&para;</a></h3>
-<p>As described in <strong>[Section 4.4.7]</strong> of the spec, take note that the <code>Exponent</code> ProcessNode uses the specified parameter directly in the power function for the forward direction. This is the same usage as in an <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> power. But take care since often "gamma" operators in color processing software apply the inverse of the power for the forward direction.</p>
+<p>As described in the <a href="/specification/clf/#exponent"><code>Exponent</code> section of the <abbr title="Common LUT Format">CLF</abbr> Specification</a>, take note that the <code>Exponent</code> ProcessNode uses the specified parameter directly in the power function for the forward direction. This is the same usage as in an <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> power. But take care since often "gamma" operators in color processing software apply the inverse of the power for the forward direction.</p>
 <h3 id="bit-depth-attributes-dont-affect-processing-precision">Bit-Depth Attributes Don't Affect Processing Precision<a class="headerlink" href="#bit-depth-attributes-dont-affect-processing-precision" title="Permanent link">&para;</a></h3>
-<p>As called out in the <abbr title="Common LUT Format">CLF</abbr> specification, the <code>inBitDepth</code> and <code>outBitDepth</code> attributes of <code>ProcessNodes</code> are not intended to control the processing precision, which should normally be 32-bit floating-point. Rather, these attributes simply determine the scaling of various parameter values such as matrix and <abbr title="look-up table">LUT</abbr> entries. Please refer to section 5.1 of the <strong>[<abbr title="Common LUT Format">CLF</abbr> specification]</strong> for the details.</p>
+<p>As called out in the <abbr title="Common LUT Format">CLF</abbr> specification, the <code>inBitDepth</code> and <code>outBitDepth</code> attributes of <code>ProcessNodes</code> are not intended to control the processing precision, which should normally be 32-bit floating-point. Rather, these attributes simply determine the scaling of various parameter values such as matrix and <abbr title="look-up table">LUT</abbr> entries. Please refer to the <a href="/specification/clf/#bit-depth">Bit Depth section of the <abbr title="Common LUT Format">CLF</abbr> Specification</a> for the details.</p>
 <h3 id="conversion-between-bit-depths">Conversion Between Bit-Depths<a class="headerlink" href="#conversion-between-bit-depths" title="Permanent link">&para;</a></h3>
-<p>When interpreting the <code>inBitDepth</code> and <code>outBitDepth</code> attributes, conversions happen using "power of two minus 1" scaling rather than "power of 2" scaling. Please refer to section 5.1.4 of the <strong>[<abbr title="Common LUT Format">CLF</abbr> Specification]</strong> for the details.</p>
+<p>When interpreting the <code>inBitDepth</code> and <code>outBitDepth</code> attributes, conversions happen using "power of two minus 1" scaling rather than "power of 2" scaling. Please refer to the <a href="/specifications/clf/#scaling">section on conversion between bit depths in the <abbr title="Common LUT Format">CLF</abbr> Specification</a> for the details.</p>
 <h2 id="appendices">Appendices<a class="headerlink" href="#appendices" title="Permanent link">&para;</a></h2>
 <h3 id="annexA">Annex A: Test Image<a class="headerlink" href="#annexA" title="Permanent link">&para;</a></h3>
 <p><img src="images/CLF_testImagePrototype_v008.jpg" width="50%" /><img src="images/clf-image-legend.png" width="50%" /></p>
@@ -2578,7 +2629,7 @@ replacing <code>&lt;OUTPUT-DIR&gt;</code> with a directory that you want to writ
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 16, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 18, 2022</span>
       
     
   </small>
