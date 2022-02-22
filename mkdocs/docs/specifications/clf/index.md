@@ -573,6 +573,7 @@ $$
 $$
 
 where:
+
 $$
 bitDepthScale = \dfrac{\mathrm{SIZE}(\texttt{outBitDepth})}{\mathrm{SIZE}(\texttt{inBitDepth})}
 $$
@@ -665,25 +666,29 @@ Supported values for ”style” are:
 
     $\textrm{MAX}(a, b)$ returns $a$ if $a \gt b$ and $b$ if $b \geq a$
 
-    - `"log10"`: applies a base 10 logarithm according to
-$$ 
-y = log_{10}(\textrm{MAX}(x,\texttt{FLT_MIN}))
-$$
+    - `"log10"`: applies a base 10 logarithm according to  
+
+    $$
+    y = log_{10}(\textrm{MAX}(x,\texttt{FLT_MIN}))
+    $$
 
     - `"antiLog10"`: applies a base 10 anti-logarithm according to
-$$ 
-x = 10^{y}
-$$
+
+    $$ 
+    x = 10^{y}
+    $$
 
     - `"log2"`: applies a base 2 logarithm according to
-$$ 
-y = log_{2}(\textrm{MAX}(x,\texttt{FLT_MIN}))
-$$
+
+    $$ 
+    y = log_{2}(\textrm{MAX}(x,\texttt{FLT_MIN}))
+    $$
 
     - `"antiLog2"`: applies a base 2 anti-logarithm according to
-$$ 
-x = 2^{y}
-$$
+
+    $$ 
+    x = 2^{y}
+    $$
 
     - `"linToLog"`: applies a logarithm according to
 
