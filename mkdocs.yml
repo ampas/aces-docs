@@ -32,7 +32,7 @@ theme:
   # custom_dir: mkdocs/overrides
   features:
     - navigation.tabs
-    # - navigation.indexes
+  #  - navigation.indexes
     - navigation.tracking
     - navigation.expand
     - navigation.top
@@ -96,10 +96,5 @@ plugins:
       enabled: true
 
 nav:
-  - 'ACES Documentation':
-    - 'ACES Documentation': index.md
-    - 'ACES Metadata File (AMF) Implementation Guide': guides/amf/index.md
-    - 'Common LUT Format (CLF) Implementation Guide': guides/clf/index.md
-    - 'Reference Gamut Compression (RGC) User Guide': guides/rgc-user/index.md
-    - 'Common LUT Format (CLF)': specifications/clf/index.md
+  - 'ACES Documentation': index.md
   - 'Glossary': glossary/index.md
