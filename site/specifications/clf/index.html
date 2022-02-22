@@ -1055,10 +1055,10 @@ $$</p>
 <div class="arithmatex">\[
     out = \mathrm{MIN}( \texttt{maxOutValue}, in \times bitDepthScale)
 \]</div>
-<p>where:
-$$
+<p>where:</p>
+<div class="arithmatex">\[
 bitDepthScale = \dfrac{\mathrm{SIZE}(\texttt{outBitDepth})}{\mathrm{SIZE}(\texttt{inBitDepth})}
-$$</p>
+\]</div>
 <div class="arithmatex">\[
 \mathrm{SIZE}(a) =
 \begin{cases}
@@ -1143,33 +1143,31 @@ Supported values for ”style” are:</p>
 <p><span class="arithmatex">\(\texttt{FLT_MIN} = 1.175494e−38\)</span></p>
 <p><span class="arithmatex">\(\textrm{MAX}(a, b)\)</span> returns <span class="arithmatex">\(a\)</span> if <span class="arithmatex">\(a \gt b\)</span> and <span class="arithmatex">\(b\)</span> if <span class="arithmatex">\(b \geq a\)</span></p>
 <ul>
-<li>
-<p><code>"log10"</code>: applies a base 10 logarithm according to
-$$ 
+<li><code>"log10"</code>: applies a base 10 logarithm according to  </li>
+</ul>
+<div class="arithmatex">\[
 y = log_{10}(\textrm{MAX}(x,\texttt{FLT_MIN}))
-$$</p>
-</li>
-<li>
-<p><code>"antiLog10"</code>: applies a base 10 anti-logarithm according to
-$$ 
+\]</div>
+<ul>
+<li><code>"antiLog10"</code>: applies a base 10 anti-logarithm according to</li>
+</ul>
+<div class="arithmatex">\[ 
 x = 10^{y}
-$$</p>
-</li>
-<li>
-<p><code>"log2"</code>: applies a base 2 logarithm according to
-$$ 
+\]</div>
+<ul>
+<li><code>"log2"</code>: applies a base 2 logarithm according to</li>
+</ul>
+<div class="arithmatex">\[ 
 y = log_{2}(\textrm{MAX}(x,\texttt{FLT_MIN}))
-$$</p>
-</li>
-<li>
-<p><code>"antiLog2"</code>: applies a base 2 anti-logarithm according to
-$$ 
+\]</div>
+<ul>
+<li><code>"antiLog2"</code>: applies a base 2 anti-logarithm according to</li>
+</ul>
+<div class="arithmatex">\[ 
 x = 2^{y}
-$$</p>
-</li>
-<li>
-<p><code>"linToLog"</code>: applies a logarithm according to</p>
-</li>
+\]</div>
+<ul>
+<li><code>"linToLog"</code>: applies a logarithm according to</li>
 </ul>
 <div class="arithmatex">\[ 
 y = \text{logSideSlope} \times \text{log}_\text{base}(\textrm{MAX}(\text{linSideSlope} \times x + \text{linSideOffset}, \texttt{FLT_MIN}))+\text{logSideOffset}
@@ -1979,7 +1977,7 @@ V(r,g,b)_{t6} = \mathbf{\Delta}^T_t \mathbf{T}_6 \mathbf{V}
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 17, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 21, 2022</span>
       
     
   </small>
