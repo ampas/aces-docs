@@ -32,8 +32,8 @@ pixel values are problematic when their negative components cause issues in
 compositing, and may also produce visual artifacts when viewed through an ACES
 Output Transform.
 
-![User Testing Footage Examples](./images/rgc-collage.png)
 <figure markdown>
+  ![User Testing Footage Examples](./images/rgc-collage.png)
   <figcaption>User Testing Footage Examples</figcaption>
 </figure>
 
@@ -48,8 +48,8 @@ the architecture documentation above.
 Workflow Recommendations
 ----------------
 
-![Workflow](../rgc-user/images/rgc-workflow.png)
 <figure markdown>
+  ![Workflow](../rgc-user/images/rgc-workflow.png)
   <figcaption>Workflow</figcaption>
 </figure>
 
@@ -86,27 +86,22 @@ When an application has the ACES version set to 1.3 or higher, a simple
 check-box (defaulting to **on**) should be exposed in the project settings which
 applies the RGC to all clips in the project.
 
-
-![DaVinci Resolve project level RGC
-setting](../rgc-user/images/resolve-cm-settings.png)
 <figure markdown>
+ ![DaVinci Resolve project level RGC setting](../rgc-user/images/resolve-cm-settings.png){ width="900" }
   <figcaption>DaVinci Resolve project level RGC setting</figcaption>
 </figure>
-
 
 An override should be provided at the clip level, so that the user can control
 the RGC setting for individual clips, if required.
 
 
-![DaVinci Resolve clip level RGC
-setting](../rgc-user/images/resolve-clip-settings.png)
 <figure markdown>
+  ![DaVinci Resolve clip level RGC setting](../rgc-user/images/resolve-clip-settings.png){ width="785" }
   <figcaption>DaVinci Resolve clip level RGC setting</figcaption>
 </figure>
 
-!!! note 
-    Implementers may also choose to offer a parametric variation of the RGC (see
-    [Section 9](#parametric-version-implementation-specifications)).
+Implementers may also choose to offer a parametric variation of the RGC (see
+[Section 9](#parametric-version-implementation-specifications)).
 
 ### Export Settings
 The user should be able to easily control whether rendered media will have the
@@ -120,9 +115,8 @@ deliverables with an Output Transform baked in.
 Test Images and Tolerances
 ----------------
 
-![Test image (without RGC) with sRGB Output Transform
-applied](./images/gc_test_image_v007_odt_sRGB.png)
 <figure markdown>
+  ![Test image (without RGC) with sRGB Output Transform applied](./images/gc_test_image_v007_odt_sRGB.png)
   <figcaption>Test image (without RGC) with sRGB Output Transform applied</figcaption>
 </figure>
 
@@ -138,12 +132,10 @@ The resulting test file can be downloaded from [here](https://www.dropbox.com/sh
 and the test image processed through the [CTL implementation](https://github.com/ampas/aces-dev/blob/dev/transforms/ctl/lmt/LMT.Academy.ReferenceGamutCompress.ctl)
 of the RGC can be downloaded from [here](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007_gamut_compressed_ctlrender.exr)
 [](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007_gamut_compressed_ctlrender.exr)
-
-!!! note
-    `ctlrender` adds an alpha channel to the result, which can be ignored.
+(Note: `ctlrender` adds an alpha channel to the result, which can be ignored.)
 
 For comparison of an implementation with the reference, a relative error metric
-has been defined (see [Appendix D](#appendix-d-relative-metric-detail)).
+has been defined (see [Appendix A](#appendix-a-relative-metric-detail)).
 
 The command-line application `oiiotool`, which is installed as a component
 of [OpenImageIO](https://github.com/OpenImageIO/oiio), can be used to compare
@@ -216,43 +208,23 @@ While such an operator is not explicitly endorsed, the following recommendations
 are made to facilitate a common user experience across implementations:
 
 !!! example "Parameters"
-    **Distance Limit**
-
-    - UI Label: “Limit”
-    - Components: 3 (Cyan, Magenta, Yellow)
-    - Slider Range: 1.001 - 2.0 - Default Values / Slider Detents: C: 1.147,
-    M: 1.264, Y:  1.312
-
-    **Compression Threshold**
-
-    - UI Label: “Threshold” - Components: 3 (Cyan, Magenta, Yellow)
-    - Slider Range: 0.0 - 1.0
-    - Default Values / Slider Detents: C: 0.815, M: 0.803, Y:0.880
-
-    **Power Curve Exponent**
-
-    - UI Label: “Roll-off”
-    - Components: 1
-    - Slider Range: 0.5 - 2.0
-    - Default Value / Slider Detent: 1.2
+    |                       || UI Label  | Components                | Slider Range  | Default Value(s) / Slider Detents |
+    |-----------------------||-----------|---------------------------|---------------|-----------------------------------|
+    | Distance Limit        || Limit     | 3 (Cyan, Magenta, Yellow) | 1.001 - 2.000 | C:1.147, M:1.264, Y:1.312         |
+    | Compression Threshold || Threshold | 3 (Cyan, Magenta, Yellow) | 0.000 - 1.000 | C:0.815, M:0.803, Y:0.880         |
+    | Power Curve Exponent  || Roll-off  | 1                         | 0.500 - 2.000 |         1.200                     |
 
 These default values will exactly match a parametric implementation to the RGC.
 
-![DaVinci Resolve Parametric Gamut Compress Settings](./images/resolve-parametric.png)
 <figure markdown>
+![DaVinci Resolve Parametric Gamut Compress Settings](./images/resolve-parametric.png){ width="450" }
   <figcaption>DaVinci Resolve Parametric Gamut Compress Settings</figcaption>
 </figure>
 
 Appendices
 ----------------
 
-### Appendix A: Livegrade Example
-
-### Appendix B: OCIO Example
-
-### Appendix C: Resolve Example
-
-### Appendix D: Relative metric detail
+### Appendix A: Relative metric detail
 
 Where video and logarithmic encodings are typically sufficiently perceptually
 uniform that a simple absolute error metric such as `(actual - aim)` may be
