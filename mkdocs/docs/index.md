@@ -28,7 +28,7 @@ Provides guidelines on how best to present ACES terminology and concepts within 
 ### :fontawesome-solid-file-code:{ .icons } [Common LUT Format Specification](specifications/clf/)
 Specifies a flexible XML-based file format for color Look-Up Tables (LUTs) and other basic image operators.
 
-### :fontawesome-solid-file-code:{ .icons } [Common LUT Format Implementation Guide](specifications/clf/) :material-new-box:{ .new-icons }
+### :fontawesome-solid-file-code:{ .icons } [Common LUT Format Implementation Guide](guides/clf/) :material-new-box:{ .new-icons }
 Implementation guidelines related to the usage of the Common LUT Format.
 
 ### :fontawesome-solid-file-code:{ .icons } [ACES Metadata File Specification](https://aces.mp/S-2019-001)
