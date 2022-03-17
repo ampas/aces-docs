@@ -9,7 +9,7 @@ interface and experience, workflow, tolerances, and tracking of the ACES
 Reference Gamut Compression (RGC) published in [ACES
 1.3](https://github.com/ampas/aces-dev/tree/v1.3). For detailed technical
 specifications, please refer to the ACES Gamut Mapping Architecture VWG -
-Technical Documentation.
+[Technical Documentation](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam).
 
 
 References
@@ -165,9 +165,9 @@ Tracking via [ACES Metadata File](../amf/index.md) (AMF)
 
 The Reference Gamut Compression is trackable via a `lookTransform` element in an
 AMF file. If the RCG is used in the viewing pipeline, the `lookTransform` will
-be listed in the associated AMF. If the AMF is accompanying an ACES EXR, use the
-`applied` flag to track whether or not the RGC has been “baked in” to the EXR.
-See below for an example AMF:
+be listed in the associated AMF. If the AMF is accompanying rendered media, use
+the `applied` flag to track whether or not the RGC has been “baked in”. See
+below for an example AMF:
 
 ```
   <aces:inputTransform applied="true">
@@ -194,15 +194,12 @@ An implementation of the gamut compression transform which exposes the
 parameters to the user should be treated differently than the ACES RGC and
 grouped with other, creative color correction operators instead.
 
-As a type of creative color correction tool, the parametric gamut compression
-transform, if implemented, is expected to be used as part of a color correction
-operator stack. Either to achieve a desired “look” or manage out-of-gamut
-artifacts created earlier in the process chain that were not, or could not, be
-addressed by the RGC.
-
-It should not be used as a replacement for the RGC since its parameters cannot
-be tracked by AMF and must instead be stored in the project files of the
-implementing application.
+As a creative color correction tool, the parametric gamut compression transform
+is expected to be used as part of a color correction operator stack. This
+parametric transform can be useful to achieve a desired “look” or manage
+out-of-gamut artifacts created earlier in the process chain that were not, or
+could not, be addressed by the RGC.  The parametric version should not be used
+as a replacement for the RGC since it cannot be tracked by AMF.
 
 While such an operator is not explicitly endorsed, the following recommendations
 are made to facilitate a common user experience across implementations:
