@@ -113,10 +113,10 @@ Different end of line conventions, including `<CR>`, `<LF>`, and `<CRLF>`, are u
 XML Elements {#xml-elements}
 ----------------------------
 
-<figure markdown>
+<figure align="center" markdown="1">
   ![ProcessList](./images/clf-diagram-light.png#only-light)
   ![ProcessList](./images/clf-diagram-dark.png#only-dark)
-    <figcaption><br>Figure 2. Object Model of XML Elements</figcaption>
+    <figcaption><b>Figure 2.</b> Object Model of XML Elements</figcaption>
 </figure>
 
 
@@ -321,9 +321,9 @@ Linear interpolation shall be used for `LUT1D`. More information about linear in
     </Array>
 </LUT1D>
 ```
-<figure markdown="1">
-  <figcaption>Example 1 - Example of a very simple LUT1D </figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 1.</b> Example of a very simple `LUT1D`
+</figcaption>
 
 
 
@@ -379,9 +379,9 @@ ponents. The first three values define the dimensions of the LUT and if multipli
     </Array>
 </LUT3D>
 ```
-<figure markdown="1" align="center">
-  <figcaption>Example 2 – Example of a simple LUT3D</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 2.</b> Example of a simple `LUT3D`
+</figcaption>
 
 
 
@@ -498,9 +498,9 @@ $$
     </Array>
 </Matrix>
 ```
-<figure markdown="1">
-  <figcaption>Example 3 – Example of a <code>Matrix</code> node with <code>dim="3 3 3"</code></figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 3.</b> Example of a `Matrix` node with `dim="3 3 3"`
+</figcaption>
 
 ```xml
 <Matrix id="lut-25" name="colorspace conversion" inBitDepth="10i" outBitDepth="10i" >
@@ -512,9 +512,9 @@ $$
     </Array>
 </Matrix>
 ```
-<figure markdown="1">
-  <figcaption>Example 4 – Example of a <code>Matrix</code> node</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 4.</b> Example of a `Matrix` node
+</figcaption>
 
 
 
@@ -527,26 +527,28 @@ Unless otherwise specified, the node’s default behavior is to scale and offset
 
 To achieve scale and/or offset of values, all of `minInValue`, `minOutValue`, `maxInValue`, and `maxOutValue` must be present. In this explicit case, the formula for `Range` shall be: 
 
+<a name="eq-range"></a>
+
 $$
     out = in \times scale + \texttt{minOutValue} - \texttt{minInValue} \times scale
 $$
 
-where:
-$$
-    scale = \dfrac{(\texttt{maxOutValue} - \texttt{minOutValue})}{(\texttt{maxInValue} - \texttt{minInValue})}
-$$
+where: <br>
+<center>$scale = \dfrac{(\texttt{maxOutValue} - \texttt{minOutValue})}{(\texttt{maxInValue} - \texttt{minInValue})}$</center>
 
 The scaling of `minInValue` and `maxInValue` depends on the input bit-depth, and the scaling of `minOutValue` and `maxOutValue` depends on the output bit-depth.
 
 If `style="Clamp"`, the output value of $out$ from the above equation is furthur modified as follows:
+
+<a name="eq-range-2"></a>
 
 $$
     out_{clamped} = \mathrm{MIN}(\texttt{maxOutValue}, \mathrm{MAX}( \texttt{minOutValue}, out))
 $$
 
 where: <br>
-$\mathrm{MAX}(a,b)$ returns $a$ if $a > b$ and $b$ if $b \geq a$<br>
-$\mathrm{MIN}(a,b)$ returns $a$ if $a < b$ and $b$ if $b \leq a$
+<center>$\mathrm{MAX}(a,b)$ returns $a$ if $a > b$ and $b$ if $b \geq a$<br>
+$\mathrm{MIN}(a,b)$ returns $a$ if $a < b$ and $b$ if $b \leq a$</center>
 
 The `Range` element can also be used to clamp values on only the top or bottom end. In such instances, no offset is applied, and the formula simplifies because only one pair of min or max values are required. (The `style` shall not be `"noClamp"` for this use-case.)
 
@@ -579,7 +581,7 @@ $$
 In both instances, values must be set such that $\texttt{maxOutValue} = \texttt{maxInValue} \times bitDepthScale$.
 
 !!! note
-    The bit depth scale factor intentionally uses $2^{bitDepth}−1$ and not $2^{bitDepth}$. This means that the scale factor created for scaling between different bit depths is "non-integer" and is slightly different depending on the bit depths being scaled between. While instinct might be that this scale should be a clean bit-shift factor (i.e. 2x or 4x scale), testing with a few example values plugged into the formula will show that the resulting non-integer scale is the correct and intended behavior.
+    The bit depth scale factor intentionally uses $2^{bitDepth}−1$ and not $2^{bitDepth}$. This means that the scale factor created for scaling between different bit depths is "non-integer" and is slightly different depending on the bit depths being scaled between. While instinct might be that this scale should be a clean bit-shift factor (i.e. $2\times$ or $4\times$ scale), testing with a few example values plugged into the formula will show that the resulting non-integer scale is the correct and intended behavior.
 
 At least one pair of either minimum or maximum values, or all four values, must be provided.
 
@@ -605,10 +607,10 @@ The options for `style` are:
 
 <div style="padding-left: 30px;" markdown="1">
 `"noClamp"`
-: If present, scale and offset is applied without clamping, as in Eq. 4.6. (i.e. values below `minOutValue` or above `maxOutValue` are preserved)
+: If present, scale and offset is applied [without clamping](#eq-range) (i.e. values below `minOutValue` or above `maxOutValue` are preserved)
 
 `"Clamp"`
-: If present, clamping is applied according to Eq. 4.7 upon the result of the scale and offset expressed in Eq. 4.6
+: If present, [clamping](#eq-range-2) is applied upon the result of the scale and offset expressed by the result of the non-clamping `Range` equation
 </div>
 
 *Examples:*
@@ -620,9 +622,10 @@ The options for `style` are:
 <maxOutValue>940</minInValue>
 </Range>
 ```
-<figure markdown="1">
-  <figcaption>Example 5 – Using <code>"Range"</code> for scaling 10-bit full range to 10-bit SMPTE (legal) range.</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 5.</b> Using `"Range"` for scaling 10-bit full range to 10-bit SMPTE (legal) range.
+</figcaption>
+
 
 
 ### `Log`
@@ -652,9 +655,11 @@ Supported values for ”style” are:
 
 : The formula to be applied for each style is described by the equations below, for all of which:
 
-    $\texttt{FLT_MIN} = 1.175494e−38$
+    $$
+    \texttt{FLT_MIN} = 1.175494e−38
+    $$
 
-    $\textrm{MAX}(a, b)$ returns $a$ if $a \gt b$ and $b$ if $b \geq a$
+    <center>$\textrm{MAX}(a, b)$ returns $a$ if $a \gt b$ and $b$ if $b \geq a$</center>
 
     - `"log10"`: applies a base 10 logarithm according to  
 
@@ -694,6 +699,8 @@ Supported values for ”style” are:
 
     - `"cameraLinToLog"`: applies a piecewise function with logarithmic and linear segments on linear values, converting them to non-linear values
 
+    <a name="eq-linToLog"></a>
+
     $$
     y = \begin{cases} 
     \text{linearSlope} \times x + \text{linearOffset} & \text{if } x \leq \text{linSideBreak}\\
@@ -701,11 +708,8 @@ Supported values for ”style” are:
     \end{cases} \\
     $$
 
-    <div style="padding-left: 90px;" markdown="1">
-    where: <br>
-    $\text{linearSlope}$ is calculated using Eq.<br>
-    $\text{linearOffset}$ is calculated using Eq.
-    </div>
+    !!! note
+        The calculation of [$\text{linearSlope}$](#eq-linearSlope), and [$\text{linearOffset}$](#eq-linearOffset) is described in [Solving for `LogParams`](#solving-logParams)
 
     - `"cameraLogToLin"`: applies a piecewise function with logarithmic and linear segments on non-linear values, converting them to linear values
 
@@ -715,12 +719,10 @@ Supported values for ”style” are:
     \end{cases}
     $$
 
-    <div style="padding-left: 90px;" markdown="1">
-    where: <br>
-    $\text{logSideBreak}$ is calculated using Eq.<br>
-    $\text{linearSlope}$ is calculated using Eq.
-    $\text{linearOffset}$ is calculated using Eq.    
-    </div>
+    !!! note
+        The calculation of [$\text{logSideBreak}$](#eq-logSideBreak), [$\text{linearSlope}$](#eq-linearSlope), and [$\text{linearOffset}$](#eq-linearOffset) is described in [Solving for `LogParams`](#solving-logParams)
+
+
 
 *Elements:*
 `LogParams` (required - if `"style"` is not a basic logarithm)
@@ -731,7 +733,7 @@ This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cam
 
     `"base"` (optional)
     : the base of the logarithmic function <br>
-    Default is 2
+    Default is 2.
 
     `"logSideOffset"` (optional) 
     : offset applied to the log side of the logarithmic segment.<br>
@@ -755,17 +757,32 @@ This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cam
     `"channel"` (optional)
     : the color channel to which the exponential function is applied. Possible values are `"R"`, `"G"`, `"B"`. If this attribute is utilized to target different adjustments per channel, then up to three `LogParams` elements may be used, provided that `"channel"` is set differently in each. However, the same value of base must be used for all channels. If this attribute is not otherwise specified, the logarithmic function is applied identically to all three color channels.
 
+
+<a name="solving-logParams"></a>
+
 !!! note "Solving for `LogParams`"
-    $\text{linearOffset}$ is the offset of the linear segment of the piecewise function. This value is calculated using the position of the break-point and the linear slope in order to ensure continuity of the two segments. Equations 4.18-4.20 describe the steps for calculating $\text{linearOffset}$.
-    First, the value of the break-point on the log-axis is calculated using the value of $\text{linSideBreak}$ as input to the logarithmic segment of Eq. 4.16, as shown in Eq. 4.18.
+    $\text{linearOffset}$ is the offset of the linear segment of the piecewise function. This value is calculated using the position of the break-point and the linear slope in order to ensure continuity of the two segments. The following steps describe how  to calculate $\text{linearOffset}$.
+    
+    First, the value of the break-point on the log-axis is calculated using the value of $\text{linSideBreak}$ as input to the logarithmic segment of the [piecewise function](#eq-linToLog), as below:
+    
+    <a name="eq-logSideBreak"></a>
+    
     $$
     logSideBreak = logSideSlope × logbase(linSideSlope × linSideBreak + linSideOffset) + logSideOffset
     $$
-    Then, if $\text{linearSlope}$ was not provided, the value of $\text{linSideBreak}$ is used again to solve for the derivative of Eq. 4.14. The value of $\text{linearSlope}$ is set to equal the the instantaneous slope at the break-point, or derivative which is shown being solved for by Eq. 4.19:
+    
+    Then, if $\text{linearSlope}$ was not provided, the value of $\text{linSideBreak}$ is used again to solve for the derivative of the logarithmic function. The value of $\text{linearSlope}$ is set to equal the instantaneous slope at the break-point, or derivative, as shown below:
+
+    <a name="eq-linearSlope"></a>
+
     $$ 
     \text{linearSlope} = \text{logSideSlope} \times \left(\frac{\text{linSideSlope}}{(\text{linSideSlope} \times \textbf{linSideBreak} + \text{linSideOffset}) \times \text{ln}(\text{base})}\right)
     $$
-    Finally, the value of $\text{linearOffset}$ can be solved for by rearranging the linear segment of Eq. 4.16 to get Equation 4.20 and using the values of $\text{logSideBreak|$ (obtained from Eq. 4.18) and $\text{linearSlope}$ (obtained from Eq. 4.19).
+
+    Finally, the value of $\text{linearOffset}$ can be solved for by rearranging the linear segment of of the [piecewise function](#eq-linToLog) and using the values of $\text{logSideBreak|$ and $\text{linearSlope}$
+
+    <a name="eq-linearOffset"></a>
+
     $$
     \text{linearOffset} = \textbf{logSideBreak} - \textbf{ linearSlope} \times \text{linSideBreak}
     $$
@@ -777,9 +794,10 @@ This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cam
 </Log>
 ```
 
-<figure markdown="1">
-  <figcaption>Example 6 – Example <code>Log</code> node applying a base 10 logarithm.</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 6.</b> `Log` node applying a base 10 logarithm.
+</figcaption>
+
 
 
 ```xml
@@ -791,9 +809,10 @@ This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cam
 </Log>
 ```
 
-<figure markdown="1">
-  <figcaption>Example 7 – Example <code>Log</code> node applying the DJI D-Log formula.</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 7.</b> `Log` node applying the DJI D-Log formula.
+</figcaption>
+
 
 
 ### `Exponent`
@@ -816,7 +835,7 @@ This node contains parameters for processing pixels through a power law function
     - `"monCurveMirrorFwd"`
     - `"monCurveMirrorRev"`
 
-    The formula to be applied for each style is included in Equations 4.21-4.28 for all of which:
+    Each of these supported styles are described in detail below, and for all of which the following definitions apply:
     <div style="padding-left: 150px;" markdown="1">
     $g =$ `exponent` <br>
     $k =$ `offset` <br>
@@ -883,6 +902,8 @@ This node contains parameters for processing pixels through a power law function
     `"monCurveFwd"`
     : applies a power law function with a linear segment near the origin
 
+    <a name="eq-monCurveFwd"></a>
+    
     $$
     \text{monCurveFwd}(x) = \begin{cases}
     \left( \frac{x\:+\:k}{1\:+\:k} \right)^{g} & \text{if } x \geq xBreak \\[8pt]
@@ -890,16 +911,17 @@ This node contains parameters for processing pixels through a power law function
     \end{cases}
     $$
 
-    <div style="padding-left: 220px;" markdown="1">
-    where: <br>
-    $xBreak = \dfrac{k}{g-1}$ <br>
-    and, for the above and below equations: <br>
-    $s = \left(\dfrac{g-1}{k}\right)  \left(\dfrac{k g}{(g-1)(1+k)}\right)^{g}$
-    </div>
-    
+    : where: <br>
+    <center>$xBreak = \dfrac{k}{g-1}$</center>
+
+    : and, for the $\text{monCurveFwd}$ ([above](#eq-monCurveFwd)) and $\text{monCurveRev}$ ([below](#eq-monCurveRev)) equations: <br>
+    <center>$s = \left(\dfrac{g-1}{k}\right)  \left(\dfrac{k g}{(g-1)(1+k)}\right)^{g}$</center>
+
     `"monCurveRev"`
     : applies a power law function with a linear segment near the origin
 
+    <a name="eq-monCurveRev"></a>
+        
     $$
     \text{monCurveRev}(y) = \begin{cases}
     (1 + k)\:y^{(1/g)} - k & \text{if } y \geq yBreak \\[8pt]
@@ -907,11 +929,10 @@ This node contains parameters for processing pixels through a power law function
     \end{cases}
     $$
 
-    <div style="padding-left: 220px;" markdown="1">
-    where: <br>
-    $yBreak = \left(\dfrac{k g}{(g-1)(1+k)}\right)^g$
-    </div>
-
+    : where: <br>
+    <center>$yBreak = \left(\dfrac{k g}{(g-1)(1+k)}\right)^g$</center>
+    
+    
     `"monCurveMirrorFwd"`
     : applies a power law function with a linear segment near the origin and mirrors the function for values less than zero (i.e. rotationally symmetric around the origin):
     
@@ -973,9 +994,9 @@ If `style` is any of the “monCurve” types, then `exponent` and `offset` are 
     <ExponentParams exponent="2.2"/>
 </Exponent>
 ```
-<figure markdown="1">
-  <figcaption>Example 8 – Using <code>Exponent</code> node for applying a 2.2 gamma.</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 8.</b> Using `Exponent` node for applying a 2.2 gamma.
+</figcaption>
 
 
 ``` xml
@@ -984,9 +1005,9 @@ If `style` is any of the “monCurve” types, then `exponent` and `offset` are 
     <ExponentParams exponent="2.4" offset="0.055" />
 </Exponent>
 ```
-<figure markdown="1">
-  <figcaption>Example 9 – Using <code>Exponent</code> node for applying the intended EOTF found in IEC 61966-2-1:1999 (sRGB). </figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 9.</b> Using `Exponent` node for applying the intended EOTF found in IEC 61966-2-1:1999 (sRGB).
+</figcaption>
 
 ```xml
 <Exponent inBitDepth="32f" outBitDepth="32f" style="monCurveRev">
@@ -994,9 +1015,9 @@ If `style` is any of the “monCurve” types, then `exponent` and `offset` are 
     <ExponentParams exponent="3.0" offset="0.16" />
 </Exponent>
 ```
-<figure markdown="1">
-  <figcaption>Example 10 – Using <code>Exponent</code> node to apply CIE L* formula.</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 10.</b> Using `Exponent` node to apply CIE L* formula.
+</figcaption>
 
 ``` xml
 <Exponent inBitDepth="32f" outBitDepth="32f" style="monCurveRev">
@@ -1004,9 +1025,10 @@ If `style` is any of the “monCurve” types, then `exponent` and `offset` are 
     <ExponentParams exponent="2.2222222222222222" offset="0.099" />
 </Exponent>
 ```
-<figure markdown="1">
-  <figcaption>Example 11 – Using <code>Exponent</code> node to apply Rec. 709 OETF.</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 11.</b> Using `Exponent` node to apply Rec. 709 OETF.
+</figcaption>
+
 
 
 ### `ASC_CDL`
@@ -1131,9 +1153,9 @@ Also, if $out_{\textrm{SAT}} \lt 0$, then no power function is applied.
     </SatNode>
 </ASC_CDL>
 ```
-<figure markdown="1">
-  <figcaption>Example 12 – Example of an <code>ASC_CDL</code> node.</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 12.</b> Example of an `ASC_CDL` node.
+</figcaption>
 
 
 
@@ -1222,9 +1244,10 @@ Examples
     </Matrix>
 </ProcessList>
 ```
-<figure markdown="1">
-  <figcaption>Example 13 – ACES2065-1 to ACEScg</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 13.</b> ACES2065-1 to ACEScg
+</figcaption>
+
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1250,9 +1273,10 @@ Examples
     </Log>
 </ProcessList>
 ```
-<figure markdown="1">
-  <figcaption>Example 14 – ACES2065-1 to ACEScct</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 14.</b> ACES2065-1 to ACEScct
+</figcaption>
+
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1282,9 +1306,10 @@ Examples
 </ProcessList>
 
 ```
-<figure markdown="1">
-  <figcaption>Example 15 – CIE XYZ to CIELAB</figcaption>
-</figure>
+<figcaption align="center" markdown="1">
+  <b>Example 15.</b> CIE XYZ to CIELAB
+</figcaption>
+
 
 
 
@@ -1515,7 +1540,7 @@ $$
 ### Appendix B: Cineon-style Log Parameters {#appendix-cineon-style}
 When using a `Log` node, it might be desirable to conform an existing logarithmic function that uses Cineon style parameters to the parameters used by CLF. A translation from Cineon-style parameters to those used by CLF's `LogParams` element is quite straightforward using the following steps.
 
-Traditionally, $\textrm{refWhite}$ and $\textrm{refBlack}$ are provided as 10-bit quantities, and if they indeed are, first normalize them to floating point by dividing by 1023.
+Traditionally, $\textrm{refWhite}$ and $\textrm{refBlack}$ are provided as 10-bit quantities, and if they indeed are, first normalize them to floating point by dividing by 1023:
 
 $$
 \begin{align}
@@ -1524,7 +1549,7 @@ $$
 \end{align}
 $$
 
-Where subscript 10$i$ indicates a 10-bit quantity.
+where subscript 10$i$ indicates a 10-bit quantity.
 
 The density range is assumed to be:
 
