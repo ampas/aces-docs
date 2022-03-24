@@ -103,19 +103,19 @@ SMPTE Standards   {#smpte}
 
 Below are the ACES-related standards documents published through SMPTE to date. Those wishing to implement ACES should adhere to the SMPTE standards. These must be purchased in order to view.
 
-### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-1 - Academy Color Encoding Specification](https://ieeexplore.ieee.org/servlet/opac?punumber=7289893) 
+### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-1 - Academy Color Encoding Specification](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
 
-### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-2 - Academy Printing Density (APD) — Spectral Responsivities, Reference Measurement Device and Spectral Calculation](https://ieeexplore.ieee.org/servlet/opac?punumber=7292041) 
+### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-2 - Academy Printing Density (APD) — Spectral Responsivities, Reference Measurement Device and Spectral Calculation](https://doi.org/10.5594/SMPTE.ST2065-2.2020)
 
-### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-3 - Academy Density Exchange Encoding (ADX) — Encoding Academy Printing Density (APD) Values](https://ieeexplore.ieee.org/servlet/opac?punumber=7291492) 
+### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-3 - Academy Density Exchange Encoding (ADX) — Encoding Academy Printing Density (APD) Values](https://doi.org/10.5594/SMPTE.ST2065-3.2020)
 
-### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-4 - ACES Image Container File Layout](https://ieeexplore.ieee.org/servlet/opac?punumber=7290439) 
+### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-4 - ACES Image Container File Layout](https://doi.org/10.5594/SMPTE.ST2065-4.2013)
 
-### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-5 - Material Exchange Format — Mapping ACES Image Sequences into the MXF Generic Container](https://ieeexplore.ieee.org/servlet/opac?punumber=7748436) 
+### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-5 - Material Exchange Format — Mapping ACES Image Sequences into the MXF Generic Container](https://doi.org/10.5594/SMPTE.ST2065-5.2016)
 
-### [:fontawesome-solid-file:{ .icons } SMPTE ST 2067-50 - SMPTE Standard - Interoperable Master Format — Application #5 ACES](https://ieeexplore.ieee.org/document/8320049)
+### [:fontawesome-solid-file:{ .icons } SMPTE ST 2067-50 - SMPTE Standard - Interoperable Master Format — Application #5 ACES](https://doi.org/10.5594/SMPTE.ST2067-50.2018)
 
-### [:fontawesome-solid-file:{ .icons } SMPTE ST 268:2014 – File Format for Digital Moving Picture Exchange (DPX) – Amendment 1](https://ieeexplore.ieee.org/servlet/opac?punumber=7291018) 
+### [:fontawesome-solid-file:{ .icons } SMPTE ST 268:2014 – File Format for Digital Moving Picture Exchange (DPX) – Amendment 1](https://doi.org/10.5594/SMPTE.ST268.2003Am1.2012)
 
 
 <!-- Page specific styles -->
