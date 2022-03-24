@@ -1,13 +1,3 @@
-<!-- Include acronyms-->
---8<-- "mkdocs/includes/acronyms.md"
-
-<!-- Include section numbering -->
-<style>
-    @import "../../stylesheets/sections.css"
-</style>
-
-
-
 Common LUT Format (CLF) - A Common File Format for Look-Up Tables
 ================
 
@@ -43,17 +33,17 @@ Specification
 ### General
 A Common LUT Format (CLF) file shall be written using Extensible Markup Language (XML) and adhere to a defined XML structure. A CLF file shall have the file extension '`.clf`'.
 
-The top level element in a CLF file defines a `ProcessList` which represents a sequential set of color trans- formations. The result of each individual color transformation feeds into the next transform in the list to create a daisy chain of transforms.
+The top level element in a CLF file defines a `ProcessList` which represents a sequential set of color transformations. The result of each individual color transformation feeds into the next transform in the list to create a daisy chain of transforms.
 
-An application reads a CLF file and initializes a transform engine to perform the operations in the list. The transform engine reads as input a stream of code values of pixels, performs the calculations and/or interpola- tions, and writes an output stream representing a new set of code values for the pixels.
+An application reads a CLF file and initializes a transform engine to perform the operations in the list. The transform engine reads as input a stream of code values of pixels, performs the calculations and/or interpolations, and writes an output stream representing a new set of code values for the pixels.
 
-In the sequence of transformations described by a `ProcessList`, each `ProcessNode` performs a trans- form on a stream of pixel data, and only one input line (input pixel values) may enter a node and only one output line (output pixel values) may exit a node. A `ProcessList` may be defined to work on either 1- component or 3-component pixel data, however all transforms in the list must be appropriate, especially in the 1-component case (black-and-white) where only 1D LUT operations are allowed. Implementation may process 1-component transforms by applying the same processing to R, G, and B.
+In the sequence of transformations described by a `ProcessList`, each `ProcessNode` performs a transform on a stream of pixel data, and only one input line (input pixel values) may enter a node and only one output line (output pixel values) may exit a node. A `ProcessList` may be defined to work on either 1- component or 3-component pixel data, however all transforms in the list must be appropriate, especially in the 1-component case (black-and-white) where only 1D LUT operations are allowed. Implementation may process 1-component transforms by applying the same processing to R, G, and B.
 
 
-<figure markdown>
+<figure align="center" markdown>
   ![ProcessList](./images/processList-dark.png#only-dark){ width="350" }
   ![ProcessList](./images/processList-light.png#only-light){ width="350" }
-  <figcaption><br>Figure 1. Example of a ProcessList containing a sequence of multiple ProcessNodes</figcaption>
+  <figcaption><b>Figure 1.</b> Example of a ProcessList containing a sequence of multiple ProcessNodes</figcaption>
 </figure>
 
 The file format does not provide a mechanism to assign color transforms to either image sequences or image regions. However, the XML structure defining the LUT transform, a ProcessList, may be encapsulated in a larger XML structure potentially providing that mechanism. This mechanism is beyond the scope of this document.
@@ -152,7 +142,7 @@ The `ProcessList` is the root element for any CLF file and is composed of one or
 The `compCLFversion` corresponding to this version of the specification is be `"3.0"`.
 
 `name` (optional)
-: a concise string used as a text name of the `ProcessList` for display or selection from an applica- tion’s user interface
+: a concise string used as a text name of the `ProcessList` for display or selection from an application’s user interface
 
 `inverseOf` (optional)
 : a string for linking to another ProcessList `id` (unique) which is the inverse of this one
@@ -389,7 +379,7 @@ ponents. The first three values define the dimensions of the LUT and if multipli
     </Array>
 </LUT3D>
 ```
-<figure markdown="1">
+<figure markdown="1" align="center">
   <figcaption>Example 2 – Example of a simple LUT3D</figcaption>
 </figure>
 
@@ -973,7 +963,7 @@ If `style` is any of the “monCurve” types, then `exponent` and `offset` are 
     `"channel"` (optional)
     : the color channel to which the exponential function is applied. <br>
     Possible values are `"R"`, `"G"`, `"B"`. <br>
-    If this attribute is utilized to target different adjustments per channel, up to three `ExponentParams` elements may be used, provided that `"channel"` is set differently in each. If this attribute is not otherwise specified, the exponential function is applied identi- cally to all three color channels.
+    If this attribute is utilized to target different adjustments per channel, up to three `ExponentParams` elements may be used, provided that `"channel"` is set differently in each. If this attribute is not otherwise specified, the exponential function is applied identically to all three color channels.
 
 
 *Examples:*
@@ -1066,7 +1056,7 @@ The ASC CDL equations are designed to work on an input domain of floating-point 
     The nominal value is 0.0 for all channels.
 
     `Power`
-    : three decimal values representing the R, G, and B power values, which change the inter- mediate shape of the transfer function <br>
+    : three decimal values representing the R, G, and B power values, which change the intermediate shape of the transfer function <br>
     Valid values for power must be greater than zero ($\gt$ 0). <br>
     The nominal value is 1.0 for all channels.
 
@@ -1156,7 +1146,7 @@ Implementation Notes
 All processing shall be performed using 32-bit floating-point values. The values of the `inBitDepth` and `outBitDepth` attributes shall not affect the quantization of color values.
 
 !!! note
-    For some hardware devices, 32-bit float processing might not be possible. In such instances, process- ing should be performed at the highest precision available. Because CLF permits complex series of discrete operations, CLF LUT files are unlikely to run on hardware devices without some form of pre-processing. Any pre-processing to prepare a CLF for more limited hardware applications should adhere to the processing precision requirements.
+    For some hardware devices, 32-bit float processing might not be possible. In such instances, processing should be performed at the highest precision available. Because CLF permits complex series of discrete operations, CLF LUT files are unlikely to run on hardware devices without some form of pre-processing. Any pre-processing to prepare a CLF for more limited hardware applications should adhere to the processing precision requirements.
 
 #### Input To and Output From a ProcessList {#in-out-processlist}
 Applications often support multiple pixel formats (e.g. 8i, 10i, 16f, 32f, etc.). Often the actual pixel format to be processed may not agree with the `inBitDepth` of the first ProcessNode or the `outBitDepth` of the last ProcessNode. (Note that the `ProcessList` element itself does not contain global `inBitDepth` or `outBitDepth` attributes.) Therefore, in some cases an application may need to rescale a given `ProcessNode` to be appropriate for the actual image data being processed.
@@ -1201,7 +1191,7 @@ If, due to hardware or software limitations, a particular element or attribute i
 ### Efficient Processing
 The transform engine may merge some ProcessNodes in order to obtain better performance. For example, adjacent `Matrix` operators may be combined into a single matrix. However, in general, combining operators in a way that preserves accuracy is difficult and should be avoided.
 
-Hardware implementations may need to convert all ProcessNodes into some other form that is consistent with what the hardware supports. For example, all ProcessNodes might need to be combined into a single 3D LUT. Using a grid size of 64 or larger is recommended to preserve as much accuracy as possible. Imple- mentors should be aware that the success of such approximations varies greatly with the nature of the input and output color spaces. For example, if the input color space is scene-linear in nature, it may be necessary to use a “shaper LUT” or similar non-linearity before the 3D LUT in order to convert values into a more perceptually uniform representation.
+Hardware implementations may need to convert all ProcessNodes into some other form that is consistent with what the hardware supports. For example, all ProcessNodes might need to be combined into a single 3D LUT. Using a grid size of 64 or larger is recommended to preserve as much accuracy as possible. Implementors should be aware that the success of such approximations varies greatly with the nature of the input and output color spaces. For example, if the input color space is scene-linear in nature, it may be necessary to use a “shaper LUT” or similar non-linearity before the 3D LUT in order to convert values into a more perceptually uniform representation.
 
 ### Extensions
 It is recommended that implementors of CLF file readers protect against unrecognized elements or attributes that are not defined in this specification. Unrecognized elements that are not children of the `Info` element should either raise an error or at least provide a warning message to the user to indicate that there is an operator present that is not recognized by the reader. Applications that need to add custom metadata should place it under the `Info` element rather than at the top level of the ProcessList.
@@ -1305,8 +1295,9 @@ Appendices
 
 When an input value falls between sampled positions in a LUT, the output value must be calculated as a proportion of the distance along some function that connects the nearest surrounding values in the LUT. There are many different types of interpolation possible, but only three types of interpolation are currently specified for use with the Common LUT Format (CLF). 
 
-The first type - linear interpolation - is specified for use with a `LUT1D` node. The other two - trilinear and tetrahedral interpolation - are specified for use with a `LUT3D` node.
+The first interpolation type, [linear](#lin-interp), is specified for use with a `LUT1D` node. The other two, [trilinear](#trilinear-interp) and [tetrahedral](#tetrahedral-interp) interpolation, are specified for use with a `LUT3D` node.
 
+<a name="lin-interp"></a>
 #### Linear Interpolation
 With a table of the sampled input values in $inValue[i]$ where $i$ ranges from $0$ to $(n-1)$, and a table of the corresponding output values in $outValue[j]$ where $j$ is equal to $i$,
 
@@ -1324,6 +1315,7 @@ $$
 output = \dfrac{input-inValue[i]}{inValue[i+1]-inValue[i]} \times (outValue[j+1]-outValue[j])+outValue[j]
 $$
 
+<a name="trilinear-interp"></a>
 #### Trilinear Interpolation
 Trilinear interpolation implements linear interpolation in three-dimensions by successively interpolating each direction. 
 
@@ -1424,6 +1416,7 @@ Trilinear interpolation shall be done according to $V(r,g,b) = \mathbf{C}^T \mat
     4. Return \(V(r,g,b) = \mathbf{C}^T \mathbf{\Delta}\)
 
 
+<a name="tetrahedral-interp"></a>
 #### Tetrahedral Interpolation}
 Tetrahedral interpolation subdivides the cubelet defined by the vertices surrounding a sampled point into six tetrahedra by segmenting along the main (and usually neutral) diagonal (Figure 5). 
 
@@ -1570,3 +1563,15 @@ The parameters for the `LogParams` element are then:
 * `IndexMaps` removed. Use a `halfDomain` LUT to achieve reshaping of input to a LUT.
 * Move `ACEStransform` elements to `Info` element of ProcessList in main spec
 * Changed syntax for `dim` attribute of `Array` when contained in a `Matrix`. Two integers are now used to define the dimensions of the matrix instead of the previous three values which defined the dimensions of the matrix and the number of color components.
+
+
+
+
+
+<!-- Include acronyms-->
+--8<-- "mkdocs/includes/acronyms.md"
+
+<!-- Include section numbering -->
+<style>
+    @import "../../stylesheets/sections.css"
+</style>
