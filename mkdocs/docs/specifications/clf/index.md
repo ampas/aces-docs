@@ -1069,10 +1069,10 @@ The ASC CDL equations are designed to work on an input domain of floating-point 
     The nominal value is 1.0.
 
 !!! note
-If either element is not specified, values  should default to the nominal values for each element. If using the `"noClamp"` style, the result of the defaulting to the nominal values is a no-op.
+    If either element is not specified, values  should default to the nominal values for each element. If using the `"noClamp"` style, the result of the defaulting to the nominal values is a no-op.
 
 !!! note
-The structure of this `ProcessNode` matches the structure of the XML format described in the v1.2 ASC CDL specification. However, unlike the ASC CDL XML format, there are no alternate spellings allowed for these elements.
+    The structure of this `ProcessNode` matches the structure of the XML format described in the v1.2 ASC CDL specification. However, unlike the ASC CDL XML format, there are no alternate spellings allowed for these elements.
 
 The math for `style="Fwd"` is:
 
