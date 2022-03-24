@@ -55,7 +55,7 @@ ACES Encodings
 Specifies ACES, the fundamental colorimetric encoding in the Academy Color Encoding System.
 *See SMPTE 2065-1*
 
-### :fontawesome-solid-file-contract:{ .icons } [ACEScct](http://j.mp/S-2016-001_)
+### :fontawesome-solid-file-contract:{ .icons } [ACEScct](/specifications/acescct/)
 Defines a logarithmic colorimetric encoding more appropriate for legacy color correction operators.
 
 ### :fontawesome-solid-file-contract:{ .icons } [ACEScg](http://j.mp/S-2014-004)
