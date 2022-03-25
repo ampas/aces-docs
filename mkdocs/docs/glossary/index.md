@@ -34,6 +34,10 @@
 **ACES Viewing Transform**
 : Combined RRT and ACES Output Device Transform.
 
+**American Society of Cinematographers Color Decision List**
+**ASC CDL**
+: A set of file formats for the exchange of basic primary color grading information between equipment and software from different manufacturers. ASC CDL provides for Slope, Offset and Power operations applied to each of the red, green and blue channels and for an overall Saturation operation affecting all three.
+
 ## B
 
 ## C
