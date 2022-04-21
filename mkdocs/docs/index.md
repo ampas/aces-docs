@@ -34,6 +34,9 @@ Describes methods to create Input Transforms (IDTs) for use within ACES.
 ### [:fontawesome-solid-fill-drip:{ .icons } Look Modification Transforms](http://j.mp/TB-2014-010)
 Describes the design, integration and use of Look Modification Transforms.
 
+### [:fontawesome-solid-file-code:{ .icons } Reference Gamut Compression Specification](specifications/rgc/) :material-new-box:{ .new-icons }
+Specifies a Look Transform to bring pixel values within AP1.
+
 ### [:material-arrow-collapse:{ .icons } Reference Gamut Compression User Guide](guides/rgc-user/) :material-new-box:{ .new-icons }
 Describes suggested user workflows for on set, dailies, visual effects, and finishing using the ACES Reference Gamut Compression (RGC)
 
