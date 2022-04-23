@@ -18,6 +18,7 @@ The following standards, specifications, articles, presentations, and texts are 
 * [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
 
 
+
 Introduction
 ----------------
 
@@ -65,26 +66,26 @@ option to apply the RGC at a project or a clip level.
     of published ACES workflows, and therefore will need to be tracked manually.
     At that point it is simply another creative tool in the colorist’s arsenal.
 
-![Resolve Project Settings](./images/resolve-cm-settings.png)
 <figure markdown>
+ ![DaVinci Resolve project level RGC setting](../rgc-user/images/resolve-cm-settings.png){ width="900" }
   <figcaption>Reference Gamut Compression enabled via Project Settings in DaVinci Resolve 17.4</figcaption>
 </figure>
 
-![Resolve Clip Settings](./images/resolve-clip-settings.png)
 <figure markdown>
+  ![DaVinci Resolve clip level RGC setting](../rgc-user/images/resolve-clip-settings.png){ width="785" }
   <figcaption>Reference Gamut Compression individual clip settings in DaVinci Resolve 17.4</figcaption>
 </figure>
 
 In the example below, artifacts such as the magenta solarization seen on the
 nose of the Okja toy are greatly reduced by application of the RGC.
 
-![Okja Before](./images/okja-before.jpeg)
 <figure markdown>
+  ![Okja Before](./images/okja-before.jpeg)
   <figcaption>Without the RGC</figcaption>
 </figure>
 
-![Okja Before](./images/okja-after.jpeg)
 <figure markdown>
+  ![Okja Before](./images/okja-after.jpeg)
   <figcaption>With the RGC applied</figcaption>
 </figure>
 
@@ -260,7 +261,7 @@ Implementation Guide
 
 If you are a software developer or engineer looking for technical implementation
 guidelines for integrating the ACES Reference Gamut Compression in software,
-please contact us.
+please see our [Implementation Guide](../rgc-implementation/index.md).
 
 
 Appendix
