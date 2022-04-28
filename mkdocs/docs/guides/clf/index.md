@@ -46,10 +46,10 @@ This document is primarily intended for application developers who want to add C
 
 The document may also be of interest to those using CLF to author transforms and who want to understand how the CLFs will be used by applications.
 
-This guide should be read in conjunction with the [CLF Specification (v 3.0)](/specification/clf). 
+This guide should be read in conjunction with the [CLF Specification (v 3.0)](/specifications/clf). 
 
 !!! note
-    The specificataion was previously referred to by it's document number - "S-2014-006". Although the spec had "2014" in the name, the document has been updated more recently than that. Version 3 of CLF was introduced with the release of ACES 1.2 in 2020 and the most recent editorial updates were in 2021. The current version of the specification now lives at the above link.
+    The specification was previously referred to by its document number - "S-2014-006". Although the spec had "2014" in the name, the document has been updated more recently than that. Version 3 of CLF was introduced with the release of ACES 1.2 in 2020 and the most recent editorial updates were in 2021. The current version of the specification now lives at the above link.
 
 
 A Quick Introduction to CLF
@@ -66,96 +66,109 @@ There are a few key points that these examples demonstrate:
  - Every CLF must have a unique `id` attribute.
  - The bit-depth attributes control formatting but not precision.
 
-Color coding: <span style="color:red">red</span> is required, <span style="color:blue">blue</span> is optional, <span style="color:green">green</span> are comments.
+Color coding for the following two examples: <br>
+<span style="color:red">red</span> is required <br>
+<span style="color:blue">blue</span> is optional <br>
+<span style="color:green">green</span> are comments
 
-#### Example 1: ASC CDL Implementation {#example-1}
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Required: XML Version and Encoding declaration -->
+#### Example 1: {#example-1}
+<div class="highlight">
+<span class="filename">ASC CDL Implementation</span>
+<pre>
+<code>&lt;<span style="color:red">?xml version="1.0" encoding="UTF-8"?</span>&gt;
+<span style="color:green">&lt;!-- Required: XML Version and Encoding declaration --&gt;</span>
 
-<!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ -->
-<!-- name and xmlns are optional -->
-<ProcessList 
-  compCLFversion="3.0" 
-  id="b4cca59a-9428-49c0-8e91-868718c4e526" 
-  name="FwdNoClamp style" 
-  xmlns="urn:AMPAS:CLF:v3.0">
+<span style="color:green">&lt;!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ --&gt;</span>
+<span style="color:green">&lt;!-- name and xmlns are optional --&gt;</span>
+&lt;<span style="color:red">ProcessList</span>
+  <span style="color:red">compCLFversion</span>="3.0" 
+  <span style="color:red">id</span>="b4cca59a-9428-49c0-8e91-868718c4e526" 
+  <span style="color:blue">name</span>="FwdNoClamp style" 
+  <span style="color:blue">xmlns</span>="urn:AMPAS:CLF:v3.0"&gt;
 
-  <Description>CDL with FwdNoClamp style</Description>
+  &lt;<span style="color:blue">Description</span>&gt;CDL with FwdNoClamp style&lt;/<span style="color:blue">Description</span>&gt;
 
-  <ASC_CDL 
-    id="clf/ctf no-clamp fwd" 
-    inBitDepth="10i" 
-    outBitDepth="8i" 
-    style="FwdNoClamp">
+  &lt;<span style="color:blue">ASC_CDL </span>
+	<span style="color:blue">id</span>="clf/ctf no-clamp fwd" 
+	<span style="color:red">inBitDepth</span>="10i" 
+	<span style="color:red">outBitDepth</span>="8i" 
+	<span style="color:red">style</span>="FwdNoClamp"&gt;
 
-    <SOPNode>
-      <Slope>  1.000000  1.000000  0.800000</Slope>
-      <Offset>-0.020000  0.000000  0.150000</Offset>
-      <Power>  1.050000  1.150000  1.400000</Power>
-    </SOPNode>
+	&lt;<span style="color:blue">SOPNode</span>&gt;
+	  &lt;<span style="color:red">Slope</span>&gt;  1.000000  1.000000  0.800000&lt;/<span style="color:red">Slope</span>&gt;
+	  &lt;<span style="color:red">Offset</span>&gt;-0.020000  0.000000  0.150000&lt;/<span style="color:red">Offset</span>&gt;
+	  &lt;<span style="color:red">Power</span>&gt;  1.050000  1.150000  1.400000&lt;/<span style="color:red">Power</span>&gt;
+	&lt;/<span style="color:blue">SOPNode</span>&gt;
 
-    <SatNode>
-      <Saturation>0.750000</Saturation>
-    </SatNode>
-  </ASC_CDL>
-</ProcessList>
-```
+	&lt;<span style="color:blue">SatNode</span>&gt;
+	  &lt;<span style="color:red">Saturation</span>&gt;0.750000&lt;/<span style="color:red">Saturation</span>&gt;
+	&lt;/<span style="color:blue">SatNode</span>&gt;
+  &lt;/<span style="color:blue">ASC_CDL</span>&gt;
+&lt;/<span style="color:red">ProcessList</span>&gt;
+</code>
+</pre>
+</div>
 
-#### Example 2: BT.709 YCbCr (SMPTE/legal range) to RGB (full range) {#example-2}
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Line above is required: XML Version and Encoding declaration -->
+
+#### Example 2: {#example-2}
+<div class="highlight">
+<span class="filename">BT.709 YCbCr (SMPTE/legal range) to RGB (full range)</span>
+<pre>
+<code><span style="color:red">&lt;?xml version="1.0" encoding="UTF-8"?</span>&gt;
+<span style="color:green">&lt;!-- Line above is required: XML Version and Encoding declaration --&gt;
  
-<!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ -->
-<ProcessList 
-  id="0befc138-3757-45f0-a080-83bebb77baf2"
-  compCLFversion="3.0">
- 
-  <!-- Optional: ProcessList Description -->
-  <Description>BT.709 YCbCr (legal) to RGB (full)</Description>
- 
-  <!-- Optional: InputDescriptor / OutputDescriptor -->
-  <InputDescriptor>YCbCr</InputDescriptor>
-  <OutputDescriptor>RGB</OutputDescriptor>
-    
-  <!-- Required: One or more ProcessNode elements -->
-  <!-- inBitDepth and OutBitDepth are required, id is optional -->
-  <!-- If in/outBitDepth values are different, the scale factor
-    between them must also be applied to the matrix coefficients! -->
-  <Matrix 
-    id="815ebbac-550a-453b-a1e6-bf93779fc9c8" 
-    inBitDepth="32f" 
-    outBitDepth="32f">
-    
-    <!-- Optional: ProcessNode description -->
-    <Description>Input offsets for legal range luma and color
-      difference channels</Description>
- 
-    <!-- White space formatting is recommended, but optional -->
-    <!-- Array element is required for a Matrix ProcessNode -->
-    <Array dim="3 4">
-      <!-- when dim=”3 4”, the 4th column is offset terms -->
+&lt;!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ --&gt;</span>
+&lt;<span style="color:red">ProcessList</span>
+  <span style="color:red">id</span>="0befc138-3757-45f0-a080-83bebb77baf2"
+  <span style="color:red">compCLFversion</span>="3.0"&gt;
+
+  <span style="color:green">&lt;!-- Optional: ProcessList Description --&gt;</span>
+  &lt;<span style="color:blue">Description</span>&gt;BT.709 YCbCr (legal) to RGB (full)&lt;/<span style="color:blue">Description</span>&gt;
+
+  <span style="color:green">&lt;!-- Optional: InputDescriptor / OutputDescriptor --&gt;</span>
+  &lt;<span style="color:blue">InputDescriptor</span>&gt;YCbCr&lt;/<span style="color:blue">InputDescriptor</span>&gt;
+  &lt;<span style="color:blue">OutputDescriptor</span>&gt;RGB&lt;/<span style="color:blue">OutputDescriptor</span>&gt;
+   
+  <span style="color:green">&lt;!-- Required: One or more ProcessNode elements --&gt;
+  &lt;!-- inBitDepth and OutBitDepth are required, id is optional --&gt;
+  &lt;!-- If in/outBitDepth values are different, the scale factor
+    between them must also be applied to the matrix coefficients! --&gt;</span>
+  &lt;<span style="color:blue">Matrix 
+    id</span>="815ebbac-550a-453b-a1e6-bf93779fc9c8" 
+    <span style="color:red">inBitDepth</span>="32f" 
+    <span style="color:red">outBitDepth</span>="32f"&gt;
+
+    <span style="color:green">&lt;!-- Optional: ProcessNode description --&gt;</span>
+    &lt;<span style="color:blue">Description</span>&gt;Input offsets for legal range luma and color
+      difference channels&lt;/<span style="color:blue">Description</span>&gt;
+
+    <span style="color:green">&lt;!-- White space formatting is recommended, but optional --&gt;
+    &lt;!-- Array element is required for a Matrix ProcessNode --&gt;</span>
+    &lt;<span style="color:red">Array dim</span>="3 4"&gt;
+      <span style="color:green">&lt;!-- when dim=”3 4”, the 4th column is offset terms --&gt;</span>
       1.0 0.0 0.0 -0.0625
       0.0 1.0 0.0 -0.5
       0.0 0.0 1.0 -0.5
-    </Array>
-  </Matrix>
- 
-  <!-- Additional ProcessNodes are applied in order -->
-  <Matrix 
-    id="deceda6e-8fee-471a-8599-fa513c17f3cf"
-    inBitDepth="32f" 
-    outBitDepth="32f">
-    <Description>BT.709 YCbCr to RGB matrix</Description>
-    <Array dim="3 3">
+    &lt;/<span style="color:red">Array</span>&gt;
+  &lt;/<span style="color:blue">Matrix</span>&gt;
+
+  <span style="color:green">&lt;!-- Additional ProcessNodes are applied in order --&gt;</span>
+  &lt;<span style="color:blue">Matrix 
+    id</span>="deceda6e-8fee-471a-8599-fa513c17f3cf"
+    <span style="color:red">inBitDepth</span>="32f" 
+    <span style="color:red">outBitDepth</span>="32f"&gt;
+    &lt;<span style="color:blue">Description</span>&gt;BT.709 YCbCr to RGB matrix&lt;/<span style="color:blue">Description</span>&gt;
+    &lt;<span style="color:red">Array dim</span>="3 3"&gt;
       1.16893193493151  0.000000000000000  1.799743966238840
       1.16893193493151 -0.214081616673236 -0.534991005624129
       1.16893193493151  2.120653355189730 -0.000000000000000
-    </Array>
-  </Matrix>
-</ProcessList>
-```
+    &lt;/<span style="color:red">Array</span>&gt;
+  &lt;/<span style="color:blue">Matrix</span>&gt;
+&lt;/<span style="color:red">ProcessList</span>&gt;
+
+</code>
+</pre>
+</div>
 
 
 Open Source Example Implemention
