@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -565,7 +565,7 @@
 <h1 id="common-lut-format-clf-a-common-file-format-for-look-up-tables">Common <abbr title="look-up table">LUT</abbr> Format (<abbr title="Common LUT Format">CLF</abbr>) - A Common File Format for Look-Up Tables<a class="headerlink" href="#common-lut-format-clf-a-common-file-format-for-look-up-tables" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>Look-Up Tables (<abbr title="look-up tables">LUTs</abbr>) are a common implementation for transformations from one set of color values to another. With a large number of product developers providing software and hardware solutions for <abbr title="look-up tables">LUTs</abbr>, there is an explosion of unique vendor-specific <abbr title="look-up table">LUT</abbr> file formats, which are often only trivially different from each other. This can create workflow problems when a <abbr title="look-up table">LUT</abbr> being used on a production is not supported by one or more of the applications being used. Furthermore, many <abbr title="look-up table">LUT</abbr> formats are designed for a particular use case only and lack the quality, flexibility, and metadata needed to meet modern requirements.</p>
-<p>The Common <abbr title="look-up table">LUT</abbr> Format (<abbr title="Common LUT Format">CLF</abbr>) can communicate an arbitrary chain of color operators (also called pro- cessing nodes) which are sequentially processed to achieve an end result. The set of available operator types includes matrices, 1D <abbr title="look-up tables">LUTs</abbr>, 3D <abbr title="look-up tables">LUTs</abbr>, <abbr title="American Society of Cinematographers">ASC</abbr>-<abbr title="Color Decision List">CDL</abbr>, log and exponential shaper functions, and more. Even when 1D or 3D <abbr title="look-up tables">LUTs</abbr> are not present, <abbr title="Common LUT Format">CLF</abbr> can be used to encapsulate any supported color transforms as a text file conforming to the <abbr title="Extensible Markup Language">XML</abbr> schema.</p>
+<p>The Common <abbr title="look-up table">LUT</abbr> Format (<abbr title="Common LUT Format">CLF</abbr>) can communicate an arbitrary chain of color operators (also called processing nodes) which are sequentially processed to achieve an end result. The set of available operator types includes matrices, 1D <abbr title="look-up tables">LUTs</abbr>, 3D <abbr title="look-up tables">LUTs</abbr>, <abbr title="American Society of Cinematographers">ASC</abbr>-<abbr title="Color Decision List">CDL</abbr>, log and exponential shaper functions, and more. Even when 1D or 3D <abbr title="look-up tables">LUTs</abbr> are not present, <abbr title="Common LUT Format">CLF</abbr> can be used to encapsulate any supported color transforms as a text file conforming to the <abbr title="Extensible Markup Language">XML</abbr> schema.</p>
 <h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
 <p>This document introduces a human-readable text file format for the interchange of color transformations using an <abbr title="Extensible Markup Language">XML</abbr> schema. The <abbr title="Extensible Markup Language">XML</abbr> format supports Look-Up Tables of several types: 1D <abbr title="look-up tables">LUTs</abbr>, 3D <abbr title="look-up tables">LUTs</abbr>, and 3×1D <abbr title="look-up tables">LUTs</abbr>, as well as additional transformation needs such as matrices, range rescaling, and “shaper <abbr title="look-up tables">LUTs</abbr>.”
 The document defines what is a valid <abbr title="Common LUT Format">CLF</abbr> file. Though it is not intended as a tutorial for users to create their own files, <abbr title="look-up table">LUT</abbr> creators will find it useful to understand the elements and attributes available for use in a <abbr title="Common LUT Format">CLF</abbr> file. The document is also not intended to provide guidance to implementors on how to optimize their implementations, but does provide a few notes on the subject.
@@ -1982,7 +1982,7 @@ V(r,g,b)_{t6} = \mathbf{\Delta}^T_t \mathbf{T}_6 \mathbf{V}
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 24, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 28, 2022</span>
       
     
   </small>
@@ -2070,7 +2070,7 @@ V(r,g,b)_{t6} = \mathbf{\Delta}^T_t \mathbf{T}_6 \mathbf{V}
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
         <script src="../../js/mathjax.js"></script>
       

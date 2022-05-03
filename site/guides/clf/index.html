@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -17,10 +17,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -896,10 +896,10 @@
 <h2 id="target-audience">Target Audience<a class="headerlink" href="#target-audience" title="Permanent link">&para;</a></h2>
 <p>This document is primarily intended for application developers who want to add <abbr title="Common LUT Format">CLF</abbr> support to their product. It defines requirements, tests, and provides recommendations that, if followed, will lead to robust support for <abbr title="Common LUT Format">CLF</abbr>. Implementers who follow the guidance in this document can have confidence that their product is implementing the specification correctly.</p>
 <p>The document may also be of interest to those using <abbr title="Common LUT Format">CLF</abbr> to author transforms and who want to understand how the CLFs will be used by applications.</p>
-<p>This guide should be read in conjunction with the <a href="/specification/clf"><abbr title="Common LUT Format">CLF</abbr> Specification (v 3.0)</a>. </p>
+<p>This guide should be read in conjunction with the <a href="/specifications/clf"><abbr title="Common LUT Format">CLF</abbr> Specification (v 3.0)</a>. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The specificataion was previously referred to by it's document number - "S-2014-006". Although the spec had "2014" in the name, the document has been updated more recently than that. Version 3 of <abbr title="Common LUT Format">CLF</abbr> was introduced with the release of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 1.2 in 2020 and the most recent editorial updates were in 2021. The current version of the specification now lives at the above link.</p>
+<p>The specification was previously referred to by its document number - "S-2014-006". Although the spec had "2014" in the name, the document has been updated more recently than that. Version 3 of <abbr title="Common LUT Format">CLF</abbr> was introduced with the release of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 1.2 in 2020 and the most recent editorial updates were in 2021. The current version of the specification now lives at the above link.</p>
 </div>
 <h2 id="a-quick-introduction-to-clf">A Quick Introduction to <abbr title="Common LUT Format">CLF</abbr><a class="headerlink" href="#a-quick-introduction-to-clf" title="Permanent link">&para;</a></h2>
 <p>Below is a basic example of a simple <abbr title="Common LUT Format">CLF</abbr> file. Despite the word '<abbr title="look-up table">LUT</abbr>' in the name of the format, these very simple examples do not contain any type of <abbr title="look-up table">LUT</abbr> whatsoever. Instead, the <abbr title="Common LUT Format">CLF</abbr> is being used to communicate a set of <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> adjustments (<a href="#example-1">Example 1</a>), and encapsulate a YCbCr to <abbr title="Red, Green, and Blue">RGB</abbr> conversion (<a href="#example-2">Example 2</a>).</p>
@@ -913,92 +913,108 @@
 <li>Every <abbr title="Common LUT Format">CLF</abbr> must have a unique <code>id</code> attribute.</li>
 <li>The bit-depth attributes control formatting but not precision.</li>
 </ul>
-<p>Color coding: <span style="color:red">red</span> is required, <span style="color:blue">blue</span> is optional, <span style="color:green">green</span> are comments.</p>
-<h4 id="example-1">Example 1: <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> Implementation<a class="headerlink" href="#example-1" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="cm">&lt;!-- Required: XML Version and Encoding declaration --&gt;</span>
+<p>Color coding for the following two examples: <br>
+<span style="color:red">red</span> is required <br>
+<span style="color:blue">blue</span> is optional <br>
+<span style="color:green">green</span> are comments</p>
+<h4 id="example-1">Example 1:<a class="headerlink" href="#example-1" title="Permanent link">&para;</a></h4>
+<div class="highlight">
+<span class="filename">ASC CDL Implementation</span>
+<pre>
+<code>&lt;<span style="color:red">?xml version="1.0" encoding="UTF-8"?</span>&gt;
+<span style="color:green">&lt;!-- Required: XML Version and Encoding declaration --&gt;</span>
 
-<span class="cm">&lt;!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ --&gt;</span>
-<span class="cm">&lt;!-- name and xmlns are optional --&gt;</span>
-<span class="nt">&lt;ProcessList</span> 
-  <span class="na">compCLFversion=</span><span class="s">&quot;3.0&quot;</span> 
-  <span class="na">id=</span><span class="s">&quot;b4cca59a-9428-49c0-8e91-868718c4e526&quot;</span> 
-  <span class="na">name=</span><span class="s">&quot;FwdNoClamp style&quot;</span> 
-  <span class="na">xmlns=</span><span class="s">&quot;urn:AMPAS:CLF:v3.0&quot;</span><span class="nt">&gt;</span>
+<span style="color:green">&lt;!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ --&gt;</span>
+<span style="color:green">&lt;!-- name and xmlns are optional --&gt;</span>
+&lt;<span style="color:red">ProcessList</span>
+  <span style="color:red">compCLFversion</span>="3.0" 
+  <span style="color:red">id</span>="b4cca59a-9428-49c0-8e91-868718c4e526" 
+  <span style="color:blue">name</span>="FwdNoClamp style" 
+  <span style="color:blue">xmlns</span>="urn:AMPAS:CLF:v3.0"&gt;
 
-  <span class="nt">&lt;Description&gt;</span>CDL with FwdNoClamp style<span class="nt">&lt;/Description&gt;</span>
+  &lt;<span style="color:blue">Description</span>&gt;CDL with FwdNoClamp style&lt;/<span style="color:blue">Description</span>&gt;
 
-  <span class="nt">&lt;ASC_CDL</span> 
-    <span class="na">id=</span><span class="s">&quot;clf/ctf no-clamp fwd&quot;</span> 
-    <span class="na">inBitDepth=</span><span class="s">&quot;10i&quot;</span> 
-    <span class="na">outBitDepth=</span><span class="s">&quot;8i&quot;</span> 
-    <span class="na">style=</span><span class="s">&quot;FwdNoClamp&quot;</span><span class="nt">&gt;</span>
+  &lt;<span style="color:blue">ASC_CDL </span>
+    <span style="color:blue">id</span>="clf/ctf no-clamp fwd" 
+    <span style="color:red">inBitDepth</span>="10i" 
+    <span style="color:red">outBitDepth</span>="8i" 
+    <span style="color:red">style</span>="FwdNoClamp"&gt;
 
-    <span class="nt">&lt;SOPNode&gt;</span>
-      <span class="nt">&lt;Slope&gt;</span>  1.000000  1.000000  0.800000<span class="nt">&lt;/Slope&gt;</span>
-      <span class="nt">&lt;Offset&gt;</span>-0.020000  0.000000  0.150000<span class="nt">&lt;/Offset&gt;</span>
-      <span class="nt">&lt;Power&gt;</span>  1.050000  1.150000  1.400000<span class="nt">&lt;/Power&gt;</span>
-    <span class="nt">&lt;/SOPNode&gt;</span>
+    &lt;<span style="color:blue">SOPNode</span>&gt;
+      &lt;<span style="color:red">Slope</span>&gt;  1.000000  1.000000  0.800000&lt;/<span style="color:red">Slope</span>&gt;
+      &lt;<span style="color:red">Offset</span>&gt;-0.020000  0.000000  0.150000&lt;/<span style="color:red">Offset</span>&gt;
+      &lt;<span style="color:red">Power</span>&gt;  1.050000  1.150000  1.400000&lt;/<span style="color:red">Power</span>&gt;
+    &lt;/<span style="color:blue">SOPNode</span>&gt;
 
-    <span class="nt">&lt;SatNode&gt;</span>
-      <span class="nt">&lt;Saturation&gt;</span>0.750000<span class="nt">&lt;/Saturation&gt;</span>
-    <span class="nt">&lt;/SatNode&gt;</span>
-  <span class="nt">&lt;/ASC_CDL&gt;</span>
-<span class="nt">&lt;/ProcessList&gt;</span>
-</code></pre></div>
-<h4 id="example-2">Example 2: BT.709 YCbCr (<abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr>/legal range) to <abbr title="Red, Green, and Blue">RGB</abbr> (full range)<a class="headerlink" href="#example-2" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="cm">&lt;!-- Line above is required: XML Version and Encoding declaration --&gt;</span>
+    &lt;<span style="color:blue">SatNode</span>&gt;
+      &lt;<span style="color:red">Saturation</span>&gt;0.750000&lt;/<span style="color:red">Saturation</span>&gt;
+    &lt;/<span style="color:blue">SatNode</span>&gt;
+  &lt;/<span style="color:blue">ASC_CDL</span>&gt;
+&lt;/<span style="color:red">ProcessList</span>&gt;
+</code>
+</pre>
+</div>
 
-<span class="cm">&lt;!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ --&gt;</span>
-<span class="nt">&lt;ProcessList</span> 
-  <span class="na">id=</span><span class="s">&quot;0befc138-3757-45f0-a080-83bebb77baf2&quot;</span>
-  <span class="na">compCLFversion=</span><span class="s">&quot;3.0&quot;</span><span class="nt">&gt;</span>
+<h4 id="example-2">Example 2:<a class="headerlink" href="#example-2" title="Permanent link">&para;</a></h4>
+<div class="highlight">
+<span class="filename">BT.709 YCbCr (SMPTE/legal range) to RGB (full range)</span>
+<pre>
+<code><span style="color:red">&lt;?xml version="1.0" encoding="UTF-8"?</span>&gt;
+<span style="color:green">&lt;!-- Line above is required: XML Version and Encoding declaration --&gt;
 
-  <span class="cm">&lt;!-- Optional: ProcessList Description --&gt;</span>
-  <span class="nt">&lt;Description&gt;</span>BT.709 YCbCr (legal) to RGB (full)<span class="nt">&lt;/Description&gt;</span>
+&lt;!-- Required: ProcessList element with ‘id’ and ‘compCLFversion’ --&gt;</span>
+&lt;<span style="color:red">ProcessList</span>
+  <span style="color:red">id</span>="0befc138-3757-45f0-a080-83bebb77baf2"
+  <span style="color:red">compCLFversion</span>="3.0"&gt;
 
-  <span class="cm">&lt;!-- Optional: InputDescriptor / OutputDescriptor --&gt;</span>
-  <span class="nt">&lt;InputDescriptor&gt;</span>YCbCr<span class="nt">&lt;/InputDescriptor&gt;</span>
-  <span class="nt">&lt;OutputDescriptor&gt;</span>RGB<span class="nt">&lt;/OutputDescriptor&gt;</span>
+  <span style="color:green">&lt;!-- Optional: ProcessList Description --&gt;</span>
+  &lt;<span style="color:blue">Description</span>&gt;BT.709 YCbCr (legal) to RGB (full)&lt;/<span style="color:blue">Description</span>&gt;
 
-  <span class="cm">&lt;!-- Required: One or more ProcessNode elements --&gt;</span>
-  <span class="cm">&lt;!-- inBitDepth and OutBitDepth are required, id is optional --&gt;</span>
-  <span class="cm">&lt;!-- If in/outBitDepth values are different, the scale factor</span>
-<span class="cm">    between them must also be applied to the matrix coefficients! --&gt;</span>
-  <span class="nt">&lt;Matrix</span> 
-    <span class="na">id=</span><span class="s">&quot;815ebbac-550a-453b-a1e6-bf93779fc9c8&quot;</span> 
-    <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> 
-    <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span><span class="nt">&gt;</span>
+  <span style="color:green">&lt;!-- Optional: InputDescriptor / OutputDescriptor --&gt;</span>
+  &lt;<span style="color:blue">InputDescriptor</span>&gt;YCbCr&lt;/<span style="color:blue">InputDescriptor</span>&gt;
+  &lt;<span style="color:blue">OutputDescriptor</span>&gt;RGB&lt;/<span style="color:blue">OutputDescriptor</span>&gt;
 
-    <span class="cm">&lt;!-- Optional: ProcessNode description --&gt;</span>
-    <span class="nt">&lt;Description&gt;</span>Input offsets for legal range luma and color
-      difference channels<span class="nt">&lt;/Description&gt;</span>
+  <span style="color:green">&lt;!-- Required: One or more ProcessNode elements --&gt;
+  &lt;!-- inBitDepth and OutBitDepth are required, id is optional --&gt;
+  &lt;!-- If in/outBitDepth values are different, the scale factor
+    between them must also be applied to the matrix coefficients! --&gt;</span>
+  &lt;<span style="color:blue">Matrix 
+    id</span>="815ebbac-550a-453b-a1e6-bf93779fc9c8" 
+    <span style="color:red">inBitDepth</span>="32f" 
+    <span style="color:red">outBitDepth</span>="32f"&gt;
 
-    <span class="cm">&lt;!-- White space formatting is recommended, but optional --&gt;</span>
-    <span class="cm">&lt;!-- Array element is required for a Matrix ProcessNode --&gt;</span>
-    <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">&quot;3 4&quot;</span><span class="nt">&gt;</span>
-      <span class="cm">&lt;!-- when dim=”3 4”, the 4th column is offset terms --&gt;</span>
+    <span style="color:green">&lt;!-- Optional: ProcessNode description --&gt;</span>
+    &lt;<span style="color:blue">Description</span>&gt;Input offsets for legal range luma and color
+      difference channels&lt;/<span style="color:blue">Description</span>&gt;
+
+    <span style="color:green">&lt;!-- White space formatting is recommended, but optional --&gt;
+    &lt;!-- Array element is required for a Matrix ProcessNode --&gt;</span>
+    &lt;<span style="color:red">Array dim</span>="3 4"&gt;
+      <span style="color:green">&lt;!-- when dim=”3 4”, the 4th column is offset terms --&gt;</span>
       1.0 0.0 0.0 -0.0625
       0.0 1.0 0.0 -0.5
       0.0 0.0 1.0 -0.5
-    <span class="nt">&lt;/Array&gt;</span>
-  <span class="nt">&lt;/Matrix&gt;</span>
+    &lt;/<span style="color:red">Array</span>&gt;
+  &lt;/<span style="color:blue">Matrix</span>&gt;
 
-  <span class="cm">&lt;!-- Additional ProcessNodes are applied in order --&gt;</span>
-  <span class="nt">&lt;Matrix</span> 
-    <span class="na">id=</span><span class="s">&quot;deceda6e-8fee-471a-8599-fa513c17f3cf&quot;</span>
-    <span class="na">inBitDepth=</span><span class="s">&quot;32f&quot;</span> 
-    <span class="na">outBitDepth=</span><span class="s">&quot;32f&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Description&gt;</span>BT.709 YCbCr to RGB matrix<span class="nt">&lt;/Description&gt;</span>
-    <span class="nt">&lt;Array</span> <span class="na">dim=</span><span class="s">&quot;3 3&quot;</span><span class="nt">&gt;</span>
+  <span style="color:green">&lt;!-- Additional ProcessNodes are applied in order --&gt;</span>
+  &lt;<span style="color:blue">Matrix 
+    id</span>="deceda6e-8fee-471a-8599-fa513c17f3cf"
+    <span style="color:red">inBitDepth</span>="32f" 
+    <span style="color:red">outBitDepth</span>="32f"&gt;
+    &lt;<span style="color:blue">Description</span>&gt;BT.709 YCbCr to RGB matrix&lt;/<span style="color:blue">Description</span>&gt;
+    &lt;<span style="color:red">Array dim</span>="3 3"&gt;
       1.16893193493151  0.000000000000000  1.799743966238840
       1.16893193493151 -0.214081616673236 -0.534991005624129
       1.16893193493151  2.120653355189730 -0.000000000000000
-    <span class="nt">&lt;/Array&gt;</span>
-  <span class="nt">&lt;/Matrix&gt;</span>
-<span class="nt">&lt;/ProcessList&gt;</span>
-</code></pre></div>
+    &lt;/<span style="color:red">Array</span>&gt;
+  &lt;/<span style="color:blue">Matrix</span>&gt;
+&lt;/<span style="color:red">ProcessList</span>&gt;
+
+</code>
+</pre>
+</div>
+
 <h2 id="open-source-example-implemention">Open Source Example Implemention<a class="headerlink" href="#open-source-example-implemention" title="Permanent link">&para;</a></h2>
 <p>As you explore <abbr title="Common LUT Format">CLF</abbr> and work to implement it into your product(s), it may be helpful to refer to some existing tools that already provide full <abbr title="Common LUT Format">CLF</abbr> functionality. The tools described here are included in the open source project OpenColorIO (<abbr title="OpenColorIO">OCIO</abbr>) v2. More details and the full installation process for <abbr title="OpenColorIO">OCIO</abbr> can be found at <a href="https://www.opencolorio.org">https://www.opencolorio.org</a>.</p>
 <h3 id="ociochecklut"><code>ociochecklut</code><a class="headerlink" href="#ociochecklut" title="Permanent link">&para;</a></h3>
@@ -2061,7 +2077,7 @@ replacing <code>&lt;OUTPUT-DIR&gt;</code> with a directory that you want to writ
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 18, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 28, 2022</span>
       
     
   </small>
@@ -2149,7 +2165,7 @@ replacing <code>&lt;OUTPUT-DIR&gt;</code> with a directory that you want to writ
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
         <script src="../../js/mathjax.js"></script>
       
