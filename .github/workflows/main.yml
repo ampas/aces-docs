@@ -36,7 +36,9 @@ jobs:
         with:
           image: app:latest
           options: --rm -v ${{ github.workspace }}:/docs -v ${{ github.workspace }}/site:/site
-          run: mkdocs build;
+          run: |
+            git config --global --add safe.directory /docs;
+            mkdocs build;
       - name: Commit dev updates to site/staging branch
         if: endsWith(github.ref, '/dev')
         run: |
