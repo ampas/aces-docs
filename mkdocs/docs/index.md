@@ -70,7 +70,7 @@ Specifies ACES, the fundamental colorimetric encoding in the Academy Color Encod
 ### [:fontawesome-solid-file-contract:{ .icons } ACEScct](/specifications/acescct/)
 Defines a logarithmic colorimetric encoding more appropriate for legacy color correction operators.
 
-### [:fontawesome-solid-file-contract:{ .icons } ACEScg](https://www.dropbox.com/s/c5zbxd5zjq0du8h/S-2014-004.pdf?dl=0)
+### [:fontawesome-solid-file-contract:{ .icons } ACEScg](/specifications/acescg/)
 Defines a colorimetric encoding appropriate as a working space for use in CGI tools such as compositors, paint and rendering systems.
 
 ### [:fontawesome-solid-file-contract:{ .icons } ACEScc](https://www.dropbox.com/s/1c0bnbfyjj3w2wb/S-2014-003.pdf?dl=0)
