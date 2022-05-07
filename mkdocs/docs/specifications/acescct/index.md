@@ -44,7 +44,7 @@ Specification
 -------------
 
 ### Naming conventions
-The quasi-logarithmic encoding of ACES specified [below](#acescct) shall be known as ACEScct.
+The quasi-logarithmic encoding of ACES specified in this document shall be known as ACEScct.
 
 ### Color component value encoding
 ACEScct values are encoded as 32-bit floating-point numbers. This floating-point encoding uses 32 bits per component as described in IEEE 754.
@@ -102,44 +102,45 @@ $lin_{AP1}$ $R$, $G$, and $B$ values shall be converted to ACEScct values accord
     <b>Equation 1:</b> Linear AP1 to ACEScct
 </figcaption>
 
-[Equation 2](#eq-2) shows the relationship between ACES $R$, $G$, and $B$ values and $lin_{AP1}$ $R$, $G$, and $B$ values. $TRA_{1}$, rounded to 10 significant digits, is derived from the product of $NPM_{AP1}$ inverse and $NPM_{AP0}$ calculated using methods provided in Section 3.3 of SMPTE RP 177:1993.<br>
-AP0 are the primaries of ACES specified in SMPTE ST 2065-1.<br>
-AP1 are the primaries of ACEScct specified in [Color space chromaticities](#color-space).
+!!! note
+	[Equation 2](#eq-2) shows the relationship between ACES $R$, $G$, and $B$ values and $lin_{AP1}$ $R$, $G$, and $B$ values. $TRA_{1}$, rounded to 10 significant digits, is derived from the product of $NPM_{AP1}$ inverse and $NPM_{AP0}$ calculated using methods provided in Section 3.3 of SMPTE RP 177:1993.<br>
+	AP0 are the primaries of ACES specified in SMPTE ST 2065-1.<br>
+	AP1 are the primaries of ACEScct specified in [Color space chromaticities](#color-space).
 
-<a name="eq-2"></a>
+	<a name="eq-2"></a>
 
-\begin{equation} 
-\begin{bmatrix}
-    R_{lin_{AP1}}\\
-    G_{lin_{AP1}}\\
-    B_{lin_{AP1}}
-\end{bmatrix}
-=
-TRA_{1}
-\cdot
-\begin{bmatrix}
-    R_{ACES}\\
-    G_{ACES}\\
-    B_{ACES}
-\end{bmatrix} \\
-\end{equation}
+	\begin{equation} 
+	\begin{bmatrix}
+		R_{lin_{AP1}}\\
+		G_{lin_{AP1}}\\
+		B_{lin_{AP1}}
+	\end{bmatrix}
+	=
+	TRA_{1}
+	\cdot
+	\begin{bmatrix}
+		R_{ACES}\\
+		G_{ACES}\\
+		B_{ACES}
+	\end{bmatrix} \\
+	\end{equation}
 
-\begin{equation}
-TRA_{1} =
-\begin{bmatrix}
-    \phantom{-}1.4514393161 & -0.2365107469 & -0.2149285693 \\
-   -0.0765537734 &  \phantom{-}1.1762296998 & -0.0996759264 \\
-    \phantom{-}0.0083161484 & -0.0060324498 &  \phantom{-}0.9977163014 \\
-\end{bmatrix} \\
-\end{equation}
+	\begin{equation}
+	TRA_{1} =
+	\begin{bmatrix}
+		\phantom{-}1.4514393161 & -0.2365107469 & -0.2149285693 \\
+	   -0.0765537734 &  \phantom{-}1.1762296998 & -0.0996759264 \\
+		\phantom{-}0.0083161484 & -0.0060324498 &  \phantom{-}0.9977163014 \\
+	\end{bmatrix} \\
+	\end{equation}
 
-\begin{equation}
-TRA_{1} = NPM^{-1}_{AP1} \cdot NPM_{AP0}
-\end{equation}
+	\begin{equation}
+	TRA_{1} = NPM^{-1}_{AP1} \cdot NPM_{AP0}
+	\end{equation}
 
-<figcaption align="center"> 
-    <b>Equation 2:</b> ACES to linear AP1
-</figcaption>
+	<figcaption align="center"> 
+		<b>Equation 2:</b> ACES to linear AP1
+	</figcaption>
 
 #### Decoding Function
 ACEScct $R$, $G$, and $B$ values shall be converted to $lin_{AP1}$ values using [Equation 3](#eq-3).
@@ -161,44 +162,45 @@ ACEScct $R$, $G$, and $B$ values shall be converted to $lin_{AP1}$ values using 
 
 $lin_{AP1}$ $R$, $G$, and $B$ values shall be converted to ACES $R$, $G$, and $B$ values using the transformation matrix ($TRA_{2}$) calculated and applied using the methods provided in Section 4 of SMPTE RP 177:1993.
 
-[Equation 4](#eq-4) shows the relationship between ACES $R$, $G$, and $B$ values and ACEScct $R$, $G$, and $B$ values. $TRA_{2}$, rounded to 10 significant digits, is derived from the product of $NPM_{AP0}$ inverse and $NPM_{AP1}$ calculated using methods provided in Section 3.3 of SMPTE RP 177:1993.<br>
-AP0 are the primaries of ACES specified in SMPTE ST 2065-1.<br>
-AP1 are the primaries of ACEScct specified in [Color space chromaticities](#color-space).
+!!! note
+	[Equation 4](#eq-4) shows the relationship between ACES $R$, $G$, and $B$ values and ACEScct $R$, $G$, and $B$ values. $TRA_{2}$, rounded to 10 significant digits, is derived from the product of $NPM_{AP0}$ inverse and $NPM_{AP1}$ calculated using methods provided in Section 3.3 of SMPTE RP 177:1993.<br>
+	AP0 are the primaries of ACES specified in SMPTE ST 2065-1.<br>
+	AP1 are the primaries of ACEScct specified in [Color space chromaticities](#color-space).
 
-<a name="eq-4"></a>
+	<a name="eq-4"></a>
 
-\begin{equation} 
-    \begin{bmatrix}
-        R_{ACES}\\
-        G_{ACES}\\
-        B_{ACES}
-    \end{bmatrix}
-    =
-    TRA_{2}
-    \cdot
-    \begin{bmatrix}
-        R_{lin_{AP1}}\\
-        G_{lin_{AP1}}\\
-        B_{lin_{AP1}}
-    \end{bmatrix}
-\end{equation}
+	\begin{equation} 
+		\begin{bmatrix}
+			R_{ACES}\\
+			G_{ACES}\\
+			B_{ACES}
+		\end{bmatrix}
+		=
+		TRA_{2}
+		\cdot
+		\begin{bmatrix}
+			R_{lin_{AP1}}\\
+			G_{lin_{AP1}}\\
+			B_{lin_{AP1}}
+		\end{bmatrix}
+	\end{equation}
 
-\begin{equation}
-    TRA_{2} =
-    \begin{bmatrix}
-        \phantom{-}0.6954522414 & 0.1406786965 & 0.1638690622 \\
-        \phantom{-}0.0447945634 & 0.8596711185 & 0.0955343182 \\
-        -0.0055258826 & 0.0040252103 & 1.0015006723 \\
-    \end{bmatrix}
-\end{equation}
+	\begin{equation}
+		TRA_{2} =
+		\begin{bmatrix}
+			\phantom{-}0.6954522414 & 0.1406786965 & 0.1638690622 \\
+			\phantom{-}0.0447945634 & 0.8596711185 & 0.0955343182 \\
+			-0.0055258826 & 0.0040252103 & 1.0015006723 \\
+		\end{bmatrix}
+	\end{equation}
 
-\begin{equation}
-    TRA_{2} = NPM^{-1}_{AP1} \cdot NPM_{AP0}
-\end{equation}
+	\begin{equation}
+		TRA_{2} = NPM^{-1}_{AP0} \cdot NPM_{AP1}
+	\end{equation}
 
-<figcaption align="center">
-    <b>Equation 4:</b> Linear AP1 to ACES
-</figcaption>
+	<figcaption align="center">
+		<b>Equation 4:</b> Linear AP1 to ACES
+	</figcaption>
 
 
 Appendices
