@@ -4,19 +4,19 @@ ACES Documentation
 System Documentation
 ----------------
 
-### [:fontawesome-solid-arrow-down-wide-short:{ .icons } Project Organization and Development Procedure](https://aces.mp/P-2019_001)
+### [:fontawesome-solid-arrow-down-wide-short:{ .icons } Project Organization and Development Procedure](https://www.dropbox.com/s/0bew0bf4otq77fd/P-2019-001.pdf?dl=0)
 Provides details on the organizational and decision making structure to be used in the development of the ACES.
 
-### [:fontawesome-solid-arrow-down-1-9:{ .icons } Versioning System](http://j.mp/S-2014-002)
+### [:fontawesome-solid-arrow-down-1-9:{ .icons } Versioning System](/specifications/versioning/)
 Describes versioning numbers and format of TransformIDs for components the ACES system.
 
-### [:fontawesome-solid-desktop:{ .icons } UX Guidelines](http://j.mp/TB-2014-002)
+### [:fontawesome-solid-desktop:{ .icons } UX Guidelines](https://www.dropbox.com/s/v5tghz6wl2629nf/TB-2014-002.pdf?dl=0)
 Provides guidelines on how best to present ACES terminology and concepts within products to end-users.
 
-### [:fontawesome-solid-glasses:{ .icons } Alternate Viewing Pipeline](http://j.mp/TB-2014-013)
+### [:fontawesome-solid-glasses:{ .icons } Alternate Viewing Pipeline](https://www.dropbox.com/s/psq88v9fkt61bl4/TB-2014-013.pdf?dl=0)
 Describes an alternate approach to implementing and presenting the ACES viewing pipeline.
 
-### [:fontawesome-solid-file-arrow-down:{ .icons } ACES White Point Derivation](http://j.mp/TB-2018-001)
+### [:fontawesome-solid-file-arrow-down:{ .icons } ACES White Point Derivation](https://www.dropbox.com/s/njanod3258gpgy1/TB-2018-001.pdf?dl=0)
 Describes the derivation of the ACES white point and why the chromaticity coordinates were chosen.
 
 
@@ -25,13 +25,13 @@ Describes the derivation of the ACES white point and why the chromaticity coordi
 System Components
 ----------------
 
-### [:fontawesome-solid-arrow-down-a-z:{ .icons } Component Names](http://j.mp/TB-2014-012)
+### [:fontawesome-solid-arrow-down-a-z:{ .icons } Component Names](https://www.dropbox.com/s/wkwz7g8z0ff5s0o/TB-2014-012.pdf?dl=0)
 Describes preferred terminology for key ACES component names for ACES 1.0.
 
-### [:fontawesome-solid-file-export:{ .icons } Input Transforms (IDTs)](http://j.mp/P-2013-001)
+### [:fontawesome-solid-file-export:{ .icons } Input Transforms (IDTs)](https://www.dropbox.com/s/ouwnid1aevqti5d/P-2013-001.pdf?dl=0)
 Describes methods to create Input Transforms (IDTs) for use within ACES.
 
-### [:fontawesome-solid-fill-drip:{ .icons } Look Modification Transforms](http://j.mp/TB-2014-010)
+### [:fontawesome-solid-fill-drip:{ .icons } Look Modification Transforms](https://www.dropbox.com/s/grjoi885tv78e70/TB-2014-010.pdf?dl=0)
 Describes the design, integration and use of Look Modification Transforms.
 
 ### [:fontawesome-solid-file-code:{ .icons } Reference Gamut Compression Specification](specifications/rgc/) :material-new-box:{ .new-icons }
@@ -49,7 +49,7 @@ Specifies a flexible XML-based file format for color Look-Up Tables (LUTs) and o
 ### [:fontawesome-solid-file-code:{ .icons } Common LUT Format (CLF) Implementation Guide](guides/clf/) :material-new-box:{ .new-icons }
 Implementation guidelines related to the usage of the Common LUT Format.
 
-### [:fontawesome-solid-file-code:{ .icons } ACES Metadata File (AMF) Specification](https://aces.mp/S-2019-001)
+### [:fontawesome-solid-file-code:{ .icons } ACES Metadata File (AMF) Specification](https://www.dropbox.com/s/4phjfkae2gykctt/S-2019-001.pdf?dl=0)
 Specifies a ‘sidecar’ XML file intended to exchange the metadata required to recreate ACES viewing pipelines.
 
 ### [:fontawesome-solid-file-code:{ .icons } ACES Metadata File (AMF) Implementation Guidelines and Best Practices](guides/amf/) :material-new-box:{ .new-icons }
@@ -61,20 +61,22 @@ Implementation guidelines and best practices related to the usage of the ACES Me
 ACES Encodings
 ----------------
 
-### [:fontawesome-solid-file-contract:{ .icons } ACES 2065-1](http://j.mp/TB-2014-004)
-Specifies ACES, the fundamental colorimetric encoding in the Academy Color Encoding System.
-*See SMPTE 2065-1*
+### [:fontawesome-solid-file-contract:{ .icons } ACES 2065-1](#aces-2065) 
+Specifies ACES, the fundamental colorimetric encoding in the Academy Color Encoding System. 
+
+[*See SMPTE ST 2065-1*](#aces-2065)
+
 
 ### [:fontawesome-solid-file-contract:{ .icons } ACEScct](/specifications/acescct/)
 Defines a logarithmic colorimetric encoding more appropriate for legacy color correction operators.
 
-### [:fontawesome-solid-file-contract:{ .icons } ACEScg](http://j.mp/S-2014-004)
+### [:fontawesome-solid-file-contract:{ .icons } ACEScg](https://www.dropbox.com/s/c5zbxd5zjq0du8h/S-2014-004.pdf?dl=0)
 Defines a colorimetric encoding appropriate as a working space for use in CGI tools such as compositors, paint and rendering systems.
 
-### [:fontawesome-solid-file-contract:{ .icons } ACEScc](http://j.mp/S-2014-003)
+### [:fontawesome-solid-file-contract:{ .icons } ACEScc](https://www.dropbox.com/s/1c0bnbfyjj3w2wb/S-2014-003.pdf?dl=0)
 Defines a logarithmic colorimetric encoding appropriate for legacy color correction operators.
 
-### [:fontawesome-solid-file-contract:{ .icons } ACESproxy](http://j.mp/S-2013-001)
+### [:fontawesome-solid-file-contract:{ .icons } ACESproxy](https://www.dropbox.com/s/7w4f5pmi29dfm4l/S-2013-001.pdf?dl=0)
 Defines an integer logarithmic colorimetric encoding appropriate for on-set preview and on-set look management applications.
 
 ----------------
@@ -87,16 +89,16 @@ SMPTE standards supercede these legacy documents and links to purchase the stand
 Some informative notes on some of the ACES-related SMPTE standards are provided via Technical Bulletins. In most cases, these include the original Academy documents that were modified into the SMPTE standards documents.
 
 
-### [:fontawesome-solid-circle-info:{ .icons } Academy Color Encoding Specification (ACES)](http://j.mp/TB-2014-006)
+### [:fontawesome-solid-circle-info:{ .icons } Academy Color Encoding Specification (ACES)](https://www.dropbox.com/s/0xhva7vniipx3zk/TB-2014-004.pdf?dl=0)
 Provides background and contextual information on SMPTE ST 2065-1:2012.
 
-### [:fontawesome-solid-circle-info:{ .icons } ACES Image Container File (OpenEXR)](http://j.mp/TB-2014-006)
+### [:fontawesome-solid-circle-info:{ .icons } ACES Image Container File (OpenEXR)](https://www.dropbox.com/s/wr9swdgarlu4icq/TB-2014-006.pdf?dl=0)
 Provides background and contextual information on SMPTE ST 2065-4:2013.
 
-### [:fontawesome-solid-circle-info:{ .icons } ADX Image Container File (DPX)](http://j.mp/TB-2014-007)
+### [:fontawesome-solid-circle-info:{ .icons } ADX Image Container File (DPX)](https://www.dropbox.com/s/xop52a5nyq164to/TB-2014-007.pdf?dl=0)
 Provides background and contextual information on SMPTE ST 268:2003 Am1:2012.
 
-### [:fontawesome-solid-circle-info:{ .icons } APD and ADX](http://j.mp/TB-2014-005) 
+### [:fontawesome-solid-circle-info:{ .icons } APD and ADX](https://www.dropbox.com/s/3fbg5su99fpsvpl/TB-2014-005.pdf?dl=0) 
 Provides background and contextual information related to SMPTE ST 2065-2:2012 and SMPTE ST 2065-3:2012.
 
 ----------------
@@ -106,7 +108,7 @@ SMPTE Standards   {#smpte}
 
 Below are the ACES-related standards documents published through SMPTE to date. Those wishing to implement ACES should adhere to the SMPTE standards. These must be purchased in order to view.
 
-### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-1 - Academy Color Encoding Specification](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
+### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-1 - Academy Color Encoding Specification](https://doi.org/10.5594/SMPTE.ST2065-1.2021) {#aces-2065}
 
 ### [:fontawesome-solid-file:{ .icons } SMPTE ST 2065-2 - Academy Printing Density (APD) — Spectral Responsivities, Reference Measurement Device and Spectral Calculation](https://doi.org/10.5594/SMPTE.ST2065-2.2020)
 
