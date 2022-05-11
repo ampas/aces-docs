@@ -1,13 +1,3 @@
-<!-- Include acronyms-->
---8<-- "mkdocs/includes/acronyms.md"
-
-<!-- Include section numbering -->
-<style>
-    @import "../../stylesheets/sections.css"
-</style>
-
-
-
 ACEScct – A Quasi-Logarithmic Encoding of ACES Data for use within Color Grading Systems
 ========================================================================================
 
@@ -241,22 +231,14 @@ ASC CDL Saturation is also applied with no limiting function:
 \end{gather*}
 
 
-### Appendix B: Reference ACES and ACEScct values
 
-The table below contains a series of reference ACES values and the corresponding ACEScct values for developers who wish to validate the accuracy of their implementation.
 
-<div align="center" markdown>
 
-|        **Description**        |                   **ACES (R,G,B)**                   |             **ACEScct (R,G,B)**             |
-|-----------------------------:|:----------------------------------------------------|:-------------------------------------------|
-| ACES min non-zero ($2^{-24}$) | 0.000000059605,<br>0.000000059605,<br>0.000000059605 | 0.072906162,<br>0.072906162,<br>0.072906162 |
-|          ACES middle gray 18% | 0.18,<br>0.18,<br>0.18                               | 0.4135884,<br>0.4135884,<br>0.4135884       |
-|                      ACES max | 65504,<br>65504,<br>65504                            | 1.4679964,<br>1.4679964,<br>1.4679964       |
-|             ColorChecker Blue | 0.08731,<br>0.07443,<br>0.27274                      | 0.30893773,<br>0.31394949,<br>0.44770345    |
-|            ColorChecker Green | 0.15366,<br>0.25692,<br>0.09071                      | 0.39450300,<br>0.45037864,<br>0.35672542    |
-|              ColorChecker Red | 0.21743,<br>0.07070,<br>0.05130                      | 0.45224438,<br>0.32502256,<br>0.31222500    |
-|           ColorChecker Yellow | 0.58921,<br>0.53944,<br>0.09157                      | 0.52635207,<br>0.50997715,<br>0.35921441    |
-|          ColorChecker Magenta | 0.30904,<br>0.14818,<br>0.27426                      | 0.46941309,<br>0.38243160,<br>0.44857958    |
-|             ColorChecker Cyan | 0.14900,<br>0.23377,<br>0.35939                      | 0.35056940,<br>0.43296115,<br>0.47029844    |
 
-</div>
+<!-- Include acronyms-->
+--8<-- "mkdocs/includes/acronyms.md"
+
+<!-- Include section numbering -->
+<style>
+    @import "../../stylesheets/sections.css"
+</style>
