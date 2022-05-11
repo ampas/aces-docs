@@ -76,7 +76,7 @@ Defines a colorimetric encoding appropriate as a working space for use in CGI to
 ### [:fontawesome-solid-file-contract:{ .icons } ACEScc](/specifications/acescc/)
 Defines a logarithmic colorimetric encoding appropriate for legacy color correction operators.
 
-### [:fontawesome-solid-file-contract:{ .icons } ACESproxy](https://www.dropbox.com/s/7w4f5pmi29dfm4l/S-2013-001.pdf?dl=0)
+### [:fontawesome-solid-file-contract:{ .icons } ACESproxy](/specifications/acesproxy/)
 Defines an integer logarithmic colorimetric encoding appropriate for on-set preview and on-set look management applications.
 
 ----------------
