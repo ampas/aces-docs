@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
@@ -17,7 +17,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -496,7 +496,7 @@
 <li><a href="https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam"><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Gamut Mapping Architecture VWG - Technical Documentation Deliverable</a></li>
 <li><a href="https://www.iso.org/standard/56537.html"><abbr title="International Standards Organization">ISO</abbr> 17321-1:2012 - Colour characterisation of digital still cameras (DSCs) - Part 1: Stimuli, metrology and test procedures</a></li>
 <li><a href="https://doi.org/10.5594/SMPTE.RP177.1993">RP 177:1993 - <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> Recommended Practice - Derivation of Basic Television Color Equations</a></li>
-<li><a href="http://j.mp/S-2014-004">S-2014-004: ACEScg — A Working Space for CGI Render and Compositing</a></li>
+<li><a href="/specifications/acescg/">S-2014-004: ACEScg — A Working Space for CGI Render and Compositing</a></li>
 </ul>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>A common complaint from users of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> has been the artifacts resulting from out of gamut values in source images. These artifacts are most known for appearing in highly saturated, bright LED light sources such as police car lights, stoplights, etc - but also appear frequently in LED sources used to light scenes. In an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> workflow, these artifacts appear at two stages - first in the conversion from camera raw <abbr title="Red, Green, and Blue">RGB</abbr> via an Input Transform (<abbr title="Input Transform (aka deprecated - Input Device Transform)">IDT</abbr>) into <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> AP0 - and second in the conversion from <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> AP0 into <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> AP1 (ACEScg and ACEScct). These out of gamut pixel values are problematic when their negative components cause issues in compositing, and may also produce visual artifacts when viewed through an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Output Transform.</p>
@@ -838,7 +838,7 @@ void main
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 25, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 12, 2022</span>
       
     
   </small>
@@ -926,7 +926,7 @@ void main
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
         <script src="../../js/mathjax.js"></script>
       

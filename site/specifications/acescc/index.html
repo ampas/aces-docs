@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#acescct-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems" class="md-skip">
+        <a href="#acescc-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems" class="md-skip">
           Skip to content
         </a>
       
@@ -362,8 +362,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#acescct" class="md-nav__link">
-    ACEScct
+  <a href="#acescc" class="md-nav__link">
+    ACEScc
   </a>
   
 </li>
@@ -382,8 +382,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#appendix-a-application-of-asc-cdl-parameters-to-acescct-image-data" class="md-nav__link">
-    Appendix A: Application of ASC CDL parameters to ACEScct image data
+  <a href="#appendix-a-encoding-of-negative-values" class="md-nav__link">
+    Appendix A: Encoding of negative values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appendix-b-application-of-asc-cdl-parameters-to-acescc-image-data" class="md-nav__link">
+    Appendix B: Application of ASC CDL parameters to ACEScc image data
   </a>
   
 </li>
@@ -405,36 +412,35 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs/specifications/acescct/index.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs/specifications/acescc/index.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="acescct-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems">ACEScct – A Quasi-Logarithmic Encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Data for use within Color Grading Systems<a class="headerlink" href="#acescct-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems" title="Permanent link">&para;</a></h1>
+<h1 id="acescc-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems">ACEScc – A Quasi-Logarithmic Encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Data for use within Color Grading Systems<a class="headerlink" href="#acescc-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The Academy Color Encoding Specification (<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>) defines a common color encoding method using half- precision floating point values corresponding to linear exposure values encoded relative to a fixed set of extended-gamut <abbr title="Red, Green, and Blue">RGB</abbr> primaries. Many digital-intermediate color grading systems have been engineered assuming image data with primaries similar to the grading display and a logarithmic relationship between relative scene exposures and image code values.</p>
-<p>This document describes a 32-bit single precision floating-point logarithm encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> known as ACEScct.</p>
-<p>ACEScct uses values above 1.0 and below 0.0 to encode the entire range of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values. ACEScct values should not be clamped except as part of color correction needed to produce a desired artistic intent.</p>
-<p>There is no image file container format specified for use with ACEScct as the encoding is intended to be transient and internal to software or hardware systems, and is specifically not intended for interchange or archiving.</p>
-<p>For <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values greater than 0.0078125, the ACEScct encoding function is identical to the pure-log encoding function of ACEScc. Below this point, the addition of a ”toe” results in a more distinct ”milking” or ”fogging” of shadows when a lift operation is applied when compared to the same operation applied in ACEScc. This difference in grading behavior is provided in response to colorist requests for behavior more similar to that of traditional legacy log film scan encodings.</p>
+<p>This document describes a 32-bit single precision floating-point logarithm encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> known as ACEScc.</p>
+<p>The logarithmic encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> for use in 10-bit and 12-bit integer systems is known as ACESproxy and is specified in a separate document, “Academy S-2013-001.” ACEScc provides compatibility for color grading systems with on-set look metadata generated using the ACESproxy specification. Both encodings use the same color primaries. ACESproxy has a restricted range of values; the minimum and maximum <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values that can be represented in ACESproxy correspond to a range between 0.0 and 1.0 of ACEScc encoding. ACEScc, however, uses values above 1.0 and below 0.0 to encode the entire range of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values. ACEScc values should not be clamped except as part of color correction needed to produce a desired artistic intent.</p>
+<p>There is no image file container format specified for use with ACEScc as the encoding is intended to be transient and internal to software or hardware systems, and is specifically not intended for interchange or archiving.</p>
 <h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
-<p>This document describes a 32-bit floating point encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> for use within color grading systems.</p>
-<p>Equivalent functions may be used for implementation purposes as long as correspondence of grading param- eters to this form of log implementation is properly maintained. This document is intended as a guideline to aid developers who are integrating an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> workflow into a color correction system.</p>
+<p>This document describes a 32-bit floating point encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> for use within color grading systems. It is intended to be compatible with on-set look metadata generated from systems using the ACESproxy encodings specified in “Academy S-2013-001.” Equivalent functions may be used for implementation purposes as long as correspondence of grading parameters to this form of log implementation is properly maintained. This document is intended as a guideline to aid developers who are integrating an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> workflow into a color correction system.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <p>The following standards, specifications, articles, presentations, and texts are referenced in this text:</p>
 <ul>
+<li><a href="/specifications/acesproxy/">Academy S-2013-001 - ACESproxy - An Integer Log Encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Data</a></li>
 <li><a href="https://doi.org/10.5594/SMPTE.ST2065-1.2021">ST 2065-1:2021 - <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> Standard - Academy Color Encoding Specification (<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>)</a></li>
 <li><a href="https://doi.org/10.5594/SMPTE.RP177.1993">RP 177:1993 - <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> Recommended Practice - Derivation of Basic Television Color Equations</a></li>
 <li><a href="https://ieeexplore.ieee.org/document/8766229">754-2019 - IEEE Standard for Floating-Point Arithmetic</a></li>
 </ul>
 <h2 id="specification">Specification<a class="headerlink" href="#specification" title="Permanent link">&para;</a></h2>
 <h3 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h3>
-<p>The quasi-logarithmic encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> specified in this document shall be known as ACEScct.</p>
+<p>The logarithmic encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> specified in this document shall be known as ACEScc.</p>
 <h3 id="color-component-value-encoding">Color component value encoding<a class="headerlink" href="#color-component-value-encoding" title="Permanent link">&para;</a></h3>
-<p>ACEScct values are encoded as 32-bit floating-point numbers. This floating-point encoding uses 32 bits per component as described in IEEE 754.</p>
+<p>ACEScc values are encoded as 32-bit floating-point numbers. This floating-point encoding uses 32 bits per component as described in IEEE 754.</p>
 <h3 id="color-space">Color space chromaticities<a class="headerlink" href="#color-space" title="Permanent link">&para;</a></h3>
-<p>ACEScct uses a different set of primaries than <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Red, Green, and Blue">RGB</abbr> primaries defined in <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1. The CIE 1931 colorimetry of the ACEScct <abbr title="Red, Green, and Blue">RGB</abbr> primaries and white are specified below.</p>
+<p>ACEScc uses a different set of primaries than the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Red, Green, and Blue">RGB</abbr> primaries defined in <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1. The CIE 1931 colorimetry of the ACEScc <abbr title="Red, Green, and Blue">RGB</abbr> primaries and white are specified below.</p>
 <h4 id="color-primaries">Color primaries<a class="headerlink" href="#color-primaries" title="Permanent link">&para;</a></h4>
 <p>The chromaticity values of the <abbr title="Red, Green, and Blue">RGB</abbr> primaries (known as AP1) shall be those found below:</p>
 <div align="center">
@@ -482,7 +488,7 @@
 </table>
 </div>
 <figcaption align="center">
-    ACEScct RGB primaries chromaticity values
+    ACEScc RGB primaries chromaticity values
 </figcaption>
 
 <h4 id="white-point">White point<a class="headerlink" href="#white-point" title="Permanent link">&para;</a></h4>
@@ -514,31 +520,32 @@
 </table>
 </div>
 <figcaption align="center">
-    ACEScct RGB white point chromaticity values
+    ACEScc RGB white point chromaticity values
 </figcaption>
 
-<h3 id="acescct">ACEScct<a class="headerlink" href="#acescct" title="Permanent link">&para;</a></h3>
-<p>The following functions shall be used to convert between <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values, encoded according to <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1, and ACEScct.</p>
+<h3 id="acescc">ACEScc<a class="headerlink" href="#acescc" title="Permanent link">&para;</a></h3>
+<p>The following functions shall be used to convert between <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values, encoded according to <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1, and ACEScc.</p>
 <h4 id="encoding-function">Encoding Function<a class="headerlink" href="#encoding-function" title="Permanent link">&para;</a></h4>
 <p><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to <span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values using the transformation matrix (<span class="arithmatex">\(TRA_1\)</span>) calculated and applied using the methods provided in Section 4 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.</p>
-<p><span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to ACEScct values according to <a href="#eq-1">Equation 1</a>.</p>
+<p><span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to ACEScc values according to <a href="#eq-1">Equation 1</a>.</p>
 <p><a name="eq-1"></a></p>
 <div class="arithmatex">\[\begin{equation} 
-    ACEScct = \left\{ 
+    ACEScc = \left\{ 
     \begin{array}{l l }
-        10.5402377416545 \times lin_{AP1} + 0.0729055341958355;    &amp; \quad lin_{AP1} \leq 0.0078125 \\[10pt]
-        \dfrac{\log_{2}(lin_{AP1}) + 9.72}{17.52}; &amp; \quad lin_{AP1} &gt; 0.0078125 \\    
+        \dfrac{\log_{2}(2^{-16}) + 9.72}{17.52};    &amp; \quad lin_{AP1} \leq 0 \\[10pt]
+        \dfrac{\log_{2}(2^{-16} + lin_{AP1} \times 0.5) + 9.72}{17.52};     &amp; \quad lin_{AP1} &lt; 2^{-15} \\[10pt]
+        \dfrac{\log_{2}(lin_{AP1}) + 9.72}{17.52};  &amp; \quad lin_{AP1} \geq 2^{-15} \\    
     \end{array} \right.
 \end{equation}\]</div>
 <figcaption align="center">
-    <b>Equation 1:</b> Linear AP1 to ACEScct
+    <b>Equation 1:</b> Linear AP1 to ACEScc
 </figcaption>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><a href="#eq-2">Equation 2</a> shows the relationship between <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values and <span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values. <span class="arithmatex">\(TRA_{1}\)</span>, rounded to 10 significant digits, is derived from the product of <span class="arithmatex">\(NPM_{AP1}\)</span> inverse and <span class="arithmatex">\(NPM_{AP0}\)</span> calculated using methods provided in Section 3.3 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.<br>
 AP0 are the primaries of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> specified in <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1.<br>
-AP1 are the primaries of ACEScct specified in <a href="#color-space">Color space chromaticities</a>.</p>
+AP1 are the primaries of ACEScc specified in <a href="#color-space">Color space chromaticities</a>.</p>
 <p><a name="eq-2"></a></p>
 <div class="arithmatex">\[\begin{equation} 
 \begin{bmatrix}
@@ -570,27 +577,31 @@ TRA_{1} = NPM^{-1}_{AP1} \cdot NPM_{AP0}
     <b>Equation 2:</b> <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> to linear AP1
 </figcaption></p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clipping <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values below 0 in the above function is not required. Implementers are encouraged to encode negative values or take care when clipping color outside the ACEScc gamut. See <a href="#appendix-A">Appendix A</a> for details.</p>
+</div>
 <h4 id="decoding-function">Decoding Function<a class="headerlink" href="#decoding-function" title="Permanent link">&para;</a></h4>
-<p>ACEScct <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to <span class="arithmatex">\(lin_{AP1}\)</span> values using <a href="#eq-3">Equation 3</a>.</p>
+<p>ACEScc <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to <span class="arithmatex">\(lin_{AP1}\)</span> values using <a href="#eq-3">Equation 3</a>.</p>
 <p><a name="eq-3"></a></p>
 <div class="arithmatex">\[\begin{equation}
     lin_{AP1} = \left\{ 
     \begin{aligned}
-        &amp;\dfrac{\left(ACEScct-0.0729055341958355\right)}{10.5402377416545};&amp; ACEScct&amp; \leq 0.155251141552511 \\[10pt]
-        &amp;2^{(ACEScct \times 17.52-9.72)}; &amp;0.155251141552511 \leq ACEScct&amp; &lt; \dfrac{\log_{2}(65504)+9.72}{17.52} \\[10pt]
-        &65504; &amp; ACEScct&amp; \geq \dfrac{\log_{2}(65504)+9.72}{17.52} \\    
+        &amp;\left( 2^{(ACEScc \times 17.52-9.72)} - 2.0^{-16}\right)\times 2.0 ;   &amp; ACEScc&amp; \leq \dfrac{9.72-15}{17.52} \\[10pt]
+        &amp;2^{(ACEScc \times 17.52-9.72)}; &amp;  \dfrac{9.72-15}{17.52} \leq ACEScc &amp; &lt; \dfrac{\log_{2}(65504)+9.72}{17.52} \\[10pt]
+        &65504; &amp; ACEScc&amp; \geq \dfrac{\log_{2}(65504)+9.72}{17.52} \\    
     \end{aligned} \right.
 \end{equation}\]</div>
 <figcaption align="center">
-    <b>Equation 3:</b> ACEScct to linear AP1
+    <b>Equation 3:</b> ACEScc to linear AP1
 </figcaption>
 
 <p><span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values using the transformation matrix (<span class="arithmatex">\(TRA_{2}\)</span>) calculated and applied using the methods provided in Section 4 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><a href="#eq-4">Equation 4</a> shows the relationship between <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values and ACEScct <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values. <span class="arithmatex">\(TRA_{2}\)</span>, rounded to 10 significant digits, is derived from the product of <span class="arithmatex">\(NPM_{AP0}\)</span> inverse and <span class="arithmatex">\(NPM_{AP1}\)</span> calculated using methods provided in Section 3.3 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.<br>
+<p><a href="#eq-4">Equation 4</a> shows the relationship between <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values and ACEScc <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values. <span class="arithmatex">\(TRA_{2}\)</span>, rounded to 10 significant digits, is derived from the product of <span class="arithmatex">\(NPM_{AP0}\)</span> inverse and <span class="arithmatex">\(NPM_{AP1}\)</span> calculated using methods provided in Section 3.3 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.<br>
 AP0 are the primaries of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> specified in <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1.<br>
-AP1 are the primaries of ACEScct specified in <a href="#color-space">Color space chromaticities</a>.</p>
+AP1 are the primaries of ACEScc specified in <a href="#color-space">Color space chromaticities</a>.</p>
 <p><a name="eq-4"></a></p>
 <div class="arithmatex">\[\begin{equation} 
     \begin{bmatrix}
@@ -623,32 +634,31 @@ AP1 are the primaries of ACEScct specified in <a href="#color-space">Color space
 </figcaption></p>
 </div>
 <h2 id="appendices">Appendices<a class="headerlink" href="#appendices" title="Permanent link">&para;</a></h2>
-<h3 id="appendix-a-application-of-asc-cdl-parameters-to-acescct-image-data">Appendix A: Application of <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> parameters to ACEScct image data<a class="headerlink" href="#appendix-a-application-of-asc-cdl-parameters-to-acescct-image-data" title="Permanent link">&para;</a></h3>
-<p>American Society of Cinematographers Color Decision List (<abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr>) slope, offset, power, and saturation modifiers can be applied directly to ACEScct image data. To preserve the extended range of ACEScct values, no limiting function should be applied with <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> parameters. The power function, however, should not be applied to any negative ACEScct values after slope and offset are applied. Slope, offset, and power are applied with the following function.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>ACEScct is not compatible with <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> values generated on-set using the ACESproxy encoding. If there is a need to reproduce a look generated on-set where ACESproxy was used, ACEScc must be used in the dailies and/or DI environment to achieve a match.</p>
-</div>
+<h3 id="appendix-a-encoding-of-negative-values">Appendix A: Encoding of negative values<a class="headerlink" href="#appendix-a-encoding-of-negative-values" title="Permanent link">&para;</a></h3>
+<p>Very small <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> scene referred values below 7 1/4 stops below 18% middle gray are encoded as negative ACEScc values. These values should be preserved per the encoding in <a href="#acescc">ACEScc</a> so that all positive <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values are maintained.</p>
+<p>When <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values are matrixed into the smaller ACEScc color space, colors outside the ACEScc gamut can generate negative values even before the log encoding. If these values are clipped, a conversion back to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> will not restore the original colors. A specific method of preserving negative values produced by the transformation matrix has not been defined in part to help ease adoption across various color grading systems that have different capabilities and methods for handling negative values. Clipping these values has been found to have minimal visual impact when viewed through the Reference Rendering Transform (<abbr title="Reference Rendering Transform">RRT</abbr>) and an appropriate Output Device Transform (<abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr>) on currently available display technology. However to preserve creative choice in downstream processing and to provide the highest quality archival master, developers implementing ACEScc encoding are encouraged to adopt a method of preserving negative values so that a conversion from <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> to ACEScc and back can be made lossless. Alternatively, a gamut mapping algorithm may be applied to minimize hue shifts resulting from clipping negative ACEScc values. Specific methods for handling negative values may be added to the ACEScc specification in the future.</p>
+<h3 id="appendix-b-application-of-asc-cdl-parameters-to-acescc-image-data">Appendix B: Application of <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> parameters to ACEScc image data<a class="headerlink" href="#appendix-b-application-of-asc-cdl-parameters-to-acescc-image-data" title="Permanent link">&para;</a></h3>
+<p>American Society of Cinematographers Color Decision List (<abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr>) slope, offset, power, and saturation modifiers can be applied directly to ACEScc image data. <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> color grades created on-set with ACESproxy images per the ACESproxy specification will reproduce the same look when applied to ACEScc images. ACEScc images however arent limited to the ACESproxy range. To preserve the extended range of ACEScc values, no limiting function should be applied with <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> parameters. The power function, however, should not be applied to any negative ACEScc values after slope and offset are applied. Slope, offset, and power are applied with the following function.</p>
 <div class="arithmatex">\[\begin{equation}
-    ACEScct_{out} = \left\{ 
+    ACEScc_{out} = \left\{ 
     \begin{array}{l r }
-        ACEScct_{in} \times slope + offset; &amp; \quad ACEScct_{slopeoffset} \leq 0 \\
-        (ACEScct_{in} \times slope + offset)^{power}; &amp; \quad ACEScct_{slopeoffset} &gt; 0 \\
+        ACEScc_{in} \times slope + offset; &amp; \quad ACEScc_{slopeoffset} \leq 0 \\
+        (ACEScc_{in} \times slope + offset)^{power}; &amp; \quad ACEScc_{slopeoffset} &gt; 0 \\
     \end{array} \right. \\ 
 \end{equation}\]</div>
 <div class="arithmatex">\[\begin{equation}
     \begin{array}{l}
     \text{Where:}\\
-    ACEScct_{slopeoffset} = ACEScct_{in} \times slope + offset
+    ACEScc_{slopeoffset} = ACEScc_{in} \times slope + offset
     \end{array}
 \end{equation}\]</div>
 <p><abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> Saturation is also applied with no limiting function:</p>
 <div class="arithmatex">\[\begin{gather*}
-    luma = 0.2126 \times ACEScct_{red} + 0.7152 \times ACEScct_{green} + 0.0722 \times ACEScct_{blue} \\
+    luma = 0.2126 \times ACEScc_{red} + 0.7152 \times ACEScc_{green} + 0.0722 \times ACEScc_{blue} \\
     \begin{aligned}
-        ACEScct_{red} &amp;= luma + saturation \times (ACEScct_{red} - luma) \\
-        ACEScct_{green} &amp;= luma + saturation \times (ACEScct_{green} - luma) \\        
-        ACEScct_{blue} &amp;= luma + saturation \times (ACEScct_{blue} - luma) \\ 
+        ACEScc_{red} &amp;= luma + saturation \times (ACEScc_{red} - luma) \\
+        ACEScc_{green} &amp;= luma + saturation \times (ACEScc_{green} - luma) \\        
+        ACEScc_{blue} &amp;= luma + saturation \times (ACEScc_{blue} - luma) \\ 
     \end{aligned}
 \end{gather*}\]</div>
 <!-- Include acronyms-->
