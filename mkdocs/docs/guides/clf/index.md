@@ -1,13 +1,3 @@
-<!-- Include acronyms-->
---8<-- "mkdocs/includes/acronyms.md"
-
-<!-- Include section numbering -->
-<style>
-    @import "../../stylesheets/sections.css"
-</style>
-
-
-
 Common LUT Format (CLF) Implementation Guide
 ================
 
@@ -912,3 +902,17 @@ The Preview Tier reference image may then be generated as follows:
 ```
 $ oiiotool CLF_Preview_SourceImage_v008.dpx --ociofiletransform ../../tests/data/files/clf/lut3d_preview_tier_test.clf -d uint10 -o lut3d_preview_tier_test.dpx
 ```
+
+
+
+
+
+
+
+<!-- Include acronyms-->
+--8<-- "mkdocs/includes/acronyms.md"
+
+<!-- Include section numbering -->
+<style>
+    @import "../../stylesheets/sections.css"
+</style>
