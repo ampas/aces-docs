@@ -14,7 +14,7 @@ The following standards, specifications, articles, presentations, and texts are 
 * [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
 * [ISO 17321-1:2012 - Colour characterisation of digital still cameras (DSCs) - Part 1: Stimuli, metrology and test procedures](https://www.iso.org/standard/56537.html)
 * [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
-* [S-2014-004: ACEScg — A Working Space for CGI Render and Compositing](http://j.mp/S-2014-004)
+* [S-2014-004: ACEScg — A Working Space for CGI Render and Compositing](/specifications/acescg/)
 
 Introduction
 ----------------

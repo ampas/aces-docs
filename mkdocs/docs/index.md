@@ -62,21 +62,19 @@ ACES Encodings
 ----------------
 
 ### [:fontawesome-solid-file-contract:{ .icons } ACES 2065-1](#aces-2065) 
-Specifies ACES, the fundamental colorimetric encoding in the Academy Color Encoding System. 
-
+Specifies ACES, the fundamental colorimetric encoding in the Academy Color Encoding System. <br>
 [*See SMPTE ST 2065-1*](#aces-2065)
 
+### [:fontawesome-solid-file-contract:{ .icons } ACEScg](/specifications/acescg/)
+Defines a colorimetric encoding appropriate as a working space for use in CGI tools such as compositors, paint and rendering systems.
 
 ### [:fontawesome-solid-file-contract:{ .icons } ACEScct](/specifications/acescct/)
 Defines a logarithmic colorimetric encoding more appropriate for legacy color correction operators.
 
-### [:fontawesome-solid-file-contract:{ .icons } ACEScg](https://www.dropbox.com/s/c5zbxd5zjq0du8h/S-2014-004.pdf?dl=0)
-Defines a colorimetric encoding appropriate as a working space for use in CGI tools such as compositors, paint and rendering systems.
-
-### [:fontawesome-solid-file-contract:{ .icons } ACEScc](https://www.dropbox.com/s/1c0bnbfyjj3w2wb/S-2014-003.pdf?dl=0)
+### [:fontawesome-solid-file-contract:{ .icons } ACEScc](/specifications/acescc/)
 Defines a logarithmic colorimetric encoding appropriate for legacy color correction operators.
 
-### [:fontawesome-solid-file-contract:{ .icons } ACESproxy](https://www.dropbox.com/s/7w4f5pmi29dfm4l/S-2013-001.pdf?dl=0)
+### [:fontawesome-solid-file-contract:{ .icons } ACESproxy](/specifications/acesproxy/)
 Defines an integer logarithmic colorimetric encoding appropriate for on-set preview and on-set look management applications.
 
 ----------------
