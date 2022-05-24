@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    mkdocs-serve:
+        image: acescentral/aces-docs
+        container_name: aces-docs
+        build: .
+        ports:
+            - '8000:8000'
+        volumes:
+            - '${PWD}:/docs'
