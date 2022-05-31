@@ -25,7 +25,7 @@ Describes the derivation of the ACES white point and why the chromaticity coordi
 System Components
 ----------------
 
-### [:fontawesome-solid-arrow-down-a-z:{ .icons } Component Names](https://www.dropbox.com/s/wkwz7g8z0ff5s0o/TB-2014-012.pdf?dl=0)
+### [:fontawesome-solid-arrow-down-a-z:{ .icons } Component Names](tb/component-names/)
 Describes preferred terminology for key ACES component names for ACES 1.0.
 
 ### [:fontawesome-solid-file-export:{ .icons } Input Transforms (IDTs)](https://www.dropbox.com/s/ouwnid1aevqti5d/P-2013-001.pdf?dl=0)
