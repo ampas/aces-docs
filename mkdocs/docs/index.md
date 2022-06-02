@@ -16,7 +16,7 @@ Provides guidelines on how best to present ACES terminology and concepts within 
 ### [:fontawesome-solid-glasses:{ .icons } Alternate Viewing Pipeline](https://www.dropbox.com/s/psq88v9fkt61bl4/TB-2014-013.pdf?dl=0)
 Describes an alternate approach to implementing and presenting the ACES viewing pipeline.
 
-### [:fontawesome-solid-file-arrow-down:{ .icons } ACES White Point Derivation](https://www.dropbox.com/s/njanod3258gpgy1/TB-2018-001.pdf?dl=0)
+### [:fontawesome-solid-file-arrow-down:{ .icons } ACES White Point Derivation](tb/white-point)
 Describes the derivation of the ACES white point and why the chromaticity coordinates were chosen.
 
 
