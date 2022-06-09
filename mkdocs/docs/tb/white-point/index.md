@@ -167,10 +167,11 @@ D60 is not one of the four CIE canonical daylight illuminants so the exact CCT o
 Although the ACES white point chromaticity is not on either the Planckian locus or the daylight locus, the CCT of its chromaticity can still be estimated. There are a number of methods for estimating the CCT of any particular set of chromaticity coordinates [16]–[19]. The results of four popular methods can be found in Table 4. Each of the methods estimates the CCT of the ACES white point to be very close to 6000 K.
 
 
-<center>**Insert Image of Figure 1 HERE**</center>
+<figure align="center" markdown>
+  ![CIE diagram](./images/cieuv.png){width="400"}
+  <figcaption><b>Figure 1.</b> CIE UCS diagram with chromaticity </figcaption>
+</figure>
 
-
-<div align="center"><i>Figure 1 – CIE UCS diagram with chromaticity coordinates</i></div><br>
 
 
 <center>
@@ -200,10 +201,11 @@ The Committee felt that a white point with a chromaticity similar to that of day
 The projected color print film experiment involved simulating the exposure of a spectrally non-selective (neutral) gray scale onto color negative film, printing that negative onto a color print film, then projecting the color film onto a motion picture screen with a xenon-based film projector and measuring the colorimetry off the screen. The result of the experiment found that the CIE xy chromaticity coordinates of a projected LAD patch [20], [21] through a film system were approximately $x = 0.32170$ $y = 0.33568$. Figure 2 shows a plot of the CIE ${u^′}{v^′}$ chromaticity coordinates of a scene neutral as reproduced by a film system compared to the CIE daylight locus and the ACES white point. The chromaticity of the film system LAD reproduction was determined to be closest to CIE daylight with the CCT of 6000 K when the differences were calculated in CIE ${u^′}{v^′}$. A summary of the CIE ${u^′}{v^′}$ differences between CIE daylight at various CCTs and the LAD patch chromaticity are summarized in Table 5.
 
 
-<center>**Insert Image of Figure 2 HERE**</center>
+<figure align="center" markdown>
+  ![Film System Print-Through Chromaticities](./images/PrintThroughChromaticities.png){width="600"}
+  <figcaption><b>Figure 2.</b>  Film system print-through color reproduction of original scene neutral scale </figcaption>
+</figure>
 
-
-<div align="center"><i>Figure 2 – Film system print-through color reproduction of original scene neutral scale</i></div>
 
 
 ### Reasons why the ACES white point doesn’t match the CIE D<sub>60</sub> chromaticity coordinates
