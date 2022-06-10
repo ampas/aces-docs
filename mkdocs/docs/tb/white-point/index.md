@@ -47,7 +47,7 @@ Derivation of CIE chromaticity coordinates
 The CIE xy chromaticity coordinates of the ACES white point are specified in SMPTE ST 2065-1 as:
 
 <center> 
-$x$ = 0.32168 	$\quad\quad y$ = 0.33767
+$x$ = 0.32168     $\quad\quad y$ = 0.33767
 </center>
 
 The ACES white point chromaticity coordinates are derived using the following procedure:
@@ -62,7 +62,7 @@ The ACES white point chromaticity coordinates are derived using the following pr
 
 
 ??? example "Calculating ACES white point chromaticities in python"
-	A python implementation of the above procedure can be found at:<br> https://github.com/ampas/aces-docs/blob/dev/python/TB-2018-001/aces_wp.py
+    A python implementation of the above procedure can be found at:<br> https://github.com/ampas/aces-docs/blob/dev/python/TB-2018-001/aces_wp.py
 
 
 
@@ -233,7 +233,7 @@ The chromaticity of the film system LAD reproduction was determined to be closes
 
 
 ??? example "Generating the table values with python"
-	An ipython notebook used to generate the values in Tables 1-5 is available at:<br>  https://github.com/ampas/aces-docs/tree/main/python/TB-2018-001/TB-2018-001_table_vals.ipynb
+    An ipython notebook used to generate the values in Tables 1-5 is available at:<br>  https://github.com/ampas/aces-docs/tree/main/python/TB-2018-001/TB-2018-001_table_vals.ipynb
 
 
 ### Reasons why the ACES white point doesn’t match the CIE D<sub>60</sub> chromaticity coordinates
