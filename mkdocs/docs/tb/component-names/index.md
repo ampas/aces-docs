@@ -1,4 +1,9 @@
-Academy Color Encoding System Version 1.0 Component Names
+---
+title: ACES Component Names
+---
+
+
+ACES Component Names
 ================
 
 

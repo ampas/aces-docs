@@ -16,6 +16,9 @@ This document is primarily intended for those interested in understanding the de
 References
 ----------------
 
+---
+title: Deriviation of the ACES White Point
+---
 
 [1] “Smpte st 2065-1:2012 – academy color encoding specification (aces),” Society of Motion Picture and Television Engineers, New York, US, Standard, 2012.
 
