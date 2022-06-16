@@ -1,3 +1,8 @@
+---
+title: Reference Gamut Compression Specification
+---
+
+
 Reference Gamut Compression (RGC) - A Look Transform to bring pixel values within AP1
 ================
 
