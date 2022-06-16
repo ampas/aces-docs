@@ -7,7 +7,7 @@ System Documentation
 ### [:fontawesome-solid-arrow-down-wide-short:{ .icons } Project Organization and Development Procedure](https://www.dropbox.com/s/0bew0bf4otq77fd/P-2019-001.pdf?dl=0)
 Provides details on the organizational and decision making structure to be used in the development of the ACES.
 
-### [:fontawesome-solid-arrow-down-1-9:{ .icons } Versioning System](/specifications/versioning/)
+### [:fontawesome-solid-arrow-down-1-9:{ .icons } Versioning System](https://www.dropbox.com/s/cnrak5pvu4agfk4/S-2014-002.pdf?dl=0)
 Describes versioning numbers and format of TransformIDs for components the ACES system.
 
 ### [:fontawesome-solid-desktop:{ .icons } UX Guidelines](https://www.dropbox.com/s/v5tghz6wl2629nf/TB-2014-002.pdf?dl=0)
@@ -16,7 +16,7 @@ Provides guidelines on how best to present ACES terminology and concepts within 
 ### [:fontawesome-solid-glasses:{ .icons } Alternate Viewing Pipeline](https://www.dropbox.com/s/psq88v9fkt61bl4/TB-2014-013.pdf?dl=0)
 Describes an alternate approach to implementing and presenting the ACES viewing pipeline.
 
-### [:fontawesome-solid-file-arrow-down:{ .icons } ACES White Point Derivation](https://www.dropbox.com/s/njanod3258gpgy1/TB-2018-001.pdf?dl=0)
+### [:fontawesome-solid-file-arrow-down:{ .icons } ACES White Point Derivation](tb/white-point)
 Describes the derivation of the ACES white point and why the chromaticity coordinates were chosen.
 
 
@@ -25,7 +25,7 @@ Describes the derivation of the ACES white point and why the chromaticity coordi
 System Components
 ----------------
 
-### [:fontawesome-solid-arrow-down-a-z:{ .icons } Component Names](https://www.dropbox.com/s/wkwz7g8z0ff5s0o/TB-2014-012.pdf?dl=0)
+### [:fontawesome-solid-arrow-down-a-z:{ .icons } Component Names](tb/component-names/)
 Describes preferred terminology for key ACES component names for ACES 1.0.
 
 ### [:fontawesome-solid-file-export:{ .icons } Input Transforms (IDTs)](https://www.dropbox.com/s/ouwnid1aevqti5d/P-2013-001.pdf?dl=0)

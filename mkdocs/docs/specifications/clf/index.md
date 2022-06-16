@@ -1,3 +1,8 @@
+---
+title: CLF Specification
+---
+
+
 Common LUT Format (CLF) - A Common File Format for Look-Up Tables
 ================
 
