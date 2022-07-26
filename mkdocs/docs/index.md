@@ -7,7 +7,7 @@ System Documentation
 ### [:fontawesome-solid-arrow-down-wide-short:{ .icons } Project Organization and Development Procedure](https://www.dropbox.com/s/0bew0bf4otq77fd/P-2019-001.pdf?dl=0)
 Provides details on the organizational and decision making structure to be used in the development of the ACES.
 
-### [:fontawesome-solid-arrow-down-1-9:{ .icons } Versioning System](/specifications/versioning/)
+### [:fontawesome-solid-arrow-down-1-9:{ .icons } Versioning System](https://www.dropbox.com/s/cnrak5pvu4agfk4/S-2014-002.pdf?dl=0)
 Describes versioning numbers and format of TransformIDs for components the ACES system.
 
 ### [:fontawesome-solid-desktop:{ .icons } UX Guidelines](https://www.dropbox.com/s/v5tghz6wl2629nf/TB-2014-002.pdf?dl=0)

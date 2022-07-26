@@ -1,3 +1,8 @@
+---
+title: ACESproxy Specification
+---
+
+
 ACESproxy – An Integer Log Encoding of ACES Image Data
 ========================================================================================
 

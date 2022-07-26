@@ -38,6 +38,19 @@ The following component groups are components that color engineers, pipeline bui
 
     ACES 1.0 name: “ACES Primaries 1” or “AP1”
 
+<br>
+<div align="center" markdown>
+|             **Pre-release nomenclature**             | **ACES 1.0 Name** | **Shorthand** |
+|:----------------------------------------------------:|:-----------------:|:-------------:|
+| SMPTE 2065-1:2012 primaries<br>a.k.a. “ACES primaries” |  ACES Primaries 0 |      AP0      |
+|  ACES “working space” primaries<br>a.k.a. “Rec.2020+”  |  ACES Primaries 1 |      AP1      |
+</div>
+
+<figcaption align="center" markdown=1>
+  <b>Table 1.</b> Color Primary Sets
+</figcaption><br>
+
+
 ### Transforms
 
 1. Pre-release nomenclature: “Reference Rendering Transform” or “RRT”
@@ -45,7 +58,18 @@ The following component groups are components that color engineers, pipeline bui
     ACES 1.0 name: “Reference Rendering Transform” or “RRT”
     
 !!! note
-Use of Reference Rendering Transform or RRT should be deprecate in end-user documentation in favor of ACES Output Transform. However, plain English explanations of the RRT may still be necessary to explain how “scene referred” images are prepared for viewing.
+	Use of Reference Rendering Transform or RRT should be deprecated in end-user documentation in favor of "ACES Output Transform". However, plain English explanations of the RRT may still be necessary to explain how “scene referred” images are prepared for viewing.
+
+<br>
+<div align="center" markdown>
+|             **Pre-release nomenclature**             | **ACES 1.0 Name** | **Shorthand** |
+|:----------------------------------------------------:|:-----------------:|:-------------:|
+| Reference Rendering Transform<br>RRT |  Reference Rendering Transform |      RRT      |
+</div>
+
+<figcaption align="center" markdown=1>
+  <b>Table 2.</b> Reference Rendering Transform
+</figcaption><br>
 
 
 ACES User-facing Components
@@ -65,19 +89,19 @@ There are five possible image encodings that can be used in ACES projects. All e
 
     Use: working space for color correctors using a pure logarithmic encoding, fully compatible with ACESproxy
     
-    ACES 1.0 name: “ACEScc working space” or “ACEScc”
+    ACES 1.0 name: “ACEScc”
 
 3. Pre-release nomenclature: N/A
 
     Use: alternate working space for color correctors using a logarithmic encoding with a toe, not fully compatible with ACESproxy
     
-    ACES 1.0 name: “ACEScct working space” or “ACEScct”
+    ACES 1.0 name: “ACEScct”
 
-4. Pre-release nomenclature: VFX-friendly encoding, i.e., integer version of “ACES working space,” with ACESproxy transfer function
+4. Pre-release nomenclature: VFX-friendly encoding, i.e., linear ACES working space with Rec.2020+ primaries
     
-    Use: working space for paint/compositor applications that dont support ACES2065 or ACEScc 
+    Use: working space for rendering and compositor applications
     
-    ACES 1.0 name: “ACEScg working space” or “ACEScg”
+    ACES 1.0 name: “ACEScg”
 
 5. Pre-release nomenclature: “ACES wire format”, a.k.a. “ACESproxy,” “ACESproxy10,” “ACESproxy12”
 
@@ -85,7 +109,20 @@ There are five possible image encodings that can be used in ACES projects. All e
 
     ACES 1.0 name: “ACESproxy”
     
+<br>
+<div align="center" markdown>
+|          **Pre-release nomenclature**             | **ACES 1.0 Name** | 
+|:-------------------------------------------------:|:-----------------:|
+| SMPTE 2065-1:2012<br>a.k.a. “ACES”  |  ACES2065-1 |
+| SMPTE 2065-1:2012 with Rec.2020+ primaries, log encoding, floating point encoding<br>a.k.a. “ACES working space”  |  ACEScc |
+| N/A  |  ACEScct |
+| VFX-friendly encoding, i.e., linear ACES working space with Rec.2020+ primaries  |  ACEScg |
+| “ACES wire format”<br>a.k.a. “ACESproxy,” “ACESproxy10,” “ACESproxy12”  |  ACESproxy10<br>ACESproxy12 |
+</div>
 
+<figcaption align="center" markdown=1>
+  <b>Table 3.</b> Encodings
+</figcaption><br>
 
 ### Transforms 
 
@@ -103,19 +140,30 @@ There are three basic ACES transforms that end users work with. Although the “
 
     ACES 1.0 name: “ACES Look Transform”; Shorthand: “Look Transform”
     
-3. Pre-release nomenclature: “RRT plus ODT” a.k.a. “ACES Viewing Transform” 
+3. Pre-release nomenclature: “ACES Viewing Transform” a.k.a "RRT+ODT"
     
     Use: converts ACES2065 data to display code values
         
     ACES 1.0 name: “ACES Output Transform”; Shorthand: “Output Transform”
 
+<br>
+<div align="center" markdown>
+|             **Pre-release nomenclature**             | **ACES 1.0 Name** | **Shorthand** |
+|:----------------------------------------------------:|:-----------------:|:-------------:|
+| Input Device Transform<br>IDT |  ACES Input Transform |     Input Transform      |
+| Look Modification Transform<br>LMT |  ACES Look Transform |     Look Transform      |
+| ACES Viewing Transform<br>RRT + ODT |  ACES Output Transform |     Output Transform      |
+</div>
 
+<figcaption align="center" markdown=1>
+  <b>Table 4.</b> Transforms
+</figcaption><br>
 
 ### Containers
 
 Containers hold ACES image data, clip-level metadata and LUTs.
 
-1. Pre-release nomenclature: 2065-4:2013, a.k.a. “ACES container,” “exrs”
+1. Pre-release nomenclature: SMPTE ST2065-4:2013, a.k.a. “ACES container,” “exrs”
     
     Use: container file format for ACES2065 image data
 
@@ -133,7 +181,18 @@ Containers hold ACES image data, clip-level metadata and LUTs.
 
     ACES 1.0 name: “Academy-ASC Common LUT Format”; Alternates: “Common LUT Format,” “CLF file”
 
+<br>
+<div align="center" markdown>
+|             **Pre-release nomenclature**             | **ACES 1.0 Name** | **Shorthand** |
+|:----------------------------------------------------:|:-----------------:|:-------------:|
+| SMPTE ST2065-4:2013<br>a.k.a "ACES Container" |  ACES Container<br>ACES OpenEXR |     ACES EXR      |
+| Clip=level Metadata File |  ACES Metadata File |     AMF      |
+| Academy-ASC Common LUT Format file<br>a.k.a. “CLF file” |  Academy-ASC Common LUT Format |     Common LUT Format<br>CLF     |
+</div>
 
+<figcaption align="center" markdown=1>
+  <b>Table 4.</b> Containers
+</figcaption><br>
 
 
 

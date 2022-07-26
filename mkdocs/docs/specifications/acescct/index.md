@@ -1,3 +1,8 @@
+---
+title: ACEScct Specification
+---
+
+
 ACEScct – A Quasi-Logarithmic Encoding of ACES Data for use within Color Grading Systems
 ========================================================================================
 
