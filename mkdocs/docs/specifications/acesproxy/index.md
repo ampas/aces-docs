@@ -234,7 +234,7 @@ $lin_{AP1}$ $R$, $G$, and $B$ values shall be converted to ACESproxy12 values ac
 
 Where:
 
-$\mathrm{FLOAT2CV10}(\mathbf{a})$ returns MAX$(256,$ MIN$(3760,$ ROUND$(\mathbf{a})))$
+$\mathrm{FLOAT2CV12}(\mathbf{a})$ returns MAX$(256,$ MIN$(3760,$ ROUND$(\mathbf{a})))$
 
 ROUND($\mathbf{a}$) returns the integer value closest to the floating point value $\mathbf{a}$
 
@@ -243,7 +243,7 @@ MAX$(\mathbf{a}, \mathbf{b})$ returns the greater of $\mathbf{a}$ or $\mathbf{b}
 MIN$(\mathbf{a}, \mathbf{b})$ returns the lesser of $\mathbf{a}$ or $\mathbf{b}$
 
 <figcaption align="center">
-    <b>Equation 5:</b> Linear AP1 to ACESproxy10
+    <b>Equation 5:</b> Linear AP1 to ACESproxy12
 </figcaption>
 
 !!! note
@@ -298,11 +298,11 @@ ACESproxy $R$, $G$, and $B$ values shall be converted to $lin_{AP1}$ values usin
 <a name="eq-7"></a>
 
 \begin{equation}
-    lin_{AP1} = 2^{\left(\dfrac{ACESproxy10-425}{50}-2.5\right)}
+    lin_{AP1} = 2^{\left(\dfrac{ACESproxy12-1700}{200}-2.5\right)}
 \end{equation}
 
 <figcaption align="center">
-    <b>Equation 7:</b> ACESproxy10 to linear AP1
+    <b>Equation 7:</b> ACESproxy12 to linear AP1
 </figcaption>
 
 $lin_{AP1}$ $R$, $G$, and $B$ values shall be converted to ACES $R$, $G$, and $B$ values using the transformation matrix ($TRA_{2}$) calculated and applied using the methods provided in Section 4 of SMPTE RP 177:1993.

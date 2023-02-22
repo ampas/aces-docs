@@ -31,7 +31,7 @@ Describes preferred terminology for key ACES component names for ACES 1.0.
 ### [:fontawesome-solid-file-export:{ .icons } Input Transforms (IDTs)](https://www.dropbox.com/s/ouwnid1aevqti5d/P-2013-001.pdf?dl=0)
 Describes methods to create Input Transforms (IDTs) for use within ACES.
 
-### [:fontawesome-solid-fill-drip:{ .icons } Look Modification Transforms](https://www.dropbox.com/s/grjoi885tv78e70/TB-2014-010.pdf?dl=0)
+### [:fontawesome-solid-fill-drip:{ .icons } Look Modification Transforms](tb/lmt/)
 Describes the design, integration and use of Look Modification Transforms.
 
 ### [:fontawesome-solid-file-code:{ .icons } Reference Gamut Compression Specification](specifications/rgc/) :material-new-box:{ .new-icons }
