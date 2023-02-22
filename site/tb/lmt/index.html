@@ -1,0 +1,879 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+    
+    
+      
+        <title>Design, Integration and Use of ACES Look Transforms - ACES Technical Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ffa9267a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pontano+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Pontano Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="aces-light" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#design-integration-and-use-of-aces-look-transforms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.acescentral.com" title="ACES Technical Documentation" class="md-header__button md-logo" aria-label="ACES Technical Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ACES Technical Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Design, Integration and Use of ACES Look Transforms
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="aces-light" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ampas/aces-dev" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aces-dev
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      ACES Documentation
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../glossary/" class="md-tabs__link">
+      Glossary
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.acescentral.com" title="ACES Technical Documentation" class="md-nav__button md-logo" aria-label="ACES Technical Documentation" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    ACES Technical Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ampas/aces-dev" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aces-dev
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        ACES Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope" class="md-nav__link">
+    Scope
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#look-transform-use-cases" class="md-nav__link">
+    Look Transform Use Cases
+  </a>
+  
+    <nav class="md-nav" aria-label="Look Transform Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emulation-of-photochemical-processing" class="md-nav__link">
+    Emulation of photochemical processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systematic-color-correction-and-application-of-asc-cdl" class="md-nav__link">
+    Systematic Color Correction (and application of ASC CDL)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trim-pass-grading" class="md-nav__link">
+    Trim Pass Grading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flexible-pre-sets-for-creative-modifications" class="md-nav__link">
+    Flexible pre-sets for creative modifications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permanent-color-modification-archival" class="md-nav__link">
+    Permanent Color Modification (Archival)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portability" class="md-nav__link">
+    Portability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#look-transforms-and-pre-grading-for-visual-effects" class="md-nav__link">
+    Look Transforms and pre-grading for Visual Effects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specification" class="md-nav__link">
+    Specification
+  </a>
+  
+    <nav class="md-nav" aria-label="Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-space" class="md-nav__link">
+    Working Space
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transport" class="md-nav__link">
+    Transport
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-integration" class="md-nav__link">
+    Workflow Integration
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#application-to-entire-image-pixel-by-individual-pixel" class="md-nav__link">
+    Application to entire image, pixel by individual pixel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubiquity" class="md-nav__link">
+    Ubiquity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimizations" class="md-nav__link">
+    Optimizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retention" class="md-nav__link">
+    Retention
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nondestructive-preview-of-displayed-image-appearance" class="md-nav__link">
+    Nondestructive preview of displayed image appearance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archival-of-aces-imagery-with-and-without-baked-in-grading-andor-look-transform-application" class="md-nav__link">
+    Archival of ACES imagery with and without baked in grading and/or Look Transform application
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overall-principles" class="md-nav__link">
+    Overall principles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytic-and-empirical-approaches" class="md-nav__link">
+    Analytic and empirical approaches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing-looks-from-non-aces-color-managed-workflows" class="md-nav__link">
+    Importing ‘looks’ from non-ACES-color-managed workflows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="design-integration-and-use-of-aces-look-transforms">Design, Integration and Use of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transforms<a class="headerlink" href="#design-integration-and-use-of-aces-look-transforms" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transform imparts an image-wide creative ‘look’ to the appearance of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> images. It is a component of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> viewing pipeline that precedes the selected <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Output Transform. Look Transforms exist because some color manipulations can be complex, and having a pre-set for a complex look makes a colorist’s work more efficient. In addition, emulation of traditional color reproduction methods such as the projection of film print requires complex interactions of colors that are better modeled in a systematic transform than by requiring a colorist to match ‘by eye.’</p>
+<p>The Look Transform is intended to supplement – not replace – a colorist’s traditional tools for grading and manipulating images. There are three places in the viewing pipeline where production staff modifies the look of the image from the default rendering of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> data:</p>
+<ul>
+<li>
+<p>Adjustments to the exposure levels or white balance of a particular shot are often done as a ‘pre-grade.’</p>
+</li>
+<li>
+<p>A colorist applies a grade to further refine and modify the color appearance to achieve the creative look of a shot.</p>
+</li>
+<li>
+<p>Finally the Look Transform provides an additional, optional tool for the colorist to manipulate <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> images and preview the result.</p>
+</li>
+</ul>
+<p>Thus the pre-grade and the Look Transform bracket the colorist’s grading work.</p>
+<p>While the colorist’s grading tools allow manipulation of either the overall image or of selected pieces of the image, the Look Transform is designed to work only across the overall image.</p>
+<p>As part of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> viewing pipeline, the Look Transform takes <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> color-encoded values as inputs, and outputs modified <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>-encoded values that may then be immediately processed by an Output Transform (in this case, the Output Transform appropriate for the colorist's display).</p>
+<p>Outside an immediate <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> viewing pipeline, the Look Transform's output can additionally (or alternatively) be saved, creating a new <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> image container file that has ‘baked in’ the effect of the Look Transform on the original image. When this new file with ‘baked in’ changes is viewed using the standard <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> viewing pipeline, the creative intent reflected in the prior application of the Look Transform to the original will be preserved.</p>
+<p>Look Transforms can be reused across multiple shots or even across an entire production. They are separate from an individual shot’s ‘grade’ or a particular vendor’s color grade file.</p>
+<p>Key characteristics of a well-designed Look Transform are portability across applications, and preservation (to the extent that is both possible and practical) of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>’s high dynamic range and wide color gamut while still imparting a designed, creative, target look.</p>
+<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
+<p>This document describes the use of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transforms for <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>-based color management. It provides several use cases for Look Transforms, defines how Look Transforms are expressed and are carried along with clips and projects, discusses Look Transform use in the context of a workflow employing <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>-based color management, and concludes with design guidelines for Look Transforms. This document also describes optimal use of Look Transforms and suggests several ways in which a Look Transform may be designed to support flexible mastering and archiving workflows.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p>The following standards, specifications, articles, presentations, and texts are referenced in this text:</p>
+<ul>
+<li><a href="https://doi.org/10.5594/SMPTE.ST2065-1.2021">ST 2065-1:2021 - <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> Standard - Academy Color Encoding Specification (<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>)</a>, Society of Motion Picture and Television Engineers, New York, US, Standard, 2021.</li>
+<li><a href="/specifications/acesproxy/">Academy S-2013-001, ACESproxy - An Integer Log Encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Data</a></li>
+<li><a href="/specifications/acescc/">Academy S-2014-003, ACEScc – A Logarithmic Encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Data for use within Color Grading Systems</a></li>
+<li><a href="/specifications/clf/">Academy S-2014-006, A Common File Format for Look-Up Tables</a></li>
+<li><a href="https://www.dropbox.com/s/4phjfkae2gykctt/S-2019-001.pdf?dl=0">Academy S-2019-001, <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File (<abbr title="ACES Metadata File">AMF</abbr>)</a></li>
+<li>[<abbr title="American Society of Cinematographers">ASC</abbr> Color Decision List (<abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr>) Transfer Functions and Interchange Syntax, <abbr title="American Society of Cinematographers">ASC</abbr>-<abbr title="Color Decision List">CDL</abbr> Release 1.2]</li>
+</ul>
+<h2 id="look-transform-use-cases">Look Transform Use Cases<a class="headerlink" href="#look-transform-use-cases" title="Permanent link">&para;</a></h2>
+<p>Two styles of image modification are common in post-production: interactive modification, either across the entire frame or in isolated regions of interest, and a preset systematic modification across the entire frame. The interactive image modification is termed ‘grading.’ The <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> term for preset systematic, full-frame image modification is ‘look modification.’ Look modification is performed using a Look Transform.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In early development of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system, Look Transforms were abbreviated <abbr title="Look Transform (aka deprecated - Look Modification Transform)">LMT</abbr> (from 'Look Modification Transform'). Occasionally the '<abbr title="Look Transform (aka deprecated - Look Modification Transform)">LMT</abbr>' acronym will still be used although the preferred terminology is '<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Look Transform' or simply 'Look Transform'.</p>
+</div>
+<h3 id="emulation-of-photochemical-processing">Emulation of photochemical processing<a class="headerlink" href="#emulation-of-photochemical-processing" title="Permanent link">&para;</a></h3>
+<p>Though modern grading systems are very powerful, some whole-frame color transformations are too complex for even a skilled colorist to accomplish using grading system controls. Often the complexity arises when the creative intent is to simulate, for frames captured with digital cinema cameras, the nonlinear color and exposure relationships used in film laboratory photochemical processing, especially nonstandard photochemical processing. Examples of such color transformations include:</p>
+<ul>
+<li>‘Bleach Bypass’ emulation: modification of image color values to achieve a unique desaturated appearance mimicking projection of a print that had skipped a normal laboratory bleaching step</li>
+<li>Technicolor 3-strip emulation: modification of image color values to achieve a saturated, higher-contrast appearance mimicking projection of a print from Technicolor's imbibition dye transfer process (c. 1938)</li>
+<li>Kodak Vision 3 print film emulation: modification of image color values to achieve a reproduction of the relationship between scene exposure values and projected film imagery resulting from the use of Kodaks latest film stocks</li>
+</ul>
+<p>Figure 1 illustrates how a colorist could prepend one or more emulation Look Transforms to the <abbr title="Reference Rendering Transform">RRT</abbr> (which itself precedes a selected <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr>), so that his or her time could be spent on sequence, shot and/or region-specific color requests from the client. The grade modifies the image first, followed by the process emulation provided by the Look Transform.</p>
+<p><a name="fig-1"></a></p>
+<figure align="center">
+<p><img alt="Photochemical Processing Diagram" src="images/photochemicalProcessing.png" width="800" />
+  </p>
+<figcaption><b>Figure 1</b> </figcaption>
+</figure>
+<p><br></p>
+<h3 id="systematic-color-correction-and-application-of-asc-cdl">Systematic Color Correction (and application of <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr>)<a class="headerlink" href="#systematic-color-correction-and-application-of-asc-cdl" title="Permanent link">&para;</a></h3>
+<p>The Look Transform takes as input an image in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> color space and yields a modified image that is still in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> color space. As a consequence, Look Transforms can be ‘chained’ together, one after another. Figure 2 shows a grading workflow where, prior to applying the ‘Kodak Vision 3 emulation’ Look Transform described above, the colorist applies an ‘<abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr>’ Look Transform - very likely one whose parameter values were chosen by the cinematographer on-set to modify the default ‘look’ of emulated Kodak Vision 3 stock.</p>
+<p><a name="fig-2"></a></p>
+<figure align="center">
+<p><img alt="Systematic Color Correction Diagram" src="images/chainingLMTs.png" width="800" />
+  </p>
+<figcaption><b>Figure 2</b> </figcaption>
+</figure>
+<p><br></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The values of the <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> in this case are only valid in the context of the selected ‘Kodak Vision 3 emulation’ Look Transform. If this Look Transform were removed, the <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> values would no longer be valid.</p>
+</div>
+<p>Note that the <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> Look Transform incorporates a conversion from <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> to ACEScc before the <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> operations will be applied, and likewise incorporates a conversion from ACEScc to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> after the <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> operations have been applied. This ‘wrapping’ of <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> operations is a key capability available in the Academy/<abbr title="American Society of Cinematographers">ASC</abbr> Common <abbr title="look-up table">LUT</abbr> Format (<abbr title="Common LUT Format">CLF</abbr>).</p>
+<h3 id="trim-pass-grading">Trim Pass Grading<a class="headerlink" href="#trim-pass-grading" title="Permanent link">&para;</a></h3>
+<p>Content today is delivered across a wide range of output devices, each of which has their own color space and characteristic brightness. Creative adjustments to the look of shots are often needed to enhance the content’s appearance beyond the original creative intent. The client might desire to accentuate the difference between the results of the viewing pipeline for theatrical exhibition, the results of the viewing pipeline appropriate for home video and the results of the viewing pipeline appropriate for mobile streaming. This could be done by having three workflows that differed only in that the first had no Look Transform ‘accentuating’ the image for any nonstandard viewing environment, the second had a Look Transform just prior to the application of an Output Transform designated as appropriate for home video viewing, and the third had a Look Transform just prior to the application of an Output Transform designated as appropriate for viewing with content streamed to mobile devices, as shown in Figure 3.</p>
+<p><a name="fig-3"></a></p>
+<figure align="center">
+<p><img alt="Trim Pass Grading Diagram" src="images/trimPassGrading.png" width="800" />
+  </p>
+<figcaption><b>Figure 3</b> </figcaption>
+</figure>
+<p><br></p>
+<h3 id="flexible-pre-sets-for-creative-modifications">Flexible pre-sets for creative modifications<a class="headerlink" href="#flexible-pre-sets-for-creative-modifications" title="Permanent link">&para;</a></h3>
+<p>Separation of grading and Look Transform(s) allows for a production to make significant changes in creative decisions that affect the entire frame equally, without requiring the colorist to start from scratch, or ideally without even requiring a trim pass. For example, the client might start a production shooting ‘day for night’ and use a Look Transform to accomplish this result (Figure 4).</p>
+<p><a name="fig-4"></a></p>
+<figure align="center">
+<p><img alt="Day for Night Diagram" src="images/dayForNight.png" width="800" />
+  </p>
+<figcaption><b>Figure 4</b> </figcaption>
+</figure>
+<p><br></p>
+<p>A change in creative direction (say, after a test screening) might place the captured action two hours earlier, so ‘day for night’ might become ‘day for dusk’. Since the Look Transform is separate from the grade, the change may be made without requiring lengthy and expensive colorist intervention. A new Look Transform is simply swapped into the old Look Transform’s place (Figure 5).</p>
+<p><a name="fig-5"></a></p>
+<figure align="center">
+<p><img alt="Day for Dusk Diagram" src="images/dayForDusk.png" width="800" />
+  </p>
+<figcaption><b>Figure 5</b> </figcaption>
+</figure>
+<p><br></p>
+<h3 id="permanent-color-modification-archival">Permanent Color Modification (Archival)<a class="headerlink" href="#permanent-color-modification-archival" title="Permanent link">&para;</a></h3>
+<p>The workflows above all show a ‘transient’ processing of image file to displayed output, with the display being a calibrated grading monitor or projector. It is also completely valid and correct to archive the input to the <abbr title="Reference Rendering Transform">RRT</abbr> as an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> container file, ‘baking in’ the grade and any Look Transform application(s), as shown in Figure 6.</p>
+<p><a name="fig-6"></a></p>
+<figure align="center">
+<p><img alt="Archiving Diagram" src="images/archival.png" width="800" />
+  </p>
+<figcaption><b>Figure 6</b> </figcaption>
+</figure>
+<p><br></p>
+<p>A person who retrieves an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> file need not know about the grades and Look Transform(s) applied to produce the desired creative result; by virtue of being an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> file, the image ‘speaks for itself’ when the <abbr title="Reference Rendering Transform">RRT</abbr> and a selected <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr> are applied.</p>
+<p>It is extremely important that the Look Transform authors preserve as much of the dynamic range of the Look Transforms input <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Red, Green, and Blue">RGB</abbr> relative exposure values as is possible. This provides the maximum amount of latitude for a colorist grading through the Look Transform. It also preserves the maximum amount of grading latitude for someone who later retrieves stored <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> container files created by baking in the effect of the Look Transform to the graded <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> images, when remastering for a radically different display or viewing environment (e.g. for grading on a higher-dynamic-range display than previously available). While full preservation of dynamic range and gamut is almost never possible, when faced with an engineering decision in which all other considerations are equal, the Look Transform author should choose the option that retains more of the Look Transform input's dynamic range and color gamut.</p>
+<p>Preserving the integrity of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Red, Green, and Blue">RGB</abbr> relative exposure values representing the scene means more than just not clipping highlight luminances or very deep shadow tones. It also means avoiding severe distortions of the distributions of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values, such as the distortion caused by a strong ‘gamma’ operation, e.g. by a very large or very small value for one or more <abbr title="Color Decision List">CDL</abbr> ‘power’ parameters.</p>
+<p>Because Look Transforms are customizable and unique, and because it is essential to maintain the portability and archivability of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> project, it is always necessary to preserve the Look Transforms within any project where they are used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a production wishes to preserve maximum flexibility for later remastering, it should archive the original <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> images, any clip-level metadata-bearing container encapsulating the original image files, any <abbr title="Input Transform (aka deprecated - Input Device Transform)">IDT</abbr>(s), any pre-grading adjustments (see the following ‘Look Transforms and pre-grading for Visual Effects’ section), any project-wide and shot-specific grading parameters, and the Look Transform (that is, the set of all Look Transforms employed to achieve the creative result, in their proper sequence).</p>
+</div>
+<h3 id="portability">Portability<a class="headerlink" href="#portability" title="Permanent link">&para;</a></h3>
+<p>Look Transforms are expressed and transported using the Common <abbr title="look-up table">LUT</abbr> Format (also known as the Academy/<abbr title="American Society of Cinematographers">ASC</abbr> Common <abbr title="look-up table">LUT</abbr> Format or <abbr title="Common LUT Format">CLF</abbr>).</p>
+<p>The building blocks of an Look Transform include basic arithmetical operations, simple matrix application, 1D <abbr title="look-up tables">LUTs</abbr> and 3D <abbr title="look-up tables">LUTs</abbr>. Straightforward color transforms can often be expressed analytically using the first three of these building blocks. More complex (and typically empirically derived) Look Transforms may be conveyed as 3D <abbr title="look-up tables">LUTs</abbr>. The Common <abbr title="look-up table">LUT</abbr> Format was chosen because it can express, in a portable encoding, all of the above-mentioned operations and <abbr title="look-up tables">LUTs</abbr>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using the floating point <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Red, Green, and Blue">RGB</abbr> relative exposure values directly as 1D <abbr title="look-up table">LUT</abbr> indices requires a more complex lookup mechanism than found in traditional 1D <abbr title="look-up table">LUT</abbr> implementations. The Common <abbr title="look-up table">LUT</abbr> Format supports this type of lookup by using the halfDomain attribute of the LUT1D process node. See the <a href="/specifications/clf">Common <abbr title="look-up table">LUT</abbr> Format specification</a> for more information.</p>
+</div>
+<h3 id="look-transforms-and-pre-grading-for-visual-effects">Look Transforms and pre-grading for Visual Effects<a class="headerlink" href="#look-transforms-and-pre-grading-for-visual-effects" title="Permanent link">&para;</a></h3>
+<p>In some cases, color corrections may be created prior to the colorist session in a scene-balancing ‘pre-grade.’ This allows for all shots in a sequence to share identical Look Transforms ‘downstream’ in the color modification pipeline. A motivating case would be a long sequence of daylight shots with varying color temperature. An example of this workflow, with two illustrations, is shown below. The first illustration shows what might happen at a visual effects facility that receives a number of shots that will be edited together to make up a sequence.</p>
+<p><a name="fig-7"></a></p>
+<figure align="center">
+<p><img alt="Pre-Grade Baked In Diagram" src="images/vfx1.png" width="800" />
+  </p>
+<figcaption><b>Figure 7</b> </figcaption>
+</figure>
+<p><br></p>
+<p>When the visual effects are complete, the frames supplied to the colorist have both the pre-grade and the visual effect(s) ‘baked in.’ The Look Transform is not ‘baked in’ to this imagery, since it must be applied after the grade, but is instead carried as metadata, and is referenced by the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File.</p>
+<p><a name="fig-8"></a></p>
+<figure align="center">
+<p><img alt="Pre-Grade Metadata Diagram" src="images/vfx2.png" width="800" />
+  </p>
+<figcaption><b>Figure 8</b> </figcaption>
+</figure>
+<p><br></p>
+<h2 id="specification">Specification<a class="headerlink" href="#specification" title="Permanent link">&para;</a></h2>
+<h3 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h3>
+<p>The inputs to a Look Transform are ACES2065 <abbr title="Red, Green, and Blue">RGB</abbr> relative exposure values.</p>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h3>
+<p>The outputs of a Look Transform are ACES2065 <abbr title="Red, Green, and Blue">RGB</abbr> relative exposure values.</p>
+<h3 id="working-space">Working Space<a class="headerlink" href="#working-space" title="Permanent link">&para;</a></h3>
+<p>The internal working space of a Look Transform is unrestricted. A Look Transform may transform its inputs internally into a non-ACES2065 space and perform color operations there, as long as it transforms the results of those back to ACES2065 before yielding them as outputs.</p>
+<h3 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h3>
+<p>Look Transforms are specified in Common <abbr title="look-up table">LUT</abbr> Format <abbr title="Extensible Markup Language">XML</abbr>.</p>
+<h3 id="transport">Transport<a class="headerlink" href="#transport" title="Permanent link">&para;</a></h3>
+<p>Look Transform metadata is carried in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File . Multiple Look Transforms are referenced in the <code>lookTransform</code> element and are applied in the order in which they are referenced.</p>
+<h2 id="workflow-integration">Workflow Integration<a class="headerlink" href="#workflow-integration" title="Permanent link">&para;</a></h2>
+<h3 id="application-to-entire-image-pixel-by-individual-pixel">Application to entire image, pixel by individual pixel<a class="headerlink" href="#application-to-entire-image-pixel-by-individual-pixel" title="Permanent link">&para;</a></h3>
+<p>As with all other <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> transforms, Look Transforms are applied across the entire image, and are not applied to any subset of the image. Similarly, as with all other <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> transforms, the outputs of the Look Transform depend solely on its inputs, with no contribution from neighboring regions of the image.</p>
+<h3 id="ubiquity">Ubiquity<a class="headerlink" href="#ubiquity" title="Permanent link">&para;</a></h3>
+<p>The Look Transform is a key transform in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system, and must be supported in any system component supporting <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> workflows that allows for image alteration. (An example of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system component not allowing image alteration would be a display that interpreted its inputs as being ACESproxy values.) The ability to specify, record, transport and/or apply Look Transform(s) can be present in almost any component of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>-based workflow, including applications for converting native camera output to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> imagery, on-set grading and dailies tools, color correctors, displays and CG tools.</p>
+<h3 id="optimizations">Optimizations<a class="headerlink" href="#optimizations" title="Permanent link">&para;</a></h3>
+<p>When there are multiple Look Transforms making up a Look Transform, the hardware or software implementing the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> viewing pipeline may optimize the application of the Look Transform by combining the Look Transforms into a single <abbr title="look-up table">LUT</abbr>; it may also combine this Look Transform <abbr title="look-up table">LUT</abbr> with the <abbr title="Reference Rendering Transform">RRT</abbr> and a selected <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr>.</p>
+<h4 id="composite-transform-sampling-using-a-3d-lut">Composite transform sampling using a 3D <abbr title="look-up table">LUT</abbr><a class="headerlink" href="#composite-transform-sampling-using-a-3d-lut" title="Permanent link">&para;</a></h4>
+<p>Applications may also send a lattice of sample values through some set of adjacent transforms (anything from two or more adjacent Look Transforms in the Look Transform, to the full concatenation of Look Transform plus <abbr title="Reference Rendering Transform">RRT</abbr> and a selected <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr>) to derive a single 3D <abbr title="look-up table">LUT</abbr>.</p>
+<p>Artifact-free processing across the large range of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Red, Green, and Blue">RGB</abbr> relative exposure values requires shaper <abbr title="look-up tables">LUTs</abbr> before and after the 3D <abbr title="look-up table">LUT</abbr> to minimize interpolation error.</p>
+<h3 id="retention">Retention<a class="headerlink" href="#retention" title="Permanent link">&para;</a></h3>
+<p>Look Transforms need to be saved with every clip or project, and loaded automatically into the user’s application so that the creatively established Look Transform is maintained at every step of production and post-production. Every Look Transform contains, as part of its description, an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Transform Identifier. To maintain portability of Look Transforms, the metadata identifying them – their <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Transform Identifiers – must be included within the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File, and the order in which they are referenced in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File is the order in which they should be applied.</p>
+<h3 id="nondestructive-preview-of-displayed-image-appearance">Nondestructive preview of displayed image appearance<a class="headerlink" href="#nondestructive-preview-of-displayed-image-appearance" title="Permanent link">&para;</a></h3>
+<p>Look Transforms are one of several types of transform applied to either camera-specific files in proprietary or standard format that have been converted into <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> by an <abbr title="Input Transform (aka deprecated - Input Device Transform)">IDT</abbr>, or to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> files in OpenEXR containers. In the most general of cases, the input image data will be processed first by zero or more pre-grades, then by the grading transform, then by zero or more Look Transforms, then by the <abbr title="Reference Rendering Transform">RRT</abbr>, then by a selected <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr>, and then displayed to the user. This most general case is shown in Figure 9.</p>
+<p><a name="fig-9"></a></p>
+<figure align="center">
+<p><img alt="Nondestructive Preview Diagram" src="images/preview.png" width="800" />
+  </p>
+<figcaption><b>Figure 9</b> </figcaption>
+</figure>
+<p><br></p>
+<p>The syntax and semantics of Look Transforms are given in the Specification section above. The syntax and semantics of pre-grading and grading operations are outside the scope of this document; indeed, they are outside the scope of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> project itself.</p>
+<h3 id="archival-of-aces-imagery-with-and-without-baked-in-grading-andor-look-transform-application">Archival of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> imagery with and without baked in grading and/or Look Transform application<a class="headerlink" href="#archival-of-aces-imagery-with-and-without-baked-in-grading-andor-look-transform-application" title="Permanent link">&para;</a></h3>
+<p>Every archived <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> image has an implied associated displayed image, namely, the result of processing that archived <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> image with the <abbr title="Reference Rendering Transform">RRT</abbr> and the <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr> that was used when creative approval was given. Because of this it is critical that the selected <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr> (including all relevant versioning information) be archived alongside any archived <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> imagery, whether or not that <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> imagery is the product of ‘baking in’ grades and/or the application of one or more Look Transforms making up a Look Transform.</p>
+<p>Since many grading operations and Look Transforms may reduce the color volume in the original image to a smaller color volume that is then delivered to the <abbr title="Reference Rendering Transform">RRT</abbr> and a selected <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr>, productions wishing to ‘future-proof’ their assets should store the original <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> files, along with all pre-grading information, grading information, the ordered set of Look Transforms that make up the Look Transform and the <abbr title="Output Transform (aka deprecated - Output Device Transform)">ODT</abbr> that was selected at the time of creative approval. </p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>A Look Transform applying <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> would be an example of such a color-volume-reducing transformation, as <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> is applied in the ACEScc color space, a smaller color space than <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>.</p>
+</div>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permanent link">&para;</a></h2>
+<p>Simple Look Transforms are the best. A Look Transform should be as simple as possible while still achieving the desired modification to the displayed image.</p>
+<h3 id="overall-principles">Overall principles<a class="headerlink" href="#overall-principles" title="Permanent link">&para;</a></h3>
+<h4 id="support-high-dynamic-range">Support high dynamic range<a class="headerlink" href="#support-high-dynamic-range" title="Permanent link">&para;</a></h4>
+<p><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> image data can represent luminances from far below the detectability threshold of the human visual system all the way up to luminances causing physical pain – the maximum <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> luminance is about 65,505 times as bright as a diffuse white object in the scene. A Look Transform should endeavor to preserve this luminance range as much as is possible.</p>
+<h4 id="handle-a-wide-color-gamut">Handle a wide color gamut<a class="headerlink" href="#handle-a-wide-color-gamut" title="Permanent link">&para;</a></h4>
+<p>Creation of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> imagery by CGI renderers, or by grading operations on live-action capture, can create <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> image values containing colors not found in nature or colors on the spectral locus that only became readily producible with the advent of the laser. A Look Transform should handle as wide a color gamut as is possible and practical, and avoid imposing arbitrary limits on hue or saturation.</p>
+<h4 id="use-high-level-constructs-to-enable-optimizations">Use high-level constructs to enable optimizations<a class="headerlink" href="#use-high-level-constructs-to-enable-optimizations" title="Permanent link">&para;</a></h4>
+<p>The Common <abbr title="look-up table">LUT</abbr> Format allows the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system release to provide a tool chest of predefined operations. Look Transform authors should use these rather than writing their own for several reasons:</p>
+<ul>
+<li>They were developed as part of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> project, have well-defined semantics, and are tested.</li>
+<li>They obey the two principles above (support high dynamic range and handle the full color gamut) to the maximum extent possible.</li>
+<li>Future releases might introduce performance or quality optimizations that depend on recognition of predefined operations.</li>
+</ul>
+<h3 id="analytic-and-empirical-approaches">Analytic and empirical approaches<a class="headerlink" href="#analytic-and-empirical-approaches" title="Permanent link">&para;</a></h3>
+<p>Broadly speaking, Look Transforms can be characterized as either analytic or empirical.</p>
+<h4 id="analytic-look-transforms">Analytic Look Transforms<a class="headerlink" href="#analytic-look-transforms" title="Permanent link">&para;</a></h4>
+<p>Analytic Look Transforms usually have concise mathematical definitions. The prime example of an analytic Look Transform is probably the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>-system-provided Look Transform that applies <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> data. Another (hypothetical) analytic Look Transform might be one that changes saturation with luminance at certain hue angles. Analytic Look Transforms are typically expressed as a set of ordered mathematical operations or 1D <abbr title="look-up table">LUT</abbr> lookup operations on colors or color component values.</p>
+<h4 id="empirical-look-transforms">Empirical Look Transforms<a class="headerlink" href="#empirical-look-transforms" title="Permanent link">&para;</a></h4>
+<p>Empirical Look Transforms usually are derived by sampling the results of some other color reproduction process, such as normal or special film processing. Empirical Look Transforms are often provided as 3D <abbr title="look-up tables">LUTs</abbr> that record a regular subsampling of the results of such processes.</p>
+<p>A challenge arises when using <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values to index the 3D <abbr title="look-up table">LUT</abbr>, as <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values are radiometrically linear and have a very wide floating point range. The Common <abbr title="look-up table">LUT</abbr> Format provides for forward and inverse ‘shaper <abbr title="look-up table">LUT</abbr>’ operations that (when wrapped around an appropriately constructed 3D <abbr title="look-up table">LUT</abbr>) effectively solve this problem. Implementers should review the <a href="/specifications/clf/#lut1d"><code>LUT1D</code> section of the Common <abbr title="look-up table">LUT</abbr> Format specification</a>.</p>
+<h3 id="importing-looks-from-non-aces-color-managed-workflows">Importing ‘looks’ from non-<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>-color-managed workflows<a class="headerlink" href="#importing-looks-from-non-aces-color-managed-workflows" title="Permanent link">&para;</a></h3>
+<p>Importing a ‘look file’ or <abbr title="look-up table">LUT</abbr> from a color system not defined using <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> can be quite difficult. Such look files contain transforms to be applied in color spaces other than <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> or the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> working space, often presume the relationship between scene and encoded values is encoded with some (possibly proprietary) power function or log function, and likely are designed to supply a display device with code values directly rather than hand off the image to an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Output Transform.</p>
+<p>For all of these reasons, it is typically better (and often much more efficient over the course of a production) to establish new Look Transforms within a workflow that is built around <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>-based color management rather than to try and mathematically translate a ‘look file’ or <abbr title="look-up table">LUT</abbr> intended for use with a workflow based on some other color management system.</p>
+<!-- Include acronyms-->
+<!-- Include section numbering -->
+<style>
+    @import "../../stylesheets/sections.css"
+</style>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 18, 2022</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 Academy of Motion Picture Arts & Sciences
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/academyaces" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/AcademyACESColor/" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.github.com/ampas" target="_blank" rel="noopener" title="www.github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="assets/pdfs/kodak-grey-card.pdf" target="_blank" rel="noopener" title="The Great Cod" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M180.5 141.5C219.7 108.5 272.6 80 336 80s116.3 28.5 155.5 61.5c39.1 33 66.9 72.4 81 99.8 4.7 9.2 4.7 20.1 0 29.3-14.1 27.4-41.9 66.8-81 99.8C452.3 403.5 399.4 432 336 432s-116.3-28.5-155.5-61.5c-16.2-13.7-30.5-28.5-42.7-43.1l-89.7 52.2c-12.5 7.3-28.4 5.3-38.7-4.9s-12.4-26-5.2-38.6L50 256 4.2 175.9c-7.2-12.6-5-28.4 5.3-38.6s26.1-12.2 38.7-4.9l89.7 52.3c12.2-14.6 26.5-29.4 42.7-43.1zM448 256a32 32 0 1 0-64 0 32 32 0 1 0 64 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      
+        <script src="../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
