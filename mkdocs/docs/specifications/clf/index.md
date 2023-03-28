@@ -741,6 +741,10 @@ This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cam
     : the base of the logarithmic function <br>
     Default is 2.
 
+    `"logSideSlope"` (optional) 
+    : "slope" (or gain) applied to the log side of the logarithmic segment.<br>
+    Default is 1.
+
     `"logSideOffset"` (optional) 
     : offset applied to the log side of the logarithmic segment.<br>
     Default is 0.
@@ -774,7 +778,7 @@ This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cam
     <a name="eq-logSideBreak"></a>
     
     $$
-    logSideBreak = logSideSlope × logbase(linSideSlope × linSideBreak + linSideOffset) + logSideOffset
+    \text{logSideBreak} = \text{logSideSlope} × \text{log}_{base}(\text{linSideSlope} × \textbf{linSideBreak} + \text{linSideOffset}) + \text{logSideOffset}
     $$
     
     Then, if $\text{linearSlope}$ was not provided, the value of $\text{linSideBreak}$ is used again to solve for the derivative of the logarithmic function. The value of $\text{linearSlope}$ is set to equal the instantaneous slope at the break-point, or derivative, as shown below:
@@ -785,7 +789,7 @@ This element is required if `style` is of type `"linToLog"`, `"logToLin"`, `"cam
     \text{linearSlope} = \text{logSideSlope} \times \left(\frac{\text{linSideSlope}}{(\text{linSideSlope} \times \textbf{linSideBreak} + \text{linSideOffset}) \times \text{ln}(\text{base})}\right)
     $$
 
-    Finally, the value of $\text{linearOffset}$ can be solved for by rearranging the linear segment of of the [piecewise function](#eq-linToLog) and using the values of $\text{logSideBreak|$ and $\text{linearSlope}$
+    Finally, the value of $\text{linearOffset}$ can be solved for by rearranging the linear segment of of the [piecewise function](#eq-linToLog) and using the values of $\text{logSideBreak}$ and $\text{linearSlope}$, as below:
 
     <a name="eq-linearOffset"></a>
 
