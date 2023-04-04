@@ -250,7 +250,7 @@ e.g. `dim = 256 3` indicates a 256 element 1D LUT with 3 components (a 3×1D LUT
 e.g. `dim = 256 1` indicates a 256 element 1D LUT with 1 component (1D LUT)
 
 
-## Substititues for `ProcessNode`
+## Substitutes for `ProcessNode`
 
 ### General
 The attributes and elements defined for `ProcessNode` are inherited by the substitutes for `ProcessNode`. This section defines the available substitutes for the generalized `ProcessNode` element.
@@ -357,8 +357,7 @@ Supported values are:
 <div style="padding-left: 30px;" markdown="1">
 *Attributes:*
 `dim` (required)
-: four integers that reperesent the dimensions of the 3D LUT and the number of color com-
-ponents. The first three values define the dimensions of the LUT and if multiplied shall equal the number of entries actually present in the array. The fourth value indicates the number of components per entry. <br>
+: four integers that reperesent the dimensions of the 3D LUT and the number of color components. The first three values define the dimensions of the LUT and if multiplied shall equal the number of entries actually present in the array. The fourth value indicates the number of components per entry. <br>
 4 entries have the dimensions of a 3D cube plus the number of components per entry.
 
     !!! example
@@ -489,7 +488,7 @@ $$
     Previous versions of this specification used three integers for the `dim` attribute, rather than the current two. In order to facilitate backwards compatibility, implementations should allow a third value for the `dim` attribute and may simply ignore it.
 
 !!! note
-    `Array` is formatted differently when nit is contained in a LUT1D or LUT3D element (see [Array](#array))
+    `Array` is formatted differently when it is contained in a LUT1D or LUT3D element (see [Array](#array))
 </div>
 
 *Examples:*
@@ -563,27 +562,31 @@ $$
     out = \mathrm{MAX}( \texttt{minOutValue}, in \times bitDepthScale)
 $$
 
-If only the maximum values pairs are provided, the result shall be clamping at the high end, according to:
+Values must be set such that $\texttt{minOutValue} = \texttt{minInValue} \times bitDepthScale$.
+
+
+Likewaise, if only the maximum values pairs are provided, the result shall be clamping at the high end, according to:
 
 $$
     out = \mathrm{MIN}( \texttt{maxOutValue}, in \times bitDepthScale)
 $$
 
-where:
+And values must be set such that $\texttt{maxOutValue} = \texttt{maxInValue} \times bitDepthScale$.
+
+The following formulas are used in the above equations:
 
 $$
-bitDepthScale = \dfrac{\mathrm{SIZE}(\texttt{outBitDepth})}{\mathrm{SIZE}(\texttt{inBitDepth})}
+bitDepthScale = \dfrac{\mathrm{scaleFactor}(\texttt{outBitDepth})}{\mathrm{scaleFactor}(\texttt{inBitDepth})}
 $$
 
 $$
-\mathrm{SIZE}(a) =
+\mathrm{scaleFactor}(a) =
 \begin{cases}
     2^{bitDepth}-1 & \text{when }a \in \{\texttt{"8i"},\texttt{"10i"},\texttt{"12i"},\texttt{"16i"}\} \\
     1.0 & \text{when }a \in \{\texttt{"16f"},\texttt{"32f"}\}
 \end{cases}
 $$
 
-In both instances, values must be set such that $\texttt{maxOutValue} = \texttt{maxInValue} \times bitDepthScale$.
 
 !!! note
     The bit depth scale factor intentionally uses $2^{bitDepth}−1$ and not $2^{bitDepth}$. This means that the scale factor created for scaling between different bit depths is "non-integer" and is slightly different depending on the bit depths being scaled between. While instinct might be that this scale should be a clean bit-shift factor (i.e. $2\times$ or $4\times$ scale), testing with a few example values plugged into the formula will show that the resulting non-integer scale is the correct and intended behavior.
@@ -602,7 +605,7 @@ The `maxInValue` shall be greater than the `minInValue`.
 : The minimum output value. Required if `minInValue` is present.
 
 `maxOutValue` (optional)
-:The maximum output value. Required if `maxInValue` is present. <br>
+: The maximum output value. Required if `maxInValue` is present. <br>
 The `maxOutValue` shall be greater than or equal to the `minOutValue`.
 
 *Attributes:*
@@ -646,7 +649,7 @@ This node contains parameters for processing pixels through a logarithmic or ant
     On occasion it may be necessary to transform a logarithmic function specified in terms of traditional Cineon-style parameters to the parameters used by CLF. Guidance on how to do this is provided in [Appendix B](#appendix-cineon-style).
 
 *Attributes:*
-`style` (required
+`style` (required)
 : specifies the form of the of log function to be applied<br>
 Supported values for ”style” are:
 
@@ -662,8 +665,8 @@ Supported values for ”style” are:
 : The formula to be applied for each style is described by the equations below, for all of which:
 
     $$
-    \texttt{FLT_MIN} = 1.175494e−38
-    $$
+    \texttt{FLT_MIN} = 1.175494 \times 10^{-38}
+	$$
 
     <center>$\textrm{MAX}(a, b)$ returns $a$ if $a \gt b$ and $b$ if $b \geq a$</center>
 
@@ -967,9 +970,6 @@ This node contains parameters for processing pixels through a power law function
     The above equations assume that the input and output bit-depths are floating-point. Integer values are normalized to the range $[0.0, 1.0]$.
 
 *Elements:*
-`Description` (optional) 
-: See [ProcessNode](#processNode)
-
 `ExponentParams` (required)
 : contains one or more attributes that provide the values to be used by the enclosing `Exponent` element. <br>
 If `style` is any of the “basic” types, then only `exponent` is required. <br>
@@ -1046,7 +1046,9 @@ If `style` is any of the “monCurve” types, then `exponent` and `offset` are 
 *Description:*<br>
 This node processes values according to the American Society of Cinematographers’ Color Decision List (ASC CDL) equations. Color correction using ASC CDL is an industry-wide method of recording and exchanging basic color correction adjustments via parameters that set particular color processing equations.
 
-The ASC CDL equations are designed to work on an input domain of floating-point values of [0 to 1.0] although values greater than 1.0 can be present. The output data may or may not be clamped depending on the processing style used.
+The ASC CDL equations are designed to work on an input domain of floating-point values of [0 to 1.0] although values greater than 1.0 can be present. The output data may or may not be clamped depending on the processing style used. 
+
+If the `style`attribute is not specified, the node shall default to `"Fwd"` - i.e. the classic implementation of the v1.2 ASC-CDL equations.
 
 !!! note
     Equations 4.31-4.34 assume that $in$ and $out$ are scaled to normalized floating-point range. If the `ASC_CDL` node has `inBitDepth` or `outBitDepth` that are integer types, then the input or output values must be normalized to or from 0-1 scaling. In other words, the slope, offset, power, and saturation values stored in the `ProcessNode` do not depend on `inBitDepth` and `outBitDepth`; they are always interpreted as if the bit depths were float.
@@ -1056,11 +1058,11 @@ The ASC CDL equations are designed to work on an input domain of floating-point 
 `id` (optional)
 : This should match the id attribute of the ColorCorrection element in the ASC CDL XML format.
 
-`style` (required)
+`style`
 : Determines the formula applied by the operator. The valid options are:
 
-    `"Fwd"`
-    : implementation of v1.2 ASC CDL equation
+    `"Fwd"
+    : implementation of v1.2 ASC CDL equation (default)
 
     `"Rev"`
     : inverse equation
