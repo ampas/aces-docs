@@ -1042,7 +1042,9 @@ If `style` is any of the “monCurve” types, then `exponent` and `offset` are 
 *Description:*<br>
 This node processes values according to the American Society of Cinematographers’ Color Decision List (ASC CDL) equations. Color correction using ASC CDL is an industry-wide method of recording and exchanging basic color correction adjustments via parameters that set particular color processing equations.
 
-The ASC CDL equations are designed to work on an input domain of floating-point values of [0 to 1.0] although values greater than 1.0 can be present. The output data may or may not be clamped depending on the processing style used.
+The ASC CDL equations are designed to work on an input domain of floating-point values of [0 to 1.0] although values greater than 1.0 can be present. The output data may or may not be clamped depending on the processing style used. 
+
+If the `style`attribute is not specified, the node shall default to `"Fwd"` - i.e. the classic implementation of the v1.2 ASC-CDL equations.
 
 !!! note
     Equations 4.31-4.34 assume that $in$ and $out$ are scaled to normalized floating-point range. If the `ASC_CDL` node has `inBitDepth` or `outBitDepth` that are integer types, then the input or output values must be normalized to or from 0-1 scaling. In other words, the slope, offset, power, and saturation values stored in the `ProcessNode` do not depend on `inBitDepth` and `outBitDepth`; they are always interpreted as if the bit depths were float.
@@ -1052,11 +1054,11 @@ The ASC CDL equations are designed to work on an input domain of floating-point 
 `id` (optional)
 : This should match the id attribute of the ColorCorrection element in the ASC CDL XML format.
 
-`style` (required)
+`style`
 : Determines the formula applied by the operator. The valid options are:
 
-    `"Fwd"`
-    : implementation of v1.2 ASC CDL equation
+    `"Fwd"
+    : implementation of v1.2 ASC CDL equation (default)
 
     `"Rev"`
     : inverse equation
