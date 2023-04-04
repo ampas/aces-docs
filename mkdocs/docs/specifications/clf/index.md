@@ -966,9 +966,6 @@ This node contains parameters for processing pixels through a power law function
     The above equations assume that the input and output bit-depths are floating-point. Integer values are normalized to the range $[0.0, 1.0]$.
 
 *Elements:*
-`Description` (optional) 
-: See [ProcessNode](#processNode)
-
 `ExponentParams` (required)
 : contains one or more attributes that provide the values to be used by the enclosing `Exponent` element. <br>
 If `style` is any of the “basic” types, then only `exponent` is required. <br>
