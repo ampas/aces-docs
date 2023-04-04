@@ -562,27 +562,31 @@ $$
     out = \mathrm{MAX}( \texttt{minOutValue}, in \times bitDepthScale)
 $$
 
-If only the maximum values pairs are provided, the result shall be clamping at the high end, according to:
+Values must be set such that $\texttt{minOutValue} = \texttt{minInValue} \times bitDepthScale$.
+
+
+Likewaise, if only the maximum values pairs are provided, the result shall be clamping at the high end, according to:
 
 $$
     out = \mathrm{MIN}( \texttt{maxOutValue}, in \times bitDepthScale)
 $$
 
-where:
+And values must be set such that $\texttt{maxOutValue} = \texttt{maxInValue} \times bitDepthScale$.
+
+The following formulas are used in the above equations:
 
 $$
-bitDepthScale = \dfrac{\mathrm{SIZE}(\texttt{outBitDepth})}{\mathrm{SIZE}(\texttt{inBitDepth})}
+bitDepthScale = \dfrac{\mathrm{scaleFactor}(\texttt{outBitDepth})}{\mathrm{scaleFactor}(\texttt{inBitDepth})}
 $$
 
 $$
-\mathrm{SIZE}(a) =
+\mathrm{scaleFactor}(a) =
 \begin{cases}
     2^{bitDepth}-1 & \text{when }a \in \{\texttt{"8i"},\texttt{"10i"},\texttt{"12i"},\texttt{"16i"}\} \\
     1.0 & \text{when }a \in \{\texttt{"16f"},\texttt{"32f"}\}
 \end{cases}
 $$
 
-In both instances, values must be set such that $\texttt{maxOutValue} = \texttt{maxInValue} \times bitDepthScale$.
 
 !!! note
     The bit depth scale factor intentionally uses $2^{bitDepth}−1$ and not $2^{bitDepth}$. This means that the scale factor created for scaling between different bit depths is "non-integer" and is slightly different depending on the bit depths being scaled between. While instinct might be that this scale should be a clean bit-shift factor (i.e. $2\times$ or $4\times$ scale), testing with a few example values plugged into the formula will show that the resulting non-integer scale is the correct and intended behavior.
