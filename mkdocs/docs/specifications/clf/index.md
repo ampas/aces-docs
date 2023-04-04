@@ -250,7 +250,7 @@ e.g. `dim = 256 3` indicates a 256 element 1D LUT with 3 components (a 3×1D LUT
 e.g. `dim = 256 1` indicates a 256 element 1D LUT with 1 component (1D LUT)
 
 
-## Substititues for `ProcessNode`
+## Substitutes for `ProcessNode`
 
 ### General
 The attributes and elements defined for `ProcessNode` are inherited by the substitutes for `ProcessNode`. This section defines the available substitutes for the generalized `ProcessNode` element.
@@ -357,8 +357,7 @@ Supported values are:
 <div style="padding-left: 30px;" markdown="1">
 *Attributes:*
 `dim` (required)
-: four integers that reperesent the dimensions of the 3D LUT and the number of color com-
-ponents. The first three values define the dimensions of the LUT and if multiplied shall equal the number of entries actually present in the array. The fourth value indicates the number of components per entry. <br>
+: four integers that reperesent the dimensions of the 3D LUT and the number of color components. The first three values define the dimensions of the LUT and if multiplied shall equal the number of entries actually present in the array. The fourth value indicates the number of components per entry. <br>
 4 entries have the dimensions of a 3D cube plus the number of components per entry.
 
     !!! example
@@ -489,7 +488,7 @@ $$
     Previous versions of this specification used three integers for the `dim` attribute, rather than the current two. In order to facilitate backwards compatibility, implementations should allow a third value for the `dim` attribute and may simply ignore it.
 
 !!! note
-    `Array` is formatted differently when nit is contained in a LUT1D or LUT3D element (see [Array](#array))
+    `Array` is formatted differently when it is contained in a LUT1D or LUT3D element (see [Array](#array))
 </div>
 
 *Examples:*
@@ -602,7 +601,7 @@ The `maxInValue` shall be greater than the `minInValue`.
 : The minimum output value. Required if `minInValue` is present.
 
 `maxOutValue` (optional)
-:The maximum output value. Required if `maxInValue` is present. <br>
+: The maximum output value. Required if `maxInValue` is present. <br>
 The `maxOutValue` shall be greater than or equal to the `minOutValue`.
 
 *Attributes:*
@@ -646,7 +645,7 @@ This node contains parameters for processing pixels through a logarithmic or ant
     On occasion it may be necessary to transform a logarithmic function specified in terms of traditional Cineon-style parameters to the parameters used by CLF. Guidance on how to do this is provided in [Appendix B](#appendix-cineon-style).
 
 *Attributes:*
-`style` (required
+`style` (required)
 : specifies the form of the of log function to be applied<br>
 Supported values for ”style” are:
 
@@ -662,8 +661,8 @@ Supported values for ”style” are:
 : The formula to be applied for each style is described by the equations below, for all of which:
 
     $$
-    \texttt{FLT_MIN} = 1.175494e−38
-    $$
+    \texttt{FLT_MIN} = 1.175494 \times 10^{-38}
+	$$
 
     <center>$\textrm{MAX}(a, b)$ returns $a$ if $a \gt b$ and $b$ if $b \geq a$</center>
 
