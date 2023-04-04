@@ -11,7 +11,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -396,11 +396,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#substititues-for-processnode" class="md-nav__link">
-    Substititues for ProcessNode
+  <a href="#substitutes-for-processnode" class="md-nav__link">
+    Substitutes for ProcessNode
   </a>
   
-    <nav class="md-nav" aria-label="Substititues for ProcessNode">
+    <nav class="md-nav" aria-label="Substitutes for ProcessNode">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -759,7 +759,7 @@ e.g. <code>dim = 256 1</code> indicates a 256 element 1D <abbr title="look-up ta
 </ul>
 </dd>
 </dl>
-<h2 id="substititues-for-processnode">Substititues for <code>ProcessNode</code><a class="headerlink" href="#substititues-for-processnode" title="Permanent link">&para;</a></h2>
+<h2 id="substitutes-for-processnode">Substitutes for <code>ProcessNode</code><a class="headerlink" href="#substitutes-for-processnode" title="Permanent link">&para;</a></h2>
 <h3 id="general_2">General<a class="headerlink" href="#general_2" title="Permanent link">&para;</a></h3>
 <p>The attributes and elements defined for <code>ProcessNode</code> are inherited by the substitutes for <code>ProcessNode</code>. This section defines the available substitutes for the generalized <code>ProcessNode</code> element.</p>
 <p>The <code>inBitDepth</code> of a <code>ProcessNode</code> must match the <code>outBitDepth</code> of the preceding <code>ProcessNode</code> (if any).</p>
@@ -869,8 +869,7 @@ Supported values are:</p>
 <dt><em>Attributes:</em></dt>
 <dt><code>dim</code> (required)</dt>
 <dd>
-<p>four integers that reperesent the dimensions of the 3D <abbr title="look-up table">LUT</abbr> and the number of color com-
-ponents. The first three values define the dimensions of the <abbr title="look-up table">LUT</abbr> and if multiplied shall equal the number of entries actually present in the array. The fourth value indicates the number of components per entry. <br>
+<p>four integers that reperesent the dimensions of the 3D <abbr title="look-up table">LUT</abbr> and the number of color components. The first three values define the dimensions of the <abbr title="look-up table">LUT</abbr> and if multiplied shall equal the number of entries actually present in the array. The fourth value indicates the number of components per entry. <br>
 4 entries have the dimensions of a 3D cube plus the number of components per entry.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -995,7 +994,7 @@ This node specifies a matrix transformation to be applied to the input values. T
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>Array</code> is formatted differently when nit is contained in a LUT1D or LUT3D element (see <a href="#array">Array</a>)</p>
+<p><code>Array</code> is formatted differently when it is contained in a LUT1D or LUT3D element (see <a href="#array">Array</a>)</p>
 </div>
 </div>
 <p><em>Examples:</em>
@@ -1048,22 +1047,23 @@ This node maps the input domain to the output range by scaling and offsetting va
 <div class="arithmatex">\[
     out = \mathrm{MAX}( \texttt{minOutValue}, in \times bitDepthScale)
 \]</div>
-<p>If only the maximum values pairs are provided, the result shall be clamping at the high end, according to:</p>
+<p>Values must be set such that <span class="arithmatex">\(\texttt{minOutValue} = \texttt{minInValue} \times bitDepthScale\)</span>.</p>
+<p>Likewaise, if only the maximum values pairs are provided, the result shall be clamping at the high end, according to:</p>
 <div class="arithmatex">\[
     out = \mathrm{MIN}( \texttt{maxOutValue}, in \times bitDepthScale)
 \]</div>
-<p>where:</p>
+<p>And values must be set such that <span class="arithmatex">\(\texttt{maxOutValue} = \texttt{maxInValue} \times bitDepthScale\)</span>.</p>
+<p>The following formulas are used in the above equations:</p>
 <div class="arithmatex">\[
-bitDepthScale = \dfrac{\mathrm{SIZE}(\texttt{outBitDepth})}{\mathrm{SIZE}(\texttt{inBitDepth})}
+bitDepthScale = \dfrac{\mathrm{scaleFactor}(\texttt{outBitDepth})}{\mathrm{scaleFactor}(\texttt{inBitDepth})}
 \]</div>
 <div class="arithmatex">\[
-\mathrm{SIZE}(a) =
+\mathrm{scaleFactor}(a) =
 \begin{cases}
     2^{bitDepth}-1 &amp; \text{when }a \in \{\texttt{"8i"},\texttt{"10i"},\texttt{"12i"},\texttt{"16i"}\} \\
     1.0 &amp; \text{when }a \in \{\texttt{"16f"},\texttt{"32f"}\}
 \end{cases}
 \]</div>
-<p>In both instances, values must be set such that <span class="arithmatex">\(\texttt{maxOutValue} = \texttt{maxInValue} \times bitDepthScale\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The bit depth scale factor intentionally uses <span class="arithmatex">\(2^{bitDepth}−1\)</span> and not <span class="arithmatex">\(2^{bitDepth}\)</span>. This means that the scale factor created for scaling between different bit depths is "non-integer" and is slightly different depending on the bit depths being scaled between. While instinct might be that this scale should be a clean bit-shift factor (i.e. <span class="arithmatex">\(2\times\)</span> or <span class="arithmatex">\(4\times\)</span> scale), testing with a few example values plugged into the formula will show that the resulting non-integer scale is the correct and intended behavior.</p>
@@ -1078,11 +1078,9 @@ bitDepthScale = \dfrac{\mathrm{SIZE}(\texttt{outBitDepth})}{\mathrm{SIZE}(\textt
 The <code>maxInValue</code> shall be greater than the <code>minInValue</code>.</dd>
 <dt><code>minOutValue</code> (optional)</dt>
 <dd>The minimum output value. Required if <code>minInValue</code> is present.</dd>
-</dl>
-<p><code>maxOutValue</code> (optional)
-:The maximum output value. Required if <code>maxInValue</code> is present. <br>
-The <code>maxOutValue</code> shall be greater than or equal to the <code>minOutValue</code>.</p>
-<dl>
+<dt><code>maxOutValue</code> (optional)</dt>
+<dd>The maximum output value. Required if <code>maxInValue</code> is present. <br>
+The <code>maxOutValue</code> shall be greater than or equal to the <code>minOutValue</code>.</dd>
 <dt><em>Attributes:</em></dt>
 <dt><code>style</code> (optional)</dt>
 <dd>Describes the preferred handling of the scaling calculation of the <code>Range</code> node. If the style attribute is not present, clamping is performed.<br>
@@ -1121,7 +1119,7 @@ This node contains parameters for processing pixels through a logarithmic or ant
 </div>
 <dl>
 <dt><em>Attributes:</em></dt>
-<dt><code>style</code> (required</dt>
+<dt><code>style</code> (required)</dt>
 <dd>
 <p>specifies the form of the of log function to be applied<br>
 Supported values for ”style” are:</p>
@@ -1139,7 +1137,7 @@ Supported values for ”style” are:</p>
 <dd>
 <p>The formula to be applied for each style is described by the equations below, for all of which:</p>
 <div class="arithmatex">\[
-\texttt{FLT_MIN} = 1.175494e−38
+\texttt{FLT_MIN} = 1.175494 \times 10^{-38}
 \]</div>
 <p><center><span class="arithmatex">\(\textrm{MAX}(a, b)\)</span> returns <span class="arithmatex">\(a\)</span> if <span class="arithmatex">\(a \gt b\)</span> and <span class="arithmatex">\(b\)</span> if <span class="arithmatex">\(b \geq a\)</span></center></p>
 <ul>
@@ -1415,8 +1413,6 @@ x\:s &amp; \text{otherwise}
 </div>
 <dl>
 <dt><em>Elements:</em></dt>
-<dt><code>Description</code> (optional)</dt>
-<dd>See <a href="#processNode">ProcessNode</a></dd>
 <dt><code>ExponentParams</code> (required)</dt>
 <dd>
 <p>contains one or more attributes that provide the values to be used by the enclosing <code>Exponent</code> element. <br>
@@ -1486,7 +1482,8 @@ If this attribute is utilized to target different adjustments per channel, up to
 <h3 id="asc_cdl"><code>ASC_CDL</code><a class="headerlink" href="#asc_cdl" title="Permanent link">&para;</a></h3>
 <p><em>Description:</em><br>
 This node processes values according to the American Society of Cinematographers’ Color Decision List (<abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr>) equations. Color correction using <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> is an industry-wide method of recording and exchanging basic color correction adjustments via parameters that set particular color processing equations.</p>
-<p>The <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> equations are designed to work on an input domain of floating-point values of [0 to 1.0] although values greater than 1.0 can be present. The output data may or may not be clamped depending on the processing style used.</p>
+<p>The <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> equations are designed to work on an input domain of floating-point values of [0 to 1.0] although values greater than 1.0 can be present. The output data may or may not be clamped depending on the processing style used. </p>
+<p>If the <code>style</code>attribute is not specified, the node shall default to <code>"Fwd"</code> - i.e. the classic implementation of the v1.2 <abbr title="American Society of Cinematographers">ASC</abbr>-<abbr title="Color Decision List">CDL</abbr> equations.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Equations 4.31-4.34 assume that <span class="arithmatex">\(in\)</span> and <span class="arithmatex">\(out\)</span> are scaled to normalized floating-point range. If the <code>ASC_CDL</code> node has <code>inBitDepth</code> or <code>outBitDepth</code> that are integer types, then the input or output values must be normalized to or from 0-1 scaling. In other words, the slope, offset, power, and saturation values stored in the <code>ProcessNode</code> do not depend on <code>inBitDepth</code> and <code>outBitDepth</code>; they are always interpreted as if the bit depths were float.</p>
@@ -1495,12 +1492,12 @@ This node processes values according to the American Society of Cinematographers
 <dl>
 <dt><code>id</code> (optional)</dt>
 <dd>This should match the id attribute of the ColorCorrection element in the <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> <abbr title="Extensible Markup Language">XML</abbr> format.</dd>
-<dt><code>style</code> (required)</dt>
+<dt><code>style</code></dt>
 <dd>
 <p>Determines the formula applied by the operator. The valid options are:</p>
 <dl>
-<dt><code>"Fwd"</code></dt>
-<dd>implementation of v1.2 <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> equation</dd>
+<dt>`"Fwd"</dt>
+<dd>implementation of v1.2 <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> equation (default)</dd>
 <dt><code>"Rev"</code></dt>
 <dd>inverse equation</dd>
 <dt><code>"FwdNoClamp"</code></dt>
@@ -1988,7 +1985,7 @@ V(r,g,b)_{t6} = \mathbf{\Delta}^T_t \mathbf{T}_6 \mathbf{V}
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 4, 2023</span>
       
     
   </small>
@@ -2093,7 +2090,7 @@ V(r,g,b)_{t6} = \mathbf{\Delta}^T_t \mathbf{T}_6 \mathbf{V}
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
         <script src="../../js/mathjax.js"></script>
       
