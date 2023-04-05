@@ -565,7 +565,7 @@ $$
 Values must be set such that $\texttt{minOutValue} = \texttt{minInValue} \times bitDepthScale$.
 
 
-Likewaise, if only the maximum values pairs are provided, the result shall be clamping at the high end, according to:
+Likewise, if only the maximum values pairs are provided, the result shall be clamping at the high end, according to:
 
 $$
     out = \mathrm{MIN}( \texttt{maxOutValue}, in \times bitDepthScale)
