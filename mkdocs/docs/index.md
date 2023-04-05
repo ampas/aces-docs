@@ -34,25 +34,25 @@ Describes methods to create Input Transforms (IDTs) for use within ACES.
 ### [:fontawesome-solid-fill-drip:{ .icons } Look Modification Transforms](tb/lmt/)
 Describes the design, integration and use of Look Modification Transforms.
 
-### [:fontawesome-solid-file-code:{ .icons } Reference Gamut Compression Specification](specifications/rgc/) :material-new-box:{ .new-icons }
+### [:fontawesome-solid-file-code:{ .icons } Reference Gamut Compression Specification](specifications/rgc/)
 Specifies a Look Transform to bring pixel values within AP1.
 
-### [:material-arrow-collapse:{ .icons } Reference Gamut Compression User Guide](guides/rgc-user/) :material-new-box:{ .new-icons }
+### [:material-arrow-collapse:{ .icons } Reference Gamut Compression User Guide](guides/rgc-user/)
 Describes suggested user workflows for on set, dailies, visual effects, and finishing using the ACES Reference Gamut Compression (RGC)
 
-### [:fontawesome-solid-file-code:{ .icons } Reference Gamut Compression Implementation Guide](guides/rgc-implementation/) :material-new-box:{ .new-icons }
+### [:fontawesome-solid-file-code:{ .icons } Reference Gamut Compression Implementation Guide](guides/rgc-implementation/)
 Implementation guidelines related to the usage of the Reference Gamut Compression.
 
 ### [:fontawesome-solid-file-code:{ .icons } Common LUT Format (CLF) Specification](specifications/clf/)
 Specifies a flexible XML-based file format for color Look-Up Tables (LUTs) and other basic image operators.
 
-### [:fontawesome-solid-file-code:{ .icons } Common LUT Format (CLF) Implementation Guide](guides/clf/) :material-new-box:{ .new-icons }
+### [:fontawesome-solid-file-code:{ .icons } Common LUT Format (CLF) Implementation Guide](guides/clf/)
 Implementation guidelines related to the usage of the Common LUT Format.
 
 ### [:fontawesome-solid-file-code:{ .icons } ACES Metadata File (AMF) Specification](https://www.dropbox.com/s/4phjfkae2gykctt/S-2019-001.pdf?dl=0)
 Specifies a ‘sidecar’ XML file intended to exchange the metadata required to recreate ACES viewing pipelines.
 
-### [:fontawesome-solid-file-code:{ .icons } ACES Metadata File (AMF) Implementation Guidelines and Best Practices](guides/amf/) :material-new-box:{ .new-icons }
+### [:fontawesome-solid-file-code:{ .icons } ACES Metadata File (AMF) Implementation Guidelines and Best Practices](guides/amf/)
 Implementation guidelines and best practices related to the usage of the ACES Metadata File (AMF) in various workflows
 
 
