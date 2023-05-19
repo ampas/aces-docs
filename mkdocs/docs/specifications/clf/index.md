@@ -626,9 +626,9 @@ The options for `style` are:
 <Range inBitDepth="10i" outBitDepth="10i">
 	<Description>10-bit full range to SMPTE range</Description>
 	<minInValue>0</minInValue>
-	<maxInValue>1023</minInValue>
+	<maxInValue>1023</maxInValue>
 	<minOutValue>64</minOutValue>
-	<maxOutValue>940</minOutValue>
+	<maxOutValue>940</maxOutValue>
 </Range>
 ```
 <figcaption align="center" markdown="1">
