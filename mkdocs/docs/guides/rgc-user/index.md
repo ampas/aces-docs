@@ -113,6 +113,11 @@ in to image data at the appropriate stage in the pipeline - which varies based
 on the needs of your production, as outlined in the flow chart and explained
 below.
 
+Several DCCs, and OCIOv2.1, have already implemented the Reference Gamut
+Compression natively, but for those who need to use an application or version
+without native support, various implementations are provided as a stop-gap
+solution in [this GitHub repo](https://github.com/ampas/aces-vwg-gamut-mapping-2020/tree/master/reference).
+
 
 ### On Set
 #### Live Grading
