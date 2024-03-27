@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="227px" preserveAspectRatio="none" style="width:918px;height:227px;" version="1.1" viewBox="0 0 918 227" width="918px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="7" y="91"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="44" x="122.5" y="104.1387">amfInfo</text><line style="stroke:#000000;stroke-width:1.5;" x1="8" x2="281" y1="108.9688" y2="108.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="76" x="13" y="122.251">aces:infoType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="8" x2="281" y1="128.6094" y2="128.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="425.5" y="21.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="25.9688" y2="25.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="328" y="39.251">xs:string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="45.6094" y2="45.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="64"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="38" x="440.5" y="77.1387">author</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="81.9688" y2="81.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="91" x="328" y="95.251">aces:authorType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="101.6094" y2="101.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="33" x="758" y="20.1387">name</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="24.9688" y2="24.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="44" x="643" y="38.251">xs:string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="44.6094" y2="44.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="63"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="83" x="733" y="76.1387">emailAddress</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="80.9688" y2="80.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="128" x="643" y="94.251">aces:emailAddressType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="100.6094" y2="100.6094"/><rect fill="#FFFFFF" height="37.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="121"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="56" x="431.5" y="134.1387">dateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="138.9688" y2="138.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="108" x="328" y="152.251">aces:dateTimeType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="119"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="721.5" y="132.1387">creationDateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="136.9688" y2="136.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="67" x="643" y="150.251">xs:dateTime</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="156.6094" y2="156.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="175"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="130" x="709.5" y="188.1387">modificationDateTime</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="192.9688" y2="192.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="67" x="643" y="206.251">xs:dateTime</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="212.6094" y2="212.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="169"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="447" y="182.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="186.9688" y2="186.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="328" y="200.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="206.6094" y2="206.6094"/><!--MD5=[c0906f46fa81be371ed53d4120ea2545]
+link amfInfo.root to amfInfo.description--><path codeLine="54" d="M145,90.88 C145,66.321 145,31 145,31 C145,31 316.556,31 316.556,31 " fill="none" id="amfInfo.root-to-amfInfo.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,31,312.556,27,316.556,31,312.556,35,321.556,31" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[d75c1269b00a3557d7e5f0a6aaeecb1b]
+link amfInfo.root to amfInfo.author--><path codeLine="55" d="M282.205,100.5 C282.205,100.5 316.627,100.5 316.627,100.5 " fill="none" id="amfInfo.root-to-amfInfo.author" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.627,100.5,312.627,96.5,316.627,100.5,312.627,104.5,321.627,100.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[bdb926176cebd80a089c6daf3a0658e1]
+link amfInfo.root to amfInfo.dateTime--><path codeLine="56" d="M282.205,129 C282.205,129 316.627,129 316.627,129 " fill="none" id="amfInfo.root-to-amfInfo.dateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.627,129,312.627,125,316.627,129,312.627,133,321.627,129" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f94ca94c23c3af8f620c5b74267b330c]
+link amfInfo.root to amfInfo.uuid--><path codeLine="57" d="M145,137.4026 C145,160.378 145,192 145,192 C145,192 316.556,192 316.556,192 " fill="none" id="amfInfo.root-to-amfInfo.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,192,312.556,188,316.556,192,312.556,196,321.556,192" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f9e1759156f752eda47957b2ba369445]
+link amfInfo.author to amfInfo.name--><path codeLine="59" d="M597.204,79 C613.231,79 624,79 624,79 C624,79 624,30.5 624,30.5 C624,30.5 631.832,30.5 631.832,30.5 " fill="none" id="amfInfo.author-to-amfInfo.name" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.832,30.5,627.832,26.5,631.832,30.5,627.832,34.5,636.832,30.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[8638a72c694189ccfc891e109f863d31]
+link amfInfo.author to amfInfo.emailAddress--><path codeLine="60" d="M597.205,94 C597.205,94 631.627,94 631.627,94 " fill="none" id="amfInfo.author-to-amfInfo.emailAddress" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,94,627.627,90,631.627,94,627.627,98,636.627,94" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e37f42697d048360b00b1e2954179f25]
+link amfInfo.dateTime to amfInfo.creationDateTime--><path codeLine="62" d="M597.205,133.6667 C597.205,133.6667 631.627,133.6667 631.627,133.6667 " fill="none" id="amfInfo.dateTime-to-amfInfo.creationDateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,133.6667,627.627,129.6667,631.627,133.6667,627.627,137.6667,636.627,133.6667" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[df8aa2b13faa0229acc8f1ed7720fb0c]
+link amfInfo.dateTime to amfInfo.modificationDateTime--><path codeLine="63" d="M597.019,146.3333 C605.674,146.3333 611,146.3333 611,146.3333 C611,146.3333 611,195 611,195 C611,195 631.907,195 631.907,195 " fill="none" id="amfInfo.dateTime-to-amfInfo.modificationDateTime" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.907,195,627.907,191,631.907,195,627.907,199,636.907,195" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[647fc46a146eefb1a9fb9ec65f2f4fbc]
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure info($as, $type="")
+	object "$as" as $as.root {
+		!if %strlen($type) > 0
+			$type
+		!else
+			%string("aces:" + $as + "Type")
+		!endif
+		..
+	}
+	object "description" as $as.description {
+		xs:string
+		..
+	}
+	object "author" as $as.author {
+		aces:authorType
+		..
+	}
+	object "name" as $as.name {
+		xs:string
+		..
+	}
+	object "emailAddress" as $as.emailAddress {
+		aces:emailAddressType
+		..
+	}
+	object "dateTime" as $as.dateTime {
+		aces:dateTimeType
+	}
+	object "creationDateTime" as $as.creationDateTime {
+		xs:dateTime
+		..
+	}
+	object "modificationDateTime" as $as.modificationDateTime {
+		xs:dateTime
+		..
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	$as.root - -> $as.description
+	$as.root - -> $as.author
+	$as.root - -> $as.dateTime
+	$as.root - -> $as.uuid
+
+	$as.author - -> $as.name
+	$as.author - -> $as.emailAddress
+
+	$as.dateTime - -> $as.creationDateTime
+	$as.dateTime - -> $as.modificationDateTime
+!end procedure
+
+info(amfInfo, "aces:infoType")
+@enduml
+
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+
+	object "amfInfo" as amfInfo.root {
+			aces:infoType
+		..
+	}
+	object "description" as amfInfo.description {
+		xs:string
+		..
+	}
+	object "author" as amfInfo.author {
+		aces:authorType
+		..
+	}
+	object "name" as amfInfo.name {
+		xs:string
+		..
+	}
+	object "emailAddress" as amfInfo.emailAddress {
+		aces:emailAddressType
+		..
+	}
+	object "dateTime" as amfInfo.dateTime {
+		aces:dateTimeType
+	}
+	object "creationDateTime" as amfInfo.creationDateTime {
+		xs:dateTime
+		..
+	}
+	object "modificationDateTime" as amfInfo.modificationDateTime {
+		xs:dateTime
+		..
+	}
+	object "uuid" as amfInfo.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	amfInfo.root - -> amfInfo.description
+	amfInfo.root - -> amfInfo.author
+	amfInfo.root - -> amfInfo.dateTime
+	amfInfo.root - -> amfInfo.uuid
+
+	amfInfo.author - -> amfInfo.name
+	amfInfo.author - -> amfInfo.emailAddress
+
+	amfInfo.dateTime - -> amfInfo.creationDateTime
+	amfInfo.dateTime - -> amfInfo.modificationDateTime
+@enduml
+
+PlantUML version 1.2021.3beta4(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

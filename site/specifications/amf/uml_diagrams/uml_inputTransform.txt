@@ -1,0 +1,71 @@
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure transform($as, $tn="", $attr="")
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+		!if %strlen($attr) > 0
+			$attr
+		!endif
+	}
+	object "description" as $as.description {
+		xs: string
+		..
+	}
+	object "hash" as $as.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as $as.transformId {
+		!if %strlen($tn) > 0
+			$tn
+		!else
+			!$pre = "aces:tn"
+			!$cap = %upper(%substr($as,0,1))
+			!$post = %substr($as,1,%strlen($as))
+			%string($pre + $cap + $post)
+		!endif
+		..
+	}
+
+	$as.root --> $as.description
+	$as.root --> $as.hash
+	$as.root --> $as.uuid
+	$as.root --> $as.file
+	$as.root --> $as.transformId
+!end procedure
+
+!unquoted procedure inputTransform($as)
+	transform($as, $attr="+ applied : xs:bool")
+	transform(inverseOutputTransform)
+	transform(inverseOutputDeviceTransform)
+	transform(inverseReferenceRenderingTransform)
+
+	$as.root --> inverseOutputTransform.root
+	$as.root --> inverseOutputDeviceTransform.root
+	$as.root --> inverseReferenceRenderingTransform.root
+!end procedure
+
+inputTransform(inputTransform)
+
+@enduml

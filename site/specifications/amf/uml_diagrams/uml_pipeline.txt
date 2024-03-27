@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+object pipeline {
+	aces:pipelineType
+	..
+}
+
+object pipelineInfo {
+	aces:pipelineInfoType
+	..
+}
+
+object inputTransform {
+	aces:inputTransformType
+	..
+	+ applied : xs:bool
+}
+
+object lookTransform {
+	aces:lookTransformType
+	..
+	+ applied : xs:bool
+}
+
+object outputTransform {
+	aces:outputTransformType
+	..
+}
+
+pipeline --> pipelineInfo
+pipeline --> inputTransform
+pipeline --> lookTransform
+pipeline --> outputTransform
+
+
+@enduml
