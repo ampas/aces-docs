@@ -1,12 +1,8 @@
-site_name: ACES Technical Documentation
-copyright: Copyright &copy; 2022 Academy of Motion Picture Arts & Sciences
+site_name: ACES Documentation
+copyright: Copyright &copy; 2024 Academy of Motion Picture Arts & Sciences
 
-repo_url: https://github.com/ampas/aces-dev
-repo_name: aces-dev
-edit_uri: https://github.com/ampas/aces-docs/edit/dev/mkdocs/docs
-
-site_dir: /site
-docs_dir: mkdocs/docs
+site_dir: site
+docs_dir: docs
 
 extra:
   generator: false
@@ -29,14 +25,19 @@ extra_css:
 
 theme:
   name: 'material'
-  # custom_dir: mkdocs/overrides
+  # custom_dir: overrides
   features:
     - navigation.tabs
-  #  - navigation.indexes
+    - navigation.tabs.sticky
+    - navigation.sections
     - navigation.tracking
     - navigation.expand
     - navigation.top
     - navigation.instant
+    - navigation.instant.progress
+    - navigation.prue
+    - toc.follow
+    - content.tooltips
   favicon: assets/images/favicon.png
   logo: assets/images/logo.png
   font:
@@ -44,16 +45,26 @@ theme:
   icon:
     repo: fontawesome/brands/github
   palette:
-  - media: "(prefers-color-scheme: light)" 
-    scheme: aces-light
-    toggle:
-      icon: material/toggle-switch-off-outline
-      name: Switch to dark mode
-  - media: "(prefers-color-scheme: dark)" 
-    scheme: slate
-    toggle:
-      icon: material/toggle-switch
-      name: Switch to light mode
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: aces-light 
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to system preference
 
 markdown_extensions:
   - pymdownx.arithmatex:
@@ -64,9 +75,11 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.snippets
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.snippets:
+      auto_append:
+        - includes/acronyms.md
   - pymdownx.magiclink
   - attr_list
   - md_in_html
@@ -96,5 +109,29 @@ plugins:
       enabled: true
 
 nav:
-  - 'ACES Documentation': index.md
+  - 'ACES Documentation': 
+    - 'Getting Started': index.md
+    - 'System Overview': overview.md
+  - 'System Component Documentation':
+    - 'Overview': system-components/overview/index.md
+    - 'Organization': system-components/organization/index.md
+    - 'Encodings':
+      - 'ACEScg':
+        - 'Specification': specifications/acescg/index.md
+      - 'ACES 2065-1': 
+        - 'Specification': specifications/aces2065/index.md
+    - 'Transforms':
+      - 'Reference Gamut Compression':
+        - 'Specification': specifications/rgc/index.md
+        - 'User Guide': guides/rgc-user/index.md
+        - 'Implementation Guide': guides/rgc-implementation/index.md
+    - 'File Formats':
+      - 'ACES Container':
+        - 'Specification': specifications/aces-container/index.md
+      - 'ACES Metadata File':
+        - 'Specification': specifications/amf/index.md
+        - 'User Guide': guides/amf/index.md
+  - 'Recommended Procedures': procedures/index.md
+  - 'Workflow Guides': workflows/index.md
+  - 'Production Tool Guides':  tools/index.md
   - 'Glossary': glossary/index.md
