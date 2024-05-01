@@ -1,5 +1,7 @@
 ## ACES Documentation
 
+[![CLA assistant](https://cla-assistant.io/readme/badge/ampas/aces-docs)](https://cla-assistant.io/ampas/aces-docs)
+
 This repository contains the code used to generate the ACES documentation website hosted at [https://docs.acescentral.com](https://docs.acescentral.com).
 
 The docs at the above link should be considered the most up-to-date. Prior to this online documentation system, PDFs were rendered from LaTeX source. The LaTeX source remains available in the history of this repository but should be considered out of date unless explictly linked to by this website.
