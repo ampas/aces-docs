@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" baseProfile="basic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 639.32 371.9" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{display:none;fill:none;stroke:#BFBFBF;stroke-width:0.75;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#BFBFBF;stroke-width:0.75;stroke-miterlimit:10;}
+	.st3{display:none;fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#BFBFBF;stroke-width:0.75;stroke-miterlimit:10;stroke-dasharray:6.1002,2.0334;}
+	.st6{fill:none;stroke:#BFBFBF;stroke-width:0.75;stroke-miterlimit:10;stroke-dasharray:5.9357,1.9786;}
+	.st7{font-family:'TimesNewRomanPS-ItalicMT';}
+	.st8{font-size:12px;}
+	.st9{display:none;}
+	.st10{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st11{font-family:'MyriadPro-Regular';}
+	.st12{fill:none;stroke:#BFBFBF;stroke-miterlimit:10;}
+	.st13{fill:none;stroke:#BFBFBF;stroke-miterlimit:10;stroke-dasharray:6.0139,2.0046;}
+	.st14{fill:none;stroke:#BFBFBF;stroke-miterlimit:10;stroke-dasharray:5.9699,1.99;}
+	.st15{fill:#C00000;}
+	.st16{fill:none;stroke:#231F20;stroke-width:0.5;stroke-miterlimit:10;}
+	.st17{fill:#231F20;}
+	.st18{font-size:18px;}
+</style>
+<g id="Background">
+	<rect class="st0" width="639.32" height="371.9"/>
+</g>
+<g id="Intersections">
+	<line class="st1" x1="359.95" y1="105.68" x2="85.58" y2="342.04"/>
+	<line class="st2" x1="560.64" y1="47.5" x2="95.58" y2="342.04"/>
+	<line class="st3" x1="359.95" y1="105.68" x2="85.58" y2="142"/>
+	<line class="st4" x1="95.58" y1="226.12" x2="352.57" y2="253.64"/>
+	<line class="st4" x1="94.86" y1="165.92" x2="429.37" y2="201.74"/>
+	<g>
+		<line class="st2" x1="264.57" y1="342.04" x2="264.57" y2="339.04"/>
+		<line class="st5" x1="264.57" y1="337.01" x2="264.57" y2="248.55"/>
+		<line class="st2" x1="264.57" y1="247.54" x2="264.57" y2="244.54"/>
+	</g>
+	<g>
+		<line class="st2" x1="333.24" y1="342.04" x2="333.24" y2="339.04"/>
+		<line class="st6" x1="333.24" y1="337.06" x2="333.24" y2="195.59"/>
+		<line class="st2" x1="333.24" y1="194.61" x2="333.24" y2="191.61"/>
+	</g>
+	<line class="st4" x1="91.83" y1="226.16" x2="95.58" y2="226.16"/>
+	<text transform="matrix(1 0 0 1 42.7984 229.2589)" class="st7 st8">intersectJ</text>
+	<line class="st4" x1="91.11" y1="165.89" x2="94.86" y2="165.89"/>
+	<text transform="matrix(1 0 0 1 6.4747 168.7361)" class="st7 st8">intersectReach J′</text>
+	<line class="st3" x1="81.83" y1="142.16" x2="85.58" y2="142.16"/>
+	<text transform="matrix(1 0 0 1 13.4507 145.0157)" class="st9 st7 st8">intersectCusp</text>
+	<line class="st4" x1="264.57" y1="345.79" x2="264.57" y2="342.04"/>
+	<text transform="matrix(1 0 0 1 236.5699 355.5211)" class="st7 st8">boundaryM</text>
+	<line class="st4" x1="333.37" y1="345.79" x2="333.37" y2="342.04"/>
+	<text transform="matrix(1 0 0 1 314.5809 355.5211)" class="st7 st8">reachM</text>
+	<line class="st4" x1="560.71" y1="345.79" x2="560.71" y2="342.04"/>
+	<text transform="matrix(1 0 0 1 529.5792 355.5211)" class="st7 st8">reachCuspM</text>
+	<path class="st10" d="M573.92,28.86c-21.04,31.52-113.83,149.19-256.85,232.22c-66.48,38.59-134.57,72.67-221.49,81.06"/>
+	<text transform="matrix(1 0 0 1 469.4772 159.6003)" class="st11 st8">Reach gamut</text>
+	<text transform="matrix(1 0 0 1 573.9181 53.6046)" class="st11 st8">Reach ‘cusp’</text>
+	<g>
+		<line class="st12" x1="95.58" y1="47.5" x2="98.58" y2="47.5"/>
+		<line class="st13" x1="100.58" y1="47.5" x2="556.64" y2="47.5"/>
+		<line class="st12" x1="557.64" y1="47.5" x2="560.64" y2="47.5"/>
+	</g>
+	<g>
+		<line class="st12" x1="560.64" y1="342.04" x2="560.64" y2="339.04"/>
+		<line class="st14" x1="560.64" y1="337.05" x2="560.64" y2="51.49"/>
+		<line class="st12" x1="560.64" y1="50.5" x2="560.64" y2="47.5"/>
+	</g>
+	<circle id="intersection_00000169547495036507811530000013864296956349157288_" class="st15" cx="333.24" cy="251.57" r="2.31"/>
+	<circle id="intersection_00000045597070578873338390000015326443996336150692_" class="st15" cx="333.24" cy="191.52" r="2.31"/>
+	<circle id="intersection_00000181045116270967843360000002315067409878716811_" class="st15" cx="264.57" cy="244.22" r="2.31"/>
+	<circle id="intersection_00000124873190487814312090000011003055671146195096_" class="st15" cx="560.64" cy="47.5" r="2.31"/>
+	<text transform="matrix(1 0 0 1 284.8218 131.1558)" class="st11 st8">Target gamut</text>
+</g>
+<g id="Axes">
+	<g id="J-axis_00000001643641551235428610000007103196612251642021_">
+		<line class="st16" x1="95.58" y1="34.89" x2="95.58" y2="347.04"/>
+		<g>
+			<path class="st17" d="M95.58,28.86c-1.05,2.84-2.85,6.36-4.76,8.55l4.76-1.72l4.75,1.72C98.43,35.22,96.63,31.7,95.58,28.86z"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 85.6566 28.8595)" class="st11 st18">J</text>
+	<g id="M-axis_00000132068222981785361750000013304946537804100008_">
+		<line class="st16" x1="90.58" y1="342.04" x2="596.61" y2="342.04"/>
+		<g>
+			<path class="st17" d="M602.64,342.04c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75
+				C596.28,339.19,599.8,340.99,602.64,342.04z"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 603.6433 355.5211)" class="st11 st18">M</text>
+</g>
+<g id="Boundary">
+	<path class="st10" d="M369.95,105.68c-12.07,23.78-65.29,112.56-147.33,175.21c-38.13,29.12-77.18,54.83-127.04,61.16"/>
+	<path class="st10" d="M95.58,47.5c42.75,3.26,96.24,9.8,155.24,23.12c47.47,10.72,87.28,23.31,119.13,35.06"/>
+	<line class="st4" x1="91.83" y1="47.5" x2="95.58" y2="47.5"/>
+	<text transform="matrix(1 0 0 1 63.9722 47.4952)" class="st7 st18">J</text>
+	<text transform="matrix(0.583 0 0 0.583 71.9615 53.4893)" class="st7 st18">max</text>
+</g>
+</svg>
