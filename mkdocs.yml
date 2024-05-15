@@ -123,7 +123,10 @@ nav:
       - 'ACESproxy': acesproxy/index.md
     - 'Transforms':
       - 'Reference Gamut Compression': rgc/specification/index.md
-      - 'Output Transforms': output-transforms/specification/ot-gamut-compression/index.md
+      - 'Output Transforms': 
+        - output-transforms/technical-details/index.md
+        - 'Chroma Compression': output-transforms/technical-details/chroma-compression/index.md
+        - 'Gamut Compression': output-transforms/technical-details/gamut-compression/index.md
     - 'File Formats':
       - 'ACES Metadata File': 
         - 'Specification': amf/specification/index.md
