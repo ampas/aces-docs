@@ -112,26 +112,26 @@ nav:
   - 'ACES Documentation': 
     - 'Getting Started': index.md
     - 'System Overview': overview.md
-  - 'System Component Documentation':
+    - 'Component Names': component-names/index.md
+  - 'Technical Documentation':
     - 'Overview': system-components/overview/index.md
     - 'Organization': system-components/organization/index.md
     - 'Encodings':
-      - 'ACEScg':
-        - 'Specification': specifications/acescg/index.md
-      - 'ACES 2065-1': 
-        - 'Specification': specifications/aces2065/index.md
+      - 'ACEScg': acescg/index.md
+      - 'ACEScct': acescct/index.md
+      - 'ACEScc': acescc/index.md
+      - 'ACESproxy': acesproxy/index.md
     - 'Transforms':
-      - 'Reference Gamut Compression':
-        - 'Specification': specifications/rgc/index.md
-        - 'User Guide': guides/rgc-user/index.md
-        - 'Implementation Guide': guides/rgc-implementation/index.md
+      - 'Reference Gamut Compression': rgc/specification/index.md
+      - 'Output Transforms': output-transforms/specification/ot-gamut-compression/index.md
     - 'File Formats':
-      - 'ACES Container':
-        - 'Specification': specifications/aces-container/index.md
-      - 'ACES Metadata File':
-        - 'Specification': specifications/amf/index.md
-        - 'User Guide': guides/amf/index.md
+      - 'ACES Metadata File': 
+        - 'Specification': amf/specification/index.md
+        - 'User Guide': amf/guides/index.md
+      - 'Common LUT Format': 
+        - 'Specification': clf/specification/index.md
+        - 'Implementation Guide': clf/guides/index.md
   - 'Recommended Procedures': procedures/index.md
-  - 'Workflow Guides': workflows/index.md
+  - 'User Guides': workflows/index.md
   - 'Production Tool Guides':  tools/index.md
   - 'Glossary': glossary/index.md
