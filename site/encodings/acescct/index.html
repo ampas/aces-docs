@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../overview/">
+        <link rel="prev" href="../acescg/">
       
       
-        <link rel="next" href="../../encodings/overview/">
+        <link rel="next" href="../acescc/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Organization - ACES Documentation</title>
+        <title>ACEScct Specification - ACES Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aces-compenents" class="md-skip">
+        <a href="#acescct-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Organization
+              ACEScct Specification
             
           </span>
         </div>
@@ -230,7 +230,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
+        <a href="../../system-components/overview/" class="md-tabs__link">
           
   
   Technical Documentation
@@ -511,11 +511,140 @@
   
   
     <li class="md-nav__item">
+      <a href="../../system-components/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-components/organization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Organization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Encodings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Encodings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aces2065/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACES2065-1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acescg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACEScg
   </span>
   
 
@@ -545,7 +674,7 @@
           
   
   <span class="md-ellipsis">
-    Organization
+    ACEScct
   </span>
   
 
@@ -556,7 +685,7 @@
         
   
   <span class="md-ellipsis">
-    Organization
+    ACEScct
   </span>
   
 
@@ -578,20 +707,104 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Github
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
+  <a href="#scope" class="md-nav__link">
     <span class="md-ellipsis">
-      Rationale
+      Scope
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-component-value-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color component value encoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color space chromaticities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acescct" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACEScct
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#appendix-a-application-of-asc-cdl-parameters-to-acescct-image-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix A: Application of ASC CDL parameters to ACEScct image data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -610,137 +823,8 @@
   
   
   
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Encodings
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
-            Encodings
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../../encodings/overview/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../encodings/aces2065/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ACES2065-1
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../encodings/acescg/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ACEScg
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../encodings/acescct/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ACEScct
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../encodings/acescc/" class="md-nav__link">
+      <a href="../acescc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1321,20 +1405,104 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Github
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
+  <a href="#scope" class="md-nav__link">
     <span class="md-ellipsis">
-      Rationale
+      Scope
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specification
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-component-value-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color component value encoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#color-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Color space chromaticities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acescct" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACEScct
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Appendices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#appendix-a-application-of-asc-cdl-parameters-to-acescct-image-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Appendix A: Application of ASC CDL parameters to ACEScct image data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1353,25 +1521,250 @@
                   
 
 
-<h1 id="aces-compenents"><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Compenents<a class="headerlink" href="#aces-compenents" title="Permanent link">&para;</a></h1>
-<p>The <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system consists of the many Academy-supplied transforms – standard color space conversions, inputs, outputs, looks, and utilities – as well as vendor or user-contributed transforms – also including color space conversions, inputs, outputs, looks, and utilities – and finally documentation and metadata files.</p>
-<h2 id="github">Github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h2>
-<p>The <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> components are distributed across a few separate Github repositories:</p>
+<h1 id="acescct-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems">ACEScct – A Quasi-Logarithmic Encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Data for use within Color Grading Systems<a class="headerlink" href="#acescct-a-quasi-logarithmic-encoding-of-aces-data-for-use-within-color-grading-systems" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The Academy Color Encoding Specification (<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>) defines a common color encoding method using half- precision floating point values corresponding to linear exposure values encoded relative to a fixed set of extended-gamut <abbr title="Red, Green, and Blue">RGB</abbr> primaries. Many digital-intermediate color grading systems have been engineered assuming image data with primaries similar to the grading display and a logarithmic relationship between relative scene exposures and image code values.</p>
+<p>This document describes a 32-bit single precision floating-point logarithm encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> known as ACEScct.</p>
+<p>ACEScct uses values above 1.0 and below 0.0 to encode the entire range of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values. ACEScct values should not be clamped except as part of color correction needed to produce a desired artistic intent.</p>
+<p>There is no image file container format specified for use with ACEScct as the encoding is intended to be transient and internal to software or hardware systems, and is specifically not intended for interchange or archiving.</p>
+<p>For <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values greater than 0.0078125, the ACEScct encoding function is identical to the pure-log encoding function of ACEScc. Below this point, the addition of a ”toe” results in a more distinct ”milking” or ”fogging” of shadows when a lift operation is applied when compared to the same operation applied in ACEScc. This difference in grading behavior is provided in response to colorist requests for behavior more similar to that of traditional legacy log film scan encodings.</p>
+<h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
+<p>This document describes a 32-bit floating point encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> for use within color grading systems.</p>
+<p>Equivalent functions may be used for implementation purposes as long as correspondence of grading param- eters to this form of log implementation is properly maintained. This document is intended as a guideline to aid developers who are integrating an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> workflow into a color correction system.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<p>The following standards, specifications, articles, presentations, and texts are referenced in this text:</p>
 <ul>
-<li><code>aces-core</code> : Algorithms and maths that are the core of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> rendering transforms</li>
-<li><code>aces-colorspace-and-input</code> : Contains color space definitions and the conversion between them to and/or from <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> (or another color space)<ul>
-<li>All Input Transforms are Color Space Transforms but not all Color Space Transforms are Input Transforms. Some <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Color Space transforms can be used as Input Transforms, or if they convert the other direction, as Inverse Input Transforms</li>
+<li><a href="https://doi.org/10.5594/SMPTE.ST2065-1.2021">ST 2065-1:2021 - <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> Standard - Academy Color Encoding Specification (<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>)</a></li>
+<li><a href="https://doi.org/10.5594/SMPTE.RP177.1993">RP 177:1993 - <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> Recommended Practice - Derivation of Basic Television Color Equations</a></li>
+<li><a href="https://ieeexplore.ieee.org/document/8766229">754-2019 - IEEE Standard for Floating-Point Arithmetic</a></li>
 </ul>
-</li>
-<li><code>aces-output</code> : Transforms that are wrapper functions with preset parameters to common display standards, and which rely on the functions defined in aces-core</li>
-<li><code>aces-look</code> : Transforms that modify the default appearance of images through an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> pipeline. Can be analytical or empirical transforms.</li>
-<li><code>aces-util</code> : Any transforms that are not essential to any of the other categories but might have some use when building a pipeline or debugging (e.g. Unity). Some of these might also be called with certain preset parameters to be used as Look Transforms (e.g. ASC_CDL, exposure adjustment, etc.)</li>
-<li><code>aces-amf</code> : XSD schema and example files for <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Metadata File (<abbr title="ACES Metadata File">AMF</abbr>)</li>
-<li><code>aces-docs</code> : <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> documentation written in markdown and published using mkdocs</li>
-</ul>
-<h2 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link">&para;</a></h2>
-<p>The <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system components are divided across separate repositories to enforce the notion that the system is flexible and extensible, and that new transforms can be added without breaking compatibility with the rest of the system. The addition of a new Input, Output, or Look Transform should have no impact on the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> System Version number. For example, if a new camera is released, an Input Transform can be developed for that camera and contributed to the aces-input repository. This is done independent of the overall <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system and thus does not warrant a change to the current version of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>. </p>
-<p>In the opposite sense, transforms need not be included in an “official” release in order to be deemed usable on an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> project. New transforms can be considered “official” as soon as they have been reviewed and accepted into the repository. Developers can choose to keep up with adding support for new inputs or outputs however best fits into their development cycles. From time to time, we will “roll up” these changes into a commit on the main branch to summarize the new additions and provide a milestone marker against which to compare one’s available presets.</p>
+<h2 id="specification">Specification<a class="headerlink" href="#specification" title="Permanent link">&para;</a></h2>
+<h3 id="naming-conventions">Naming conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h3>
+<p>The quasi-logarithmic encoding of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> specified in this document shall be known as ACEScct.</p>
+<h3 id="color-component-value-encoding">Color component value encoding<a class="headerlink" href="#color-component-value-encoding" title="Permanent link">&para;</a></h3>
+<p>ACEScct values are encoded as 32-bit floating-point numbers. This floating-point encoding uses 32 bits per component as described in IEEE 754.</p>
+<h3 id="color-space">Color space chromaticities<a class="headerlink" href="#color-space" title="Permanent link">&para;</a></h3>
+<p>ACEScct uses a different set of primaries than <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Red, Green, and Blue">RGB</abbr> primaries defined in <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1. The CIE 1931 colorimetry of the ACEScct <abbr title="Red, Green, and Blue">RGB</abbr> primaries and white are specified below.</p>
+<h4 id="color-primaries">Color primaries<a class="headerlink" href="#color-primaries" title="Permanent link">&para;</a></h4>
+<p>The chromaticity values of the <abbr title="Red, Green, and Blue">RGB</abbr> primaries (known as AP1) shall be those found below:</p>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>R</strong></th>
+<th><strong>G</strong></th>
+<th><strong>B</strong></th>
+<th></th>
+<th><strong>CIE x</strong></th>
+<th><strong>CIE y</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Red</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td></td>
+<td>0.713</td>
+<td>0.293</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td></td>
+<td>0.165</td>
+<td>0.830</td>
+</tr>
+<tr>
+<td>Blue</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td></td>
+<td>0.128</td>
+<td>0.044</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption align="center">
+    ACEScct RGB primaries chromaticity values
+</figcaption>
+
+<h4 id="white-point">White point<a class="headerlink" href="#white-point" title="Permanent link">&para;</a></h4>
+<p>The white point shall be:</p>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>R</strong></th>
+<th><strong>G</strong></th>
+<th><strong>B</strong></th>
+<th></th>
+<th><strong>CIE x</strong></th>
+<th><strong>CIE y</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>White</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td></td>
+<td>0.32168</td>
+<td>0.33767</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption align="center">
+    ACEScct RGB white point chromaticity values
+</figcaption>
+
+<h3 id="acescct">ACEScct<a class="headerlink" href="#acescct" title="Permanent link">&para;</a></h3>
+<p>The following functions shall be used to convert between <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values, encoded according to <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1, and ACEScct.</p>
+<h4 id="encoding-function">Encoding Function<a class="headerlink" href="#encoding-function" title="Permanent link">&para;</a></h4>
+<p><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to <span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values using the transformation matrix (<span class="arithmatex">\(TRA_1\)</span>) calculated and applied using the methods provided in Section 4 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.</p>
+<p><span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to ACEScct values according to <a href="#eq-1">Equation 1</a>.</p>
+<p><a name="eq-1"></a></p>
+<div class="arithmatex">\[\begin{equation} 
+    ACEScct = \left\{ 
+    \begin{array}{l l }
+        10.5402377416545 \times lin_{AP1} + 0.0729055341958355;    &amp; \quad lin_{AP1} \leq 0.0078125 \\[10pt]
+        \dfrac{\log_{2}(lin_{AP1}) + 9.72}{17.52}; &amp; \quad lin_{AP1} &gt; 0.0078125 \\    
+    \end{array} \right.
+\end{equation}\]</div>
+<figcaption align="center">
+    <b>Equation 1:</b> Linear AP1 to ACEScct
+</figcaption>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="#eq-2">Equation 2</a> shows the relationship between <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values and <span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values. <span class="arithmatex">\(TRA_{1}\)</span>, rounded to 10 significant digits, is derived from the product of <span class="arithmatex">\(NPM_{AP1}\)</span> inverse and <span class="arithmatex">\(NPM_{AP0}\)</span> calculated using methods provided in Section 3.3 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.<br>
+AP0 are the primaries of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> specified in <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1.<br>
+AP1 are the primaries of ACEScct specified in <a href="#color-space">Color space chromaticities</a>.</p>
+<p><a name="eq-2"></a></p>
+<div class="arithmatex">\[\begin{equation} 
+\begin{bmatrix}
+    R_{lin_{AP1}}\\
+    G_{lin_{AP1}}\\
+    B_{lin_{AP1}}
+\end{bmatrix}
+=
+TRA_{1}
+\cdot
+\begin{bmatrix}
+    R_{ACES}\\
+    G_{ACES}\\
+    B_{ACES}
+\end{bmatrix} \\
+\end{equation}\]</div>
+<div class="arithmatex">\[\begin{equation}
+TRA_{1} =
+\begin{bmatrix}
+    \phantom{-}1.4514393161 &amp; -0.2365107469 &amp; -0.2149285693 \\
+   -0.0765537734 &amp;  \phantom{-}1.1762296998 &amp; -0.0996759264 \\
+    \phantom{-}0.0083161484 &amp; -0.0060324498 &amp;  \phantom{-}0.9977163014 \\
+\end{bmatrix} \\
+\end{equation}\]</div>
+<div class="arithmatex">\[\begin{equation}
+TRA_{1} = NPM^{-1}_{AP1} \cdot NPM_{AP0}
+\end{equation}\]</div>
+<p><figcaption align="center"> 
+    <b>Equation 2:</b> <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> to linear AP1
+</figcaption></p>
+</div>
+<h4 id="decoding-function">Decoding Function<a class="headerlink" href="#decoding-function" title="Permanent link">&para;</a></h4>
+<p>ACEScct <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to <span class="arithmatex">\(lin_{AP1}\)</span> values using <a href="#eq-3">Equation 3</a>.</p>
+<p><a name="eq-3"></a></p>
+<div class="arithmatex">\[\begin{equation}
+    lin_{AP1} = \left\{ 
+    \begin{aligned}
+        &amp;\dfrac{\left(ACEScct-0.0729055341958355\right)}{10.5402377416545};&amp; ACEScct&amp; \leq 0.155251141552511 \\[10pt]
+        &amp;2^{(ACEScct \times 17.52-9.72)}; &amp;0.155251141552511 \leq ACEScct&amp; &lt; \dfrac{\log_{2}(65504)+9.72}{17.52} \\[10pt]
+        &65504; &amp; ACEScct&amp; \geq \dfrac{\log_{2}(65504)+9.72}{17.52} \\    
+    \end{aligned} \right.
+\end{equation}\]</div>
+<figcaption align="center">
+    <b>Equation 3:</b> ACEScct to linear AP1
+</figcaption>
+
+<p><span class="arithmatex">\(lin_{AP1}\)</span> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values shall be converted to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values using the transformation matrix (<span class="arithmatex">\(TRA_{2}\)</span>) calculated and applied using the methods provided in Section 4 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="#eq-4">Equation 4</a> shows the relationship between <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values and ACEScct <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(G\)</span>, and <span class="arithmatex">\(B\)</span> values. <span class="arithmatex">\(TRA_{2}\)</span>, rounded to 10 significant digits, is derived from the product of <span class="arithmatex">\(NPM_{AP0}\)</span> inverse and <span class="arithmatex">\(NPM_{AP1}\)</span> calculated using methods provided in Section 3.3 of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> RP 177:1993.<br>
+AP0 are the primaries of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> specified in <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2065-1.<br>
+AP1 are the primaries of ACEScct specified in <a href="#color-space">Color space chromaticities</a>.</p>
+<p><a name="eq-4"></a></p>
+<div class="arithmatex">\[\begin{equation} 
+    \begin{bmatrix}
+        R_{ACES}\\
+        G_{ACES}\\
+        B_{ACES}
+    \end{bmatrix}
+    =
+    TRA_{2}
+    \cdot
+    \begin{bmatrix}
+        R_{lin_{AP1}}\\
+        G_{lin_{AP1}}\\
+        B_{lin_{AP1}}
+    \end{bmatrix}
+\end{equation}\]</div>
+<div class="arithmatex">\[\begin{equation}
+    TRA_{2} =
+    \begin{bmatrix}
+        \phantom{-}0.6954522414 &amp; 0.1406786965 &amp; 0.1638690622 \\
+        \phantom{-}0.0447945634 &amp; 0.8596711185 &amp; 0.0955343182 \\
+        -0.0055258826 &amp; 0.0040252103 &amp; 1.0015006723 \\
+    \end{bmatrix}
+\end{equation}\]</div>
+<div class="arithmatex">\[\begin{equation}
+    TRA_{2} = NPM^{-1}_{AP0} \cdot NPM_{AP1}
+\end{equation}\]</div>
+<p><figcaption align="center">
+    <b>Equation 4:</b> Linear AP1 to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr>
+</figcaption></p>
+</div>
+<h2 id="appendices">Appendices<a class="headerlink" href="#appendices" title="Permanent link">&para;</a></h2>
+<h3 id="appendix-a-application-of-asc-cdl-parameters-to-acescct-image-data">Appendix A: Application of <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> parameters to ACEScct image data<a class="headerlink" href="#appendix-a-application-of-asc-cdl-parameters-to-acescct-image-data" title="Permanent link">&para;</a></h3>
+<p>American Society of Cinematographers Color Decision List (<abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr>) slope, offset, power, and saturation modifiers can be applied directly to ACEScct image data. To preserve the extended range of ACEScct values, no limiting function should be applied with <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> parameters. The power function, however, should not be applied to any negative ACEScct values after slope and offset are applied. Slope, offset, and power are applied with the following function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ACEScct is not compatible with <abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> values generated on-set using the ACESproxy encoding. If there is a need to reproduce a look generated on-set where ACESproxy was used, ACEScc must be used in the dailies and/or DI environment to achieve a match.</p>
+</div>
+<div class="arithmatex">\[\begin{equation}
+    ACEScct_{out} = \left\{ 
+    \begin{array}{l r }
+        ACEScct_{in} \times slope + offset; &amp; \quad ACEScct_{slopeoffset} \leq 0 \\
+        (ACEScct_{in} \times slope + offset)^{power}; &amp; \quad ACEScct_{slopeoffset} &gt; 0 \\
+    \end{array} \right. \\ 
+\end{equation}\]</div>
+<div class="arithmatex">\[\begin{equation}
+    \begin{array}{l}
+    \text{Where:}\\
+    ACEScct_{slopeoffset} = ACEScct_{in} \times slope + offset
+    \end{array}
+\end{equation}\]</div>
+<p><abbr title="American Society of Cinematographers">ASC</abbr> <abbr title="Color Decision List">CDL</abbr> Saturation is also applied with no limiting function:</p>
+<div class="arithmatex">\[\begin{gather*}
+    luma = 0.2126 \times ACEScct_{red} + 0.7152 \times ACEScct_{green} + 0.0722 \times ACEScct_{blue} \\
+    \begin{aligned}
+        ACEScct_{red} &amp;= luma + saturation \times (ACEScct_{red} - luma) \\
+        ACEScct_{green} &amp;= luma + saturation \times (ACEScct_{green} - luma) \\        
+        ACEScct_{blue} &amp;= luma + saturation \times (ACEScct_{blue} - luma) \\ 
+    \end{aligned}
+\end{gather*}\]</div>
+<!-- Include section numbering -->
+<style>
+    @import "../../stylesheets/sections.css"
+</style>
 
 
 
