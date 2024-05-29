@@ -11,20 +11,6 @@ Scope
 This document specifies the ACES Metadata File (“AMF”), a ‘sidecar’ XML file intended to exchange themetadata required to recreate ACES viewing pipelines.This specification supersedes TB-2014-009 – Academy Color Encoding System (ACES) Clip-level MetadataFile Format Definition and Usage (“ACESclip”). TB-2014-009 is now considered obsolete.
 
 
-References
-----------
-The following standards, specifications, articles, presentations, and texts are referenced in this text:
-
-* [Academy S-2014-002, Academy Color Encoding System - Versioning System](https://www.dropbox.com/s/cnrak5pvu4agfk4/S-2014-002.pdf?dl=0)
-* [SMPTE ST 2065-1:2021, Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
-* [SMPTE ST 2065-4:2013, ACES Image Container File Layout](https://doi.org/10.5594/SMPTE.ST2065-4.2013)
-* [Academy TB-2014-010, Design, Integration and Use of ACES Look Modification Transforms (LMTs)](https://www.dropbox.com/s/grjoi885tv78e70/TB-2014-010.pdf?dl=0)
-* [ISO 8601:2004, Data elements and interchange formats – Information interchange – Representation of datesand times](https://www.iso.org/standard/40874.html)
-* [ISO/IEC 11578:1996, Information technology – Open Systems Interconnection – Remote Procedure Call(RPC)](https://www.iso.org/standard/2229.html)
-* [SMPTE ST 2067-50, Interoperable Master Format — Application #5 ACES](https://doi.org/10.5594/SMPTE.ST2067-50.2018)
-* [SMPTE RDD 47, Interoperable Master Format — Isochronous Stream of XML Documents (ISXD) Plugin](https://doi.org/10.5594/SMPTE.RDD47.2018)
-* [SMPTE ST.2067-9, Interoperable Master Format — Sidecar Composition Map](https://doi.org/10.5594/SMPTE.ST2067-9.2018)
-
 Introduction 
 ----------------
 ### Why is metadata needed for ACES?
@@ -63,13 +49,13 @@ AMFs can also serve as effective archival elements. When paired with finished AC
 AMFs do not contain “timeline” metadata such as edit points. Timeline management files such as EditDecision Lists (EDLs) or Avid Log Exchange files (ALEs) may reference AMFs, attaching them to editingevents and thus enable standardized color management throughout all stages of production.
 
 <figure align="center" markdown>
-  ![amfDiagram](./images/amfDiagram.png){ width="350" }
+  ![amfDiagram](./images/amfDiagram.png)
 <figcaption align="center">
 	<b>Figure1 1.</b>Overall structure of an AMF in simplified form.
 </figcaption> 
 </figure>
 
-Use Case 
+Use Cases
 ----------------
 ACES Metadata Files (AMFs) are intended to contain the minimum required metadata for transferring information about ACES viewing pipelines during production, post-production, and archival.
 
@@ -124,9 +110,9 @@ Data Model
 ----------------
 This section describes the data intended for use within the ACES Metadata file.
 
-All top level structures shall be tagged as being within the \texttt{aces} namespace with urn `urn:acesMetadata:acesMetadataFile:v1.0`
+All top level structures shall be tagged as being within the `aces` namespace with urn `urn:acesMetadata:acesMetadataFile:v1.0`
 
-### UML Diagram
+`### UML Diagram
 The following UML diagrams are segments of the complete UML diagram which is not included in this document due to space constraints.  To view the entire UML diagram in SVG format visit \url{https://aces.mp/amf\_uml}.
 
 #### acesMetadataFile
@@ -140,7 +126,6 @@ The following UML diagrams are segments of the complete UML diagram which is not
   ![amfDiagram ](./uml_diagrams/uml_amfInfo.svg)
 </figure>
 
-
 #### clipId
 <figure align="center" markdown>
   ![amfDiagram ](./uml_diagrams/uml_clipId.svg)
@@ -150,7 +135,6 @@ The following UML diagrams are segments of the complete UML diagram which is not
 <figure align="center" markdown>
   ![amfDiagram ](./uml_diagrams/uml_pipeline.svg)
 </figure>
-
 
 #### pipelineInfo
 <figure align="center" markdown>
@@ -174,15 +158,28 @@ The following UML diagrams are segments of the complete UML diagram which is not
 
 
 ### Types
-
 The following types are defined for use within the AMF XML file and are validated with the XSD schema included in Appendix A.  The types are used as the basis to form the elements listed in section X in the schema.
 
 \input{sec-types.tex}
 
 
 ### Elements (by type)
-
 The following elements are defined for use with the AMF XML file and are validated with the XSD schema included in Appendix A. 
+
+
+References
+----------
+The following standards, specifications, articles, presentations, and texts are referenced in this text:
+
+* [Academy S-2014-002, Academy Color Encoding System - Versioning System](https://www.dropbox.com/s/cnrak5pvu4agfk4/S-2014-002.pdf?dl=0)
+* [SMPTE ST 2065-1:2021, Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
+* [SMPTE ST 2065-4:2013, ACES Image Container File Layout](https://doi.org/10.5594/SMPTE.ST2065-4.2013)
+* [Academy TB-2014-010, Design, Integration and Use of ACES Look Modification Transforms (LMTs)](https://www.dropbox.com/s/grjoi885tv78e70/TB-2014-010.pdf?dl=0)
+* [ISO 8601:2004, Data elements and interchange formats – Information interchange – Representation of datesand times](https://www.iso.org/standard/40874.html)
+* [ISO/IEC 11578:1996, Information technology – Open Systems Interconnection – Remote Procedure Call(RPC)](https://www.iso.org/standard/2229.html)
+* [SMPTE ST 2067-50, Interoperable Master Format — Application #5 ACES](https://doi.org/10.5594/SMPTE.ST2067-50.2018)
+* [SMPTE RDD 47, Interoperable Master Format — Isochronous Stream of XML Documents (ISXD) Plugin](https://doi.org/10.5594/SMPTE.RDD47.2018)
+* [SMPTE ST.2067-9, Interoperable Master Format — Sidecar Composition Map](https://doi.org/10.5594/SMPTE.ST2067-9.2018)
 
 
 <!-- Include section numbering -->

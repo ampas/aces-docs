@@ -117,9 +117,11 @@ nav:
     - 'Overview': system-components/overview/index.md
     - 'Organization': system-components/organization/index.md
     - 'Encodings':
-      - 'ACEScg': acescg/index.md
-      - 'ACEScct': acescct/index.md
-      - 'ACEScc': acescc/index.md
+      - 'Overview': encodings/overview.md
+      - 'ACES2065-1': encodings/aces2065/index.md
+      - 'ACEScg': encodings/acescg/index.md
+      - 'ACEScct': encodings/acescct/index.md
+      - 'ACEScc': encodings/acescc/index.md
       - 'ACESproxy': acesproxy/index.md
     - 'Transforms':
       - 'Reference Gamut Compression': rgc/specification/index.md

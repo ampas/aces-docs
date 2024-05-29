@@ -26,9 +26,28 @@ Here is a list of ACES features that major manufacturers support:
 
 ## Contribute to ACES
 
+We're thrilled that you're interested in contributing to ACES. There are many ways to get get involved, including:
+
+* Participating in working groups
+* Participating in the ACES Community on our discussion forum [ACESCentral.com](https://www.acescentral.com) by answering questions or sharing experience with others
+* Contributing code
+* As a manufacturer, implementing ACES components in your product to become a Product Partner in the ACES Logo Program
+
 ### Working Group Participation
 
-We're thrilled that you're interested in contributing to ACES.  ACES is a community project that adheres to the principles of open source. Work is primarily conducted in working groups organized by the ACES Leadership Team. These groups function as topic-specific task forces that discuss and propose solutions to well-defined problems. The formation of groups and invitations for participation are announced on [ACESCentral.com](https://www.acescentral.com), with open participation to all interested individuals. Meetings are held virtually and recorded to maximize inclusivity. In between meetings, discussions continue on the [ACESCentral.com discussion forums](https://community.acescentral.com). If you're interested in contributing to the field of color management and digital imagery, please consider participating in the discussions or joining a working group.
+ACES is a community project that adheres to the principles of open source. Development work is primarily conducted in working groups organized by the ACES Leadership Team, with directional oversight by Architecture and Implementation Technical Advisory Committees (TACs). 
+
+Working groups function as topic-specific task forces that discuss and propose solutions to well-defined problems. The formation of groups and invitations for participation are announced on [ACESCentral.com](https://www.acescentral.com), with open participation to all interested individuals. Meetings are conducted virtually and recorded to maximize inclusivity. 
+
+Between scheduled meetings, discussions of all kinds continue on the [ACESCentral.com discussion forums](https://community.acescentral.com). If you're interested in contributing to the field of color management and digital imagery, please consider participating in the discussions or joining a working group.
+
+### Join the discussion on ACESCentral.com
+
+ACESCentral houses information of all kinds with the goal of helping you share questions and answers to specific ACES related questions and issues with other ACES users of all levels of experience.
+
+There are a number of professionals from the industry who are well versed in ACES and we have designated them as “Mentors”. They have agreed to monitor the forum and help answer questions as their time and expertise allow. There are also representatives from many of the ACES Product Partner companies who also monitor the forum and do their best to help answer questions or point you in the right direction for answers.
+
+Please be polite, keep the conversation focused on ACES and filmmaking, don’t post 3rd party intellectual property you don’t have permission to post and avoid overtly commercial or sales oriented posts. (see the [ACES Forum Rules and Guidelines post](https://community.acescentral.com/tos) for a complete list).
 
 ### Code Contributions
 To maintain the legal integrity of the project's codebase, we require all contributors to sign a Contributor License Agreement (CLA).
