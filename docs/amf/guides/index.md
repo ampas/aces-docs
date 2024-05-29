@@ -10,7 +10,6 @@ ACES Metadata File Implementation Guidelines and Best Practices
 Scope
 ----------------
 
-
 This document is a guide that recommends implementation guidelines and best
 practices related to the usage of the ACES Metadata File (AMF) in various
 workflows. These workflows may involve one or more tools that support the AMF
@@ -18,19 +17,10 @@ specification and this guide attempts to help both implementers and users in
 order to facilitate interoperability.
 
 
-References
-----------------
-
-
-The following standards, specifications, articles, presentations, and texts are referenced in this text:
-
-* [Academy S-2019-001, ACES Metadata File (AMF)](https://aces.mp/S-2019-001)
-* [IETF RFC 4122, A Universally Unique IDentifier (UUID) URN Namespace](https://standards.globalspec.com/std/1524451/RFC%204122)
 
 
 Introduction 
 ----------------
-
 
 The Academy Color Encoding System (ACES) is a color processing framework that
 enables the mix of various sources within a standardized color space in order to
@@ -64,7 +54,6 @@ and tools that support those workflows.
 What is AMF
 ----------------
 
-
 AMF is an XML specification that describes the configuration of an ACES color
 pipeline, together with the various input transforms, look transforms and output
 transforms.
@@ -86,7 +75,6 @@ be described as a "many to many" relationship.
 
 Why is AMF needed
 ----------------
-
 
 The ACES framework is expanding and becoming richer in terms of input, look, and
 output transforms. AMF describes the exact list of these different transforms,
@@ -997,6 +985,16 @@ use of `aces:clipId` or ignore it.
 
 A validation process can log any differences and present the results to the user
 of the product/tool processing the EDL+AMF files.
+
+
+References
+----------------
+
+
+The following standards, specifications, articles, presentations, and texts are referenced in this text:
+
+* [Academy S-2019-001, ACES Metadata File (AMF)](https://aces.mp/S-2019-001)
+* [IETF RFC 4122, A Universally Unique IDentifier (UUID) URN Namespace](https://standards.globalspec.com/std/1524451/RFC%204122)
 
 
 

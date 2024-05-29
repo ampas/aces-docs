@@ -3,15 +3,16 @@ title: ACEScg Specification
 ---
 
 
-ACEScg – A Working Space for CGI Render and Compositing
-========================================================================================
+ACEScg - A Working Space for CGI Render and Compositing
+=======================================================
+
 
 
 Introduction 
 ----------------
 SMPTE ST 2065-1:2012 defines a common color encoding method using half-precision floating point corresponding to linear exposure values encoded relative to a fixed set of RGB primaries. These primaries were designed to encompass the entire visual gamut. However, the algorithms commonly used to synthetically render imagery (CGI) have long used certain optimizations that are different than in typical color management scenarios and sometimes do not work well with very wide-gamut primaries. For example, in CGI rendering calculations, the RGB values of materials typically represent the percentage of light reflected. This is a different interpretation than in color science based on CIE colorimetry, where the RGBs are interpreted as tristimulus values with respect to a certain primary set. In other words, in CGI the RGB values often are used to describe a property of a material rather than the resulting color stimulus received by an observer.
 
-This document describes the AP1 color primaries and their use as the basis of a 16-bit or 32-bit floating point working space for CGI rendering and compositing. These primaries are also the basis of the ACEScc working space, which was developed to better support color grading in the ACES workflow. They do lie slightly outside of the visual gamut - in order to be able to encompass both the Rec-2020 gamut and the DCI-P3 gamut for a range of white points.
+This document describes the AP1 color primaries and their use as the basis of a 16-bit or 32-bit floating point working space for CGI rendering and compositing. These primaries are also the basis of the ACEScct working space, which was developed to better support color grading in the ACES workflow. The primaries plot slightly outside of the visual gamut - in order to be able to fully encapsulate both the Rec-2020 gamut and the DCI-P3 gamut for a range of white points.
 
 
 Scope
@@ -30,7 +31,6 @@ The following standards, specifications, articles, presentations, and texts are 
 
 Specification
 -------------
-
 ### Naming convention
 The encoding of ACES specified in this document shall be known as ACEScg.
 
