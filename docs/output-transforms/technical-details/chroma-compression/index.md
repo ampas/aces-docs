@@ -49,13 +49,13 @@ The chroma compression has two main steps:
 After the tonescale has compressed J to the target display peak luminance, the M correlate must also be rescaled or compressed down to the same range. This is done by using the $\frac{1}{cz}$ exponent defined in Hellwig2022 model in order maintain the correct M to J ratio. Maintaining the correct ratio keeps the chromaticities constant. The rescaling method is the following:
 
 $$
-M_s = M\cdot\frac{J_{t}}{J}^{\frac{1}{cz}}
+M_s = M\cdot\left(\frac{J_{t}}{J}\right)^{\frac{1}{cz}}
 $$
 
 and its inverse:
 
 $$
-M = M_s\cdot\frac{J_{t}}{J}^{-\frac{1}{cz}}
+M = M_s\cdot\left(\frac{J_{t}}{J}\right)^{-\frac{1}{cz}}
 $$
 
 where,
@@ -108,15 +108,17 @@ $$
 
 where,
 
-$
+$$
 k_{1}=\sqrt{c_1^{2}+k_{2}^{2}}
-$
-$
+$$
+
+$$
 k_{2}=max(c_2, 0.001)
-$
-$
+$$
+
+$$
 k_{3}=\frac{limit+k_{1}}{limit+k_{2}}
-$
+$$
 
 The function is driven with three external parameters $limit$, $c_1$ and $c_2$ defined below.
 
@@ -129,6 +131,7 @@ The maximum distance is limited to AP1.  That is, the compression and expansion 
 $$
 limit = J_{t}^{\frac{1}{cz}}\cdot\frac{AP1ReachM[h]}{AP1CuspM[h]}
 $$
+
 where,
 
 $AP1ReachM$ is a hue dependent lookup table of AP1 M values at $J_{max}$
@@ -171,11 +174,13 @@ The $threshold$ parameter is used to reduce expansion of noise by making the toe
 $$
 expand = 1.65
 $$
+
 $$
-saturation= max(0.15,  expand - expand * 0.78 *  \log_{10}\left(\frac{Lpeak}{100}\right))
+saturation= max(0.15,  expand - expand * 0.78 *  \log_{10}\left(\frac{L_{peak}}{100}\right))
 $$
+
 $$
-threshold = \frac{0.5}{Lpeak}
+threshold = \frac{0.5}{L_{peak}}
 $$
 
 #### Compression of M
@@ -197,8 +202,9 @@ The $compression$ parameter defines how aggressive the compression is. The param
 $$
 compr = 3.5
 $$
+
 $$
-compression = compr+ compr * 5.0 * \log_{10}\left(\frac{Lpeak}{100}\right)
+compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
 $$
 
 #### Inverse of chroma compression
