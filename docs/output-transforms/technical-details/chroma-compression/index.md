@@ -1,6 +1,29 @@
 Chroma Compression
 ==================
 
+``` mermaid
+flowchart LR
+  A("ACES 
+  RGB 
+  Input") --> 
+  B[ACES 
+  to 
+  JMh] --> 
+  C["Tonescale 
+  (J Only)"] --> 
+  D["Chroma 
+  Compression 
+  (M Only)"] --> 
+  E["Gamut 
+  Compression 
+  (J & M)"] --> 
+  F[Display 
+  Encoding] --> 
+  G(Display 
+  RGB 
+  Output);
+  style D stroke-width:4px
+```
 
 ### Introduction
 

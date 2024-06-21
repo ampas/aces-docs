@@ -2,9 +2,32 @@
 title: Invertible Gamut Compression in a Perceptual Polar Space
 ---
 
-
-ACES 2.0 Output Transform Gamut Compression
+Gamut Compression
 ================
+
+``` mermaid
+flowchart LR
+  A("ACES 
+  RGB 
+  Input") --> 
+  B[ACES 
+  to 
+  JMh] --> 
+  C["Tonescale 
+  (J Only)"] --> 
+  D["Chroma 
+  Compression 
+  (M Only)"] --> 
+  E["Gamut 
+  Compression 
+  (J & M)"] --> 
+  F[Display 
+  Encoding] --> 
+  G(Display 
+  RGB 
+  Output);
+  style E stroke-width:4px
+```
 
 Introduction 
 ----------------
