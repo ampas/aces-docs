@@ -9,25 +9,25 @@
       
       
       
-        <link rel="prev" href="../chroma-compression/">
+        <link rel="prev" href="../encodings/acescc/">
       
       
-        <link rel="next" href="../../../amf/specification/">
+        <link rel="next" href="../rgc/specification/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
-        <title>Invertible Gamut Compression in a Perceptual Polar Space - ACES Documentation</title>
+        <title>Transform IDs - ACES Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gamut-compression" class="md-skip">
+        <a href="#transform-ids-and-user-names" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://www.acescentral.com" title="ACES Documentation" class="md-header__button md-logo" aria-label="ACES Documentation" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.png" alt="logo">
+  <img src="../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Invertible Gamut Compression in a Perceptual Polar Space
+              Transform IDs
             
           </span>
         </div>
@@ -210,7 +210,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href=".." class="md-tabs__link">
           
   
   ACES Documentation
@@ -230,7 +230,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../system-components/overview/" class="md-tabs__link">
+        <a href="../system-components/overview/" class="md-tabs__link">
           
   
   Technical Documentation
@@ -246,7 +246,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../procedures/index.md" class="md-tabs__link">
+      <a href="../procedures/index.md" class="md-tabs__link">
         
   
     
@@ -263,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../workflows/" class="md-tabs__link">
+      <a href="../workflows/" class="md-tabs__link">
         
   
     
@@ -280,7 +280,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../tools/" class="md-tabs__link">
+      <a href="../tools/" class="md-tabs__link">
         
   
     
@@ -297,7 +297,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../glossary/" class="md-tabs__link">
+      <a href="../glossary/" class="md-tabs__link">
         
   
     
@@ -339,7 +339,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://www.acescentral.com" title="ACES Documentation" class="md-nav__button md-logo" aria-label="ACES Documentation" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.png" alt="logo">
+  <img src="../assets/images/logo.png" alt="logo">
 
     </a>
     ACES Documentation
@@ -396,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -417,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -438,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../component-names/" class="md-nav__link">
+      <a href="../component-names/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -511,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system-components/overview/" class="md-nav__link">
+      <a href="../system-components/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -532,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../system-components/organization/" class="md-nav__link">
+      <a href="../system-components/organization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -598,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../encodings/overview/" class="md-nav__link">
+      <a href="../encodings/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -619,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../encodings/aces2065/" class="md-nav__link">
+      <a href="../encodings/aces2065/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../encodings/acescg/" class="md-nav__link">
+      <a href="../encodings/acescg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -661,7 +661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../encodings/acescct/" class="md-nav__link">
+      <a href="../encodings/acescct/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -682,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../encodings/acescc/" class="md-nav__link">
+      <a href="../encodings/acescc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -703,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../acesproxy/index.md" class="md-nav__link">
+      <a href="../acesproxy/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -774,153 +774,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../transform-ids/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Transform IDs
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../rgc/specification/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Reference Gamut Compression
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2_4_3" id="__nav_2_4_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Output Transforms
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_4_3">
-            <span class="md-nav__icon md-icon"></span>
-            Output Transforms
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Overview
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tone-mapping/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Tone Mapping
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../chroma-compression/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Chroma Compression
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -937,7 +790,7 @@
           
   
   <span class="md-ellipsis">
-    Gamut Compression
+    Transform IDs
   </span>
   
 
@@ -948,7 +801,7 @@
         
   
   <span class="md-ellipsis">
-    Gamut Compression
+    Transform IDs
   </span>
   
 
@@ -970,54 +823,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#transform-identifiers-transformids" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Transform Identifiers (TransformIDs)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-compression-vector" class="md-nav__link">
+  <a href="#string-format-for-transform-identifiers" class="md-nav__link">
     <span class="md-ellipsis">
-      The Compression Vector
+      String format for Transform Identifiers¶
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String format for Transform Identifiers¶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#urn" class="md-nav__link">
+    <span class="md-ellipsis">
+      URN¶
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#invertibility" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#transformtype" class="md-nav__link">
     <span class="md-ellipsis">
-      Invertibility
+      TransformType¶
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#compression" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#namespace" class="md-nav__link">
     <span class="md-ellipsis">
-      Compression
+      Namespace¶
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#boundary-intersection" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
     <span class="md-ellipsis">
-      Boundary Intersection
+      Name¶
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#reach-mode-gamut-compression" class="md-nav__link">
+  <a href="#user-name-acesusername" class="md-nav__link">
     <span class="md-ellipsis">
-      ‘Reach-mode’ gamut compression
+      User-Name (ACESuserName)
     </span>
   </a>
   
@@ -1027,6 +895,153 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rgc/specification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference Gamut Compression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_3" id="__nav_2_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Output Transforms
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Output Transforms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output-transforms/technical-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output-transforms/technical-details/tone-mapping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tone Mapping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output-transforms/technical-details/chroma-compression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chroma Compression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output-transforms/technical-details/gamut-compression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gamut Compression
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1142,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../amf/specification/" class="md-nav__link">
+      <a href="../amf/specification/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1163,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../amf/guides/" class="md-nav__link">
+      <a href="../amf/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1234,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../clf/specification/" class="md-nav__link">
+      <a href="../clf/specification/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1255,7 +1270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../clf/guides/" class="md-nav__link">
+      <a href="../clf/guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1299,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../procedures/index.md" class="md-nav__link">
+      <a href="../procedures/index.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1319,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../workflows/" class="md-nav__link">
+      <a href="../workflows/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1339,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tools/" class="md-nav__link">
+      <a href="../tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1359,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../glossary/" class="md-nav__link">
+      <a href="../glossary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1399,54 +1414,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#transform-identifiers-transformids" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Transform Identifiers (TransformIDs)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-compression-vector" class="md-nav__link">
+  <a href="#string-format-for-transform-identifiers" class="md-nav__link">
     <span class="md-ellipsis">
-      The Compression Vector
+      String format for Transform Identifiers¶
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String format for Transform Identifiers¶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#urn" class="md-nav__link">
+    <span class="md-ellipsis">
+      URN¶
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#invertibility" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#transformtype" class="md-nav__link">
     <span class="md-ellipsis">
-      Invertibility
+      TransformType¶
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#compression" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#namespace" class="md-nav__link">
     <span class="md-ellipsis">
-      Compression
+      Namespace¶
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#boundary-intersection" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
     <span class="md-ellipsis">
-      Boundary Intersection
+      Name¶
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#reach-mode-gamut-compression" class="md-nav__link">
+  <a href="#user-name-acesusername" class="md-nav__link">
     <span class="md-ellipsis">
-      ‘Reach-mode’ gamut compression
+      User-Name (ACESuserName)
     </span>
   </a>
   
@@ -1467,199 +1497,158 @@
                   
 
 
-<h1 id="gamut-compression">Gamut Compression<a class="headerlink" href="#gamut-compression" title="Permanent link">&para;</a></h1>
-<pre class="mermaid"><code>flowchart LR
-  A("ACES 
-  RGB 
-  Input") --&gt; 
-  B[ACES 
-  to 
-  JMh] --&gt; 
-  C["Tonescale 
-  (J Only)"] --&gt; 
-  D["Chroma 
-  Compression 
-  (M Only)"] --&gt; 
-  E["Gamut 
-  Compression 
-  (J &amp; M)"] --&gt; 
-  F[Display 
-  Encoding] --&gt; 
-  G(Display 
-  RGB 
-  Output);
-  style E stroke-width:4px</code></pre>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>This method of gamut compression was developed for use in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 2.0 Output Transforms, and presented to the <a href="https://paper.dropbox.com/doc/Output-Transforms-Architecture-Virtual-Working-Group--CE~GmViDNqm6I4Wo~5RmQFtFAg-HKNpj824NA0Z8tn7jiPS0">Virtual Working Group</a>, for use with a display rendering based on a modified <a href="https://doi.org/10.1002/col.22792">Hellwig 2022</a> Color Appearance Model (CAM). It would however be equally applicable to the compression of out of gamut values in any similar color model.
-The Hellwig model represents color using a number of different correlates, but for the purposes of display rendering in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 2.0 Output Transform, three are used:</p>
+<h1 id="transform-ids-and-user-names">Transform IDs and User Names<a class="headerlink" href="#transform-ids-and-user-names" title="Permanent link">&para;</a></h1>
+<p><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> transforms, which are provided as <abbr title="Color Transform Language">CTL</abbr> files in the reference implementation, shall be assigned both a Transform Identifier (TransformID) and a user-facing name (ACESuserName).</p>
+<h2 id="transform-identifiers-transformids">Transform Identifiers (TransformIDs)<a class="headerlink" href="#transform-identifiers-transformids" title="Permanent link">&para;</a></h2>
+<p><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> transforms shall be assigned a Transform Identifier (written as "TransformID") contained in an <abbr title="Extensible Markup Language">XML</abbr> tag of <ACEStransformID> in the file header. The TransformID describes the transform and includes versioning information specific to that transform file. </p>
+<p>A TransformID is required metadata in <abbr title="ACES Metadata File">AMF</abbr> files. TransformIDs can also be used for tracking in software implementations that are intended to match the reference <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> transforms, where appropriate, such as in code comments implementing a specific <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Transform.</p>
+<p>Transform implementations that may be intended to combine a sequence of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> <abbr title="Color Transform Language">CTL</abbr> transforms (e.g. a Color Space Conversion (CSC) + Look Transform (<abbr title="Look Transform (aka deprecated - Look Modification Transform)">LMT</abbr>) + Output Transform) should reference each of the relevant <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> TransformIDs in the implementation transform.</p>
+<h2 id="string-format-for-transform-identifiers">String format for Transform Identifiers¶<a class="headerlink" href="#string-format-for-transform-identifiers" title="Permanent link">&para;</a></h2>
+<p>The TransformID serves as a unique identifier for a particular release version of an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> component. It includes versioning information relevant to three different attributes:</p>
 <ul>
-<li><strong>J</strong> : perceived lightness</li>
-<li><strong>M</strong> : perceived colorfulness</li>
-<li><strong>h</strong> : perceived hue</li>
+<li>the version of the TransformID specification to which it conforms, </li>
+<li>the version of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system release with which the transform is compatible, and </li>
+<li>the version of the individual transform itself. </li>
 </ul>
-<figure>
-<p><img alt="The flow of the ACES 2.0 Display Rendering Transform" src="images/DRT_flow.svg" width="900" />
-  </p>
-<figcaption>The flow of the ACES 2.0 Display Rendering Transform (DRT)</figcaption>
-</figure>
-<p>Gamut compression aims to compute a representation of a color which lies outside a target gamut (the range of colors a particular display is able to reproduce) such that the new representation lies within the target gamut, while maintaining as much of the perceived appearance of the original color as possible.</p>
-<p>A base assumption is that when compressing a color to within the gamut available on a given target display, the correlate of hue should be left unchanged. Therefore compression will take place in a two dimensional space, whose axes are <span class="arithmatex">\(M\)</span> and <span class="arithmatex">\(J\)</span>, representing a ‘slice’ in hue. The boundary of the corresponding slice of the target gamut has been shown to be well approximated by curved lines using a power law (gamma) function joining the maximum and minimum values on the J-axis to a cusp which represents the lines joining the primary and secondary colors in the <abbr title="Red, Green, and Blue">RGB</abbr> cube of the target gamut.</p>
-<figure>
-<p><img alt="The cusp path" src="images/cusp_vis.gif" width="900" />
-  </p>
-<figcaption>The cusp path shown in an RGB cube and JMh 3D polar plot</figcaption>
-</figure>
-<figure>
-<p><img alt="Hie slice" src="images/cusp_label.svg" width="900" />
-  </p>
-<figcaption>A ‘hue slice’ of a gamut plotted in M vs. J </figcaption>
-</figure>
-<p>To bring a color within the target gamut, it must be moved towards the J-axis. In order to reach the gamut boundary at a larger <span class="arithmatex">\(M\)</span> value, thus preserving more colorfulness, it has been found to be beneficial to compress along a vector which is not perpendicular to the J-axis. While intuitively it might seem that values above the cusp should be compressed along a vector which decreases <span class="arithmatex">\(J\)</span>, and those above it with one which increases <span class="arithmatex">\(J\)</span>, it has been found by experimentation that an aesthetically preferable result is achieved by choosing a <span class="arithmatex">\(J\)</span> value (<span class="arithmatex">\(focusJ\)</span>) part way between that of the cusp and that of mid grey, and compressing <span class="arithmatex">\(J\)</span> values above that downwards, and values below it upwards.</p>
-<h2 id="the-compression-vector">The Compression Vector<a class="headerlink" href="#the-compression-vector" title="Permanent link">&para;</a></h2>
-<p>The compression vector is defined by a straight line, so has an equation with the classic form of a straight line, <span class="arithmatex">\(y = m\cdot x + c\)</span>. In this case the y-axis represents <span class="arithmatex">\(J\)</span>, and the x-axis represents <span class="arithmatex">\(M\)</span>, so the equation becomes:</p>
-<div class="arithmatex">\[
-J = slope\times M + intersectJ
-\]</div>
-<p>Where <span class="arithmatex">\(slope\)</span> is the gradient of the line and <span class="arithmatex">\(intersectJ\)</span> is the <span class="arithmatex">\(J\)</span> value where it hits the J-axis.</p>
-<p>For the line to have positive slope above <span class="arithmatex">\(focusJ\)</span>, and negative slope above it, it must be horizontal (zero slope) at <span class="arithmatex">\(focusJ\)</span>. It has also been agreed that it is desirable for the slope to be zero at <span class="arithmatex">\(J\)</span> values of zero and <span class="arithmatex">\(J_{max}\)</span>, where <span class="arithmatex">\(J_{max}\)</span> is the J value for the peak white of the target display. The formula for slope chosen to achieve this is:</p>
-<div class="arithmatex">\[
-slope=\begin{cases}\frac{intersectJ\times(intersectJ-focusJ)}{slopeGain\times focusJ}&amp;\text{if } intersectJ\leq focusJ\\
-\frac{(J_{max}-intersectJ)\times(intersectJ-focusJ)}{slopeGain\times focusJ}&amp;\text{if }intersectJ&gt;focusJ
-\end{cases}
-\]</div>
-<p>Where <span class="arithmatex">\(slopeGain\)</span> is a constant controlling how steep the slope becomes between the horizontals. An interactive version of the above equation can be seen in <a href="">this Desmos plot</a>.</p>
-<p>In the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 2.0 transform, the value of <span class="arithmatex">\(slopeGain\)</span> is calculated as a user parameter (called <span class="arithmatex">\(focusDistance\)</span>) multiplied by <span class="arithmatex">\(J_{max}\)</span>, to scale it with peak lightness.</p>
-<h2 id="invertibility">Invertibility<a class="headerlink" href="#invertibility" title="Permanent link">&para;</a></h2>
-<p>This equation for compression slope is controlled only by <span class="arithmatex">\(intersectJ\)</span> (<span class="arithmatex">\(slopeGain\)</span> being a user parameter and <span class="arithmatex">\(focusJ\)</span> being a constant for a given hue). So if the value of <span class="arithmatex">\(intersectJ\)</span> which produces a line passing through a particular set of <span class="arithmatex">\((M, J)\)</span> coordinates is solved for, and new coordinates <span class="arithmatex">\((M^\prime, J^\prime)\)</span> are calculated by compressing along that line, the same value will be found when solving for the <span class="arithmatex">\(intersectJ\)</span> which leads to a line passing through <span class="arithmatex">\((M^\prime, J^\prime)\)</span>. Thus, providing an invertible compression curve is used, an inverse compression will map <span class="arithmatex">\((M^\prime, J^\prime)\)</span> back along the same line, and result in <span class="arithmatex">\((M, J)\)</span>.</p>
-<p>Because the slope is zero when <span class="arithmatex">\(intersectJ\)</span> is equal to <span class="arithmatex">\(focusJ\)</span>, when solving for <span class="arithmatex">\(intersectJ\)</span> at <span class="arithmatex">\((M, J)\)</span> the value of <span class="arithmatex">\(J\)</span> can be used in place of <span class="arithmatex">\(intersectJ\)</span> in the condition for the slope equation. Thus, substituting the slope expression into the equation of the line:</p>
-<p>When <span class="arithmatex">\(J\leq focusJ\)</span>:</p>
-<div class="arithmatex">\[
-J=\frac{intersectJ\times M \times(intersectJ - focusJ)}{slopeGain \times focusJ} + intersectJ
-\]</div>
-<p>This can be rearranged to:</p>
-<div class="arithmatex">\[
-intersectJ^2\times\frac{M}{slopeGain\times focusJ}+intersectJ \times\left( 1-\frac{M}{slopeGain}\right)-J=0
-\]</div>
-<p>This has the form of a quadratic equation in <span class="arithmatex">\(intersectJ\)</span>, and therefore the solution can be found using one of the variations of the quadratic formula.</p>
-<p>Similarly when <span class="arithmatex">\(J&gt;focusJ\)</span>:</p>
-<div class="arithmatex">\[
-J=\frac{M\times(J_{max}-intersectJ)\times(intersectJ-focusJ)}{slopeGain\times focusJ}+intersectJ
-\]</div>
-<p>This can be rearranged to:</p>
-<div class="arithmatex">\[
-intersectJ^2\times\frac{M}{slopeGain\times focusJ}-intersectJ\times\left(1+\frac{M}{slopeGain}+\frac{J_{max}\times M}{slopeGain\times focusJ}\right)+\frac{J_{max}\times M}{slopeGain}+J=0
-\]</div>
-<p>This also has the form of a quadratic equation in <span class="arithmatex">\(intersectJ\)</span>, and the two can be expressed using the form of the quadratic equation required for use of a formula solution:</p>
-<div class="arithmatex">\[
-a\cdot x^2+b\cdot x + c = 0
-\]</div>
-<p>Where the values of a, b and c are:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-a&amp;=\frac{M}{slopeGain\times focusJ}\\\\
-b&amp;=\begin{cases}1-\frac{M}{slopeGain}&amp;\text{ if }J\leq focusJ\\
--\left(1 + \frac{M}{slopeGain} + \frac{J_{max}\times M}{slopeGain\times focusJ}\right)&amp;\text{ if }J&gt;focusJ
-\end{cases}\\\\
-c&amp;=\begin{cases}-M&amp;\text{ if }J\leq focusJ\\
-\frac{J_{max}\times M}{slopeGain}+M\phantom{123456789012345678.}&amp;\text{ if }J&gt;focusJ
-\end{cases}
-\end{aligned}
-\]</div>
-<p>Due to division of small numbers as <span class="arithmatex">\(J\)</span> and <span class="arithmatex">\(M\)</span> both approach zero, the ‘classic’ quadratic equation formula can suffer from numerical precision issues when this solve is implemented in single precision 32-bit float. So an alternate formulation is preferable.</p>
-<p>This is:</p>
-<div class="arithmatex">\[
-x=\frac{2\cdot c}{-b\pm\sqrt{b^2-4\cdot a\cdot c}}
-\]</div>
-<p>Although quadratic equations have two roots, in this instance it is not necessary to find both roots for each condition. In each case, one of the roots is always outside the zero to <span class="arithmatex">\(J_{max}\)</span> range for input <span class="arithmatex">\(J\)</span> and <span class="arithmatex">\(M\)</span> values in the meaningful range for this use case.</p>
-<p>Thus in this case:</p>
-<div class="arithmatex">\[
-intersectJ=\begin{cases}\frac{2\cdot c}{-b+\sqrt{b^2-4\cdot a\cdot c}}&amp;\text{ if }J\leq focusJ\\
-\frac{2\cdot c}{-b-\sqrt{b^2-4\cdot a\cdot c}}&amp;\text{ if }J&gt;focusJ
-\end{cases}
-\]</div>
-<p>This result can then be used in the slope equation to give both constants needed for the equation of the line along which compression is to take place.</p>
-<h2 id="compression">Compression<a class="headerlink" href="#compression" title="Permanent link">&para;</a></h2>
-<p>The compression method operates by taking the <span class="arithmatex">\(M\)</span> value of the source color, and normalizing by the <span class="arithmatex">\(M\)</span> value of the intersection of the compression line and target gamut boundary (<span class="arithmatex">\(boundaryM\)</span> &#151; see <a href="#boundary-intersection">next section</a>). A parametric compression curve is then applied, with the three parameters being threshold (<span class="arithmatex">\(t\)</span>), limit (<span class="arithmatex">\(l\)</span>) and exponent (<span class="arithmatex">\(p\)</span>). The threshold is the normalized value below which the input is unchanged. The limit is the normalized value which will be compressed to the gamut boundary (a normalized value of 1.0). The exponent controls the aggressiveness of the roll-off above the threshold.</p>
-<p>The compression curve used in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 2.0 display rendering gamut compression is referred to as the powerP curve. This is the same curve as used in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 1.3 <a href="../../guides/rgc-implementation">Reference Gamut Compression</a>. The equations are as follows.</p>
-<p>First a scale factor is calculated:</p>
-<div class="arithmatex">\[
-s=\frac{\left(l-t\right)}{\left(\left(\frac{1-t}{l-t}\right)^{-p}-1\right)^{\frac{1}{p}}}
-\]</div>
-<p>This is then used in the compression function:</p>
-<div class="arithmatex">\[
-f(x)=\begin{cases}x&amp;\text{ if }x &lt; t\\
-t+\frac{x-t}{\left(1+\left(\frac{x-t}{s}\right)^{p}\right)^{\frac{1}{p}}}&amp;\text{ if }x\geq t
-\end{cases}
-\]</div>
-<p>After compression the compressed <span class="arithmatex">\(M\)</span> value is multiplied back by the normalization factor (<span class="arithmatex">\(boundaryM\)</span>). The compressed <span class="arithmatex">\(J\)</span> value can then be found by using the compressed <span class="arithmatex">\(M\)</span> value in the compression straight line equation.</p>
-<h2 id="boundary-intersection">Boundary Intersection<a class="headerlink" href="#boundary-intersection" title="Permanent link">&para;</a></h2>
-<p>Since the gamut boundary curvature is approximated by a power law (gamma) curve with non-integer exponent, and it is not possible to analytically find the intersection of such a curve with a straight line, an approximation of the intersection is needed. As the gamma curve itself is only an approximation of the true gamut boundary, provided that the approximation method for the intersection leads to points which lie on a curve similar in shape to the gamma curve, the result is as valid an approximation as the gamma curve. As the slope and offset of the compression line are defined in terms of the J-axis intersection (<span class="arithmatex">\(intersectJ\)</span>) rather than the source <span class="arithmatex">\(J\)</span> and <span class="arithmatex">\(M\)</span> values, and the compressed and uncompressed values both lie on that same line, an intersection method based only on slope and offset will yield the same result in both directions, ensuring invertibility of the compression.</p>
-<p>The intersection of two straight lines is mathematically simple to find. So a first order approximation of the intersection of the curved gamut boundary with the compression line would be the intersection of that line with the straight line joining the cusp to the origin (black) or to the peak of the target gamut (white) depending on whether the line passes above or below the cusp. This can be easily ascertained by using the cusp <span class="arithmatex">\(M\)</span> value in the compression line equation, and determining whether the resulting <span class="arithmatex">\(J\)</span> value is greater or less than the cusp <span class="arithmatex">\(J\)</span> value.</p>
-<p>The straight line intersection approximation will give a value which is too small, assuming the gamma curve is bending the boundary outwards. A method is needed to increase the value found in the middle part of the curve, but converging to return exactly the straight line intersection result at either end. Looking only at the lower part of the boundary (an inverted version of the same thing will work for the upper part) a good approximation of the necessary modification of the straight line intersection can be found by raising the <span class="arithmatex">\(intersectJ\)</span> value to the reciprocal of the exponent used by the boundary curve, and then finding the straight line intersection. This will not alter the result at the origin, but an appropriate normalization factor is needed to divide <span class="arithmatex">\(intersectJ\)</span> by prior to exponentiation, and to then multiply it by afterwards, so that the result at the cusp is not affected either. This normalization factor is found as the J-axis intersection of the compression line which passes through the cusp, by putting the <span class="arithmatex">\(J\)</span> and <span class="arithmatex">\(M\)</span> values of the cusp into the same <a href="#invertibility">quadratic intersection solve formula</a> as was used to find the J-axis intersection for the source. This value is referred to as <span class="arithmatex">\(intersectCusp\)</span>.</p>
-<p>So:</p>
-<div class="arithmatex">\[
-intersectJ^\prime=intersectCusp\times\left(\frac{intersectJ}{intersectCusp}\right)^{\frac{1}{\gamma}}
-\]</div>
-<p>At the intersection of a line from <span class="arithmatex">\(intersectJ^\prime\)</span> with gradient <span class="arithmatex">\(slope\)</span> and a line from the origin to <span class="arithmatex">\((cuspM, cuspJ)\)</span>:</p>
-<div class="arithmatex">\[
-intersectJ^\prime+boundaryM\times slope=boundaryM\times \frac{cuspJ}{cuspM}
-\]</div>
-<p>Solving for <span class="arithmatex">\(boundaryM\)</span>:</p>
-<div class="arithmatex">\[
-boundaryM=\frac{intersectJ^\prime\times cuspM}{cuspJ-slope\times cuspM}
-\]</div>
-<figure>
-<p><img alt="Gamma intersection approximation" src="images/gamma_intersection.svg" width="640" />
-  </p>
-<figcaption>Approximation of intersection with a gamma curve</figcaption>
-</figure>
-<p>As can be seen from the figure above, the value of <span class="arithmatex">\(boundaryM\)</span> is not precisely the <span class="arithmatex">\(M\)</span> value of the true intersection with the curve. However, as mentioned previously, because the approximation follows a path similar in shape to the gamma curve, this can be used as an approximation of the true gamut boundary. For the upper part, the same methodology can be used, simply replacing <span class="arithmatex">\(intersectJ\)</span> with <span class="arithmatex">\(Jmax - intersectJ\)</span>, and the same for the cusp intersection.</p>
-<p>So if <span class="arithmatex">\(intersectJ+slope\times cuspM&gt;cuspJ\)</span>:</p>
-<div class="arithmatex">\[
-intersectJ^\prime=J_{max}-(J_{max}-intersectCusp)\times\left(\frac{J_{max}-intersectJ}{J_{max}-intersectCusp}\right)^\frac{1}{\gamma}
-\]</div>
-<p>Thus:</p>
-<div class="arithmatex">\[
-boundaryM=\frac{cuspM\times(J_{max}-intersectCusp)\times\left(\frac{J_{max}-intersectJ}{J_{max}-intersectCusp}\right)^\frac{1}{\gamma}}{slope\times cuspM+J_{max}-cuspJ}
-\]</div>
+<p>TransformIDs are constructed using a set of specified tokens such that it will be more human-readable than a typical Universally Unique Identifier (<abbr title="Universal(ly) Unique Identifier">UUID</abbr>) but maintain enough structure that intelligent parsing can still be performed.</p>
+<p>In the following definitions, <em>italics</em> represent a changeable placeholder and <strong>boldface</strong> represents a required character or string. The allowed substrings for each of the changeable placeholders are described in the following subclauses. The substrings shall not contain spaces or periods and shall be limited to the ASCII character set. </p>
+<p>All <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system components, whether Academy-supplied or vendor/user-supplied, shall use the generic versioning string format:</p>
+<p><code>URN</code> : <code>TransformType</code> . <code>Namespace</code> . <code>Name</code> . <code>aACESReleaseMajorVersionNumber</code> . <code>vTransformVersionNumber</code></p>
+<p>Where:</p>
+<h3 id="urn"><abbr title="Uniform Resource Name">URN</abbr>¶<a class="headerlink" href="#urn" title="Permanent link">&para;</a></h3>
+<p><code>URN</code> is a unique reference number to identify the version of the TransformID specification used. For new implementations, it shall conform to the first data row in Table 1. </p>
+<div align="center">
+<figcaption> <b>Table 1</b> - String specification for TransformID URN </figcaption>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"></th>
+<th>TransformID <abbr title="Uniform Resource Name">URN</abbr></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Current Version String:</td>
+<td><strong><code>urn:ampas:aces:transformId:v2.0:</code></strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">Previous values:</td>
+<td><code>urn:ampas:aces:transformId:v1.5:</code></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <span class="arithmatex">\(\gamma\)</span> values for the upper and lower parts are not necessarily the same. In the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 2.0 rendering, a constant value is adequate for the lower part of the gamut hull, but a varying value is needed to approximate the upper part.</p>
+<p>Throughout the remainder of this document, <code>urn:ampas:aces:transformId:v2.0</code> will be shortened to <code>URN</code> for brevity.</p>
 </div>
-<p><a href="https://www.desmos.com/calculator/fy6jgmigmi">This Desmos plot</a> shows the intersection solves, slope calculation and boundary approximation, as the source <span class="arithmatex">\((M, J)\)</span> and cusp are dragged interactively.</p>
-<p>Optionally, in order to smooth the abrupt change of compression across the cusp, smoothing can be applied by finding the intersections with both the upper and lower boundary lines, and then taking a ‘<a href="https://www.desmos.com/calculator/a1uny6zrtf">smooth minimum</a>’ between them. Simply using this value will round off the cusp, thus cutting into the gamut volume. In order to ensure that the smoothed approximation contains the whole true gamut, the cusp used in the boundary calculations must be moved out slightly from the actual cusp position. This ‘puffing out’ of the approximated boundary has the additional benefit that the exact value of the gamma used to approximate it is less crucial.</p>
-<h2 id="reach-mode-gamut-compression">‘Reach-mode’ gamut compression<a class="headerlink" href="#reach-mode-gamut-compression" title="Permanent link">&para;</a></h2>
-<p>For the compression function described <a href="#compression">previously</a>, constant values may be used for the threshold and limit. However it has been proposed that for the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> DRT it is beneficial if the limit is set such that compression maps the boundary of a particular ‘reach gamut’ (<abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> AP1 has been decided to be suitable) to the target gamut boundary. This ensures that when the inverse gamut compression is applied, values within the target gamut will be mapped to values inside the reach gamut. This mapping will map points on the boundary of one gamut to the boundary of the other, but will not necessarily map the primaries of one gamut to those of the other, because the mapping occurs along lines of constant perceptual hue as defined by the JMh space.</p>
-<figure>
-<p><img alt="Hue lines" src="images/hue_lines.png" width="512" />
-  </p>
-<figcaption>CIE 1931 Chromaticity plot of lines of constant JMh hue</figcaption>
-</figure>
-<p>To achieve this, another boundary intersection needs to be found &#151; that of the compression vector with the reach gamut boundary. This boundary will have the same shape as the lower part of the target gamut but, being scene-referred, it is unbounded so the curve will continue up indefinitely, rather than tapering above a cusp, as the target gamut does.</p>
-<p>Therefore a point on the reach gamut boundary at the hue under consideration must be found, which can then be treated in the same way as the target gamut cusp for the purposes of fitting a power law approximation to the true shape. The same <span class="arithmatex">\(\gamma\)</span> value can be used as for the lower part of the target gamut.</p>
-<p>If the sampled point used as a cusp for the reach gamut has a <span class="arithmatex">\(J\)</span> value equal to <span class="arithmatex">\(J_{max}\)</span>, then the compression vector for this point will be horizontal. Thus <span class="arithmatex">\(J_{max}\)</span> can be used as the normalization factor for intersectJ in the same boundary intersection approximation as used for the target gamut.</p>
-<p>Thus:</p>
-<div class="arithmatex">\[
-intersectReachJ^\prime=J_{max}\times\left(\frac{intersectJ}{J_{max}}\right)^{\frac{1}{\gamma}}
-\]</div>
-<figure>
-<p><img alt="Gamut intersections" src="images/reach_intersection.svg" width="900" />
-  </p>
-<figcaption>Intersections with the target and reach gamuts</figcaption>
-</figure>
-<p>and:</p>
-<div class="arithmatex">\[
-reachM=\frac{intersectReachJ^\prime\times reachCuspM}{J_{max}-slope\times reachCuspM}
-\]</div>
-<p>and the limit value for reach-mode compression is:</p>
-<div class="arithmatex">\[
-limit=\frac{reachM}{boundaryM}
-\]</div>
-<p>There are no objectively correct values for the threshold and exponent parameters. An exponent of 1.2 has been found to produce satisfactory results, and is the same exponent used in the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 1.3 <a href="(../../guides/rgc-implementation)">Reference Gamut Compression</a>. For the threshold, fixed values of about 0.75 have been found to work well, but later (v049+) versions of the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> 2.0 candidate DRT use a variable threshold, proposed by Pekka Riikonen, which is the reciprocal of the limit value. This has been shown to reduce certain artifacts for HDR display targets.</p>
-<!-- Include section numbering -->
-<style>
-    @import "../../stylesheets/sections.css"
-</style>
+<h3 id="transformtype">TransformType¶<a class="headerlink" href="#transformtype" title="Permanent link">&para;</a></h3>
+<p><code>TransformType</code> indicates the type, or category, of transform, and shall be equal to one of the values defined in Table 2.</p>
+<div align="center">
+<figcaption> <b>Table 2</b> - Options for TransformType</figcaption>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;"> Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>CSC</code></td>
+<td style="text-align: left;">"Color Space Conversion" <br> For converting between specified sets of color primary encodings and/or non-linear functions; original camera native data to ACES2065-1; also for converting between common color space representations such as Hellwig JMh.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Output</code></td>
+<td style="text-align: left;">“Output Transform” <br> For converting an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> scene-referred image to a display-referred output; applies the combined Reference Rendering Transform and Output Device Transform</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>InvOutput</code></td>
+<td style="text-align: left;">“Inverse direction of an Output Transform” <br> Used to convert display-referred image into equivalent <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> values that will, upon application of the equivalent forward Output Transform, produce an output that is equal to the original input; useful for titles, pre-rendered logos/graphics, or incorporating archival video into an <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> project</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Look</code></td>
+<td style="text-align: left;">“Look Transform”, a.k.a. Look Modification Transform (<abbr title="Look Transform (aka deprecated - Look Modification Transform)">LMT</abbr>) <br> For applying preset creative or technical grades that modify <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> data so that the starting look is different than the default rendering associated with an Output Transform.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>InvLook</code></td>
+<td style="text-align: left;">“Inverse direction of a Look Transform” <br> For <abbr title="Visual Effects">VFX</abbr> to “undo” a modification of <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> data, if the Look has an analytical inverse.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Lib</code></td>
+<td style="text-align: left;">“Library Transform” <br> For “under-the-hood” transforms that are called and re-used by core transforms.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Util</code></td>
+<td style="text-align: left;">“Utility Transform” <br> For miscellaneous associated transforms that do not implement core <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Transforms but may be helpful when testing and or constructing pipelines. Examples: Adjust_Exposure, Unity, etc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Interchangeability of Input and ColorSpace Transforms</p>
+<p>In effect, all Input transforms are also ColorSpace transforms, but all ColorSpace transforms are not necessarily Input Transforms.. Specifically, ColorSpace Transforms that convert from a camera manufacturer’s encoding space to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> can be considered “Input” transforms. Technically speaking, an Input Transforms might at times include an extra step or steps that differs from the a “nominal” camera encoding transform. However, if they are identical, Input and ColorSpace tokens can be used interchangeably.</p>
+<p>Similarly, ColorSpace transforms that convert from <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> to a camera manufacturer’s encoding space can also be considered “InverseInput” transforms.</p>
+<p>If the content of Input and ColorSpace transforms is identical, it is not required to provide duplicate transforms with simply the filename and transformID different. A ColorSpace  transform only is sufficient.</p>
+</div>
+<h3 id="namespace">Namespace¶<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h3>
+<p><code>Namespace</code> shall identify the creator of the transform. This is usually the name of a manufacturer, facility, or, in some instances, could be the name of an individual. </p>
+<p>The namespace <code>Academy</code> is reserved for Academy-supplied transforms.</p>
+<p>Transforms provided by users or vendors to <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Github repositories shall maintain the namespace of the user or vendor that created it.</p>
+<h3 id="name">Name¶<a class="headerlink" href="#name" title="Permanent link">&para;</a></h3>
+<p><code>Name</code> shall describe the transform. The level of detail is left up to the user but it should be adequate to uniquely describe the transform and its intended usage. It does not need to try to include the setting for every possible parameter. </p>
+<p>For example, if there is a standard that describes an output display type, such as Rec. 2100, that can be used in the filename and TransformID to imply the primaries to be Rec. 2020 with the transfer function of <abbr title="Society of Motion Picture and Television Engineers">SMPTE</abbr> ST 2084. If a transform imposes some sort of variant or limitation making it different from a standard display type, then those differences should be included in the filename and TransformID to clue the user in that different behavior should be expected. </p>
+<p>Academy supplied transforms will provide more details in header comments about the specific intended usage of or any caveats pertaining to a particular Output Transform. [In addition, a full list of specific parameters associated with a particular TransformID can be found in a registry of TransformIDs.]</p>
+<h4 id="output-transforms">Output Transforms<a class="headerlink" href="#output-transforms" title="Permanent link">&para;</a></h4>
+<p>For Output Transforms, the <code>Name</code> shall describe the device and/or output data encoding in as much detail as necessary. Items to consider include the encoding color primaries and white point, transfer function, peak luminance, or limiting color primaries. The name may also indicate a "simulation" (sim) of another display encoding contained within a standard encoding, e.g. using “Rec.709sim” to show Rec.709 100-nit content on a display set to 1000-nit peak luminance with Rec.2020 primaries and PQ transfer function.</p>
+<p>Examples:</p>
+<ul>
+<li><code>URN:Output.Academy.Rec709.a2.v1</code></li>
+<li><code>URN:Output.Academy.P3D65.a2.v1</code></li>
+<li><code>URN:Output.Academy.P3D65_Rec709sim.a2.v1</code></li>
+<li><code>URN:Output.Academy.Rec2100_P3D65limited_540nit.a2.v1</code></li>
+<li><code>URN:Output.Academy.Rec2100_P3D65limited_1000nit.a2.v1</code></li>
+<li><code>URN:Output.Academy.Rec2020_ST2084_Rec709sim.a2.v1</code></li>
+<li><code>URN:Output.Dolby.P3D65_ST2084_Rec709limited_600nit.a2.v1</code></li>
+</ul>
+<h4 id="csc-transforms">CSC Transforms<a class="headerlink" href="#csc-transforms" title="Permanent link">&para;</a></h4>
+<p>For Color Space Conversion (CSC) Transforms, <code>Name</code> shall describe the device. If the creator of the transforms is the same as the camera manufacturer, then the Name need not repeat the manufacturer name because it should already be in the Namespace. If the Input Transform creator is not the camera manufacturer, then the manufacturer name shall be prepended to the device name in the Name field.</p>
+<p>For transforms from one color space to another, the Name shall describe the source color space to the destination color space, using the general form of “from”<em>to</em>"to”.</p>
+<p>Example Input Transform names:</p>
+<ul>
+<li><code>URN:CSC.Academy.ACES_to_ACEScg.a2.v1</code></li>
+<li><code>URN:CSC.Blackmagic.ACES_to_BMDFilm_WideGamut_Gen5.a2.v2</code></li>
+<li><code>URN:CSC.Red.Log3G10_RWG_to_ACES.a2.v1</code></li>
+</ul>
+<h4 id="aces-major-version-number"><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Major Version Number<a class="headerlink" href="#aces-major-version-number" title="Permanent link">&para;</a></h4>
+<p>This component of the Transform ID shall be a string consisting of the letter ‘a’ followed by the major version number of the current <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system release. This indicates the <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> system version with which a particular transform is compatible. For  new implementations, it shall be equal to the first data row in Table 2. </p>
+<div align="center">
+<figcaption> <b>Table 3</b> - String specification for ACES Major Version Number </figcaption>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"></th>
+<th><abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> Major Version Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Current Version String:</td>
+<td><strong><code>a2</code></strong></td>
+</tr>
+<tr>
+<td style="text-align: right;">Previous values:</td>
+<td><code>a1</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="transform-version-number">Transform Version Number<a class="headerlink" href="#transform-version-number" title="Permanent link">&para;</a></h4>
+<p>The Transform ID shall conclude with the <code>TransformVersionNumber</code>, a string consisting of the letter ‘v’ followed by the version number of the transform which it identifies. This corresponds to the version of that specific transform itself.</p>
+<p>Output, Input, and Look Transforms may import sub-functions or constants that are included in separate Library-type <abbr title="Color Transform Language">CTL</abbr> files. Library files usually contain more than one sub-function or constant. If a change is made to a Library file that will change the resulting output from a transform that depends on that Library function, then the version number of the calling transform’s TransformID shall also be incremented. However, modifications to a Library file that do not affect the numerical output of a calling function (e.g. adding new subfunctions used by other importing files) do not require the TransformID of a file importing it to be incremented.</p>
+<p>Any updates to a Transform file that do not change the output of that transform (e.g. whitespace changes, modifications to code comments, etc.) shall also not require the transform version number to be incremented, although it can be if the editor decides it is warranted or otherwise more useful to do so.</p>
+<h2 id="user-name-acesusername">User-Name (ACESuserName)<a class="headerlink" href="#user-name-acesusername" title="Permanent link">&para;</a></h2>
+<p>Though designed to be human-readable, <abbr title="Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)">ACES</abbr> TransformIDs can be overly complex for presentation to end users for selection in menus. Therefore, all transforms shall include a user-friendly name, contained in an <abbr title="Extensible Markup Language">XML</abbr> tag of <code>&lt;ACESuserName&gt;</code>. Software applications should reference this more user-friendly name for presentation in their user interfaces.</p>
 
 
 
@@ -1790,12 +1779,12 @@ limit=\frac{reachM}{boundaryM}
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.prue", "toc.follow", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.prue", "toc.follow", "content.tooltips"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../js/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
