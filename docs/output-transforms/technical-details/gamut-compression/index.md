@@ -229,7 +229,7 @@ $$
 !!! note
     The $\gamma$ values for the upper and lower parts are not necessarily the same. In the ACES 2.0 rendering, a constant value is adequate for the lower part of the gamut hull, but a varying value is needed to approximate the upper part.
 
-[This Desmos plot](https://www.desmos.com/calculator/bbyrfbbbul) shows the intersection solves, slope calculation and boundary approximation, as the source $(M, J)$ and cusp are dragged interactively.
+[This Desmos plot](https://www.desmos.com/calculator/fy6jgmigmi) shows the intersection solves, slope calculation and boundary approximation, as the source $(M, J)$ and cusp are dragged interactively.
 
 Optionally, in order to smooth the abrupt change of compression across the cusp, smoothing can be applied by finding the intersections with both the upper and lower boundary lines, and then taking a ‘[smooth minimum](https://www.desmos.com/calculator/a1uny6zrtf)’ between them. Simply using this value will round off the cusp, thus cutting into the gamut volume. In order to ensure that the smoothed approximation contains the whole true gamut, the cusp used in the boundary calculations must be moved out slightly from the actual cusp position. This ‘puffing out’ of the approximated boundary has the additional benefit that the exact value of the gamma used to approximate it is less crucial.
 
