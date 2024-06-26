@@ -74,42 +74,52 @@ Transforms provided by users or vendors to ACES Github repositories shall mainta
 ### Name¶
 `Name` shall describe the transform. The level of detail is left up to the user but it should be adequate to uniquely describe the transform and its intended usage. It does not need to try to include the setting for every possible parameter. 
  
-For example, if there is a standard that describes an output display type, such as Rec. 2100, that can be used in the filename and transform ID to imply the primaries as Rec. 2020 and transfer function of SMPTE ST 2084. If a transform imposes some sort of variant or limitation making it different from a standard display type, then those differences should be included in the filename and TransformID to clue the user in that different behavior should be expected. 
+For example, if there is a standard that describes an output display type, such as Rec. 2100, that can be used in the filename and TransformID to imply the primaries to be Rec. 2020 with the transfer function of SMPTE ST 2084. If a transform imposes some sort of variant or limitation making it different from a standard display type, then those differences should be included in the filename and TransformID to clue the user in that different behavior should be expected. 
  
 Academy supplied transforms will provide more details in header comments about the specific intended usage of or any caveats pertaining to a particular Output Transform. [In addition, a full list of specific parameters associated with a particular TransformID can be found in a registry of TransformIDs.]
  
-For Output Transforms, the Name shall describe the device and/or output data encoding in as much detail as necessary. Items to consider include the encoding color primaries and white point, transfer function, the peak luminance of the display, and any limiting color primaries, white point and/or luminance. The name may also indicate a "simulation" (sim) of another display encoding contained within a standard encoding, e.g. using “Rec.709sim” to show Rec.709 100-nit content on a display set to 1000-nit peak luminance with Rec.2020 primaries and PQ transfer function.
+#### Output Transforms
+For Output Transforms, the `Name` shall describe the device and/or output data encoding in as much detail as necessary. Items to consider include the encoding color primaries and white point, transfer function, peak luminance, or limiting color primaries. The name may also indicate a "simulation" (sim) of another display encoding contained within a standard encoding, e.g. using “Rec.709sim” to show Rec.709 100-nit content on a display set to 1000-nit peak luminance with Rec.2020 primaries and PQ transfer function.
  
 Examples:
-    URN:Output.Academy.Rec709.a2.v1
-    URN:Output.Academy.P3D65.a2.v1
-    URN:Output.Academy.P3D65_Rec709sim.a2.v1
-    URN:Output.Academy.Rec2100_P3D65limited_540nit.a2.v1
-    URN:Output.Academy.Rec2100_P3D65limited_1000nit.a2.v1
-    URN:Output.Academy.Rec2020_ST2084_Rec709sim.a2.v1
-    URN:Output.Dolby.P3D65_ST2084_Rec709limited_600nit.a2.v1
-For Color Space Conversion (CSC) Transforms, the Name shall describe the device. If the creator of the transforms is the same as the camera manufacturer, then the Name need not repeat the manufacturer name because it should already be in the Namespace. If the Input Transform creator is not the camera manufacturer, then the manufacturer name shall be prepended to the device name in the Name field. 
+
+* `URN:Output.Academy.Rec709.a2.v1`
+* `URN:Output.Academy.P3D65.a2.v1`
+* `URN:Output.Academy.P3D65_Rec709sim.a2.v1`
+* `URN:Output.Academy.Rec2100_P3D65limited_540nit.a2.v1`
+* `URN:Output.Academy.Rec2100_P3D65limited_1000nit.a2.v1`
+* `URN:Output.Academy.Rec2020_ST2084_Rec709sim.a2.v1`
+* `URN:Output.Dolby.P3D65_ST2084_Rec709limited_600nit.a2.v1`
+
+#### CSC Transforms
+For Color Space Conversion (CSC) Transforms, `Name` shall describe the device. If the creator of the transforms is the same as the camera manufacturer, then the Name need not repeat the manufacturer name because it should already be in the Namespace. If the Input Transform creator is not the camera manufacturer, then the manufacturer name shall be prepended to the device name in the Name field.
+
 For transforms from one color space to another, the Name shall describe the source color space to the destination color space, using the general form of “from”_to_"to”.
  
-Example Input Transform names: - 
-URN:CSC.Academy.ACES_to_ACEScg.a2.v1
-URN:CSC.Blackmagic.ACES_to_BMDFilm_WideGamut_Gen5.a2.v2
-URN:CSC.Red.Log3G10_RWG_to_ACES.a2.v1
- 
-ACES Major Version Number¶
-This piece of the Transform ID shall be a string consisting of the letter ‘a’ followed by the major version number of the current ACES system release. This indicates the ACES system version with which a particular transform is compatible. For new implementations, it shall be equal to the first data row in Table 2. 
- 
-Table 2 – String specification for ACES Major Version Number
-Current Version String:
-a2
-Previous values:
-a1
+Example Input Transform names:
 
+* `URN:CSC.Academy.ACES_to_ACEScg.a2.v1`
+* `URN:CSC.Blackmagic.ACES_to_BMDFilm_WideGamut_Gen5.a2.v2`
+* `URN:CSC.Red.Log3G10_RWG_to_ACES.a2.v1`
  
+#### ACES Major Version Number
+This component of the Transform ID shall be a string consisting of the letter ‘a’ followed by the major version number of the current ACES system release. This indicates the ACES system version with which a particular transform is compatible. For  new implementations, it shall be equal to the first data row in Table 2. 
  
-Transform Version Number¶
-The Transform ID shall conclude with the TransformVersionNumber, a string consisting of the letter ‘v’ followed by the version number of the transform which it identifies. This corresponds to the version of that specific transform itself.
+<div align="center" markdown="1">
+<figcaption> <b>Table 3</b> - String specification for ACES Major Version Number </figcaption>
+| | ACES Major Version Number|
+|----:|----|
+| Current Version String: | **`a2`** |
+| Previous values: | `a1` |
+</div>
  
-Output, Input, and Look Transforms may import sub-functions or constants that are included in separate Library-type CTL files. Library files usually contain more than one sub-function or constant. If a change is made to a Library file that will change the resulting output from a transform that uses that Library function, then the version number of the calling transform’s TransformID shall also be incremented. However, modifications to a Library file that do not affect the numerical output of a calling function (e.g. adding new subfunctions used by other importing files) do not require the TransformID of a file importing it to be incremented.
+#### Transform Version Number
+The Transform ID shall conclude with the `TransformVersionNumber`, a string consisting of the letter ‘v’ followed by the version number of the transform which it identifies. This corresponds to the version of that specific transform itself.
+ 
+Output, Input, and Look Transforms may import sub-functions or constants that are included in separate Library-type CTL files. Library files usually contain more than one sub-function or constant. If a change is made to a Library file that will change the resulting output from a transform that depends on that Library function, then the version number of the calling transform’s TransformID shall also be incremented. However, modifications to a Library file that do not affect the numerical output of a calling function (e.g. adding new subfunctions used by other importing files) do not require the TransformID of a file importing it to be incremented.
  
 Any updates to a Transform file that do not change the output of that transform (e.g. whitespace changes, modifications to code comments, etc.) shall also not require the transform version number to be incremented, although it can be if the editor decides it is warranted or otherwise more useful to do so.
+
+
+## User-Name (ACESuserName)
+Though designed to be human-readable, ACES TransformIDs can be overly complex for presentation to end users for selection in menus. Therefore, all transforms shall include a user-friendly name, contained in an XML tag of `<ACESuserName>`. Software applications should reference this more user-friendly name for presentation in their user interfaces.
