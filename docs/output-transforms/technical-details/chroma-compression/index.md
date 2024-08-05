@@ -111,22 +111,28 @@ The function is driven with three external parameters $limit$, $c_1$ and $c_2$ d
 
 #### Step 3 - Normalization of M to AP1
 
-The purpose of the normalization step is to establish the maximum compression and expansion limit as a normalized distance, and to normalize the M value with AP1 gamut cusp to make the operations hue-dependent. 
+The purpose of the normalization step is to establish the maximum compression and expansion limit as a normalized distance, and to normalize the M value with a hue dependent AP1 gamut cusp value.
 
 The maximum distance is limited to AP1.  That is, the compression and expansion will not affect M values beyond what would be AP1 in chromaticity space.  Values outside AP1 will later be clipped by the transform.  This makes AP1 effectively the rendering space of the transform.  The limit value is calculated as follows:
 
 $$
-limit = \frac{J_{t}}{J_{max}}^{\frac{1}{cz}}\cdot\frac{AP1ReachM[h]}{AP1CuspM[h]}
+limit = \frac{J_{t}}{J_{max}}^{\frac{1}{cz}}\cdot\frac{AP1ReachM[h]}{AP1_{cusp}}
 $$
 where,
 
 $AP1ReachM$ is a hue dependent lookup table of AP1 M values of $J_{max}$
-$AP1CuspM$ is a hue dependent lookup table of AP1 gamut cusp M values
+$AP1_{cusp}$ is  hue dependent curve that approximates AP1 gamut cusp M value
 
-The normalization of M with the AP1 gamut cusp M makes the compression and expansion operations hue dependent.  The normalization is done as follows (for both forward and inverse directions):
+The $AP1_{cusp}$ hue dependent curve is the following formula that was derived by fitting against the actual AP1 gamut cusp M values for different peak luminances:
 
 $$
-M_n =\frac{M_s}{AP1CuspM[h]}
+AP1_{cusp} =\\ (11.34072\cdot cos(h) +16.46899\cdot cos(2\cdot h) + 7.88380\cdot cos(3\cdot h) + \\ 14.66441\cdot sin(h) - 6.37224\cdot sin(2\cdot h) + 9.19364\cdot sin(3\cdot h) + 77.12896) \cdot\\ (\left(0.03379 \cdot L_{peak}\right) ^ {0.30596} - 0.45135)
+$$
+
+The normalization of M with $AP1_{cusp}$ makes the compression and expansion operations hue dependent.  The normalization is done as follows (for both forward and inverse directions):
+
+$$
+M_n =\frac{M_s}{AP1_{cusp}}
 $$
 
 The expansion step followed by the compression step is then performed using the normalized M and the calculated limit, described in the sections below.
@@ -134,7 +140,7 @@ The expansion step followed by the compression step is then performed using the 
 After completing the operations the resulting compressed M is denormalized as follows (for both forward and inverse directions):
 
 $$
-M =M_c\cdot{AP1CuspM[h]}
+M =M_c\cdot{AP1_{cusp}}
 $$
 
 The denormalization is the final step of the chroma compression and the transform moves on to the gamut mapping stage.
