@@ -33,18 +33,9 @@ Chroma Compression is a hue-preserving invertible photographic colour rendering 
 * M - perceived colourfulness
 * h - perceived hue
 
-The purpose of the Chroma Compression, together with the tonescale, is to create the photographic base look for the transforms.  Throughout the chroma compression the hue remains constant.
+The purpose of the Chroma Compression, together with the tonescale, is to create the photographic base look for the transforms.  Throughout the chroma compression lightness and hue remains constant.  Only the M correlate is compressed.
 
-The Chroma Compression has the following goals:
-
-* Provide saturation roll-off in the highlight
-
-The chroma compression has two main steps:
-
-* Rescaling of M
-* In-gamut compression of M
-
-### Rescaling of M
+### Step 1 - Rescaling of M
 
 After the tonescale has compressed J to the target display peak luminance, the M correlate must also be rescaled or compressed down to the same range. This is done by using the $\frac{1}{cz}$ exponent defined in Hellwig2022 model in order maintain the correct M to J ratio. Maintaining the correct ratio keeps the chromaticities constant. The rescaling method is the following:
 
@@ -61,14 +52,16 @@ $$
 where,
 
 $J_t$ is the tonescale compressed J
+
 $J$ is the original J correlate
+
 $c$ and $z$ are constants defined in the Hellwig2022 model
 
-### In-gamut compression of M
+### Step 2 - In-gamut compression of M
 
 The in-gamut compression step creates the main photographic colour rendering.   This step is a non-linear expansion and compression of M over both the J axis and M axis. That is, the amount of expansion and compression depends on both J and M.  Compression increases as J values increase, and reduces as M values increase. In other words, shadows are compressed less than highlights, and less saturated colours are compressed more than pure colours.
 
-The limiting display gamut boundary is not taken into consideration.  All out of gamut colors will be mapped into the limiting gamut later by the gamut mapper.  The in-gamut compression mostly affects the interior of the gamut.
+The limiting display gamut boundary is not taken into consideration.  All out of gamut colorus will be mapped into the limiting gamut later by the gamut mapper.  The in-gamut compression mainly affects the interior of the gamut.
 
 The in-gamut compression has the following steps:
 
@@ -108,52 +101,45 @@ $$
 
 where,
 
-$$
-k_{1}=\sqrt{c_1^{2}+k_{2}^{2}}
-$$
+$k_{1}=\sqrt{c_1^{2}+k_{2}^{2}}$
 
-$$
-k_{2}=max(c_2, 0.001)
-$$
+$k_{2}=max(c_2, 0.001)$
 
-$$
-k_{3}=\frac{limit+k_{1}}{limit+k_{2}}
-$$
+$k_{3}=\frac{limit+k_{1}}{limit+k_{2}}$
 
 The function is driven with three external parameters $limit$, $c_1$ and $c_2$ defined below.
 
-#### Normalization of M to AP1
+#### Step 3 - Normalization of M to AP1
 
-The purpose of the normalization step is to establish the maximum compression and expansion limit as a normalized distance, and to normalize the M value with AP1 gamut cusp to make the operations hue-dependent .
+The purpose of the normalization step is to establish the maximum compression and expansion limit as a normalized distance, and to normalize the M value with AP1 gamut cusp to make the operations hue-dependent. 
 
-The maximum distance is limited to AP1.  That is, the compression and expansion will not affect M values beyond what would be AP1 in chromaticity space.  Values outside AP1 will later be clipped by the transform.  The limit value is calculated as follows:
+The maximum distance is limited to AP1.  That is, the compression and expansion will not affect M values beyond what would be AP1 in chromaticity space.  Values outside AP1 will later be clipped by the transform.  This makes AP1 effectively the rendering space of the transform.  The limit value is calculated as follows:
 
 $$
-limit = J_{t}^{\frac{1}{cz}}\cdot\frac{AP1ReachM[h]}{AP1CuspM[h]}
+limit = \frac{J_{t}}{J_{max}}^{\frac{1}{cz}}\cdot\frac{AP1ReachM[h]}{AP1CuspM[h]}
 $$
-
 where,
 
-$AP1ReachM$ is a hue dependent lookup table of AP1 M values at $J_{max}$
+$AP1ReachM$ is a hue dependent lookup table of AP1 M values of $J_{max}$
 $AP1CuspM$ is a hue dependent lookup table of AP1 gamut cusp M values
 
-The normalization of M with the AP1 gamut cusp M makes the compression and expansion operations hue dependent, so that different hues would be affected different amounts.  The normalization is done as follows:
+The normalization of M with the AP1 gamut cusp M makes the compression and expansion operations hue dependent.  The normalization is done as follows (for both forward and inverse directions):
 
 $$
-M_n =\frac{M}{AP1CuspM[h]}
+M_n =\frac{M_s}{AP1CuspM[h]}
 $$
 
-The compression and expansion is then performed using the normalized M and the calculated limit, described in the sections below.
+The expansion step followed by the compression step is then performed using the normalized M and the calculated limit, described in the sections below.
 
-After completing the operations the M is denormalized as follows:
+After completing the operations the resulting compressed M is denormalized as follows (for both forward and inverse directions):
 
 $$
-M =M_n\cdot{AP1CuspM[h]}
+M =M_c\cdot{AP1CuspM[h]}
 $$
 
 The denormalization is the final step of the chroma compression and the transform moves on to the gamut mapping stage.
 
-#### Expansion of M
+#### Step 4 - Expansion of M
 
 The expansion step was found to be crucial to bring “life” into the image. After the rescaling step the colors come out dull in the mid-tones and shadows are very desaturated. The expansion step increases saturation in the shadows and mid-tones but not in the highlights.
 
@@ -169,23 +155,21 @@ $$
 
 The $saturation$ parameter defines how aggressive the expansion is.  It scales down based on higher peak luminance for better appearance match with different displays.  It scales down because the model naturally gets more colorful with higher peak luminance.
 
-The $threshold$ parameter is used to reduce expansion of noise by making the toe of the toe function less aggressive near black. It also scales down  because deep shadows get more desaturated with higher peak luminance.  As of CAM DRT v053 they are defined as follows:
+The $threshold$ parameter is used to reduce expansion of noise by making the toe of the toe function less aggressive near black. It too scales down but because deep shadows get more desaturated with higher peak luminance.  They are defined as follows:
 
 $$
-expand = 1.65
+expand = 1.3
 $$
-
 $$
-saturation= max(0.15,  expand - expand * 0.78 *  \log_{10}\left(\frac{L_{peak}}{100}\right))
+saturation= max(0.2,  expand - expand \cdot 0.69 \cdot  \log_{10}\left(\frac{L_{peak}}{100}\right))
 $$
-
 $$
 threshold = \frac{0.5}{L_{peak}}
 $$
 
-#### Compression of M
+#### Step 5 - Compression of M
 
-The compression step creates the saturation roll-off in the highlights. It compresses less saturated colors more and more saturated colors less, preserving pure colors from compression. The compression affects highlights and mid-tones and does not compress shadows.
+The compression step creates the saturation roll-off in the highlights. It compresses less saturated colors more and more saturated colors less, preserving pure colors from compression. The compression affects highlights and mid-tones and does not compress shadows.  The compression step has a large effect on skin tone rendering and how they desaturate at higher intensity levels.
 
 The compression applies the toe function in *forward direction* with the following parameters:
 
@@ -197,16 +181,15 @@ $$
 c_2 = 1.0-\frac{J_{t}}{J_{max}}
 $$
 
-The $compression$ parameter defines how aggressive the compression is. The parameter scales up based on higher peak luminance for better appearance match with different displays.  As of CAM DRT v053, it is defined as follows with an adjustable variable $compr$:
+The $compression$ parameter defines how aggressive the compression is. The parameter scales up based on higher peak luminance for better appearance match with different displays.  It scales up because the model naturally gets more colorful with higher peak luminance. They are defined as follows:
 
 $$
-compr = 3.5
+compr = 2.4
+$$
+$$
+compression = compr+ compr \cdot 3.3 \cdot \log_{10}\left(\frac{L_{peak}}{100}\right)
 $$
 
-$$
-compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
-$$
+### Inverse of chroma compression
 
-#### Inverse of chroma compression
-
-The chroma compression is fully invertible by applying the same set of operations described above but in reverse order and in inverse direction.
+The chroma compression is fully invertible by applying the same set of operations described above but in reverse order and in inverse direction.  In the normalization step the operations are not reversed.
