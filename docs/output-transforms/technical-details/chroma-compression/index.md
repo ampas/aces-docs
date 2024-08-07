@@ -57,17 +57,56 @@ $J$ is the original J correlate
 
 $c$ and $z$ are constants defined in the Hellwig2022 model
 
+
 ### Step 2 - In-gamut compression of M
 
 The in-gamut compression step creates the main photographic colour rendering.   This step is a non-linear expansion and compression of M over both the J axis and M axis. That is, the amount of expansion and compression depends on both J and M.  Compression increases as J values increase, and reduces as M values increase. In other words, shadows are compressed less than highlights, and less saturated colours are compressed more than pure colours.
 
 The limiting display gamut boundary is not taken into consideration.  All out of gamut colorus will be mapped into the limiting gamut later by the gamut mapper.  The in-gamut compression mainly affects the interior of the gamut.
 
+<figure markdown="span">
+  ![No chroma compression](./images/ACES2_cc_no_cc.png)
+  <figcaption>Without chroma compression</figcaption>
+</figure>
+
+<figure markdown="span">
+  ![Hue slice before chroma compression](./images/ACES2_cc_no_cc_slice.png)
+  <figcaption>Behavior of an example hue slice before chroma compression</figcaption>
+</figure>
+
+
 The in-gamut compression has the following steps:
 
 * Normalization of M to AP1 as a maximum limit
+<figure markdown="span">
+  ![Rescaling of M](./images/ACES2_cc_steps_1.png)
+  <figcaption>Effect of rescaling M</figcaption>
+</figure>
+
 * Expansion of M for shadows and mid-tones within AP1
+<figure markdown="span">
+  ![Expansion of M](./images/ACES2_cc_steps_1_2.png)
+  <figcaption>Effect of expansion of M</figcaption>
+</figure>
+
 * Compression of M within AP1
+<figure markdown="span">
+  ![Compression of M](./images/ACES2_cc_steps_1_2_3.png)
+  <figcaption>Effect of compression of M</figcaption>
+</figure>
+
+
+
+<figure markdown="span">
+  ![Hue slice after chroma compression](./images/ACES2_cc_steps_1_2_3_slice.png)
+  <figcaption>Behavior of an example hue slice after chroma compression</figcaption>
+</figure>
+
+<figure markdown="span">
+  ![Hue slice after chroma compression](./images/ACES2_cc_no_cç_slice.png)
+  ![Hue slice after chroma compression](./images/ACES2_cc_steps_1_2_3_slice.png)
+  <figcaption>Behavior of an example hue slice after chroma compression</figcaption>
+</figure>
 
 #### A toe function
 
@@ -118,6 +157,7 @@ The maximum distance is limited to AP1.  That is, the compression and expansion 
 $$
 limit = \frac{J_{t}}{J_{max}}^{\frac{1}{cz}}\cdot\frac{AP1ReachM[h]}{AP1_{cusp}}
 $$
+
 where,
 
 $AP1ReachM$ is a hue dependent lookup table of AP1 M values of $J_{max}$
@@ -166,9 +206,11 @@ The $threshold$ parameter is used to reduce expansion of noise by making the toe
 $$
 expand = 1.3
 $$
+
 $$
 saturation= max(0.2,  expand - expand \cdot 0.69 \cdot  \log_{10}\left(\frac{L_{peak}}{100}\right))
 $$
+
 $$
 threshold = \frac{0.5}{L_{peak}}
 $$
@@ -192,6 +234,7 @@ The $compression$ parameter defines how aggressive the compression is. The param
 $$
 compr = 2.4
 $$
+
 $$
 compression = compr+ compr \cdot 3.3 \cdot \log_{10}\left(\frac{L_{peak}}{100}\right)
 $$
@@ -199,3 +242,25 @@ $$
 ### Inverse of chroma compression
 
 The chroma compression is fully invertible by applying the same set of operations described above but in reverse order and in inverse direction.  In the normalization step the operations are not reversed.
+
+
+
+<figure markdown="span">
+  ![Rescaling of M](./images/ACES2_cc_no_cc.gif){ loading=lazy }
+  <figcaption>Before chroma compression</figcaption>
+</figure>
+
+<figure markdown="span">
+  ![Rescaling of M](./images/ACES2_cc_steps_1.gif){ loading=lazy }
+  <figcaption>Effect of rescaling M</figcaption>
+</figure>
+
+<figure markdown="span">
+  ![Expansion of M](./images/ACES2_cc_steps_1_2.gif){ loading=lazy }
+  <figcaption>Effect of expansion of M</figcaption>
+</figure>
+
+<figure markdown="span">
+  ![Compression of M](./images/ACES2_cc_steps_1_2_3.gif){ loading=lazy }
+  <figcaption>Effect of compression of M</figcaption>
+</figure>
