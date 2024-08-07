@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -958,18 +958,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rescaling-of-m" class="md-nav__link">
+  <a href="#step-1-rescaling-of-m" class="md-nav__link">
     <span class="md-ellipsis">
-      Rescaling of M
+      Step 1 - Rescaling of M
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#in-gamut-compression-of-m" class="md-nav__link">
+  <a href="#step-2-in-gamut-compression-of-m" class="md-nav__link">
     <span class="md-ellipsis">
-      In-gamut compression of M
+      Step 2 - In-gamut compression of M
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-of-chroma-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverse of chroma compression
     </span>
   </a>
   
@@ -1381,18 +1390,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rescaling-of-m" class="md-nav__link">
+  <a href="#step-1-rescaling-of-m" class="md-nav__link">
     <span class="md-ellipsis">
-      Rescaling of M
+      Step 1 - Rescaling of M
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#in-gamut-compression-of-m" class="md-nav__link">
+  <a href="#step-2-in-gamut-compression-of-m" class="md-nav__link">
     <span class="md-ellipsis">
-      In-gamut compression of M
+      Step 2 - In-gamut compression of M
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inverse-of-chroma-compression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverse of chroma compression
     </span>
   </a>
   
@@ -1442,17 +1460,8 @@
 <li>M - perceived colourfulness</li>
 <li>h - perceived hue</li>
 </ul>
-<p>The purpose of the Chroma Compression, together with the tonescale, is to create the photographic base look for the transforms.  Throughout the chroma compression the hue remains constant.</p>
-<p>The Chroma Compression has the following goals:</p>
-<ul>
-<li>Provide saturation roll-off in the highlight</li>
-</ul>
-<p>The chroma compression has two main steps:</p>
-<ul>
-<li>Rescaling of M</li>
-<li>In-gamut compression of M</li>
-</ul>
-<h3 id="rescaling-of-m">Rescaling of M<a class="headerlink" href="#rescaling-of-m" title="Permanent link">&para;</a></h3>
+<p>The purpose of the Chroma Compression, together with the tonescale, is to create the photographic base look for the transforms.  Throughout the chroma compression lightness and hue remains constant.  Only the M correlate is compressed.</p>
+<h3 id="step-1-rescaling-of-m">Step 1 - Rescaling of M<a class="headerlink" href="#step-1-rescaling-of-m" title="Permanent link">&para;</a></h3>
 <p>After the tonescale has compressed J to the target display peak luminance, the M correlate must also be rescaled or compressed down to the same range. This is done by using the <span class="arithmatex">\(\frac{1}{cz}\)</span> exponent defined in Hellwig2022 model in order maintain the correct M to J ratio. Maintaining the correct ratio keeps the chromaticities constant. The rescaling method is the following:</p>
 <div class="arithmatex">\[
 M_s = M\cdot\left(\frac{J_{t}}{J}\right)^{\frac{1}{cz}}
@@ -1462,18 +1471,51 @@ M_s = M\cdot\left(\frac{J_{t}}{J}\right)^{\frac{1}{cz}}
 M = M_s\cdot\left(\frac{J_{t}}{J}\right)^{-\frac{1}{cz}}
 \]</div>
 <p>where,</p>
-<p><span class="arithmatex">\(J_t\)</span> is the tonescale compressed J
-<span class="arithmatex">\(J\)</span> is the original J correlate
-<span class="arithmatex">\(c\)</span> and <span class="arithmatex">\(z\)</span> are constants defined in the Hellwig2022 model</p>
-<h3 id="in-gamut-compression-of-m">In-gamut compression of M<a class="headerlink" href="#in-gamut-compression-of-m" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(J_t\)</span> is the tonescale compressed J</p>
+<p><span class="arithmatex">\(J\)</span> is the original J correlate</p>
+<p><span class="arithmatex">\(c\)</span> and <span class="arithmatex">\(z\)</span> are constants defined in the Hellwig2022 model</p>
+<h3 id="step-2-in-gamut-compression-of-m">Step 2 - In-gamut compression of M<a class="headerlink" href="#step-2-in-gamut-compression-of-m" title="Permanent link">&para;</a></h3>
 <p>The in-gamut compression step creates the main photographic colour rendering.   This step is a non-linear expansion and compression of M over both the J axis and M axis. That is, the amount of expansion and compression depends on both J and M.  Compression increases as J values increase, and reduces as M values increase. In other words, shadows are compressed less than highlights, and less saturated colours are compressed more than pure colours.</p>
-<p>The limiting display gamut boundary is not taken into consideration.  All out of gamut colors will be mapped into the limiting gamut later by the gamut mapper.  The in-gamut compression mostly affects the interior of the gamut.</p>
+<p>The limiting display gamut boundary is not taken into consideration.  All out of gamut colorus will be mapped into the limiting gamut later by the gamut mapper.  The in-gamut compression mainly affects the interior of the gamut.</p>
+<figure>
+  <img alt="No chroma compression" src="images/ACES2_cc_no_cc.png" />
+  <figcaption>Without chroma compression</figcaption>
+</figure>
+<figure>
+  <img alt="Hue slice before chroma compression" src="images/ACES2_cc_no_cc_slice.png" />
+  <figcaption>Behavior of an example hue slice before chroma compression</figcaption>
+</figure>
 <p>The in-gamut compression has the following steps:</p>
 <ul>
 <li>Normalization of M to AP1 as a maximum limit</li>
+</ul>
+<figure>
+  <img alt="Rescaling of M" src="images/ACES2_cc_steps_1.png" />
+  <figcaption>Effect of rescaling M</figcaption>
+</figure>
+<ul>
 <li>Expansion of M for shadows and mid-tones within AP1</li>
+</ul>
+<figure>
+  <img alt="Expansion of M" src="images/ACES2_cc_steps_1_2.png" />
+  <figcaption>Effect of expansion of M</figcaption>
+</figure>
+<ul>
 <li>Compression of M within AP1</li>
 </ul>
+<figure>
+  <img alt="Compression of M" src="images/ACES2_cc_steps_1_2_3.png" />
+  <figcaption>Effect of compression of M</figcaption>
+</figure>
+<figure>
+  <img alt="Hue slice after chroma compression" src="images/ACES2_cc_steps_1_2_3_slice.png" />
+  <figcaption>Behavior of an example hue slice after chroma compression</figcaption>
+</figure>
+<figure>
+  <img alt="Hue slice after chroma compression" src="./images/ACES2_cc_no_cç_slice.png" />
+  <img alt="Hue slice after chroma compression" src="images/ACES2_cc_steps_1_2_3_slice.png" />
+  <figcaption>Behavior of an example hue slice after chroma compression</figcaption>
+</figure>
 <h4 id="a-toe-function">A toe function<a class="headerlink" href="#a-toe-function" title="Permanent link">&para;</a></h4>
 <p>At the heart of the in-gamut compression and expansion is an invertible “toe” function (<a href="https://www.desmos.com/calculator/6vplvw14ti">https://www.desmos.com/calculator/6vplvw14ti</a>). The toe in the function will compress less saturated colors more than more saturated colors, and the size and shape of the toe will determine the aggressiveness of the compression.</p>
 <p>In the forward direction the function performs compression. To perform expansion the function is driven in reverse. The expansion will expand less saturated colors less than more saturated colors.</p>
@@ -1494,36 +1536,34 @@ toe_{inv}(x, limit, c_1, c_2) = \frac{x^{2}+k_{1}x}{k_{3}\left(x+k_{2}\right)}
 toe_{invr}(x, limit, c_1, c_2) = limit - toe_{inv}(limit - x, limit - 0.001, c_1, c_2)
 \]</div>
 <p>where,</p>
-<div class="arithmatex">\[
-k_{1}=\sqrt{c_1^{2}+k_{2}^{2}}
-\]</div>
-<div class="arithmatex">\[
-k_{2}=max(c_2, 0.001)
-\]</div>
-<div class="arithmatex">\[
-k_{3}=\frac{limit+k_{1}}{limit+k_{2}}
-\]</div>
+<p><span class="arithmatex">\(k_{1}=\sqrt{c_1^{2}+k_{2}^{2}}\)</span></p>
+<p><span class="arithmatex">\(k_{2}=max(c_2, 0.001)\)</span></p>
+<p><span class="arithmatex">\(k_{3}=\frac{limit+k_{1}}{limit+k_{2}}\)</span></p>
 <p>The function is driven with three external parameters <span class="arithmatex">\(limit\)</span>, <span class="arithmatex">\(c_1\)</span> and <span class="arithmatex">\(c_2\)</span> defined below.</p>
-<h4 id="normalization-of-m-to-ap1">Normalization of M to AP1<a class="headerlink" href="#normalization-of-m-to-ap1" title="Permanent link">&para;</a></h4>
-<p>The purpose of the normalization step is to establish the maximum compression and expansion limit as a normalized distance, and to normalize the M value with AP1 gamut cusp to make the operations hue-dependent .</p>
-<p>The maximum distance is limited to AP1.  That is, the compression and expansion will not affect M values beyond what would be AP1 in chromaticity space.  Values outside AP1 will later be clipped by the transform.  The limit value is calculated as follows:</p>
+<h4 id="step-3-normalization-of-m-to-ap1">Step 3 - Normalization of M to AP1<a class="headerlink" href="#step-3-normalization-of-m-to-ap1" title="Permanent link">&para;</a></h4>
+<p>The purpose of the normalization step is to establish the maximum compression and expansion limit as a normalized distance, and to normalize the M value with a hue dependent AP1 gamut cusp value.</p>
+<p>The maximum distance is limited to AP1.  That is, the compression and expansion will not affect M values beyond what would be AP1 in chromaticity space.  Values outside AP1 will later be clipped by the transform.  This makes AP1 effectively the rendering space of the transform.  The limit value is calculated as follows:</p>
 <div class="arithmatex">\[
-limit = J_{t}^{\frac{1}{cz}}\cdot\frac{AP1ReachM[h]}{AP1CuspM[h]}
+limit = \frac{J_{t}}{J_{max}}^{\frac{1}{cz}}\cdot\frac{AP1ReachM[h]}{AP1_{cusp}}
 \]</div>
 <p>where,</p>
-<p><span class="arithmatex">\(AP1ReachM\)</span> is a hue dependent lookup table of AP1 M values at <span class="arithmatex">\(J_{max}\)</span>
-<span class="arithmatex">\(AP1CuspM\)</span> is a hue dependent lookup table of AP1 gamut cusp M values</p>
-<p>The normalization of M with the AP1 gamut cusp M makes the compression and expansion operations hue dependent, so that different hues would be affected different amounts.  The normalization is done as follows:</p>
+<p><span class="arithmatex">\(AP1ReachM\)</span> is a hue dependent lookup table of AP1 M values of <span class="arithmatex">\(J_{max}\)</span>
+<span class="arithmatex">\(AP1_{cusp}\)</span> is  hue dependent curve that approximates AP1 gamut cusp M value</p>
+<p>The <span class="arithmatex">\(AP1_{cusp}\)</span> hue dependent curve is the following formula that was derived by fitting against the actual AP1 gamut cusp M values for different peak luminances:</p>
 <div class="arithmatex">\[
-M_n =\frac{M}{AP1CuspM[h]}
+AP1_{cusp} =\\ (11.34072\cdot cos(h) +16.46899\cdot cos(2\cdot h) + 7.88380\cdot cos(3\cdot h) + \\ 14.66441\cdot sin(h) - 6.37224\cdot sin(2\cdot h) + 9.19364\cdot sin(3\cdot h) + 77.12896) \cdot\\ (\left(0.03379 \cdot L_{peak}\right) ^ {0.30596} - 0.45135)
 \]</div>
-<p>The compression and expansion is then performed using the normalized M and the calculated limit, described in the sections below.</p>
-<p>After completing the operations the M is denormalized as follows:</p>
+<p>The normalization of M with <span class="arithmatex">\(AP1_{cusp}\)</span> makes the compression and expansion operations hue dependent.  The normalization is done as follows (for both forward and inverse directions):</p>
 <div class="arithmatex">\[
-M =M_n\cdot{AP1CuspM[h]}
+M_n =\frac{M_s}{AP1_{cusp}}
+\]</div>
+<p>The expansion step followed by the compression step is then performed using the normalized M and the calculated limit, described in the sections below.</p>
+<p>After completing the operations the resulting compressed M is denormalized as follows (for both forward and inverse directions):</p>
+<div class="arithmatex">\[
+M =M_c\cdot{AP1_{cusp}}
 \]</div>
 <p>The denormalization is the final step of the chroma compression and the transform moves on to the gamut mapping stage.</p>
-<h4 id="expansion-of-m">Expansion of M<a class="headerlink" href="#expansion-of-m" title="Permanent link">&para;</a></h4>
+<h4 id="step-4-expansion-of-m">Step 4 - Expansion of M<a class="headerlink" href="#step-4-expansion-of-m" title="Permanent link">&para;</a></h4>
 <p>The expansion step was found to be crucial to bring “life” into the image. After the rescaling step the colors come out dull in the mid-tones and shadows are very desaturated. The expansion step increases saturation in the shadows and mid-tones but not in the highlights.</p>
 <p>The expansion applies the toe function in <em>reverse direction</em> with the following parameters:</p>
 <div class="arithmatex">\[
@@ -1533,18 +1573,18 @@ c_1 = saturation\cdot(1.0-\frac{J_{t}}{J_{max}})
 c_2 = \sqrt{\frac{J_{t}}{J_{max}}^{2}+threshold}
 \]</div>
 <p>The <span class="arithmatex">\(saturation\)</span> parameter defines how aggressive the expansion is.  It scales down based on higher peak luminance for better appearance match with different displays.  It scales down because the model naturally gets more colorful with higher peak luminance.</p>
-<p>The <span class="arithmatex">\(threshold\)</span> parameter is used to reduce expansion of noise by making the toe of the toe function less aggressive near black. It also scales down  because deep shadows get more desaturated with higher peak luminance.  As of CAM DRT v053 they are defined as follows:</p>
+<p>The <span class="arithmatex">\(threshold\)</span> parameter is used to reduce expansion of noise by making the toe of the toe function less aggressive near black. It too scales down but because deep shadows get more desaturated with higher peak luminance.  They are defined as follows:</p>
 <div class="arithmatex">\[
-expand = 1.65
+expand = 1.3
 \]</div>
 <div class="arithmatex">\[
-saturation= max(0.15,  expand - expand * 0.78 *  \log_{10}\left(\frac{L_{peak}}{100}\right))
+saturation= max(0.2,  expand - expand \cdot 0.69 \cdot  \log_{10}\left(\frac{L_{peak}}{100}\right))
 \]</div>
 <div class="arithmatex">\[
 threshold = \frac{0.5}{L_{peak}}
 \]</div>
-<h4 id="compression-of-m">Compression of M<a class="headerlink" href="#compression-of-m" title="Permanent link">&para;</a></h4>
-<p>The compression step creates the saturation roll-off in the highlights. It compresses less saturated colors more and more saturated colors less, preserving pure colors from compression. The compression affects highlights and mid-tones and does not compress shadows.</p>
+<h4 id="step-5-compression-of-m">Step 5 - Compression of M<a class="headerlink" href="#step-5-compression-of-m" title="Permanent link">&para;</a></h4>
+<p>The compression step creates the saturation roll-off in the highlights. It compresses less saturated colors more and more saturated colors less, preserving pure colors from compression. The compression affects highlights and mid-tones and does not compress shadows.  The compression step has a large effect on skin tone rendering and how they desaturate at higher intensity levels.</p>
 <p>The compression applies the toe function in <em>forward direction</em> with the following parameters:</p>
 <div class="arithmatex">\[
 c_1 =compression\cdot \frac{J_{t}}{J_{max}}
@@ -1552,15 +1592,31 @@ c_1 =compression\cdot \frac{J_{t}}{J_{max}}
 <div class="arithmatex">\[
 c_2 = 1.0-\frac{J_{t}}{J_{max}}
 \]</div>
-<p>The <span class="arithmatex">\(compression\)</span> parameter defines how aggressive the compression is. The parameter scales up based on higher peak luminance for better appearance match with different displays.  As of CAM DRT v053, it is defined as follows with an adjustable variable <span class="arithmatex">\(compr\)</span>:</p>
+<p>The <span class="arithmatex">\(compression\)</span> parameter defines how aggressive the compression is. The parameter scales up based on higher peak luminance for better appearance match with different displays.  It scales up because the model naturally gets more colorful with higher peak luminance. They are defined as follows:</p>
 <div class="arithmatex">\[
-compr = 3.5
+compr = 2.4
 \]</div>
 <div class="arithmatex">\[
-compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
+compression = compr+ compr \cdot 3.3 \cdot \log_{10}\left(\frac{L_{peak}}{100}\right)
 \]</div>
-<h4 id="inverse-of-chroma-compression">Inverse of chroma compression<a class="headerlink" href="#inverse-of-chroma-compression" title="Permanent link">&para;</a></h4>
-<p>The chroma compression is fully invertible by applying the same set of operations described above but in reverse order and in inverse direction.</p>
+<h3 id="inverse-of-chroma-compression">Inverse of chroma compression<a class="headerlink" href="#inverse-of-chroma-compression" title="Permanent link">&para;</a></h3>
+<p>The chroma compression is fully invertible by applying the same set of operations described above but in reverse order and in inverse direction.  In the normalization step the operations are not reversed.</p>
+<figure>
+  <img alt="Rescaling of M" loading="lazy" src="images/ACES2_cc_no_cc.gif" />
+  <figcaption>Before chroma compression</figcaption>
+</figure>
+<figure>
+  <img alt="Rescaling of M" loading="lazy" src="images/ACES2_cc_steps_1.gif" />
+  <figcaption>Effect of rescaling M</figcaption>
+</figure>
+<figure>
+  <img alt="Expansion of M" loading="lazy" src="images/ACES2_cc_steps_1_2.gif" />
+  <figcaption>Effect of expansion of M</figcaption>
+</figure>
+<figure>
+  <img alt="Compression of M" loading="lazy" src="images/ACES2_cc_steps_1_2_3.gif" />
+  <figcaption>Effect of compression of M</figcaption>
+</figure>
 
 
 
@@ -1581,7 +1637,7 @@ compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 21, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 7, 2024</span>
   </span>
 
     
@@ -1633,7 +1689,7 @@ compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
       
     
     <a href="https://twitter.com/academyaces" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
     
@@ -1644,7 +1700,7 @@ compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
       
     
     <a href="https://www.facebook.com/AcademyACESColor/" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"/></svg>
     </a>
   
     
@@ -1655,7 +1711,7 @@ compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
       
     
     <a href="https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
     </a>
   
     
@@ -1666,7 +1722,7 @@ compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
       
     
     <a href="https://www.github.com/ampas" target="_blank" rel="noopener" title="www.github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
     
@@ -1674,7 +1730,7 @@ compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
     
     
     <a href="assets/pdfs/kodak-grey-card.pdf" target="_blank" rel="noopener" title="The Great Cod" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M180.5 141.5C219.7 108.5 272.6 80 336 80s116.3 28.5 155.5 61.5c39.1 33 66.9 72.4 81 99.8 4.7 9.2 4.7 20.1 0 29.3-14.1 27.4-41.9 66.8-81 99.8C452.3 403.5 399.4 432 336 432s-116.3-28.5-155.5-61.5c-16.2-13.7-30.5-28.5-42.7-43.1l-89.7 52.2c-12.5 7.3-28.4 5.3-38.7-4.9s-12.4-26-5.2-38.6L50 256 4.2 175.9c-7.2-12.6-5-28.4 5.3-38.6s26.1-12.2 38.7-4.9l89.7 52.3c12.2-14.6 26.5-29.4 42.7-43.1zM448 256a32 32 0 1 0-64 0 32 32 0 1 0 64 0z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M180.5 141.5C219.7 108.5 272.6 80 336 80s116.3 28.5 155.5 61.5c39.1 33 66.9 72.4 81 99.8 4.7 9.2 4.7 20.1 0 29.3-14.1 27.4-41.9 66.8-81 99.8C452.3 403.5 399.4 432 336 432s-116.3-28.5-155.5-61.5c-16.2-13.7-30.5-28.5-42.7-43.1l-89.7 52.2c-12.5 7.3-28.4 5.3-38.7-4.9s-12.4-26-5.2-38.6L50 256 4.2 175.9c-7.2-12.6-5-28.4 5.3-38.6s26.1-12.2 38.7-4.9l89.7 52.3c12.2-14.6 26.5-29.4 42.7-43.1zM448 256a32 32 0 1 0-64 0 32 32 0 1 0 64 0z"/></svg>
     </a>
   
 </div>
@@ -1694,7 +1750,7 @@ compression = compr+ compr * 5.0 * \log_{10}\left(\frac{L_{peak}}{100}\right)
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.tracking", "navigation.expand", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.prue", "toc.follow", "content.tooltips"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="../../../js/mathjax.js"></script>
       
