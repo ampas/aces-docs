@@ -8,7 +8,7 @@ ACES Metadata File (AMF) Specification
 
 Scope
 -----
-This document specifies the ACES Metadata File (“AMF”), a ‘sidecar’ XML file intended to exchange themetadata required to recreate ACES viewing pipelines.This specification supersedes TB-2014-009 – Academy Color Encoding System (ACES) Clip-level MetadataFile Format Definition and Usage (“ACESclip”). TB-2014-009 is now considered obsolete.
+This document specifies the ACES Metadata File (“AMF”), a ‘sidecar’ XML file intended to exchange the metadata required to recreate ACES viewing pipelines. This specification supersedes TB-2014-009 – Academy Color Encoding System -- (ACES) Clip-level MetadataFile Format Definition and Usage (“ACESclip”). TB-2014-009 is now considered obsolete.
 
 
 Introduction 
@@ -113,7 +113,7 @@ This section describes the data intended for use within the ACES Metadata file.
 All top level structures shall be tagged as being within the `aces` namespace with urn `urn:acesMetadata:acesMetadataFile:v1.0`
 
 `### UML Diagram
-The following UML diagrams are segments of the complete UML diagram which is not included in this document due to space constraints.  To view the entire UML diagram in SVG format visit \url{https://aces.mp/amf\_uml}.
+The following UML diagrams are segments of the complete UML diagram which is not included in this document due to space constraints.  To view the entire UML diagram in SVG format visit [https://aces.mp/amf\_uml](https://aces.mp/amf\_uml).
 
 #### acesMetadataFile
 <figure align="center" markdown>

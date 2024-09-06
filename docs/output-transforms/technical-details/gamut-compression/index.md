@@ -21,8 +21,10 @@ flowchart LR
   E["Gamut 
   Compression 
   (J & M)"] --> 
-  F[Display 
-  Encoding] --> 
+  H["White
+  Limiting"] --> 
+  F["Display 
+  Encoding"] --> 
   G(Display 
   RGB 
   Output);

@@ -112,17 +112,27 @@ nav:
   - 'ACES Documentation': 
     - 'Getting Started': index.md
     - 'System Overview': overview.md
-    - 'Component Names': component-names/index.md
-  - 'Technical Documentation':
+    - 'What''s New in 2.0': system-components/whats-new/index.md
+  - 'Specifications': 
+    - 'Encodings':
+      - 'Overview': specifications/encodings/overview.md
+      - 'ACES2065-1': specifications/aces2065-1.md
+      - 'ACEScg': specifications/acescg.md
+      - 'ACEScct': specifications/acescct.md
+      - 'ACEScc': specifications/acescc.md
+      - 'ACESproxy': specifications/acesproxy.md
+      - 'APD (Academy Printing Density)': specifications/apd.md
+      - 'ADX (Academy Density Exchange)': specifications/adx.md
+    - 'File Formats':
+      - 'ACES Metadata File': amf/specification/index.md
+      - 'Common LUT Format': clf/specification/index.md
+    - 'Transforms':
+      - 'Versioning': system-components/versioning/index.md
+      - 'Transform IDs': transform-ids.md
+      - 'Component Names': component-names/index.md
+  - 'Technical Details':
     - 'Overview': system-components/overview/index.md
     - 'Organization': system-components/organization/index.md
-    - 'Encodings':
-      - 'Overview': encodings/overview.md
-      - 'ACES2065-1': encodings/aces2065/index.md
-      - 'ACEScg': encodings/acescg/index.md
-      - 'ACEScct': encodings/acescct/index.md
-      - 'ACEScc': encodings/acescc/index.md
-      - 'ACESproxy': acesproxy/index.md
     - 'Transforms':
       - 'Transform IDs': transform-ids.md
       - 'Reference Gamut Compression': rgc/specification/index.md
@@ -131,14 +141,13 @@ nav:
         - 'Tone Mapping': output-transforms/technical-details/tone-mapping/index.md
         - 'Chroma Compression': output-transforms/technical-details/chroma-compression/index.md
         - 'Gamut Compression': output-transforms/technical-details/gamut-compression/index.md
-    - 'File Formats':
-      - 'ACES Metadata File': 
-        - 'Specification': amf/specification/index.md
-        - 'User Guide': amf/guides/index.md
-      - 'Common LUT Format': 
-        - 'Specification': clf/specification/index.md
-        - 'Implementation Guide': clf/guides/index.md
-  - 'Recommended Procedures': procedures/index.md
-  - 'User Guides': workflows/index.md
-  - 'Production Tool Guides':  tools/index.md
+        - 'White Limiting': output-transforms/technical-details/white-limiting/index.md
+        - 'Display Encoding': output-transforms/technical-details/display-encoding/index.md
+  - 'User Guides': 
+    - 'AMF': amf/guides/index.md
+    - 'CLF': clf/guides/index.md
+  - 'ACES Standards':  tools/index.md
   - 'Glossary': glossary/index.md
+
+  # - 'Production Tool Guides':  tools/index.md
+  # - 'Recommended Procedures': procedures/index.md
