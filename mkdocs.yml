@@ -113,6 +113,7 @@ nav:
     - 'Getting Started': index.md
     - 'System Overview': overview.md
     - 'What''s New in 2.0': system-components/whats-new/index.md
+    - 'Contribute to ACES': contribute.md
   - 'Specifications': 
     - 'Encodings':
       - 'Overview': specifications/encodings/overview.md
