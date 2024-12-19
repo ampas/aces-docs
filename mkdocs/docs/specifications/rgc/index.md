@@ -179,7 +179,7 @@ Tracking
 The Reference Gamut Compression is defined as a [Look Transform (LMT) in CTL](https://github.com/ampas/aces-dev/blob/master/transforms/ctl/lmt/LMT.Academy.GamutCompress.ctl) and has the following ACES Transform ID:
 
 ```
-<ACEStransformID>urn:ampas:aces:transformId:v1.5:LMT.Academy.GamutCompress.a1.3.0</ACEStransformID>
+<ACEStransformID>urn:ampas:aces:transformId:v1.5:LMT.Academy.ReferenceGamutCompress.a1.v1.0</ACEStransformID>
 ```
 
 This is trackable via a lookTransform element in an AMF file. If the RCG is used in the viewing pipeline, the lookTransform will be listed in the associated AMF. If the AMF is accompanying rendered media, the applied flag should be used to track whether or not the RGC has been “baked in”.
@@ -312,7 +312,7 @@ Appendix D: CTL Reference Implementation
 ----------------
 
 ```
-// <ACEStransformID>urn:ampas:aces:transformId:v1.5:LMT.Academy.GamutCompress.a1.3.0</ACEStransformID>
+// <ACEStransformID>urn:ampas:aces:transformId:v1.5:LMT.Academy.ReferenceGamutCompress.a1.v1.0</ACEStransformID>
 // <ACESuserName>ACES 1.3 Look - Reference Gamut Compress</ACESuserName>
 //
 // Gamut compression algorithm to bring out-of-gamut scene-referred values into AP1
