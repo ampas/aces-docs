@@ -8,29 +8,29 @@ ACES Metadata File (AMF) Specification
 
 Scope
 -----
-This document specifies the ACES Metadata File (“AMF”), a ‘sidecar’ XML file intended to exchange the metadata required to recreate ACES viewing pipelines. This specification supersedes TB-2014-009 – Academy Color Encoding System -- (ACES) Clip-level MetadataFile Format Definition and Usage (“ACESclip”). TB-2014-009 is now considered obsolete.
+This document specifies the ACES Metadata File (“AMF”), a ‘sidecar’ XML file intended to exchange the metadata required to recreate ACES viewing pipelines. 
+
+This specification supersedes "TB-2014-009 – Academy Color Encoding System – (ACES) Clip-level Metadata File Format Definition and Usage (“ACESclip”)". TB-2014-009 is now considered obsolete.
 
 
 Introduction 
 ----------------
 ### Why is metadata needed for ACES?
 
-ACES defines a standard color encoding (SMPTE ST 2065-1) for exchange of images, along with InputTransforms to convert from different image sources to ACES, and Output Transforms in order to view ACESimages on different types of displays.
+ACES establishes a standard color color encoding (SMPTE ST 2065-1) for exchange of images. It also defines Input Transforms to convert different image sources to ACES and Output Transforms to display ACES files across different types of displays.
 
-However, when exchanging ACES images during production, there is often missing information required tofully describe the viewing pipeline or “creative intent” of that particular image.
+However, during production, critical information required to fully define the viewing pipeline or the "creative intent" of an image is often missing. Examples of such essential details include:
 
-Examples of such information:
+* ACES Version – _Shich version of ACES was used?_
+* Look Transform – _Was a creative look applied?_
+* Output Transform – _How was the image viewed on a display?_
 
-* ACES Version – _which version of ACES was used?_
-* Look Transform – _is there a creative look?_
-* Output Transform – _how was this viewed on a display?_
-
-To maintain consistent color appearance, transporting this information is crucial. Additionally, this information serves as an unambiguous archive of the creative intent.
+Transporting this information is vital for maintining consistent color appearance throughtout the production process. Moreover, it serves as an unambiguous archive of the creative intent.
 
 ### What is AMF
-The ACES Metadata File (“AMF”) is a sidecar XML file intended to exchange the metadata required to recreate ACES viewing pipelines. It describes the transforms necessary to configure an ACES viewing pipelinefor a collection of related image files.
+The ACES Metadata File (“AMF”) is a sidecar XML file intended to exchange the metadata required to recreate ACES viewing pipelines. It describes the transforms necessary to configure an ACES viewing pipeline for a collection of related image files.
 
-An AMF may have a specified association with a single frame or clip. Alternatively, it may exist without anyassociation to an image, and one may apply it to an image. An application of an AMF to an image wouldtranslate its viewing pipeline to the target image.
+An AMF may have a specified association with a single frame or clip. Alternatively, it may exist without any association to an image, and one may apply it to an image. An application of an AMF to an image would translate its viewing pipeline to the target image.
 
 Images are formed at several stages of production and post-production, including:
 
@@ -40,18 +40,18 @@ Images are formed at several stages of production and post-production, including
 * Virtual production
 * Editorial and color correction systems
 
-AMF can be compatible with any digital image, and is not restricted to those encoded in the ACES (SMPTE ST 2065-1). They may be camera native file formats or other encodings if they have associated Input DeviceTransforms (IDTs) (using the `<inputTransform>` element) so they may be displayed using an ACESviewing pipeline.
+AMF can be compatible with any digital image, and is not restricted to those encoded in the ACES (SMPTE ST 2065-1). They may be camera native file formats or other encodings if they have associated Input Transforms (IDTs) (using the `<inputTransform>` element) so they may be displayed using an ACES viewing pipeline.
 
-AMFs may also embed creative look adjustments as one or more LMTs (using the `<lookTransform>` elements). These looks may be in the form of ASC CDL values, or a reference to an external look file, suchas a CLF (Common LUT Format). Multiple `<lookTransform>` elements are allowed, and the order ofoperations in which they are applied shall be the order in which they appear in the AMF.
+AMFs may also embed creative look adjustments as one or more LMTs (using the `<lookTransform>` elements). These looks may be in the form of ASC CDL values, or a reference to an external look file, such as a CLF (Common LUT Format). Multiple `<lookTransform>` elements are allowed, and the order of operations in which they are applied shall be the order in which they appear in the AMF.
 
-AMFs can also serve as effective archival elements. When paired with finished ACES image files, theyform a complete archival record of how image content is intended to be viewed (for example, using the	`<outputTransform>` and `<systemVersion>` elements).
+AMFs can also serve as effective archival elements. When paired with finished ACES image files, they form a complete archival record of how image content is intended to be viewed (for example, using the	`<outputTransform>` and `<systemVersion>` elements).
 
-AMFs do not contain “timeline” metadata such as edit points. Timeline management files such as EditDecision Lists (EDLs) or Avid Log Exchange files (ALEs) may reference AMFs, attaching them to editingevents and thus enable standardized color management throughout all stages of production.
+AMFs do not contain “timeline” metadata such as edit points. Timeline management files such as Edit Decision Lists (EDLs) or Avid Log Exchange files (ALEs) may reference AMFs, attaching them to editing events and thus enable standardized color management throughout all stages of production.
 
 <figure align="center" markdown>
   ![amfDiagram](./images/amfDiagram.png)
 <figcaption align="center">
-	<b>Figure1 1.</b>Overall structure of an AMF in simplified form.
+	<b>Figure 1.</b> Overall structure of an AMF in simplified form.
 </figcaption> 
 </figure>
 
@@ -112,7 +112,7 @@ This section describes the data intended for use within the ACES Metadata file.
 
 All top level structures shall be tagged as being within the `aces` namespace with urn `urn:acesMetadata:acesMetadataFile:v1.0`
 
-`### UML Diagram
+### UML Diagram
 The following UML diagrams are segments of the complete UML diagram which is not included in this document due to space constraints.  To view the entire UML diagram in SVG format visit [https://aces.mp/amf\_uml](https://aces.mp/amf\_uml).
 
 #### acesMetadataFile
