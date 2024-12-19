@@ -248,5 +248,5 @@ ASC CDL Saturation is also applied with no limiting function:
 
 <!-- Include section numbering -->
 <style>
-    @import "../../stylesheets/sections.css"
+    @import "../../../stylesheets/sections.css"
 </style>

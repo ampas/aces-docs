@@ -1,7 +1,7 @@
 ACES Encodings
 ====
 
-## What encodings are available in ACES
+## What encodings are part of ACES?
 While the linear and wide-gamut attributes of ACES2065-1 are ideal as an encoding space for archival, in practice, many existing production tools are designed to work with data that has non-linear encoding characteristics. Therefore, depending on the present use case within a workflow, a reversible conversion from one encoding representation to another will lead to more optimal results when working within that context.
 
 There are three primary color spaces recommended for use in an ACES-based workflow:

@@ -116,13 +116,13 @@ nav:
   - 'Specifications': 
     - 'Encodings':
       - 'Overview': specifications/encodings/overview.md
-      - 'ACES2065-1': specifications/aces2065-1.md
-      - 'ACEScg': specifications/acescg.md
-      - 'ACEScct': specifications/acescct.md
-      - 'ACEScc': specifications/acescc.md
-      - 'ACESproxy': specifications/acesproxy.md
-      - 'APD (Academy Printing Density)': specifications/apd.md
-      - 'ADX (Academy Density Exchange)': specifications/adx.md
+      - 'ACES2065-1': specifications/encodings/aces2065-1.md
+      - 'ACEScg': specifications/encodings/acescg.md
+      - 'ACEScct': specifications/encodings/acescct.md
+      - 'ACEScc': specifications/encodings/acescc.md
+      - 'ACESproxy': specifications/encodings/acesproxy.md
+      - 'APD (Academy Printing Density)': specifications/encodings/apd.md
+      - 'ADX (Academy Density Exchange)': specifications/encodings/adx.md
     - 'File Formats':
       - 'ACES Metadata File': amf/specification/index.md
       - 'Common LUT Format': clf/specification/index.md

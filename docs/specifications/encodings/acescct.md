@@ -9,7 +9,7 @@ ACEScct – A Quasi-Logarithmic Encoding of ACES Data for use within Color Gradi
 
 Introduction 
 ----------------
-The Academy Color Encoding Specification (ACES) defines a common color encoding method using half- precision floating point values corresponding to linear exposure values encoded relative to a fixed set of extended-gamut RGB primaries. Many digital-intermediate color grading systems have been engineered assuming image data with primaries similar to the grading display and a logarithmic relationship between relative scene exposures and image code values.
+The Academy Color Encoding Specification (ACES) defines a common color encoding method using half-precision floating point values corresponding to linear exposure values encoded relative to a fixed set of extended-gamut RGB primaries. Many digital-intermediate color grading systems have been engineered assuming image data with primaries similar to the grading display and a logarithmic relationship between relative scene exposures and image code values.
 
 This document describes a 32-bit single precision floating-point logarithm encoding of ACES known as ACEScct.
 
@@ -239,11 +239,7 @@ ASC CDL Saturation is also applied with no limiting function:
 
 
 
-
-
-
-
 <!-- Include section numbering -->
 <style>
-    @import "../../stylesheets/sections.css"
+    @import "../../../stylesheets/sections.css"
 </style>

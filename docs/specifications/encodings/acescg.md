@@ -186,5 +186,5 @@ ACEScg $R$, $G$, and $B$ values shall be converted to ACES2065-1 $R$, $G$, and $
 
 <!-- Include section numbering -->
 <style>
-    @import "../../stylesheets/sections.css"
+    @import "../../../stylesheets/sections.css"
 </style>

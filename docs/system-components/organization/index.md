@@ -1,4 +1,4 @@
-ACES Compenents
+ACES Components
 ===
 The ACES system consists of the many Academy-supplied transforms – standard color space conversions, inputs, outputs, looks, and utilities – as well as vendor or user-contributed transforms – also including color space conversions, inputs, outputs, looks, and utilities – and finally documentation and metadata files.
 

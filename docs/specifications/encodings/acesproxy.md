@@ -479,5 +479,5 @@ An implementation may use mathematically equivalent forms of this decoding equat
 
 <!-- Include section numbering -->
 <style>
-    @import "../../stylesheets/sections.css"
+    @import "../../../stylesheets/sections.css"
 </style>
