@@ -1,22 +1,22 @@
 # Transform IDs and User Names
 
-ACES transforms, which are provided as CTL files in the reference implementation, shall be assigned both a Transform Identifier (TransformID) and a user-facing name (ACESuserName).
+ACES transforms, which are provided as CTL files in the reference implementation, shall be assigned both a Transform Identifier (`<ACEStransformID>`) and a user-facing name (`<ACESuserName>`).
 
-## Transform Identifiers (TransformIDs)
-ACES transforms shall be assigned a Transform Identifier (written as "TransformID") contained in an XML tag of <ACEStransformID> in the file header. The TransformID describes the transform and includes versioning information specific to that transform file. 
+## Transform Identifiers (Transform IDs)
+ACES transforms shall be assigned a Transform Identifier ("Transform ID") contained in an XML tag of <ACEStransformID> in the file header. The Transform ID describes the transform and includes versioning information specific to that transform file. 
 
-A TransformID is required metadata in AMF files. TransformIDs can also be used for tracking in software implementations that are intended to match the reference ACES transforms, where appropriate, such as in code comments implementing a specific ACES Transform.
+A Transform ID is required metadata in AMF files. Transform IDs can also be used for tracking in software implementations that are intended to match the reference ACES transforms, where appropriate, such as in code comments implementing a specific ACES Transform.
  
-Transform implementations that may be intended to combine a sequence of ACES CTL transforms (e.g. a Color Space Conversion (CSC) + Look Transform (LMT) + Output Transform) should reference each of the relevant ACES TransformIDs in the implementation transform.
+Transform implementations that may be intended to combine a sequence of ACES CTL transforms (e.g. a Color Space Conversion (CSC) + Look Transform (LMT) + Output Transform) should reference each of the relevant ACES Transform IDs in the implementation transform.
 
 ## String format for Transform Identifiers¶
-The TransformID serves as a unique identifier for a particular release version of an ACES component. It includes versioning information relevant to three different attributes:
+The Transform ID serves as a unique identifier for a particular release version of an ACES component. It includes versioning information relevant to three different attributes:
 
-* the version of the TransformID specification to which it conforms, 
+* the version of the Transform ID specification to which it conforms, 
 * the version of the ACES system release with which the transform is compatible, and 
 * the version of the individual transform itself. 
  
-TransformIDs are constructed using a set of specified tokens such that it will be more human-readable than a typical Universally Unique Identifier (UUID) but maintain enough structure that intelligent parsing can still be performed.
+Transform IDs are constructed using a set of specified tokens such that it will be more human-readable than a typical Universally Unique Identifier (UUID) but maintain enough structure that intelligent parsing can still be performed.
  
 In the following definitions, _italics_ represent a changeable placeholder and **boldface** represents a required character or string. The allowed substrings for each of the changeable placeholders are described in the following subclauses. The substrings shall not contain spaces or periods and shall be limited to the ASCII character set. 
  
@@ -27,17 +27,16 @@ All ACES system components, whether Academy-supplied or vendor/user-supplied, sh
 Where:
 
 ### URN¶
-`URN` is a unique reference number to identify the version of the TransformID specification used. For new implementations, it shall conform to the first data row in Table 1. 
+`URN` is a unique reference number to identify the version of the Transform ID specification used. For new implementations, it shall conform to the first data row in Table 1. 
  
 <div align="center" markdown="1">
-<figcaption> <b>Table 1</b> - String specification for TransformID URN </figcaption>
-| |TransformID URN|
+<figcaption> <b>Table 1</b> - String specification for Transform ID URN </figcaption>
+| |Transform ID URN|
 |----:|----|
 | Current Version String: | **`urn:ampas:aces:transformId:v2.0:`** |
 | Previous values: | `urn:ampas:aces:transformId:v1.5:` |
 </div>
 
- 
 !!! note
     Throughout the remainder of this document, `urn:ampas:aces:transformId:v2.0` will be shortened to `URN` for brevity.
 
@@ -57,15 +56,16 @@ Where:
 | `Util` | “Utility Transform” <br> For miscellaneous associated transforms that do not implement core ACES Transforms but may be helpful when testing and or constructing pipelines. Examples: Adjust_Exposure, Unity, etc. |
 </div>
  
-!!! note "Interchangeability of Input and ColorSpace Transforms"
-    In effect, all Input transforms are also ColorSpace transforms, but all ColorSpace transforms are not necessarily Input Transforms.. Specifically, ColorSpace Transforms that convert from a camera manufacturer’s encoding space to ACES can be considered “Input” transforms. Technically speaking, an Input Transforms might at times include an extra step or steps that differs from the a “nominal” camera encoding transform. However, if they are identical, Input and ColorSpace tokens can be used interchangeably.
+!!! note "Interchangeability of Input and Color Space Conversion Transforms"
+    In effect, all Input transforms are also Color Space Conversion transforms, but all Color Space Conversion transforms are not necessarily Input Transforms. Specifically, CSC Transforms that convert from a camera manufacturer’s encoding space to ACES could also be labeled “Input” transforms. Technically speaking, however, an Input Transform typically might include an extra step or steps that differ slightly from a “nominal” camera encoding transform. 
+    
+    When the CSC and Input transform are otherwise identical, the Input and CSC tokens can be used interchangeably, and the CSC token is preferred. It is not required to provide duplicate transforms where the filename and Transform ID are the only differences. Providing the CSC only is sufficient.
 
-    Similarly, ColorSpace transforms that convert from ACES to a camera manufacturer’s encoding space can also be considered “InverseInput” transforms.
-
-    If the content of Input and ColorSpace transforms is identical, it is not required to provide duplicate transforms with simply the filename and transformID different. A ColorSpace  transform only is sufficient.
+!!! note
+    CSC transforms that convert from ACES to a camera manufacturer’s encoding space could be thought of as "inverse input transforms", though a token of InvInput is not defined.
 
 ### Namespace¶
-`Namespace` shall identify the creator of the transform. This is usually the name of a manufacturer, facility, or, in some instances, could be the name of an individual. 
+`Namespace` shall identify the creator of the transform. This is usually the name of a manufacturer or facility but could also be the name of an individual. 
 
 The namespace `Academy` is reserved for Academy-supplied transforms.
  
@@ -74,27 +74,27 @@ Transforms provided by users or vendors to ACES Github repositories shall mainta
 ### Name¶
 `Name` shall describe the transform. The level of detail is left up to the user but it should be adequate to uniquely describe the transform and its intended usage. It does not need to try to include the setting for every possible parameter. 
  
-For example, if there is a standard that describes an output display type, such as Rec. 2100, that can be used in the filename and TransformID to imply the primaries to be Rec. 2020 with the transfer function of SMPTE ST 2084. If a transform imposes some sort of variant or limitation making it different from a standard display type, then those differences should be included in the filename and TransformID to clue the user in that different behavior should be expected. 
+For example, if there is a standard that describes an output display type, such as Rec. 2100, that can be used in the filename and Transform ID to imply the primaries to be Rec. 2020 with the transfer function of SMPTE ST 2084. If a transform imposes some sort of variant or limitation making it different from a standard display type, then those differences should be included in the filename and Transform ID to clue the user in that different behavior should be expected. 
  
-Academy supplied transforms will provide more details in header comments about the specific intended usage of or any caveats pertaining to a particular Output Transform. [In addition, a full list of specific parameters associated with a particular TransformID can be found in a registry of TransformIDs.]
+Academy supplied transforms will provide more details in header comments about the specific intended usage of or any caveats pertaining to a particular Output Transform. [In addition, a full list of specific parameters associated with a particular Transform ID can be found in a registry of Transform IDs.]
  
 #### Output Transforms
-For Output Transforms, the `Name` shall describe the device and/or output data encoding in as much detail as necessary. Items to consider include the encoding color primaries and white point, transfer function, peak luminance, or limiting color primaries. The name may also indicate a "simulation" (sim) of another display encoding contained within a standard encoding, e.g. using “Rec.709sim” to show Rec.709 100-nit content on a display set to 1000-nit peak luminance with Rec.2020 primaries and PQ transfer function.
- 
+For Output Transforms, the `Name` shall describe the device and/or output data encoding in as much detail as necessary. 
+
+ACES 2.0 adopted verbose filenames to provide consistent amout of information to implementers in the filename - including the peak luminance, limiting color primaries and white point, encoding color primaries and white point, and transfer function. 
+The generalized format is:
+`LimitingColorPrimaries-White` `_` `###nit` `_in_` `EncodingColorPrimaries-White` `_` `TransferFunction`
+
 Examples:
 
-* `URN:Output.Academy.Rec709.a2.v1`
-* `URN:Output.Academy.P3D65.a2.v1`
-* `URN:Output.Academy.P3D65_Rec709sim.a2.v1`
-* `URN:Output.Academy.Rec2100_P3D65limited_540nit.a2.v1`
-* `URN:Output.Academy.Rec2100_P3D65limited_1000nit.a2.v1`
-* `URN:Output.Academy.Rec2020_ST2084_Rec709sim.a2.v1`
-* `URN:Output.Dolby.P3D65_ST2084_Rec709limited_600nit.a2.v1`
+* `URN:Output.Academy.P3-D65_100nit_in_P3-D65_Gamma2pt2.a2.v1`
+* `URN:Output.Academy.P3-D65_500nit_in_Rec2100-D65_ST2084.a2.v1`
+* `URN:Output.Academy.P3-D60_300nit_in_XYZ-E_ST2084.ctl.a2.v1`
 
 #### CSC Transforms
 For Color Space Conversion (CSC) Transforms, `Name` shall describe the device. If the creator of the transforms is the same as the camera manufacturer, then the Name need not repeat the manufacturer name because it should already be in the Namespace. If the Input Transform creator is not the camera manufacturer, then the manufacturer name shall be prepended to the device name in the Name field.
 
-For transforms from one color space to another, the Name shall describe the source color space to the destination color space, using the general form of “from”_to_"to”.
+For transforms from one color space to another, the Name shall describe the source color space to the destination color space, using the general form of `fromSpace` `_to_` `toSpace`.
  
 Example Input Transform names:
 
@@ -103,7 +103,7 @@ Example Input Transform names:
 * `URN:CSC.Red.Log3G10_RWG_to_ACES.a2.v1`
  
 #### ACES Major Version Number
-This component of the Transform ID shall be a string consisting of the letter ‘a’ followed by the major version number of the current ACES system release. This indicates the ACES system version with which a particular transform is compatible. For  new implementations, it shall be equal to the first data row in Table 2. 
+This component of the Transform ID shall be a string consisting of the letter ‘**a**’ followed by the major version number of the current ACES system release. This indicates the ACES system version with which a particular transform is compatible. For  new implementations, it shall be equal to the first data row in Table 3. 
  
 <div align="center" markdown="1">
 <figcaption> <b>Table 3</b> - String specification for ACES Major Version Number </figcaption>
@@ -114,12 +114,12 @@ This component of the Transform ID shall be a string consisting of the letter �
 </div>
  
 #### Transform Version Number
-The Transform ID shall conclude with the `TransformVersionNumber`, a string consisting of the letter ‘v’ followed by the version number of the transform which it identifies. This corresponds to the version of that specific transform itself.
+The Transform ID shall conclude with the `TransformVersionNumber`, which is a string consisting of the letter ‘**v**’ followed by the version number of that transform.
+
+Output, Input, and Look Transforms may import sub-functions or constants that are included in separate Library-type CTL files. Library files usually contain more than one sub-function or constant. If a change is made to a Library file that will change the resulting output from a transform that depends on that Library function, then the version number of the calling transform’s Transform ID shall also be incremented. However, modifications to a Library file that do not affect the numerical output of a calling function (e.g. adding new subfunctions used by other importing files) do not require the Transform ID of a file importing it to be incremented.
  
-Output, Input, and Look Transforms may import sub-functions or constants that are included in separate Library-type CTL files. Library files usually contain more than one sub-function or constant. If a change is made to a Library file that will change the resulting output from a transform that depends on that Library function, then the version number of the calling transform’s TransformID shall also be incremented. However, modifications to a Library file that do not affect the numerical output of a calling function (e.g. adding new subfunctions used by other importing files) do not require the TransformID of a file importing it to be incremented.
- 
-Any updates to a Transform file that do not change the output of that transform (e.g. whitespace changes, modifications to code comments, etc.) shall also not require the transform version number to be incremented, although it can be if the editor decides it is warranted or otherwise more useful to do so.
+Any updates to a Transform file that do not change the output of that transform (e.g. whitespace changes, modifications to code comments, etc.) shall not require the transform version number to be incremented.
 
 
 ## User-Name (ACESuserName)
-Though designed to be human-readable, ACES TransformIDs can be overly complex for presentation to end users for selection in menus. Therefore, all transforms shall include a user-friendly name, contained in an XML tag of `<ACESuserName>`. Software applications should reference this more user-friendly name for presentation in their user interfaces.
+Though designed to be human-readable, ACES Transform IDs can be overly complex for presentation to end users for selection in menus. Therefore, all transforms shall include a user-friendly name, contained in an XML tag of `<ACESuserName>`. Software applications should reference this more user-friendly name for presentation in their user interfaces.
