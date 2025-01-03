@@ -129,8 +129,8 @@ nav:
         - 'Introduction': amf/specification/amf-introduction.md
         - 'Use Cases': amf/specification/amf-use-cases.md
         - 'Data Model': amf/specification/amf-data-model.md
-        - 'Schema': amf/specification/schema-docs/schHierarchy.html
         - 'Types': amf/specification/schema-docs/acesMetadataFile.html
+        - 'Schema': https://raw.githubusercontent.com/ampas/aces-amf/refs/heads/main/schema/acesMetadataFile.xsd
       - 'Common LUT Format': clf/specification/index.md
     - 'Transforms':
       - 'Versioning': system-components/versioning/index.md
