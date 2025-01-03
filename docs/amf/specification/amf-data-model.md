@@ -1,4 +1,4 @@
-Speicification
+Specification
 ==========
 
 This section describes the data intended for use within the ACES Metadata file.
