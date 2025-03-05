@@ -8,6 +8,13 @@ The Academy Color Encoding System (ACES) is an industry standard for managing co
 
 ACES is free and open-source and dozens of companies have built ACES components into their tools.
 
+Basic ACES Workflow
+-------------------
+<figure markdown="span">
+  ![Sample Workflow](./background/images/Sample-ACES-Workflow-light.png#only-light)
+  ![Sample Workflow](./background/images/Sample-ACES-Workflow-dark.png#only-dark)
+  <figcaption>Sample Workflow using ACES</figcaption>
+</figure>
 
 Why use ACES?
 -------------
@@ -21,23 +28,23 @@ ACES can help to:
 - create a "known quantity" master for the archive
 
 
-Documentation
--------------
+Dig Deeper
+----------
 <div class="grid cards" markdown>
 
--   :material-text-box-multiple-outline:{ .lg .middle } __Specifications__
+-   :material-text-box-multiple-outline:{ .lg .middle } __ACES Components__
 
     ---
 
-    Defines the color encodings, file formats, transforms, and rules that are the core of the ACES system.
+    Learn more about the color encodings, file formats, transforms, and recommendations that are at the core of the ACES system.
     
     [:octicons-arrow-right-24: Specifications](./specifications/index.md)
 
--   :material-wrench-cog-outline:{ .lg .middle } __Technical Details__
+-   :material-wrench-cog-outline:{ .lg .middle } __ACES Concepts__
 
     ---
 
-    The "how" and "why" behind the ACES specifications. Users looking to dig into the inner workings and/or rationale behind a certain design decision should look here.
+    The "how" and "why" behind the ACES specifications. Users looking to dig into the inner workings and/or rationale behind certain design decisions should look here.
 
     [:octicons-arrow-right-24: Technical Details](#)
 
