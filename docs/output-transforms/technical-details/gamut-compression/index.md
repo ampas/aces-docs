@@ -161,37 +161,12 @@ $$
 
 This means that above this threshold the gamut compression is no longer perfectly analytically invertible, as the slope now depends on the original $J$ value, which will not be known until after the compression is inverted. However it has been found that although a slope calculated from the compressed value is not exactly the same as the slope used in the forward compression, it can be used as an Approximation of the slope in a first iteration of inverse gamut compression. The resulting $J$ value is close to the true original value, and can be used to calculate the slope for a second iteration. Further iterations were found to be unnecessary, as the gain only becomes significant for high $J$ values, where the slope is already small, meaning the approximation error is also small.
 
-Compression
-----------------
-
-The compression method operates by taking the $M$ value of the source color, and normalizing by the $M$ value of the intersection of the compression line and target gamut boundary ($boundaryM$ - see [next section](#boundary-intersection)). A parametric compression curve is then applied, with the three parameters being threshold ($t$), limit ($l$) and exponent ($p$). The threshold is the normalized value below which the input is unchanged. The limit is the normalized value which will be compressed to the gamut boundary (a normalized value of 1.0). The exponent controls the aggressiveness of the roll-off above the threshold.
-
-The compression curve originally used in the ACES 2.0 display rendering gamut compression is referred to as the powerP curve. This is the same curve as used in the ACES 1.3 [Reference Gamut Compression](../../guides/rgc-implementation) (RGC). The equations are as follows.
-
-First a scale factor is calculated:
-
-$$
-s=\frac{\left(l-t\right)}{\left(\left(\frac{1-t}{l-t}\right)^{-p}-1\right)^{\frac{1}{p}}}
-$$
-
-This is then used in the compression function:
-
-$$
-f(x)=\begin{cases}x&\text{ if }x < t\\
-t+\frac{x-t}{\left(1+\left(\frac{x-t}{s}\right)^{p}\right)^{\frac{1}{p}}}&\text{ if }x\geq t
-\end{cases}
-$$
-
-It was found that using a $p$ value of 1.0 in these equations, rather than the 1.2 used in the RGC produced an acceptable result, meaning the equations could be simplified and making the curve equivalent to a scaled and offset [Reinhard](https://doi.org/10.1145%2F566654.566575) curve.
-
-After compression the compressed $M$ value is multiplied back by the normalization factor ($boundaryM$). The compressed $J$ value can then be found by using the compressed $M$ value in the compression straight line equation.
-
 Boundary Intersection
 ----------------
 
 Since the gamut boundary curvature is approximated by a power law (gamma) curve with non-integer exponent, and it is not possible to analytically find the intersection of such a curve with a straight line, an approximation of the intersection is needed. As the gamma curve itself is only an approximation of the true gamut boundary, provided that the approximation method for the intersection leads to points which lie on a curve similar in shape to the gamma curve, the result is as valid an approximation as the gamma curve. As the slope and offset of the compression line are defined in terms of the J-axis intersection ($intersectJ$) rather than the source $J$ and $M$ values, and the compressed and uncompressed values both lie on that same line, an intersection method based only on slope and offset will yield the same result in both directions, ensuring invertibility of the compression.
 
-The intersection of two straight lines is mathematically simple to find. So a first order approximation of the intersection of the curved gamut boundary with the compression line would be the intersection of that line with the straight line joining the cusp to the origin (black) or to the peak of the target gamut (white) depending on whether the line passes above or below the cusp. This can be easily ascertained by sustituting the cusp $M$ value into the compression line equation, and determining whether the resulting $J$ value is greater or less than the cusp $J$ value.
+The intersection of two straight lines is mathematically simple to find. So a first order approximation of the intersection of the curved gamut boundary with the compression line would be the intersection of that line with the straight line joining the cusp to the origin (black) or to the peak of the target gamut (white) depending on whether the line passes above or below the cusp. This can be easily ascertained by substituting the cusp $M$ value into the compression line equation, and determining whether the resulting $J$ value is greater or less than the cusp $J$ value.
 
 The straight line intersection approximation will give a value which is too small, assuming the gamma curve is bending the boundary outwards. A method is needed to increase the value found in the middle part of the curve, but converging to return exactly the straight line intersection result at either end. Looking only at the lower part of the boundary (an inverted version of the same thing will work for the upper part) a good approximation of the necessary modification of the straight line intersection can be found by raising the $intersectJ$ value to the reciprocal of the exponent used by the boundary curve, and then finding the straight line intersection. This will not alter the result at the origin, but an appropriate normalization factor is needed to divide $intersectJ$ by prior to exponentiation, and to then multiply it by afterwards, so that the result at the cusp is not affected either. This normalization factor is found as the J-axis intersection of the compression line which passes through the cusp, by putting the $J$ and $M$ values of the cusp into the same [quadratic intersection solve formula](#invertibility) as was used to find the J-axis intersection for the source. This value is referred to as $intersectCusp$.
 
@@ -250,10 +225,35 @@ $$
 
 A $smoothness$ value of 0.12 was selected.
 
+Compression
+----------------
+
+The compression method operates by taking the $M$ value of the source color, and normalizing by the $M$ value of the intersection of the compression line and target gamut boundary ($boundaryM$). A parametric compression curve is then applied, with the three parameters being threshold ($t$), limit ($l$) and exponent ($p$). The threshold is the normalized value below which the input is unchanged. The limit is the normalized value which will be compressed to the gamut boundary (a normalized value of 1.0). The exponent controls the aggressiveness of the roll-off above the threshold.
+
+The compression curve originally used in the ACES 2.0 display rendering gamut compression is referred to as the powerP curve. This is the same curve as used in the ACES 1.3 [Reference Gamut Compression](../../guides/rgc-implementation) (RGC). The equations are as follows.
+
+First a scale factor is calculated:
+
+$$
+s=\frac{\left(l-t\right)}{\left(\left(\frac{1-t}{l-t}\right)^{-p}-1\right)^{\frac{1}{p}}}
+$$
+
+This is then used in the compression function:
+
+$$
+f(x)=\begin{cases}x&\text{ if }x < t\\
+t+\frac{x-t}{\left(1+\left(\frac{x-t}{s}\right)^{p}\right)^{\frac{1}{p}}}&\text{ if }x\geq t
+\end{cases}
+$$
+
+It was found that using a $p$ value of 1.0 in these equations, rather than the 1.2 used in the RGC produced an acceptable result, meaning the equations could be simplified and making the curve equivalent to a scaled and offset [Reinhard](https://doi.org/10.1145%2F566654.566575) curve.
+
+After compression the compressed $M$ value is multiplied back by the normalization factor ($boundaryM$). The compressed $J$ value can then be found by using the compressed $M$ value in the compression straight line equation.
+
 'Reach-mode' gamut compression
 ----------------
 
-For the compression function described [previously](#compression), constant values may be used for the threshold and limit. However it was decide that for the ACES DRT it is beneficial if the limit is set such that compression maps the boundary of a particular 'reach gamut' (ACES AP1 was decided to be suitable) to the target gamut boundary. This ensures that when the inverse gamut compression is applied, values within the target gamut will be mapped to values inside the reach gamut. This mapping will map points on the boundary of one gamut to the boundary of the other, but will not necessarily map the primaries of one gamut to those of the other, because the mapping occurs along lines of constant perceptual hue as defined by the JMh space.
+For the compression function, constant values may be used for the threshold and limit. However it was decide that for the ACES DRT it is beneficial if the limit is set such that compression maps the boundary of a particular 'reach gamut' (ACES AP1 was decided to be suitable) to the target gamut boundary. This ensures that when the inverse gamut compression is applied, values within the target gamut will be mapped to values inside the reach gamut. This mapping will map points on the boundary of one gamut to the boundary of the other, but will not necessarily map the primaries of one gamut to those of the other, because the mapping occurs along lines of constant perceptual hue as defined by the JMh space.
 
 <figure markdown>
  ![Hue lines](./images/hue_lines.png){ width="512" }
@@ -293,6 +293,12 @@ and the limit value for reach-mode compression is:
 
 $$
 limit=\frac{reachM}{boundaryM}
+$$
+
+The compression threshold ($t$) was originally set to a constant value of 0.75, but it was found that, particularly for HDR renderings, a variable threshold was preferable, approaching 1.0 as the target and reach gamut boundaries got closer. The following formula is used:
+
+$$
+t = max\left(0.75, \frac{boundaryM}{reachM}\right)
 $$
 
 Lookup Tables
