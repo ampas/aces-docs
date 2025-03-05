@@ -132,9 +132,11 @@ nav:
       - 'ADX (Academy Density Exchange)': encodings/adx.md
     - 'File Formats':
       - 'ACES Metadata File (AMF)': 
+        - 'Introduction': amf/introduction.md
         - 'Specification': amf/specification/index.md
         - 'User Guide': amf/guides/index.md
       - 'Common LUT Format': 
+        - 'Introduction': clf/introduction.md
         - 'Specification': clf/specification/index.md
         - 'Implementation Guide': clf/guides/index.md
     - 'Input Transforms': https://www.dropbox.com/scl/fi/o0az9azz833t1sde8apfz/P-2013-001.pdf?rlkey=j7eqd4l0wpvbhpi72ayjvflka&e=1&dl=0

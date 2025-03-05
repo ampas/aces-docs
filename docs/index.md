@@ -1,4 +1,4 @@
-Getting Started
+Getting Started - An Overview of ACES
 ===============
 
 
@@ -6,7 +6,19 @@ What is ACES?
 -------------
 The Academy Color Encoding System (ACES) is an industry standard for managing color and digital files throughout the lifecycle of almost any media production, from motion pictures to television, video games, or immersive storytelling projects. ACES can ensure a consistent color experience to preserve the creator's vision through all phases of prodution - from image capture through editing, VFX, mastering, public presentation, archiving, and future remastering. 
 
-ACES is free and open-source. Dozens of companies have built ACES components into their tools.
+ACES is free and open-source and dozens of companies have built ACES components into their tools.
+
+
+Why use ACES?
+-------------
+ACES can help to:
+
+- simplify camera matching in DI;
+- preserve original camera fidelity;
+- remove ambiguity in communcation of image files in multi-vendor workflows; 
+- add reliability to the color viewing pipeline; 
+- streamline the creation of multiple outputs; 
+- create a "known quantity" master for the archive
 
 
 Documentation
@@ -48,15 +60,5 @@ Documentation
 </div>
 
 
-Why use ACES?
--------------
-ACES can help to:
-
-- simplify camera matching in DI;
-- preserve original camera fidelity;
-- remove ambiguity in communcation of image files in multi-vendor workflows; 
-- add reliability to the color viewing pipeline; 
-- streamline the creation of multiple outputs; 
-- create a "known quantity" master for the archive
 
 
