@@ -259,7 +259,7 @@ This section describes the general requirements for parsing CLF files, the provi
 
 1. **Version Support**
 
-    Implementations are expected to support v3 of the [CLF Specification](/specifications/clf). Backwards compatibility for versions prior to v3 is optional.
+    Implementations are expected to support v3 of the [CLF Specification](../specification/index). Backwards compatibility for versions prior to v3 is optional.
 
 2. **Error Handling**
 

@@ -31,6 +31,21 @@ flowchart LR
 
 After the data is in a JMh representation, the J channel is sent through the tone scale function. 
 
+### Requirements
+Here were a few of the key requirements considered when designing the tone mapping curve:
+
+* S-shaped: Tone scale shall have an "S-shaped" curve with a toe and shoulder.
+* Monotonic: Tone scale shall be continuously increasing over the domain.
+* Non-asymptotic: Tone scale shall not have any vertical or horizontal asymmptotes
+* Continuity: Tone scale shall be defined continuously over the domain.
+* Domain: Tone scale shall be defined for all float values.
+* Contrast: Tone scale shall have a log-log slope (gamma) through 18% mid-gray less than 1.55, which was the mid-slope contrast in ACES 1.
+* Dynamic Range: Tone scale shall provide the ability to produce consistent output for arbitrary dynamic ranges, but also provide preset values for common display setups, including:
+    * 48 nit cinema
+    * 100 nit video
+    * 108 nit Dolby Cinema
+    * 1000 nit HDR
+
 ### Tone-mapping Function
 The tone mapping function is based off a Michaelis-Mentin curve, and parameterized so that certain values can be calculated automatically based on the peak luminance value. 
 

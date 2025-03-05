@@ -1,19 +1,64 @@
-Getting Started
-====
+Getting Started - An Overview of ACES
+===============
 
 
-## What is ACES?
-The Academy Color Encoding System (ACES) is an industry standard for managing color and digital files throughout the lifecycle of almost any media production, from motion pictures to television, video games, or immersive storytelling projects. ACES can ensure a consistent color experience to preserve the creator's vision through all phases of prodution - from image capture through editing, VFX, mastering, public presentation, archiving, and future remastering. ACES can also help to "future-proof" your project and simplify the creation of the many deliverables required by today's productions.
+What is ACES?
+-------------
+The Academy Color Encoding System (ACES) is an industry standard for managing color and digital files throughout the lifecycle of almost any media production, from motion pictures to television, video games, or immersive storytelling projects. ACES can ensure a consistent color experience to preserve the creator's vision through all phases of prodution - from image capture through editing, VFX, mastering, public presentation, archiving, and future remastering. 
+
+ACES is free and open-source and dozens of companies have built ACES components into their tools.
 
 
-## Why use ACES?
-ACES standardizes and simplifies color management to maintain the color fidelity of your production at the highest level throughout production, post-production, and archiving. Using ACES simplifies camera matching in DI; improves color and workflow communication; adds reliability to the color viewing pipeline; simplifies and "future-proofs" the creation of outputs; and creates a 'known quantity' master for the archive.
+Why use ACES?
+-------------
+ACES can help to:
 
-Using ACES should simplify communications in sophisticated multi-vendor workflows. When the decision to use ACES is made, there are only a few questions to be asked and answered for everyone to be on the same page. For example:
+- simplify camera matching in DI;
+- preserve original camera fidelity;
+- remove ambiguity in communcation of image files in multi-vendor workflows; 
+- add reliability to the color viewing pipeline; 
+- streamline the creation of multiple outputs; 
+- create a "known quantity" master for the archive
 
-- What inputs (cameras, animation) are we expecting to use?
-- Will we be managing color on set?
-- What color correction and animation tools are we using?
-- What are our anticipated outputs (cinema projector, streaming devices, etc.)?
 
-Importantly, ACES is free and open-source, so dozens of companies have built it into their tools and continually innovate on top of its standardized framework.
+Documentation
+-------------
+<div class="grid cards" markdown>
+
+-   :material-text-box-multiple-outline:{ .lg .middle } __Specifications__
+
+    ---
+
+    Defines the color encodings, file formats, transforms, and rules that are the core of the ACES system.
+    
+    [:octicons-arrow-right-24: Specifications](./specifications/index.md)
+
+-   :material-wrench-cog-outline:{ .lg .middle } __Technical Details__
+
+    ---
+
+    The "how" and "why" behind the ACES specifications. Users looking to dig into the inner workings and/or rationale behind a certain design decision should look here.
+
+    [:octicons-arrow-right-24: Technical Details](#)
+
+-   :material-text-box-plus-outline:{ .lg .middle } __User Guides__
+
+    ---
+
+    Designed to provide hands on guidance to use ACES in real tools. And to establish best practices to answer "how do I use ACES?"
+
+    [:octicons-arrow-right-24: Customization](#)
+
+-   :material-file-document-check-outline:{ .lg .middle } __Standards__
+
+    ---
+
+    Certain components of the ACES system have been established as international standards.
+
+    [:octicons-arrow-right-24: Standards](#)
+
+</div>
+
+
+
+

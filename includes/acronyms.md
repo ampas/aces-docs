@@ -24,7 +24,7 @@
 *[OCIO]: OpenColorIO
 *[GUID]: Globally Unique Identifier
 *[SDR]: Standard Dynamic Range
-*[SDI[: Serial Digital Interface
+*[SDI]: Serial Digital Interface
 *[HDR]: High Dynamic Range
 *[RAW]: Unprocessed camera image file.  Typically referres to non-demosaic, scene linear, camera code values, but may be used to describe various states limited siginal processing of digital camera files.
 *[RGB]: Red, Green, and Blue
@@ -33,3 +33,4 @@
 *[QT]: QuickTime
 *[VFX]: Visual Effects
 *[RCG]: Reference Gamut Compression
+*[RICD]: Reference Input Capture Device

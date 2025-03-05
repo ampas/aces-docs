@@ -45,14 +45,24 @@
 : process by which the visual mechanism adjusts in response to the radiant energy to which the eyes are exposed.
 
 **chromaticity**
-: property of a color stimulus defined by the ratios of each tristimulus value of the color stimulus to their sum.
+: property of a color stimulus defined by the ratios of each tristimulus value of the color stimulus to their sum
+
+**color rendering**
+: mapping of image data representing the color-space coordinates of the elements of a scene to output-referred image data representing the color-space coordinates of the elements of a reproduction
+
+    !!! note
+        Color rendering generally consists of one or more of the following: compensating for differences in the input and output viewing conditions, tone scale and gamut mapping to map the scene colors onto the dynamic range and color gamut of the reproduction, and applying preference adjustments
+
+**color stimulus**
+: radiant energy such as that produced by an illumination source, by the reflection of light from a reflective object, or by the transmission of light through a transmissive object, or a combination of these
 
 **Color Transform Langage (CTL)**
-: small open-source programming language, consisting of an interpreter and one or more CLT modules, that has been designed to serve as a building block for digital color management systems.
+: small open-source programming language, consisting of an interpreter and one or more CLT modules, that has been designed to serve as a building block for digital color management systems
 
 **CTL modules (files)**
-: files containing Color Transformation Language code.
-    ??? note 
+: files containing Color Transformation Language code
+    
+    !!! note 
         CTL serves as the reference implmentation of ACES, hence, CTL modules are the primary documentation for ACES transforms.  If any written documentation conflicts with a CTL module, the CTL module should be considered correct.  If you believe the CTL module contains a bug, please file a bug report on github.
         
 
@@ -81,6 +91,8 @@
 : a markup language and file format for storing, transmitting, and reconstructing arbitrary data. It defines a set of rules for encoding documents in a format that is both human-readable and machine-readable
 
 ## F
+**focal-plane-referred**
+: representation of a captured scene that includes any flare light introduced by the camera's optical system
 
 ## G
 
@@ -88,10 +100,14 @@
 
 ## I
 **Implementation Transforms**
-: ACES System transforms implemented by ACES Product Partners, likely as a Color Look-up Table or as GPU or CPU code.
+: ACES System transforms implemented by ACES Product Partners, likely as a Color Look-up Table or as GPU or CPU code
 
 **Internet Engineering Task Force (IETF)**
 : an open standards organization, which develops and promotes voluntary Internet standards, in particular the technical standards that comprise the Internet protocol suite (TCP/IP).
+
+**Input Transform**
+**Input Device Transform (IDT)**
+: signal-processing transform that maps an image capture system's representation of an image to ACES RGB relative exposure values
 
 ## J
 
@@ -101,12 +117,22 @@
 **Look Transform (LMT)** 
 **Look Modification Transform** (_deprecated term_)
 : ACES transform which applies a global look or other modification to scene-referred image data.
+
 ## M
+**memory color**
+: color sensation derived from memory rather than the immediate perception of a color stimulus
+
 ## N
 ## O
 ## P
 ## Q
 ## R
+**radiometric linearity**
+: an attribute of a representation of measured energy in which a change in the amount of measured energy is accompanied by an equal change in the representation of that energy, e.g. a doubling of measured energy is matched by a doubling of the quantity representing that energy
+
+** Reference Input Capture Device (RICD)**
+: a hypothetical camera, which records an image of a scene directly as ACES RGB relative exposure values
+
 **Reference Gamut Compression (RGC)**
 : ACES LMT which compresses scene-referred image data to within the AP1 gamut.
 
