@@ -351,7 +351,7 @@ $lin_{AP1}$ $R$, $G$, and $B$ values shall be converted to ACES $R$, $G$, and $B
 Appendices
 ----------
 
-### Appendix A: Encoding of negative values
+### Appendix A: Encoding of negative values {#appendixA}
 As a part of the ACES system, images encoded in ACESproxy form are intended to be decoded into ACES values and viewed using an ACES Output Transform appropriate for an intended viewing device.
 
 Without such a transform in place, viewed ACESproxy images will appear dim, severely low in contrast and desaturated. However, directly viewing the unrendered log-encoded images is sometimes useful, for example while looking at the wide range of captured image data in the highlights and shadows that are preserved in the ACES system.
@@ -380,7 +380,7 @@ The table below contains the results of conversions using exact 16-bit ACES code
 </div>
 
 
-### Appendix C: Convention for use of ACESproxy SMPTE range
+### Appendix C: Convention for use of ACESproxy SMPTE range {#appendixC}
 This appendix defines the equivalent of a [0.0 ... 1.0] range in both 10-bit and 12-bit ACESproxy for use in applications.
 
 For consistency in using ACESproxy values in video systems designed around the [0.0 . . . 1.0] video range (encoded in 10-bit video as the range 64-940), the following ACES values are considered the equivalents to 0.0 and 1.0 for both 10-bit and 12-bit video.

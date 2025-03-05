@@ -1,9 +1,9 @@
 What's New In ACES 2.0?
 ===
 
-ACES 2.0 was designed based on collected feedback and requests from ussers of ACES 1.x.  The changes are designed to improve on many known issues or to complete previously unfinished pieces of the system that help make ACES 2.0 a more complete, robust, and consistent product.
+ACES 2.0 is the second major release of the components that make up the ACES system. The most significant change is a new suite of rendering transforms whose design was informed by collected feedback and requests from users of ACES 1. The changes aim to improve the appearance of perceived artifacts and to complete previously unfinished components of the system, resulting in a more complete, robust, and consistent product.
 
-Highlights of the changes in ACES 2.0 are as follows:
+Highlights of the key changes in ACES 2.0 are as follows:
 
 * New output transforms, including:
     * A less aggressive tone scale
@@ -11,8 +11,9 @@ Highlights of the changes in ACES 2.0 are as follows:
     * Robust gamut mapping to improve perceptual uniformity
     * Improved performance of the inverse transforms
 * Enhanced AMF specification
+* An updated specification for ACES Transform IDs
 * OpenEXR compression recommendations
-* Updated tools for generating Input Transforms and recommendations for characterizing prosumer cameras
+* Enhanced tools for generating Input Transforms and recommended procedures for characterizing prosumer cameras
 * Look Transform Library
 * Expanded documentation
 

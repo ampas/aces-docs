@@ -320,5 +320,5 @@ For all of these reasons, it is typically better (and often much more efficient 
 
 <!-- Include section numbering -->
 <style>
-    @import "../../stylesheets/sections.css"
+    @import "../../../stylesheets/sections.css"
 </style>

@@ -13,6 +13,8 @@ This document specifies the ACES Metadata File (“AMF”), a ‘sidecar’ XML 
 This specification supersedes "TB-2014-009 – Academy Color Encoding System – (ACES) Clip-level Metadata File Format Definition and Usage (“ACESclip”)". TB-2014-009 is now considered obsolete.
 
 
+
+
 Introduction 
 ----------------
 ### Why is metadata needed for ACES?
@@ -21,7 +23,7 @@ ACES establishes a standard color color encoding (SMPTE ST 2065-1) for exchange 
 
 However, during production, critical information required to fully define the viewing pipeline or the "creative intent" of an image is often missing. Examples of such essential details include:
 
-* ACES Version – _Shich version of ACES was used?_
+* ACES Version – _Which version of ACES was used?_
 * Look Transform – _Was a creative look applied?_
 * Output Transform – _How was the image viewed on a display?_
 
@@ -54,6 +56,9 @@ AMFs do not contain “timeline” metadata such as edit points. Timeline manage
 	<b>Figure 1.</b> Overall structure of an AMF in simplified form.
 </figcaption> 
 </figure>
+
+
+
 
 Use Cases
 ----------------
@@ -106,19 +111,22 @@ One possible method for this could be the utilization of SMPTE standards such as
 Another method could be to use SMPTE ST.2067-9 (Sidecar Composition Map) which would allow linking of a single AMF to a CPL (Composition Playlist) in the case where there is a single AMF for an entire playlist.
 
 
+
+
 Data Model
 ----------------
 This section describes the data intended for use within the ACES Metadata file.
 
-All top level structures shall be tagged as being within the `aces` namespace with urn `urn:acesMetadata:acesMetadataFile:v1.0`
+
+### Namespace
+All top level structures shall be tagged as being within the `aces` namespace with urn `urn:ampas:aces:amf:v2.0`.
 
 ### UML Diagram
 The following UML diagrams are segments of the complete UML diagram which is not included in this document due to space constraints.  To view the entire UML diagram in SVG format visit [https://aces.mp/amf\_uml](https://aces.mp/amf\_uml).
 
 #### acesMetadataFile
 <figure align="center" markdown>
-  ![diagram](https://www.plantuml.com/plantuml/svg/TLDDRzim33rBlu8r4Y16qY0PDWm8qA9RUybXbwx1pgfDnrfioPEeRSNG_pxARXtFStE8HVAznmzADvwKer1NiiA2W2muVIm9Skqm8ssDz2Tj6kLK3NyalFm-g-nqT3QO_DPMrW4vPJo3q90KbJP8Jms2TLHQARwMAhU_j3b2eIgFKdpHvhPItd_JEPNmxkC7AOpDqMC3suqKh7MAv_SR-IpbHJ0_WYNCeN4smpmuxD8LrjMBcV8hc96vIXB-AYB7frGA-_WTCuA4umae3_nTEsk9Un1YxibnEOj4PUXt2InZcF-J1wuwiiLwpNyNke08hT0iMkaKhc730T5Q4O4cruKKp-U4t4RcT1CdroSU-Dhyl_qEkXAwL4D-gNpP4wFHCjf2enKhVArl2QewMgUfh647FUGJEplOG3O4dVUoqMXbywokTeV3_cuWEo0LkiAU58tNwfLvEjpl_oVqUzcVamryJ1zDbSnvfcHY5DiRmeTPun2keDiHcQHpPgfXvpmq3Rh5t8T7LcelmMQrJTCNelN4e65qkpelqaVS-HAqUPOGbUCdajD-jNsBKlGtwFBoUhpLYMZSn8GxZdx27OSxSezc9xcWmHEOVXSsK1FeOVWwk1Twq-xmT_XJPzYp_a4uBD2XoV2UqsCSs00tgdXIhGsFW9EYG_Yurt5V8pkLDqm8TVKN#only-light)
-  ![diagram](https://www.plantuml.com/plantuml/dsvg/TLDDRzim33rBlu8r4Y16qY0PDWm8qA9RUybXbwx1pgfDnrfioPEeRSNG_pxARXtFStE8HVAznmzADvwKer1NiiA2W2muVIm9Skqm8ssDz2Tj6kLK3NyalFm-g-nqT3QO_DPMrW4vPJo3q90KbJP8Jms2TLHQARwMAhU_j3b2eIgFKdpHvhPItd_JEPNmxkC7AOpDqMC3suqKh7MAv_SR-IpbHJ0_WYNCeN4smpmuxD8LrjMBcV8hc96vIXB-AYB7frGA-_WTCuA4umae3_nTEsk9Un1YxibnEOj4PUXt2InZcF-J1wuwiiLwpNyNke08hT0iMkaKhc730T5Q4O4cruKKp-U4t4RcT1CdroSU-Dhyl_qEkXAwL4D-gNpP4wFHCjf2enKhVArl2QewMgUfh647FUGJEplOG3O4dVUoqMXbywokTeV3_cuWEo0LkiAU58tNwfLvEjpl_oVqUzcVamryJ1zDbSnvfcHY5DiRmeTPun2keDiHcQHpPgfXvpmq3Rh5t8T7LcelmMQrJTCNelN4e65qkpelqaVS-HAqUPOGbUCdajD-jNsBKlGtwFBoUhpLYMZSn8GxZdx27OSxSezc9xcWmHEOVXSsK1FeOVWwk1Twq-xmT_XJPzYp_a4uBD2XoV2UqsCSs00tgdXIhGsFW9EYG_Yurt5V8pkLDqm8TVKN#only-dark)
+  ![diagram](./uml_diagrams/uml_amf.svg)
 </figure> 
 
 #### amfInfo
@@ -156,22 +164,19 @@ The following UML diagrams are segments of the complete UML diagram which is not
   ![amfDiagram ](./uml_diagrams/uml_outputTransform.svg)
 </figure>
 
+### Schema
+The XSD for AMF is maintained on Github in the repository [[ampas/aces-amf](https://raw.githubusercontent.com/ampas/aces-amf/refs/heads/main/schema/acesMetadataFile.xsd)]
 
 ### Types
-The following types are defined for use within the AMF XML file and are validated with the XSD schema included in Appendix A.  The types are used as the basis to form the elements listed in section X in the schema.
-
-\input{sec-types.tex}
+Data types defined by the AMF schema can be explored interactively [[Explore Types](amf/specification/schema-docs/acesMetadataFile.html)]
 
 
-### Elements (by type)
-The following elements are defined for use with the AMF XML file and are validated with the XSD schema included in Appendix A. 
 
 
 References
 ----------
 The following standards, specifications, articles, presentations, and texts are referenced in this text:
 
-* [Academy S-2014-002, Academy Color Encoding System - Versioning System](https://www.dropbox.com/s/cnrak5pvu4agfk4/S-2014-002.pdf?dl=0)
 * [SMPTE ST 2065-1:2021, Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
 * [SMPTE ST 2065-4:2013, ACES Image Container File Layout](https://doi.org/10.5594/SMPTE.ST2065-4.2013)
 * [Academy TB-2014-010, Design, Integration and Use of ACES Look Modification Transforms (LMTs)](https://www.dropbox.com/s/grjoi885tv78e70/TB-2014-010.pdf?dl=0)
