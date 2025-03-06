@@ -54,7 +54,7 @@ theme:
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: aces-light 
+      scheme: aces-light
       toggle:
         icon: material/lightbulb
         name: Switch to dark mode
@@ -121,8 +121,28 @@ nav:
       - 'Versioning': background/versioning.md
       - 'Transform IDs': transform-ids.md
   - 'System Components':
-    - 'Encodings':
+    - 'System Overview': system-components/system-overview.md
+    - 'Encodings': 
       - 'Overview': encodings/overview.md
+    - 'File Formats':
+      - 'ACES Metadata File (AMF)': 
+        - 'Introduction': amf/introduction.md
+        - 'User Guide': amf/guides/index.md
+      - 'Common LUT Format': 
+        - 'Introduction': clf/introduction.md
+    - 'Input Transforms': 
+      - 'Introduction': system-components/input-transforms/index.md
+    - 'Output Transforms': 
+      - 'Introduction': system-components/output-transforms/technical-details/index.md
+    - 'Look Transforms': 
+      - 'Introduction': system-components/look-transforms/index.md
+    - 'Reference Gamut Compression': 
+      - 'Introduction': rgc/overview.md
+      - 'User Guide': rgc/guides/rgc-user/index.md
+    - 'Component Names': component-names/index.md        
+  - 'Technical Details':
+    - Encodings:
+      - 'Derivation of the ACES White Point': white-point/index.md
       - 'ACES2065-1': encodings/aces2065-1.md
       - 'ACEScg': encodings/acescg.md
       - 'ACEScct': encodings/acescct.md
@@ -132,14 +152,13 @@ nav:
       - 'ADX (Academy Density Exchange)': encodings/adx.md
     - 'File Formats':
       - 'ACES Metadata File (AMF)': 
-        - 'Introduction': amf/introduction.md
         - 'Specification': amf/specification/index.md
-        - 'User Guide': amf/guides/index.md
       - 'Common LUT Format': 
-        - 'Introduction': clf/introduction.md
         - 'Specification': clf/specification/index.md
         - 'Implementation Guide': clf/guides/index.md
-    - 'Input Transforms': https://www.dropbox.com/scl/fi/o0az9azz833t1sde8apfz/P-2013-001.pdf?rlkey=j7eqd4l0wpvbhpi72ayjvflka&e=1&dl=0
+    - 'Input Transforms': 
+      - 'Procedure': https://www.dropbox.com/scl/fi/o0az9azz833t1sde8apfz/P-2013-001.pdf?rlkey=j7eqd4l0wpvbhpi72ayjvflka&e=1&dl=0
+      - 'Tools': system-components/input-transforms/tools.md
     - 'Output Transforms': 
       - 'Overview': system-components/output-transforms/technical-details/index.md
       - 'Tone Mapping': system-components/output-transforms/technical-details/tone-mapping/index.md
@@ -147,12 +166,11 @@ nav:
       - 'Gamut Compression': system-components/output-transforms/technical-details/gamut-compression/index.md
       - 'White Limiting': system-components/output-transforms/technical-details/white-limiting/index.md
       - 'Display Encoding': system-components/output-transforms/technical-details/display-encoding/index.md
-    - 'Look Transforms': system-components/lmt/index.md
+    - 'Look Transforms': 
+      - 'Specification': system-components/look-transforms/specification.md
     - 'Reference Gamut Compression': 
-      - 'Introduction': rgc/overview.md
       - 'Specification': rgc/specification/index.md
       - 'Implementation Guide': rgc/guides/rgc-implementation/index.md
-      - 'User Guide': rgc/guides/rgc-user/index.md
     - 'Component Names': component-names/index.md        
   - 'Glossary': glossary/index.md
 

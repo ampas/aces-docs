@@ -10,35 +10,22 @@ Derivation of the ACES White Point CIE Chromaticity Coordinates
 Introduction
 ------------
 
-The Academy Color Encoding System is a free, open, device-independent color management and image interchange system that can be applied to almost any current or future workflow. It was developed by hundreds of the industry’s top scientists, engineers, and end users, working together under the auspices of the Academy of Motion Picture Arts and Sciences.
-
 The primary color encoding in the Academy Color Encoding System (ACES) is the Academy Color Encoding Specification (ACES2065-1), which is standardized in SMPTE ST 2065-1:2021[^1]. The encoding primaries and white point are specified as CIE xy chromaticity coordinates to allow for the transformation of ACES2065-1 RGB values to and from other color spaces including CIE XYZ. Though the CIE xy chromaticity coordinates of encoding red, green, blue and white primaries are only one factor important to unambiguous color interchange[^2], their specification is required for the calculation of a normalized primary matrix used in color space transformations[^3].
 
-The white point used in ACES2065-1 was later adopted for use in other ACES encodings such as ACEScg, ACEScc, and ACEScct. For brevity and inclusiveness, the white point used in the various encodings will be referred to as ”the ACES white point” throughout the remainder of this document unless more specificity is required.
+The white point used in ACES2065-1 was later adopted for use in other ACES encodings such as ACEScg and ACEScct. For brevity and inclusiveness, the white point used in the various encodings will be referred to as ”the ACES white point” throughout the remainder of this document unless more specificity is required.
 
 The derivation of the ACES white point chromaticity coordinates outlined in this document is intended to help technical users of the ACES system calculate transformations to and from the various ACES encodings in as accurate a manner as possible. 
 
 The white point of the ACES encodings does not limit the choice of sources that may be used to photograph or generate source images, nor does it dictate the white point of the reproduction. Using various techniques beyond the scope of this document, the chromaticity of the reproduction of equal ACES2065-1 red, green and blue values (ACES2065-1 R=G=B) may match the chromaticity of the ACES white point, the display calibration white point, or any other white point preferred for technical or aesthetic reasons.
 
 
-
 Scope
 ----------------
 
-This document describes the derivation of the ACES white point CIE chromaticity coordinates and details of why the chromaticity coordinates were chosen. This document includes links to an example Python implementation of the derivation and an iPython notebook intended to help readers reproduce the referenced values.
+This document describes the derivation of the ACES white point CIE chromaticity coordinates and details why the chromaticity coordinates were chosen. This document includes links to an example Python implementation of the derivation and an iPython notebook intended to help readers reproduce the referenced values.
 
 
-This document is primarily intended for those interested in understanding the details of the technical specification of ACES and the history of its development. The definition of a color space encoding’s white point chromaticity coordinates is one important factor in the definition of a color managed system. The white point used in various ACES encodings does not dictate the creative white point of images created or mastered using the ACES system. It exists to enable accurate conversion to and from other color encodings such as CIE XYZ. The proper usage of the ACES white point in conversion, mastering, or reproduction are beyond the scope of this document. For example, the proper usage of the ACES white point in encoding scene colorimetry in ACES2065-1 is detailed in [P-2013-001](https://www.dropbox.com/s/ouwnid1aevqti5d/P-2013-001.pdf?dl=0).
-
-
-
-References
-----------------
-
-* [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021), Society of Motion Picture and Television Engineers, New York, US, Standard, 2021.
-* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993), Society of Motion Picture and Television Engineers, New York, US, Standard, 1993.
-* [CIE 015:2018 - Colorimetry, 4th Edition](https://cie.co.at/publications/colorimetry-4th-edition), International Commission on Illumination (CIE), Vienna, Austria, Technical Report, 2018.
-
+This document is primarily intended for those interested in understanding the details of the technical specification of ACES and the history of its development. The definition of a color space encoding’s white point chromaticity coordinates is one important factor in the definition of a color managed system. The white point used in various ACES encodings does not dictate the creative white point of images created or mastered using the ACES system. It exists to enable accurate conversion to and from other color encodings such as CIE XYZ. The proper usage of the ACES white point in conversion, mastering, or reproduction are beyond the scope of this document. 
 
 
 Derivation of CIE chromaticity coordinates 
@@ -247,6 +234,12 @@ Just as the implication of the ACES encoding white point on reproduction can be 
 For these reasons as well as an abundance of caution, the ACES Project Committee decided it would be best to use a set of chromaticity coordinates very near those of CIE Daylight with a CCT of 6000 K but not exactly those of any easily calculated spectral power distribution.
 
 
+References
+----------------
+
+* [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021), Society of Motion Picture and Television Engineers, New York, US, Standard, 2021.
+* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993), Society of Motion Picture and Television Engineers, New York, US, Standard, 1993.
+* [CIE 015:2018 - Colorimetry, 4th Edition](https://cie.co.at/publications/colorimetry-4th-edition), International Commission on Illumination (CIE), Vienna, Austria, Technical Report, 2018.
 
 
 
