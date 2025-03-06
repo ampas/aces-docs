@@ -6,6 +6,8 @@ Introduction
 ------------
 The Output Transform is a rendering transform essential to consistently and predictably transform scene-referred ACES-2065 image data into a rendered state suitable for display on a specific output device and set of viewing conditions.
 
+ACES includes a variety of Output Transforms intended to support a wide range of display devices. These include standard dynamic range digital cinema projectors, broadcast monitors, computer desktop displays, and high dynamic range displays. Each of these devices my be configured in a variety of ways and 
+
 The Output Transform is a concatenation of two separate modules, the "rendering transform" and the "display encoding". The rendering transform is informed by luminance of peak white and the limiting primaries and white chromaticities. Independent of the rendering transform is the display encoding, which encodes the colorimetry of the rendered image data according to the display primaries and calibrated white point and the inverse EOTF.
 
 ``` mermaid
@@ -30,6 +32,7 @@ flowchart LR
 
 What Transforms Are In 2.0?
 ---------------------------
+
 The default transforms provided by the Academy are expected to cover most present-day deliverable needs. 
 
 are provided from ACES2065-1 to a state ready for display on devices calibrated to common display standards. The presets that are provided do not attempt to support all possible combinations of parameters because, A) this would make the list of transforms inordinately long, and B) not all combinations make sense to provide as user options. 
@@ -93,28 +96,6 @@ Other outputs and presets can be added if and when the need arises.
 
 
 
-``` mermaid
-flowchart LR
-  id1[/Camera 1/] --> id4["Input 
-  Transform"] --> id7(((ACES)))
-  id2[/Camera 2/] --> id5["Input 
-  Transform"] --> id7
-  id3[/CGI/] --> id6["ACEScg
-  to
-  ACES"] --> id7
-  id7 --> id8{{"Output
-  Transform"}} 
-  id8 --> id9["Display 
-  Encoding"] --> id12[/"HDR 
-  Video"/]
-  id8 --> id10["Display 
-  Encoding"] --> id13[/"Cinema 
-  Projector"/]
-  id8 --> id11["Display 
-  Encoding"] --> id14[/"SDR 
-  Video"/]
-  ;
-```
 
 
  

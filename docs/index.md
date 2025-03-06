@@ -8,6 +8,30 @@ The Academy Color Encoding System (ACES) is an industry standard for managing co
 
 ACES is free and open-source and dozens of companies have built ACES components into their tools.
 
+
+``` mermaid
+flowchart LR
+  id1[/Camera 1/] --> id4["Input 
+  Transform"] --> id7(((ACES)))
+  id2[/Camera 2/] --> id5["Input 
+  Transform"] --> id7
+  id3[/CGI/] --> id6["ACEScg
+  to
+  ACES"] --> id7
+  id7 --> id8{{"Output
+  Transform"}} 
+  id8 --> id9["Display 
+  Encoding"] --> id12[/"HDR 
+  Video"/]
+  id8 --> id10["Display 
+  Encoding"] --> id13[/"Cinema 
+  Projector"/]
+  id8 --> id11["Display 
+  Encoding"] --> id14[/"SDR 
+  Video"/]
+  ;
+```
+
 Basic ACES Workflow
 -------------------
 <figure markdown="span">
