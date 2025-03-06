@@ -25,7 +25,7 @@
   --md-footer-bg-color--dark:     var(--md-primary-fg-color);
 }
 
-[data-md-color-scheme="aces-light"] img[src$="#only-dark"]
+[data-md-color-scheme="aces-light"] img[src$="#only-dark"],
 [data-md-color-scheme="aces-light"] img[src$="#gh-dark-mode-only"] {
   display: none; /* Hide dark images in light mode */
 }
