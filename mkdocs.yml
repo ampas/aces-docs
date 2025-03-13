@@ -121,7 +121,7 @@ nav:
       - 'Encodings': encodings/overview.md
       - 'Input Transforms': system-components/input-transforms/index.md
       - 'Output Transforms': system-components/output-transforms/index.md
-      - 'ACES Metadata File (AMF)': amf/introduction.md
+      - 'ACES Metadata File (AMF)': amf/guides/user/index.md
       - 'Look Transforms': system-components/look-transforms/index.md
       - 'Reference Gamut Compression': rgc/overview.md
       - 'Component Names': component-names/index.md        
@@ -141,7 +141,7 @@ nav:
     - 'File Formats':
       - 'ACES Metadata File (AMF)': 
         - 'Specification': amf/specification/index.md
-        - 'User Guide': amf/guides/index.md
+        - 'Implementation Guide': amf/guides/implementation/index.md
       - 'Common LUT Format': 
         - 'Specification': clf/specification/index.md
         - 'Implementation Guide': clf/guides/index.md
