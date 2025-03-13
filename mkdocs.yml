@@ -115,31 +115,19 @@ nav:
       - 'What''s New in 2.0': background/whats-new.md
       - 'ACES v1 Feedback': background/listening-tour.md
       - 'Contribute to ACES': background/contribute.md    
-    - 'Technical Details':
+    - 'About the ACES System':
       - 'System Overview': background/overview.md
-      - 'Organization': background/organization/index.md
       - 'Versioning': background/versioning.md
+      - 'Encodings': encodings/overview.md
+      - 'Input Transforms': system-components/input-transforms/index.md
+      - 'Output Transforms': system-components/output-transforms/index.md
+      - 'ACES Metadata File (AMF)': amf/introduction.md
+      - 'Look Transforms': system-components/look-transforms/index.md
+      - 'Reference Gamut Compression': rgc/overview.md
+      - 'Component Names': component-names/index.md        
       - 'Transform IDs': transform-ids.md
-  - 'System Components':
-    - 'System Overview': system-components/system-overview.md
-    - 'Encodings': 
-      - 'Overview': encodings/overview.md
-    - 'File Formats':
-      - 'ACES Metadata File (AMF)': 
-        - 'Introduction': amf/introduction.md
-        - 'User Guide': amf/guides/index.md
-      - 'Common LUT Format': 
-        - 'Introduction': clf/introduction.md
-    - 'Input Transforms': 
-      - 'Introduction': system-components/input-transforms/index.md
-    - 'Output Transforms': 
-      - 'Introduction': system-components/output-transforms/technical-details/index.md
-    - 'Look Transforms': 
-      - 'Introduction': system-components/look-transforms/index.md
-    - 'Reference Gamut Compression': 
-      - 'Introduction': rgc/overview.md
-      - 'User Guide': rgc/guides/rgc-user/index.md
-    - 'Component Names': component-names/index.md        
+      - 'Reference Code': background/organization/index.md
+      - 'Common LUT Format': clf/introduction.md
   - 'Technical Details':
     - Encodings:
       - 'Derivation of the ACES White Point': white-point/index.md
@@ -153,6 +141,7 @@ nav:
     - 'File Formats':
       - 'ACES Metadata File (AMF)': 
         - 'Specification': amf/specification/index.md
+        - 'User Guide': amf/guides/index.md
       - 'Common LUT Format': 
         - 'Specification': clf/specification/index.md
         - 'Implementation Guide': clf/guides/index.md
@@ -167,10 +156,12 @@ nav:
       - 'White Limiting': system-components/output-transforms/technical-details/white-limiting/index.md
       - 'Display Encoding': system-components/output-transforms/technical-details/display-encoding/index.md
     - 'Look Transforms': 
+      - 'Use Cases': system-components/look-transforms/use-cases.md
       - 'Specification': system-components/look-transforms/specification.md
     - 'Reference Gamut Compression': 
       - 'Specification': rgc/specification/index.md
       - 'Implementation Guide': rgc/guides/rgc-implementation/index.md
+      - 'User Guide': rgc/guides/rgc-user/index.md
     - 'Component Names': component-names/index.md        
   - 'Glossary': glossary/index.md
 
