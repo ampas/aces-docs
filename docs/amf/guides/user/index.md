@@ -2,7 +2,7 @@
 title: AMF User Guide
 ---
 
-# Understanding ACES Metadata File (AMF)
+# Introduction to ACES Metadata File (AMF)
 *A practical guide for production workflows*
 
 
