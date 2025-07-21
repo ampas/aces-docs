@@ -470,6 +470,13 @@ requires three different attributes to fully define a sequence of files:
 In other words, min and max define a range of frame numbers and they are both
 part of the sequence (included).
 
+```xml
+<aces:clipId>
+    <aces:clipName>vfx_shot_001</aces:clipName>
+    <aces:sequence idx="#" min="1001" max="1048">vfx_shot_001.########.exr</aces:sequence>
+</aces:clipId>
+```
+
 ##### `aces:uuid`
 
 The last method for connecting the AMF document to a visual material element is
