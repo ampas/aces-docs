@@ -44,10 +44,10 @@ AMFs can be exported from major tools such as:
 
 - Pomfort (Livegrade & Silverstack)
 - Colorfront (ExD, OSD & Transkoder)
-- Davinci Resolve v19.1+
-- Baselight 6.0+
+- Davinci Resolve v19.1 and newer
+- Baselight 6.0 and newer
 
-*(list last updated March 6, 2025)*
+*(list last updated July 21, 2025)*
 
 !!! info
     This will take any CDLs or looks and store it in the AMF, along with the Input and Output Transforms that were active when creating it.
