@@ -10,45 +10,33 @@ ACES Metadata File Implementation Guidelines and Best Practices
 Scope
 ----------------
 
-This document is a guide that recommends implementation guidelines and best
+This document provides implementation guidelines and best
 practices related to the usage of the ACES Metadata File (AMF) in various
-workflows. These workflows may involve one or more tools that support the AMF
-specification and this guide attempts to help both implementers and users in
-order to facilitate interoperability.
-
-
+workflows.
 
 
 Introduction 
 ----------------
+The ACES Metadata File (AMF) is a sidecar file that describes the complete color pipeline for a piece of media. It specifies which ACES transforms—Input, Look, and Output—should be applied to an image or shot.
 
-The Academy Color Encoding System (ACES) is a color processing framework that
-enables the mix of various sources within a standardized color space in order to
-produce one or more outputs.
-
-While ACES is a living framework and is actively developed and adopted, it also
-comes with various points that can be configured. These points of configuration
-are either related to the sources used (Input Transforms), a creative look (Look
-Transforms), the desired outputs (Output Transforms), or the Version Number
-(i.e. ACES v1.1) of the core transforms built into the ACES system.
-
-ACES does not specify these configuration points directly or associate them with
-actual images or shots during production, and this is the very reason why AMF
-exists.
-
-AMF is the configuration file that allows a precise setup for an ACES pipeline.
-Besides this basic goal, AMF is also the tool of choice to transmit and exchange
-configuration parameters in order to ensure consistency within a workflow and
-across the entire ecosystem of tools that are used within that workflow.
+Using AMF ensures that color pipeline information can be exchanged consistently between different software applications and throughout the production process, preserving creative intent.
 
 ### Target Audience
-
-AMF is a sidecar file specified using the XML markup language, and as such it
-can be processed by machines and at the same time created/modified by users.
 
 This document targets both AMF users and AMF implementers because both groups
 need the same level of understanding in order to design AMF-enabled workflows
 and tools that support those workflows.
+
+### Using the Official ACES Transform ID Registry
+A critical aspect of ensuring interoperability with AMF is the consistent use of Transform IDs (`transformId`). Historically, different software applications sometimes used varying or proprietary identifiers for the same standard ACES transform, leading to inconsistencies when exchanging AMFs.
+
+To solve this, the Academy now publishes an official **ACES Transform ID Registry**. This registry is the single source of truth for all standard ACES transforms. It is maintained as a machine-readable JSON file in the official ACES GitHub repository.
+
+**Official ACES Transform ID Registry:** [https://github.com/ampas/aces/blob/main/transforms.json](https://github.com/ampas/aces/blob/main/transforms.json)
+
+For maximum compatibility and predictability, implementations **must** use the URNs from this registry when referencing standard ACES transforms (Input, Look, and Output Transforms) within an AMF. Using registered `transformId`'s ensures that a transform reference is interpreted identically across all compliant software, fulfilling the core purpose of AMF.
+
+When creating or parsing an AMF, software should validate `transformId`'s against this registry. If a `transformId` is not found in the registry, it should be treated as a custom or unknown transform.
 
 
 What is AMF
@@ -102,27 +90,19 @@ be used to create a specific output, or configurations that have been used to
 create a specific output.
 
 ```mermaid
-graph TB
-B1  --> A1(AMF <br/>Look Modification Transform <br/> Chain)
+graph BT
+B1  --> A1(Example <br/>Look Transform <br/> Chain)
 B2  --> A1
 B3  --> A1
 subgraph  
-    B1("ASC-CDL<br/>or<br/>External LMT<br/>(active)") 
-    B2("ASC-CDL<br/>or<br/>External LMT<br/>(disabled)")
-    B3("ASC-CDL<br/>or<br/>External LMT<br/>(active)")
+    B1("1- LMT<br/>(external)") 
+    B2("2- ASC-CDL<br/>(embedded)")
+    B3("3- LMT<br/>(external)")
 end
-
-classDef disabled opacity: 0.5
-class B2 disabled
 ```
 <figure markdown>
-  <figcaption>Each block in the chain can be an ASC-CDL or an external LUT.
-  <br>Blocks can be enabled or disabled</figcaption>
+  <figcaption>Example chain of looks, which can be ASC-CDLs or external LUTs.</figcaption>
 </figure>
-
-Finally, another feature of AMF is the ability to document a "change log" in an
-ACES color pipeline. This is called the "archived pipeline" and will be
-discussed later in the document.
 
 ### The “applied” attribute
 
@@ -239,10 +219,7 @@ specification also comes with an XML Schema that can be used to validate the AMF
 documents.
 
 The XML Schema is publicly available here:
-https://github.com/ampas/aces-dev/tree/master/formats/amf
-
-The guidelines and best practices in this document are provided to help both
-implementers and users to take full advantage of AMF.
+https://github.com/ampas/aces-amf/tree/main/schema
 
 It is strongly recommended to use the specification as a reference in order to
 better understand the concepts described here.
@@ -267,7 +244,7 @@ identification. More specifically two sub-elements deserve some consideration:
 * `aces:uuid`
 
 The mandatory `aces:dateTime` element contains the creation and modification date.
-The `aces:uuid` element is optional and is designed to carry a Universally Unique
+The `aces:uuid` element is also required, and is designed to carry a Universally Unique
 Identifier (also known as Globally Unique Identifier, or GUID on some systems).
 The Universally Unique Identifier is specified in IETF RFC 4122 as well as other
 ISO and ITU documents.
@@ -325,11 +302,7 @@ the location where the document was created/modified.
 
 #### Using the unique identifier mechanism 
 
-A more elaborate identification mechanism can also be used, by taking advantage
-of the `aces:uuid` element. Since this element is optional, one cannot count on
-its presence, however it is strongly recommended to use it. When doing so, the
-UUID becomes a much safer tool to distinguish between to AMF documents. UUIDs
-are automatically generated and they shall never be hand-crafted.
+A primary identification mechanism is the required `aces:uuid` element. The UUID is a much safer tool to distinguish between two AMF documents than file names or dates alone. UUIDs are automatically generated by the authoring software and must never be hand-crafted.
 
 #### Combining several identification mechanisms
 
@@ -442,25 +415,27 @@ handbook.  A future version may also describe the use of AMF with OpenTimelineIO
 
 #### `aces:clipId` is present
 
-As briefly described before, the `aces:clipId` is a complex element, containing
-the following sub-elements:
+When present, the `aces:clipId` element provides a reference to the visual material (e.g., OCF or rendered images) to which the AMF applies. The `aces:clipId` element must contain:
 
-* `aces:clipName` 
-and one of the following:
+1.  A mandatory `aces:clipName` element.
+2.  Exactly one of the following elements to identify the media:
+    *   `aces:file`: References a single media file.
+    *   `aces:sequence`: References a sequence of image files.
+    *   `aces:uuid`: References the media via a Universally Unique Identifier.
 
-* `aces:file` 
-* `aces:sequence` 
-* `aces:uuid` 
-All these sub-elements are mandatory when `aces:clipId` is used, but it's
-important to remember that `aces:sequence,` aces:file and `aces:uuid` cannot
-coexist. They are mutually excluding each other and therefore are used for
-specific variants in a workflow.
+The choice between `aces:file`, `aces:sequence`, and `aces:uuid` is mutually exclusive; only one can be used within a single `aces:clipId` element. This allows the AMF to be linked to a specific piece of media in a way that best suits the workflow.
 
 #####  `aces:clipName`
 The `aces:clipName` is used to carry the name of the target visual material
 element, but not the file name of that element. Typically `aces:clipName` is the
 same as the file name but without the file extension or the frame number digits
 in the case of a file sequence.
+
+```xml
+<aces:clipId>
+    <aces:clipName>A001C001</aces:clipName>
+</aces:clipId>
+```
 
 ##### `aces:file`
 
@@ -469,19 +444,14 @@ material element. It can carry the full absolute path and the file name, a
 relative path and the file name or simply the file name (base name and
 extension) of the target visual material element.
 
-As it is the case with file names in general, path information and special
-characters supported or not supported by various file systems must be taken into
-account. The goal here is not to describe all the possibilities, but rather to
-recommend some best practices: * If the path (absolute or relative) is used in
-the file name, it should be limited to cases when the AMF document is only used
-within a closed system where the rules can be clearly defined. * Special
-characters or Unicode names can be used, but in general they might be a source
-of problems. While not forbidden, their use should be tested in the context of
-the desired workflow to ensure that all the tools and operating systems involved
-correctly support the selected convention.
+In practice, the filename itself is used, like the example below:
 
-A good practice however would be to stick with ASCII characters only and avoid
-using path-like structures in file names.
+```xml
+<aces:clipId>
+    <aces:clipName>A001C001</aces:clipName>
+    <aces:file>A001C001.mxf</aces:file>
+</aces:clipId>
+```
 
 ##### `aces:sequence`
 
@@ -499,6 +469,13 @@ requires three different attributes to fully define a sequence of files:
 
 In other words, min and max define a range of frame numbers and they are both
 part of the sequence (included).
+
+```xml
+<aces:clipId>
+    <aces:clipName>vfx_shot_001</aces:clipName>
+    <aces:sequence idx="#" min="1001" max="1048">vfx_shot_001.########.exr</aces:sequence>
+</aces:clipId>
+```
 
 ##### `aces:uuid`
 
@@ -569,12 +546,11 @@ Standard transforms can only be referenced by their transform ID.
 
 ```mermaid
 graph BT
-B1(ACES Input Transform Identifier)   --> A1(AMF Input Transform)
-B2(Custom Input Transform Identifier) --> A1
-B3("External Input Transform (e.g. CLF)")  --> A1
+B1(ACES Input Transform ID)   --> A1(AMF Input Transform)
+B2("External Input Transform (e.g. CLF)") --> A1
 ```
 <figure markdown>
-  <figcaption>AMF Input Transform Support<br>AMF can describe one Input Transform as an identifier<br>or external reference</figcaption>
+  <figcaption>AMF Input Transform Support<br>AMF can describe one IDT as a transformID<br>or external IDT file (e.g. CLF)</figcaption>
 </figure>
 
 
@@ -586,8 +562,8 @@ document.
 
 If an `aces:inputTransform` element is present, then it must also define the
 "applied" attribute that will allow an AMF-aware tool to know if the input
-transform is provided for information purposes only or if it needs to be
-executed.
+transform is provided for informational purposes only or if it needs to be
+applied.
 
 #### `aces:lookTransform` 
 This element is repeated for every step that defines a custom color processing
@@ -617,7 +593,7 @@ combined Output Transform) to use in order to produce a presentable result.
 
 The RRT and ODT can be either specified independently of each other:
 
-```
+```xml
 <aces:outputTransform> 
     <aces:referenceRenderingTransform>
         <aces:transformId>urn:ampas:aces:transformId:v1.5:RRT.a1.0.3</aces:transformId>
@@ -630,7 +606,7 @@ The RRT and ODT can be either specified independently of each other:
 
 or combined:
 
-```
+```xml
 <aces:outputTransform>
 <aces:transformId>urn:ampas:aces:transformId:v1.5:RRTODT.Academy.Rec2020_1000nits_15nits_ST2084.a1.1.0</aces:transformId>
 </aces:outputTransform>
@@ -649,6 +625,12 @@ AMF & external LMT referencing rules
 The simplest way to reference external LMTs is to use the `aces:file` element.
 However, some care must be taken, depending on the workflow and also on the
 system or device generating the AMF document.
+
+```xml
+<aces:lookTransform applied="false">
+    <aces:file>MyLook.clf</aces:file>
+</aces:lookTransform>
+```
 
 The `aces:file` element is defined as an XML standard type called `xs:anyURI.` This
 type allows a very large set of possibilities by using the Uniform Resource
@@ -704,42 +686,23 @@ to avoid deep hierarchies for the sub-folders as these can easily cause trouble
 when the files are moved to a file system with limitations on the file path
 length.
 
-If the external resources cannot be stored in the same folder as the AMF
-document or in sub-folders relative to the AMF document's location, then the
-system/device working with the AMF document should provide some user interface
-means to allow the selection of the location. If automation, without user
-intervention, is desired, the system/device should provide a configuration file
+>NOTE: If external transforms cannot be stored in the same folder as the AMF
+document or in sub-folders relative to the AMF document's location, the
+software should provide some user interface
+means to allow the selection of the location, or a configuration file
 to specify the location.
+### File Naming Conventions
 
-### File name characters
+To avoid issues when moving files between different operating systems, it is recommended to follow these file naming guidelines for external LMTs:
 
-As stated before, modern file systems are very permissive in terms of file
-naming. Moreover, most systems have either no limit on the file name length or a
-very large limit that exceeds easily most of the use cases. Taking advantage of
-these file system features might not be a good practice though. These
-limitations differ among the file systems in use and migrating files from one
-file system to another might result in errors or even truncated file names.
-
-In order to avoid problems at the file system level, consider following these
-rules:
-
-1. Keep files name lengths under 128 characters, file name extension included
-2. Restrict the file name extension to 3 characters
-3. Use only alphabetical characters for the file name extension
-4. Use the native or recommended file name extension for the external resource
-(e.g. CLF or clf for the Common LUT Format)
+1.  Keep filenames under 128 characters, including the extension.
+2.  Use a standard, 3-character alphabetical extension (e.g., `.clf` for the Common LUT Format).
 
 ### File naming conventions
 
 AMF does not impose a strict file naming convention on the external resources.
 However it is also highly recommended that a proper and meaningful one is
 adopted when naming those resources.
-
-Proper file naming conventions not only ease the inspection of the files in a
-file system but also can provide a better reading when displayed in the
-graphical user interface of the system/device used to manage them. Since these
-systems/devices can have a limited display room, short names should be
-considered.
 
 ### Retrieving external LMTs via HTTP
 
@@ -766,11 +729,11 @@ the HTTP security features
 CLF ProcessList root element shall have the id attribute set with the sameUUID, e.g:
 
 AMF
-```
+```xml
 <aces:uuid>urn:uuid:1258F89C-0ED7-4A79-0E2-36F97E8FF9F1</aces:uuid>
 ```
 CLF
-```
+```xml
 <ProcessList
 xmlns="urn:AMPAS:CLF:v3.0" id="urn:uuid:1258F89C-0ED7-4A79-B0E2-36F97E8FF9F1" compCLFversion="3.0">
 </ProcessList>
