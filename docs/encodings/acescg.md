@@ -93,7 +93,7 @@ The white point shall be:
 ### ACEScg {#acescg}
 The following functions shall be used to convert between ACES values, encoded according to SMPTE ST 2065-1, and ACEScg.
 
-#### Converting ACES2065-1 RGB values to ACEScg RGB values
+#### Converting ACES2065-1 RGB values to ACEScg RGB values {#aces2065-to-acescg}
 ACES2065-1 $R$, $G$, and $B$ values shall be converted to ACEScg $R$, $G$, and $B$ values using the transformation matrix ($TRA_1$) calculated and applied using the methods provided in Section 4 of SMPTE RP 177:1993.
 
 !!! note

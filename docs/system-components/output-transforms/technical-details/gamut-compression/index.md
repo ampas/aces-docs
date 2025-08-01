@@ -230,7 +230,7 @@ Compression
 
 The compression method operates by taking the $M$ value of the source color, and normalizing by the $M$ value of the intersection of the compression line and target gamut boundary ($boundaryM$). A parametric compression curve is then applied, with the three parameters being threshold ($t$), limit ($l$) and exponent ($p$). The threshold is the normalized value below which the input is unchanged. The limit is the normalized value which will be compressed to the gamut boundary (a normalized value of 1.0). The exponent controls the aggressiveness of the roll-off above the threshold.
 
-The compression curve originally used in the ACES 2.0 display rendering gamut compression is referred to as the powerP curve. This is the same curve as used in the ACES 1.3 [Reference Gamut Compression](../../guides/rgc-implementation) (RGC). The equations are as follows.
+The compression curve originally used in the ACES 2.0 display rendering gamut compression is referred to as the powerP curve. This is the same curve as used in the ACES 1.3 [Reference Gamut Compression](../../../../rgc/guides/rgc-implementation/index.md) (RGC). The equations are as follows.
 
 First a scale factor is calculated:
 

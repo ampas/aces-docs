@@ -165,7 +165,7 @@ Implementers are of course free to use their own code to perform validation, as
 long as it applies the same metric.
 
 
-Tracking via [ACES Metadata File](../amf/index.md) (AMF)
+Tracking via [ACES Metadata File](../../../amf/specification/index.md) (AMF)
 ----------------
 
 The Reference Gamut Compression is trackable via a `lookTransform` element in an

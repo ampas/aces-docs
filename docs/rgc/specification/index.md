@@ -5,33 +5,32 @@ title: Reference Gamut Compression Specification
 
 Reference Gamut Compression (RGC) Specification
 ================
-## A Look Transform To Bring Pixel Values Within AP1
+
 
 Scope
 ----------------
-
 This document introduces a Reference Gamut Compression (RGC) operator, published in ACES 1.3, which may be applied to ACES image data to “heal” pixel values outside the AP1 gamut. The Reference Gamut Compression algorithm is intended to replace the Blue Light Artifact LMT, which is now deprecated.
+
 
 References
 ----------------
-
 The following standards, specifications, articles, presentations, and texts are referenced in this text:
 
 * [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
 * [ISO 17321-1:2012 - Colour characterisation of digital still cameras (DSCs) - Part 1: Stimuli, metrology and test procedures](https://www.iso.org/standard/56537.html)
 * [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
-* [S-2014-004: ACEScg — A Working Space for CGI Render and Compositing](/specifications/acescg/)
+* [S-2014-004: ACEScg — A Working Space for CGI Render and Compositing](../../encodings/acescg.md)
+
 
 Introduction
 ----------------
-
 A common complaint from users of ACES has been the artifacts resulting from out of gamut values in source images. These artifacts are most known for appearing in highly saturated, bright LED light sources such as police car lights, stoplights, etc - but also appear frequently in LED sources used to light scenes. In an ACES workflow, these artifacts appear at two stages - first in the conversion from camera raw RGB via an Input Transform (IDT) into ACES AP0 - and second in the conversion from ACES AP0 into ACES AP1 (ACEScg and ACEScct). These out of gamut pixel values are problematic when their negative components cause issues in compositing, and may also produce visual artifacts when viewed through an ACES Output Transform.
 
 A Look Modification Transform (LMT) referred to as the [blue light artifact fix](https://github.com/ampas/aces-dev/blob/master/transforms/ctl/lmt/LMT.Academy.BlueLightArtifactFix.ctl) was created as a temporary solution, but this affected all pixels in the image, rather than just the problem areas. A new solution was needed which preserved colors within a “zone of trust”, only altering the most saturated values.
 
+
 Specification
 ----------------
-
 ACEScg values within the AP1 gamut are positive. Values outside of the AP1 gamut are negative in one or two of their components.
 
 The gamut compression algorithm runs per-pixel.
@@ -245,7 +244,7 @@ What was determined to be outside the scope:
 Once the working group settled on the baseline algorithm and its properties a set of targeted, small scale user tests were conducted to ensure the foundations of the work were solid. The testing was composed of two groups - VFX compositors and colorists. Between these two disciplines every major use case for the gamut compression algorithm could be tested and measured. The group gathered an open repository of test images that clearly exhibited the problem to be solved. It then derived a set of test scenarios for each group ranging from keying, blur, grain matching, hue adjustment, and more. The tests were conducted in Nuke and Resolve, on both SDR and HDR monitors. 
 
 <figure markdown>
-![User Testing Footage Examples](../../guides/rgc-implementation/images/rgc-collage.png)
+![User Testing Footage Examples](../guides/rgc-implementation/images/rgc-collage.png)
   <figcaption>User Testing Footage Examples</figcaption>
 </figure>
 
@@ -270,7 +269,7 @@ Systems used as part of the finishing pipeline should use a mathematical impleme
 
 Some implementations may also choose to offer a parametric variation of the RGC. This is not officially endorsed as part of ACES, and should be treated simply as another grading operator. It should not be used as a replacement for the RGC since its parameters cannot be tracked by AMF and must instead be stored in the project files of the implementing application.
 
-Suggested parameter names, and default values for a parametric version are given in Section 9 of the [RGC Implementation guide](../../guides/rgc-implementation/#parametric-version-implementation-specifications).
+Suggested parameter names, and default values for a parametric version are given in Section 9 of the [RGC Implementation guide](../guides/rgc-implementation/index.md#parametric-version-implementation-specifications).
 
 Appendix C: Illustrations
 ----------------

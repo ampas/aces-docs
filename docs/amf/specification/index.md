@@ -168,7 +168,7 @@ The following UML diagrams are segments of the complete UML diagram which is not
 The XSD for AMF is maintained on Github in the repository [[ampas/aces-amf](https://raw.githubusercontent.com/ampas/aces-amf/refs/heads/main/schema/acesMetadataFile.xsd)]
 
 ### Types
-Data types defined by the AMF schema can be explored interactively [[Explore Types](amf/specification/schema-docs/acesMetadataFile.html)]
+Data types defined by the AMF schema can be explored interactively [[Explore Types](./schema-docs/acesMetadataFile.html)]
 
 
 

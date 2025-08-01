@@ -19,30 +19,9 @@ Various options were investigated, and the working group finally settled on a si
 
 Further Resources
 --------------------
-<div class="grid cards" markdown>
 
--   :material-text-box-multiple-outline:{ .lg .middle } __Specification__
+[:octicons-arrow-right-24: Specification](./specification/index.md)
 
-    ---
+[:octicons-arrow-right-24: Technical Details](#)
 
-    Defines the Reference Gamut Compression algorithm, 
-    
-    [:octicons-arrow-right-24: Specification](./specification/index.md)
-
--   :material-wrench-cog-outline:{ .lg .middle } __Implementation Guide__
-
-    ---
-
-    The "how" and "why" behind the ACES specifications. Users looking to dig into the inner workings and/or rationale behind a certain design decision should look here.
-
-    [:octicons-arrow-right-24: Technical Details](#)
-
--   :material-text-box-plus-outline:{ .lg .middle } __User Guide__
-
-    ---
-
-    Designed to provide hands on guidance to use ACES in real tools. And to establish best practices to answer "how do I use ACES?"
-
-    [:octicons-arrow-right-24: Customization](#)
-
-</div>
+[:octicons-arrow-right-24: Customization](#)

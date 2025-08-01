@@ -27,7 +27,7 @@ References
 ----------
 The following standards, specifications, articles, presentations, and texts are referenced in this text:
 
-* [Academy S-2013-001 - ACESproxy - An Integer Log Encoding of ACES Data](/specifications/acesproxy/)
+* [Academy S-2013-001 - ACESproxy - An Integer Log Encoding of ACES Data](../encodings/acesproxy.md)
 * [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
 * [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
 * [754-2019 - IEEE Standard for Floating-Point Arithmetic](https://ieeexplore.ieee.org/document/8766229)
@@ -203,7 +203,7 @@ $lin_{AP1}$ $R$, $G$, and $B$ values shall be converted to ACES $R$, $G$, and $B
 Appendices
 ----------
 
-### Appendix A: Encoding of negative values
+### Appendix A: Encoding of negative values {#appendix-A}
 Very small ACES scene referred values below 7 1/4 stops below 18% middle gray are encoded as negative ACEScc values. These values should be preserved per the encoding in [ACEScc](#acescc) so that all positive ACES values are maintained.
 
 When ACES values are matrixed into the smaller ACEScc color space, colors outside the ACEScc gamut can generate negative values even before the log encoding. If these values are clipped, a conversion back to ACES will not restore the original colors. A specific method of preserving negative values produced by the transformation matrix has not been defined in part to help ease adoption across various color grading systems that have different capabilities and methods for handling negative values. Clipping these values has been found to have minimal visual impact when viewed through the Reference Rendering Transform (RRT) and an appropriate Output Device Transform (ODT) on currently available display technology. However to preserve creative choice in downstream processing and to provide the highest quality archival master, developers implementing ACEScc encoding are encouraged to adopt a method of preserving negative values so that a conversion from ACES to ACEScc and back can be made lossless. Alternatively, a gamut mapping algorithm may be applied to minimize hue shifts resulting from clipping negative ACEScc values. Specific methods for handling negative values may be added to the ACEScc specification in the future.

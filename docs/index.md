@@ -1,4 +1,4 @@
-Getting Started - An Overview of ACES
+An Overview of ACES
 ===============
 
 
@@ -9,6 +9,11 @@ The Academy Color Encoding System (ACES) is an industry standard for managing co
 ACES is free and open-source and dozens of companies have built ACES components into their tools.
 
 
+ACES at a Glance
+----------------
+The framework provided by ACES is centered around a standardized scene-referred color encoding specification known as the Academy Color Encoding Specification (ACES)[^1]. [Figure 1](#aces-diagram) depicts a simple generalized workflow for ACES and demonstrates how disparate inputs are conformed to the uniform ACES color encoding, and then processed through Output Transforms to be viewed on different displays.
+
+<a name="aces-diagram"></a>
 ``` mermaid
 flowchart LR
   id1[/Camera 1/] --> id4["Input 
@@ -18,9 +23,11 @@ flowchart LR
   id3[/CGI/] --> id6["ACEScg
   to
   ACES"] --> id7
-  id7 --> id8{{"Output
+  id7 --> id8{{"SDR Rendering
   Transform"}} 
-  id8 --> id9["Display 
+  id7 --> id8b{{"HDR Rendering
+  Transform"}} 
+  id8b --> id9["Display 
   Encoding"] --> id12[/"HDR 
   Video"/]
   id8 --> id10["Display 
@@ -31,14 +38,12 @@ flowchart LR
   Video"/]
   ;
 ```
+<figcaption align="center" markdown=1>
+**Figure 1:** The ACES Color Encoding Specification with Multiple Inputs and Outputs
+</figcaption>
 
-Basic ACES Workflow
--------------------
-<figure markdown="span">
-  ![Sample Workflow](./background/images/Sample-ACES-Workflow-light.png#only-light)
-  ![Sample Workflow](./background/images/Sample-ACES-Workflow-dark.png#only-dark)
-  <figcaption>Sample Workflow using ACES</figcaption>
-</figure>
+In practice, most real production workflows will be more complex than this, with additional in/out points, on-set, VFX, color correction, compositing, archival, etc. Nonetheless, the ACES color encoding specification remains at the heart of the workflow no matter how complex the workflow diagram becomes. The ACES system provides recommended intermediate encodings and transforms for working on each of these post-production phases. Users may also choose to utilize encodings or transforms outside the "vanilla ACES" approach by making use of the Academy Metadata File (AMF) to document how images were transformed and viewed.
+
 
 Why use ACES?
 -------------
@@ -52,7 +57,7 @@ ACES can help to:
 - create a "known quantity" master for the archive
 
 
-Dig Deeper
+<!-- Explore
 ----------
 <div class="grid cards" markdown>
 
@@ -60,9 +65,9 @@ Dig Deeper
 
     ---
 
-    Learn more about the color encodings, file formats, transforms, and recommendations that are at the core of the ACES system.
+    Introductory information about the color encodings, file formats, transforms, and recommendations that comprise the ACES system.
     
-    [:octicons-arrow-right-24: Specifications](./specifications/index.md)
+    [:octicons-arrow-right-24: Specifications](./background/overview.md)
 
 -   :material-wrench-cog-outline:{ .lg .middle } __ACES Concepts__
 
@@ -88,8 +93,9 @@ Dig Deeper
 
     [:octicons-arrow-right-24: Standards](#)
 
-</div>
+</div> -->
 
 
 
 
+[^1]: This color-encoding space has been standardized in SMPTE ST 2065-1.

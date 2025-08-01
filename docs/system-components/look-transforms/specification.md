@@ -21,9 +21,9 @@ References
 The following standards, specifications, articles, presentations, and texts are referenced in this text:
 
 * [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021), Society of Motion Picture and Television Engineers, New York, US, Standard, 2021.
-* [Academy S-2013-001, ACESproxy - An Integer Log Encoding of ACES Data](/specifications/acesproxy/)
-* [Academy S-2014-003, ACEScc – A Logarithmic Encoding of ACES Data for use within Color Grading Systems](/specifications/acescc/)
-* [Academy S-2014-006, A Common File Format for Look-Up Tables](/specifications/clf/)
+* [Academy S-2013-001, ACESproxy - An Integer Log Encoding of ACES Data](../../encodings/acesproxy.md)
+* [Academy S-2014-003, ACEScc – A Logarithmic Encoding of ACES Data for use within Color Grading Systems](../../encodings/acescc.md)
+* [Academy S-2014-006, A Common File Format for Look-Up Tables](../../clf/specification/index.md)
 * [Academy S-2019-001, ACES Metadata File (AMF)](https://www.dropbox.com/s/4phjfkae2gykctt/S-2019-001.pdf?dl=0)
 * [ASC Color Decision List (ASC CDL) Transfer Functions and Interchange Syntax, ASC-CDL Release 1.2]
 
@@ -147,7 +147,7 @@ Analytic Look Transforms usually have concise mathematical definitions. The prim
 
 Empirical Look Transforms usually are derived by sampling the results of some other color reproduction process, such as normal or special film processing. Empirical Look Transforms are often provided as 3D LUTs that record a regular subsampling of the results of such processes.
 
-A challenge arises when using ACES values to index the 3D LUT, as ACES values are radiometrically linear and have a very wide floating point range. The Common LUT Format provides for forward and inverse ‘shaper LUT’ operations that (when wrapped around an appropriately constructed 3D LUT) effectively solve this problem. Implementers should review the [`LUT1D` section of the Common LUT Format specification](/specifications/clf/#lut1d).
+A challenge arises when using ACES values to index the 3D LUT, as ACES values are radiometrically linear and have a very wide floating point range. The Common LUT Format provides for forward and inverse ‘shaper LUT’ operations that (when wrapped around an appropriately constructed 3D LUT) effectively solve this problem. Implementers should review the [`LUT1D` section of the Common LUT Format specification](../../clf/specification/index.md#lut1d).
 
 
 ### Importing ‘looks’ from non-ACES-color-managed workflows

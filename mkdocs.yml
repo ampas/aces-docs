@@ -109,25 +109,29 @@ plugins:
       enabled: true
 
 nav:
-  - 'ACES Documentation': 
+  - 'Overview': 
     - 'Getting Started':
       - 'Overview': index.md
-      - 'What''s New in 2.0': background/whats-new.md
-      - 'ACES v1 Feedback': background/listening-tour.md
-      - 'Contribute to ACES': background/contribute.md    
+      - 'Whats New':
+        - 'ACES 2': background/about-aces-2.md
+        - 'Rendering Transform': background/about-rendering.md
+      - 'Contribute to ACES': background/contribute.md
     - 'About the ACES System':
       - 'System Overview': background/overview.md
-      - 'Versioning': background/versioning.md
       - 'Encodings': encodings/overview.md
       - 'Input Transforms': system-components/input-transforms/index.md
-      - 'Output Transforms': system-components/output-transforms/index.md
-      - 'ACES Metadata File (AMF)': amf/guides/user/index.md
+      - 'Output Transforms': 
+        - 'Overview': system-components/output-transforms/index.md
+        - 'Structure': system-components/output-transforms/overview.md
       - 'Look Transforms': system-components/look-transforms/index.md
       - 'Reference Gamut Compression': rgc/overview.md
-      - 'Component Names': component-names/index.md        
-      - 'Transform IDs': transform-ids.md
+      - 'ACES Metadata File (AMF)': amf/guides/user/index.md
       - 'Reference Code': background/organization/index.md
       - 'Common LUT Format': clf/introduction.md
+    - 'Background':
+      - 'ACES 1 Feedback': background/v1-feedback.md
+      - 'Listening Tour': background/listening-tour.md
+
   - 'Technical Details':
     - Encodings:
       - 'Derivation of the ACES White Point': white-point/index.md
@@ -149,7 +153,7 @@ nav:
       - 'Procedure': https://www.dropbox.com/scl/fi/o0az9azz833t1sde8apfz/P-2013-001.pdf?rlkey=j7eqd4l0wpvbhpi72ayjvflka&e=1&dl=0
       - 'Tools': system-components/input-transforms/tools.md
     - 'Output Transforms': 
-      - 'Overview': system-components/output-transforms/technical-details/index.md
+      - 'Overview': system-components/output-transforms/index.md
       - 'Tone Mapping': system-components/output-transforms/technical-details/tone-mapping/index.md
       - 'Chroma Compression': system-components/output-transforms/technical-details/chroma-compression/index.md
       - 'Gamut Compression': system-components/output-transforms/technical-details/gamut-compression/index.md
@@ -163,6 +167,9 @@ nav:
       - 'Implementation Guide': rgc/guides/rgc-implementation/index.md
       - 'User Guide': rgc/guides/rgc-user/index.md
     - 'Component Names': component-names/index.md        
+    - 'Transform IDs': transform-ids.md
+    - 'Versioning': background/versioning.md
+
   - 'Glossary': glossary/index.md
 
   # - 'ACES Standards':  tools/index.md
