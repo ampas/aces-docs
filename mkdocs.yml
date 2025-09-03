@@ -39,7 +39,7 @@ theme:
     - toc.follow
     - content.tooltips
   favicon: assets/images/favicon.png
-  logo: assets/images/logo.png
+  logo: assets/images/aces-acescentral-color.png
   font:
     text: Pontano Sans
   icon:
