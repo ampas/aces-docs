@@ -167,8 +167,6 @@ nav:
       - 'Specification': rgc/specification/index.md
       - 'Implementation Guide': rgc/guides/rgc-implementation/index.md
       - 'User Guide': rgc/guides/rgc-user/index.md
-    - 'Component Names': component-names/index.md        
-    - 'Versioning': background/versioning.md
     - 'Transform IDs': system-components/transform-id-spec.md
 
   - 'Glossary': glossary/index.md
