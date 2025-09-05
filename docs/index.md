@@ -1,5 +1,8 @@
-An Overview of ACES
-===============
+![Academy Color Encoding System](./assets/images/aces-horizontal-color.png){ align=left }
+
+
+Academy Color Encoding System Documentation
+===========================================
 
 
 What is ACES?
