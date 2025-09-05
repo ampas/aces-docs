@@ -17,34 +17,56 @@ The ACES 2 rendering transforms are designed to:
 - Offer simple parameterization for unsupported or custom display configurations
 - Deliver a predictable, high-quality default rendering
 
+----
+
+## Figure 1: ACES 2 (left) vs ACES 1 (right)
+
 <a name="figure-1"></a>
-<div class="grid" markdown>
-
-<figure markdown="span">    
-    ![ACES v1](./images/SampleFrames086447_ACESv1.jpg)
-    <figcaption>ACES 1</figcaption>
+<figure markdown="span">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <div class="img-comp-container">
+        <div class="img-comp-img img-comp-overlay">
+            <img src="../images/SampleFrames086447_ACESv2.jpg">
+        </div>
+        <div class="img-comp-img">
+            <img src="../images/SampleFrames086447_ACESv1.jpg">
+        </div> 
+    </div>
 </figure>
+<figcaption>In ACES 2, the softer tone scale combined with gamut mapping tends to keep colorfulness in highlights longer.
+</figcaption>
 
-<figure markdown="span">    
-    ![ACES v2](./images/SampleFrames086447_ACESv2.jpg)
-    <figcaption>ACES 2</figcaption>
-</figure>
+----
 
-</div>
-<figcaption markdown>**Figure 1:** The softer tone scale combined with gamut mapping tends to keep colorfulness in highlights longer.</figcaption>
-
+## Figure 2: ACES v2 (left) vs RGC + ACES 1 (right) 
 
 <a name="figure-2"></a>
-<figure markdown="span">    
-    ![ACES v1](./images/color_samples_minus8_to_plus10_v1_light.png#only-light)
-    ![ACES v1](./images/color_samples_minus8_to_plus10_v1_dark.png#only-dark)
-    ![ACES v1 RGC](./images/color_samples_minus8_to_plus10_v1rgc_light.png#only-light)
-    ![ACES v1 RGC](./images/color_samples_minus8_to_plus10_v1rgc_dark.png#only-dark)
-    ![ACES v2](./images/color_samples_minus8_to_plus10_v2_light.png#only-light)
-    ![ACES v2](./images/color_samples_minus8_to_plus10_v2_dark.png#only-dark)
-    <figcaption>ACES 1 (top); <br> RGC+ACES 1 (middle); <br> ACES 2 (bottom)</figcaption>
+<figure markdown="span">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <div class="img-comp-container">
+        <div class="img-comp-img img-comp-overlay">
+            <img src="../images/color_samples_minus8_to_plus10_v2_light.png#only-light">
+            <img src="../images/color_samples_minus8_to_plus10_v2_dark.png#only-dark">
+        </div> 
+        <div class="img-comp-img">
+            <img src="../images/color_samples_minus8_to_plus10_v1rgc_light.png#only-light">
+            <img src="../images/color_samples_minus8_to_plus10_v1rgc_dark.png#only-dark">
+        </div>
+    </div>
 </figure>
 
-<figcaption markdown>**Figure 2:** ACES v2 (bottom) does not exhibit the clipping artifacts that could often appear when using ACES v1. Even ACES v1 is used with the Reference Gamut Compression enabled, which was developed to help with the clipping artifacts, ACES v2 still behaves better. <br> ACES v2 also preserves hue and maintains a well-behaved desaturation as exposure is increased.</figcaption>
+<figcaption markdown><br>
+ACES 2 does not exhibit the clipping artifacts that could often appear when using ACES 1, even when ACES 1 is using the Reference Gamut Compression which was developed to help with the clipping artifacts. <br>
+ACES v2 also preserves hue and maintains a well-behaved desaturation as exposure is increased.
+</figcaption>
+
+
+
+
+
+<script>
+    /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+    initComparisons();
+</script>
 
 
