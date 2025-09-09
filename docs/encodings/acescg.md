@@ -20,15 +20,6 @@ Scope
 This document describes the translation of ACES2065-1 to/from ACEScg. ACEScg is intended as an appropriate working space for CGI rendering and compositing. ACEScg utilizes the AP1 color primaries for the purpose of rendering and compositing computer generated imagery (CGI).
 
 
-References
-----------
-The following standards, specifications, articles, presentations, and texts are referenced in this text:
-
-* [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
-* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
-* [754-2019 - IEEE Standard for Floating-Point Arithmetic](https://ieeexplore.ieee.org/document/8766229)
-
-
 Specification
 -------------
 ### Naming convention
@@ -180,6 +171,15 @@ ACEScg $R$, $G$, and $B$ values shall be converted to ACES2065-1 $R$, $G$, and $
 	</figcaption>
 
 
+----
+
+References
+----------
+The following standards, specifications, articles, presentations, and texts are referenced in this text:
+
+* [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
+* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
+* [754-2019 - IEEE Standard for Floating-Point Arithmetic](https://ieeexplore.ieee.org/document/8766229)
 
 
 

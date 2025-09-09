@@ -31,14 +31,6 @@ Scope
 This document specifies 10-bit and 12-bit integer encodings of ACES for use with imaging systems that produce look metadata such as ASC CDL, and with transport systems such as HD-SDI. The color encoding provided in this format represents ACES relative exposure values as RGB triplets in a logarithmic encoding, and does not define the interfaces or signals that may carry this encoding.
 
 
-References
-----------
-The following standards, specifications, articles, presentations, and texts are referenced in this text:
-
-* [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
-* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
-
-
 Specification
 -------------
 
@@ -471,6 +463,14 @@ The conversion to linear creates the closest value in 16-bit half precision floa
 
 An implementation may use mathematically equivalent forms of this decoding equation.
 
+----
+
+References
+----------
+The following standards, specifications, articles, presentations, and texts are referenced in this text:
+
+* [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
+* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
 
 
 
