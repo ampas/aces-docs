@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="727px" preserveAspectRatio="none" style="width:918px;height:727px;" version="1.1" viewBox="0 0 918 727" width="918px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="7" y="187"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="99" x="95" y="200.1387">outputTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="8" x2="281" y1="204.9688" y2="204.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="147" x="13" y="218.251">aces:outputTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="8" x2="281" y1="224.6094" y2="224.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="425.5" y="20.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="24.9688" y2="24.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="328" y="38.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="44.6094" y2="44.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="63.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="445.5" y="76.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="81.4688" y2="81.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="328" y="94.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="101.1094" y2="101.1094"/><ellipse cx="333" cy="112.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="342" y="114.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="131"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="447" y="144.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="148.9688" y2="148.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="328" y="162.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="168.6094" y2="168.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="187"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="450.5" y="200.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="204.9688" y2="204.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="328" y="218.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="224.6094" y2="224.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="243"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="425" y="256.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="260.9688" y2="260.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="133" x="328" y="274.251">aces:tnOutputTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="280.6094" y2="280.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="299"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="141" x="389" y="312.1387">outputDeviceTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="316.9688" y2="316.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="184" x="328" y="330.251">aces:outputDeviceTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="336.6094" y2="336.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="147"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="740.5" y="160.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="164.9688" y2="164.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="643" y="178.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="184.6094" y2="184.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="203.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="760.5" y="216.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="221.4688" y2="221.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="643" y="234.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="241.1094" y2="241.1094"/><ellipse cx="648" cy="252.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="657" y="254.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="271"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="762" y="284.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="288.9688" y2="288.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="643" y="302.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="308.6094" y2="308.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="327"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="765.5" y="340.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="344.9688" y2="344.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="643" y="358.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="364.6094" y2="364.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="383"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="740" y="396.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="400.9688" y2="400.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="170" x="643" y="414.251">aces:tnOutputDeviceTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="420.6094" y2="420.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="532"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="182" x="368.5" y="545.1387">referenceRenderingTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="549.9688" y2="549.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="220" x="328" y="563.251">aces:referenceRenderingTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="569.6094" y2="569.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="439"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="740.5" y="452.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="456.9688" y2="456.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="643" y="470.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="476.6094" y2="476.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="495.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="760.5" y="508.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="513.4688" y2="513.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="643" y="526.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="533.1094" y2="533.1094"/><ellipse cx="648" cy="544.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="657" y="546.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="563"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="762" y="576.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="580.9688" y2="580.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="643" y="594.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="600.6094" y2="600.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="619"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="765.5" y="632.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="636.9688" y2="636.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="643" y="650.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="656.6094" y2="656.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="675"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="740" y="688.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="692.9688" y2="692.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="207" x="643" y="706.251">aces:tnReferenceRenderingTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="712.6094" y2="712.6094"/><!--MD5=[97b0f29cb23503fd67f1e338d936edc1]
+link outputTransform.root to outputTransform.description--><path codeLine="50" d="M76,186.837 C76,138.222 76,30 76,30 C76,30 316.86,30 316.86,30 " fill="none" id="outputTransform.root-to-outputTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.86,30,312.86,26,316.86,30,312.86,34,321.86,30" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[0a6341e604d87b2afe5201b46191a90e]
+link outputTransform.root to outputTransform.hash--><path codeLine="51" d="M145,186.968 C145,152.628 145,92 145,92 C145,92 316.556,92 316.556,92 " fill="none" id="outputTransform.root-to-outputTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,92,312.556,88,316.556,92,312.556,96,321.556,92" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e7f68b4daded4506200fd3559971349e]
+link outputTransform.root to outputTransform.uuid--><path codeLine="52" d="M214,186.899 C214,171.474 214,154 214,154 C214,154 316.68,154 316.68,154 " fill="none" id="outputTransform.root-to-outputTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.68,154,312.68,150,316.68,154,312.68,158,321.68,154" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[9c8d58d520be6e60bc0407b883331676]
+link outputTransform.root to outputTransform.file--><path codeLine="53" d="M282.205,210 C282.205,210 316.627,210 316.627,210 " fill="none" id="outputTransform.root-to-outputTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.627,210,312.627,206,316.627,210,312.627,214,321.627,210" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[543a1dad3b5f0f2d5a803ea3c2ffcfe8]
+link outputTransform.root to outputTransform.transformId--><path codeLine="54" d="M214,233.101 C214,248.526 214,266 214,266 C214,266 316.68,266 316.68,266 " fill="none" id="outputTransform.root-to-outputTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.68,266,312.68,262,316.68,266,312.68,270,321.68,266" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[0b0cee84ef358a659d02930dd3773e09]
+link outputDeviceTransform.root to outputDeviceTransform.description--><path codeLine="50" d="M597.019,303.5 C605.674,303.5 611,303.5 611,303.5 C611,303.5 611,182 611,182 C611,182 631.907,182 631.907,182 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.907,182,627.907,178,631.907,182,627.907,186,636.907,182" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[086d98ef37c59d88d6470020d650e80f]
+link outputDeviceTransform.root to outputDeviceTransform.hash--><path codeLine="51" d="M597.204,308 C613.231,308 624,308 624,308 C624,308 624,251.75 624,251.75 C624,251.75 631.832,251.75 631.832,251.75 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.832,251.75,627.832,247.75,631.832,251.75,627.832,255.75,636.832,251.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[4059b03b166e71660895f17e02ee95fa]
+link outputDeviceTransform.root to outputDeviceTransform.uuid--><path codeLine="52" d="M597.205,312.5 C597.205,312.5 631.627,312.5 631.627,312.5 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,312.5,627.627,308.5,631.627,312.5,627.627,316.5,636.627,312.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[696a260e7803618a27ff545578c82364]
+link outputDeviceTransform.root to outputDeviceTransform.file--><path codeLine="53" d="M597.205,336 C597.205,336 631.627,336 631.627,336 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,336,627.627,332,631.627,336,627.627,340,636.627,336" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[43b70eb0d13de0207fbc3684600008f6]
+link outputDeviceTransform.root to outputDeviceTransform.transformId--><path codeLine="54" d="M506,345.399 C506,370.254 506,406 506,406 C506,406 631.711,406 631.711,406 " fill="none" id="outputDeviceTransform.root-to-outputDeviceTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.711,406,627.711,402,631.711,406,627.711,410,636.711,406" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[deb74aefe06a04e336869c3e918829c6]
+link referenceRenderingTransform.root to referenceRenderingTransform.description--><path codeLine="50" d="M414,531.532 C414,503.982 414,462 414,462 C414,462 631.925,462 631.925,462 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.925,462,627.925,458,631.925,462,627.925,466,636.925,462" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[6c6b34955daba8049e2f5e3619bdbb4a]
+link referenceRenderingTransform.root to referenceRenderingTransform.hash--><path codeLine="51" d="M597.205,542.25 C597.205,542.25 631.627,542.25 631.627,542.25 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,542.25,627.627,538.25,631.627,542.25,627.627,546.25,636.627,542.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[28c603bb291d25fa76304d5fe0421c23]
+link referenceRenderingTransform.root to referenceRenderingTransform.uuid--><path codeLine="52" d="M597.205,570.5 C597.205,570.5 631.627,570.5 631.627,570.5 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,570.5,627.627,566.5,631.627,570.5,627.627,574.5,636.627,570.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[f5314c44021c5d4aac1cb98e50990511]
+link referenceRenderingTransform.root to referenceRenderingTransform.file--><path codeLine="53" d="M506,578.314 C506,604.085 506,642 506,642 C506,642 631.711,642 631.711,642 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.711,642,627.711,638,631.711,642,627.711,646,636.711,642" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[287c54beaf5e3394059e6e3d36a0c6d3]
+link referenceRenderingTransform.root to referenceRenderingTransform.transformId--><path codeLine="54" d="M414,578.294 C414,618.814 414,698 414,698 C414,698 631.925,698 631.925,698 " fill="none" id="referenceRenderingTransform.root-to-referenceRenderingTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.925,698,627.925,694,631.925,698,627.925,702,636.925,698" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[8d515ace6b9c7e345d7b9dfded55f786]
+link outputTransform.root to outputDeviceTransform.root--><path codeLine="62" d="M145,233.206 C145,266.012 145,322 145,322 C145,322 316.556,322 316.556,322 " fill="none" id="outputTransform.root-to-outputDeviceTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,322,312.556,318,316.556,322,312.556,326,321.556,322" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[fd496f60fb6b53d2da834e94c9e98aa2]
+link outputTransform.root to referenceRenderingTransform.root--><path codeLine="63" d="M76,233.172 C76,310.525 76,555 76,555 C76,555 316.86,555 316.86,555 " fill="none" id="outputTransform.root-to-referenceRenderingTransform.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.86,555,312.86,551,316.86,555,312.86,559,321.86,555" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[9f278dd44dd366d7a29e93fab1878040]
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure transform($as, $tn="", $attr="")
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+		!if %strlen($attr) > 0
+			$attr
+		!endif
+	}
+	object "description" as $as.description {
+		xs: string
+		..
+	}
+	object "hash" as $as.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as $as.transformId {
+		!if %strlen($tn) > 0
+			$tn
+		!else
+			!$pre = "aces:tn"
+			!$cap = %upper(%substr($as,0,1))
+			!$post = %substr($as,1,%strlen($as))
+			%string($pre + $cap + $post)
+		!endif
+		..
+	}
+
+	$as.root - -> $as.description
+	$as.root - -> $as.hash
+	$as.root - -> $as.uuid
+	$as.root - -> $as.file
+	$as.root - -> $as.transformId
+!end procedure
+
+!unquoted procedure outputTransform($as)
+	transform($as)
+	transform(outputDeviceTransform)
+	transform(referenceRenderingTransform)
+
+	$as.root - -> outputDeviceTransform.root
+	$as.root - -> referenceRenderingTransform.root
+!end procedure
+
+outputTransform(outputTransform)
+@enduml
+
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+
+
+		object "outputTransform" as outputTransform.root {
+		aces:outputTransformType
+		..
+	}
+	object "description" as outputTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as outputTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as outputTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as outputTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as outputTransform.transformId {
+			aces:tnOutputTransform
+		..
+	}
+
+	outputTransform.root - -> outputTransform.description
+	outputTransform.root - -> outputTransform.hash
+	outputTransform.root - -> outputTransform.uuid
+	outputTransform.root - -> outputTransform.file
+	outputTransform.root - -> outputTransform.transformId
+		object "outputDeviceTransform" as outputDeviceTransform.root {
+		aces:outputDeviceTransformType
+		..
+	}
+	object "description" as outputDeviceTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as outputDeviceTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as outputDeviceTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as outputDeviceTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as outputDeviceTransform.transformId {
+			aces:tnOutputDeviceTransform
+		..
+	}
+
+	outputDeviceTransform.root - -> outputDeviceTransform.description
+	outputDeviceTransform.root - -> outputDeviceTransform.hash
+	outputDeviceTransform.root - -> outputDeviceTransform.uuid
+	outputDeviceTransform.root - -> outputDeviceTransform.file
+	outputDeviceTransform.root - -> outputDeviceTransform.transformId
+		object "referenceRenderingTransform" as referenceRenderingTransform.root {
+		aces:referenceRenderingTransformType
+		..
+	}
+	object "description" as referenceRenderingTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as referenceRenderingTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as referenceRenderingTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as referenceRenderingTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as referenceRenderingTransform.transformId {
+			aces:tnReferenceRenderingTransform
+		..
+	}
+
+	referenceRenderingTransform.root - -> referenceRenderingTransform.description
+	referenceRenderingTransform.root - -> referenceRenderingTransform.hash
+	referenceRenderingTransform.root - -> referenceRenderingTransform.uuid
+	referenceRenderingTransform.root - -> referenceRenderingTransform.file
+	referenceRenderingTransform.root - -> referenceRenderingTransform.transformId
+
+	outputTransform.root - -> outputDeviceTransform.root
+	outputTransform.root - -> referenceRenderingTransform.root
+@enduml
+
+PlantUML version 1.2021.3beta4(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

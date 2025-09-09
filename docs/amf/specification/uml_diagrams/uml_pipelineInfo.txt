@@ -1,0 +1,94 @@
+@startuml
+
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure pipelineInfo($as)
+	info(pipelineInfo)
+	object "systemVersion" as $as.systemVersion {
+		aces:versionType
+		..
+	}
+	object "majorVersion" as $as.majorVersion {
+		aces:singleDigitType
+		..
+	}
+	object "minorVersion" as $as.minorVersion {
+		aces:singleDigitType
+		..
+	}
+	object "patchVersion" as $as.patchVersion {
+		aces:singleDigitType
+		..
+	}
+
+	$as.root --> $as.systemVersion
+
+ 	$as.systemVersion --> $as.majorVersion
+	$as.systemVersion --> $as.minorVersion
+ 	$as.systemVersion --> $as.patchVersion
+!end procedure
+
+!unquoted procedure info($as, $type="")
+	object "$as" as $as.root {
+		!if %strlen($type) > 0
+			$type
+		!else
+			%string("aces:" + $as + "Type")
+		!endif
+		..
+	}
+	object "description" as $as.description {
+		xs:string
+		..
+	}
+	object "author" as $as.author {
+		aces:authorType
+		..
+	}
+	object "name" as $as.name {
+		xs:string
+		..
+	}
+	object "emailAddress" as $as.emailAddress {
+		aces:emailAddressType
+		..
+	}
+	object "dateTime" as $as.dateTime {
+		aces:dateTimeType
+	}
+	object "creationDateTime" as $as.creationDateTime {
+		xs:dateTime
+		..
+	}
+	object "modificationDateTime" as $as.modificationDateTime {
+		xs:dateTime
+		..
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	$as.root --> $as.description
+	$as.root --> $as.author
+	$as.root --> $as.dateTime
+	$as.root --> $as.uuid
+
+	$as.author --> $as.name
+	$as.author --> $as.emailAddress
+
+	$as.dateTime --> $as.creationDateTime
+	$as.dateTime --> $as.modificationDateTime
+!end procedure
+
+pipelineInfo(pipelineInfo)

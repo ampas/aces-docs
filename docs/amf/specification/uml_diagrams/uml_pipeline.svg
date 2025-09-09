@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="250px" preserveAspectRatio="none" style="width:603px;height:250px;" version="1.1" viewBox="0 0 603 250" width="603px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="7" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="48" x="120.5" y="116.1387">pipeline</text><line style="stroke:#000000;stroke-width:1.5;" x1="8" x2="281" y1="120.9688" y2="120.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="99" x="13" y="134.251">aces:pipelineType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="8" x2="281" y1="140.6094" y2="140.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="70" x="424.5" y="20.1387">pipelineInfo</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="24.9688" y2="24.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="120" x="328" y="38.251">aces:pipelineInfoType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="44.6094" y2="44.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="63.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="90" x="414.5" y="76.6387">inputTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="81.4688" y2="81.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="139" x="328" y="94.751">aces:inputTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="101.1094" y2="101.1094"/><ellipse cx="333" cy="112.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="88" x="342" y="114.3916">applied : xs:bool</text><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="130.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="87" x="416" y="143.6387">lookTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="148.4688" y2="148.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="134" x="328" y="161.751">aces:lookTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="168.1094" y2="168.1094"/><ellipse cx="333" cy="179.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="88" x="342" y="181.3916">applied : xs:bool</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="198"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="99" x="410" y="211.1387">outputTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="215.9688" y2="215.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="147" x="328" y="229.251">aces:outputTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="235.6094" y2="235.6094"/><!--MD5=[0308c769f171dbbf852c5fb339cfaf39]
+link pipeline to pipelineInfo--><path codeLine="40" d="M145,102.761 C145,74.35 145,30 145,30 C145,30 316.556,30 316.556,30 " fill="none" id="pipeline-to-pipelineInfo" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,30,312.556,26,316.556,30,312.556,34,321.556,30" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[51f59df32ae54cdd10fd64dcdeaa781e]
+link pipeline to inputTransform--><path codeLine="41" d="M282.205,111.75 C282.205,111.75 316.627,111.75 316.627,111.75 " fill="none" id="pipeline-to-inputTransform" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.627,111.75,312.627,107.75,316.627,111.75,312.627,115.75,321.627,111.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[29a6894345f986ad394788fb477844e7]
+link pipeline to lookTransform--><path codeLine="42" d="M282.205,139.75 C282.205,139.75 316.627,139.75 316.627,139.75 " fill="none" id="pipeline-to-lookTransform" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.627,139.75,312.627,135.75,316.627,139.75,312.627,143.75,321.627,139.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e5a4745e271fb323e938053919b4475a]
+link pipeline to outputTransform--><path codeLine="43" d="M145,149.4832 C145,177.6154 145,221 145,221 C145,221 316.556,221 316.556,221 " fill="none" id="pipeline-to-outputTransform" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.556,221,312.556,217,316.556,221,312.556,225,321.556,221" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[8f1a56ed0047e2e295d9ded16ba95cb6]
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+object pipeline {
+	aces:pipelineType
+	..
+}
+
+object pipelineInfo {
+	aces:pipelineInfoType
+	..
+}
+
+object inputTransform {
+	aces:inputTransformType
+	..
+	+ applied : xs:bool
+}
+
+object lookTransform {
+	aces:lookTransformType
+	..
+	+ applied : xs:bool
+}
+
+object outputTransform {
+	aces:outputTransformType
+	..
+}
+
+pipeline - -> pipelineInfo
+pipeline - -> inputTransform
+pipeline - -> lookTransform
+pipeline - -> outputTransform
+@enduml
+
+PlantUML version 1.2021.3beta4(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

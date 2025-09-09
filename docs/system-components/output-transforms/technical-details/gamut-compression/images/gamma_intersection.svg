@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" baseProfile="basic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 479.34 371.9" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#C00000;}
+	.st2{fill:none;stroke:#BFBFBF;stroke-width:0.75;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#BFBFBF;stroke-width:0.75;stroke-miterlimit:10;stroke-dasharray:5.9499,1.9833;}
+	.st5{font-family:'TimesNewRomanPS-ItalicMT';}
+	.st6{font-size:12px;}
+	.st7{fill:none;stroke:#231F20;stroke-width:0.5;stroke-miterlimit:10;}
+	.st8{fill:#231F20;}
+	.st9{font-family:'MyriadPro-Regular';}
+	.st10{font-size:18px;}
+	.st11{fill:none;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<g id="Background">
+	<rect class="st0" width="479.34" height="371.9"/>
+</g>
+<g id="Intersection">
+	<circle id="intersection" class="st1" cx="251.57" cy="199.19" r="2.31"/>
+	<circle id="intersection_00000130605000615926823160000004382989597265417137_" class="st1" cx="251.57" cy="243.89" r="2.31"/>
+	<line class="st2" x1="359.95" y1="105.68" x2="85.58" y2="342.04"/>
+	<line class="st3" x1="359.95" y1="105.68" x2="85.58" y2="142"/>
+	<line class="st3" x1="85.58" y1="226.12" x2="342.57" y2="253.64"/>
+	<line class="st3" x1="85.58" y1="181.3" x2="342.57" y2="208.82"/>
+	<g>
+		<line class="st2" x1="251.57" y1="342.04" x2="251.57" y2="339.04"/>
+		<line class="st4" x1="251.57" y1="337.06" x2="251.57" y2="203.19"/>
+		<line class="st2" x1="251.57" y1="202.19" x2="251.57" y2="199.19"/>
+	</g>
+	<line class="st3" x1="81.83" y1="226.16" x2="85.58" y2="226.16"/>
+	<text transform="matrix(1 0 0 1 32.7984 229.2589)" class="st5 st6">intersectJ</text>
+	<line class="st3" x1="81.83" y1="181.28" x2="85.58" y2="181.28"/>
+	<text transform="matrix(1 0 0 1 30.1734 184.1201)" class="st5 st6">intersectJ′</text>
+	<line class="st3" x1="81.83" y1="142.16" x2="85.58" y2="142.16"/>
+	<text transform="matrix(1 0 0 1 13.4507 145.0157)" class="st5 st6">intersectCusp</text>
+	<line class="st3" x1="251.57" y1="345.79" x2="251.57" y2="342.04"/>
+	<text transform="matrix(1 0 0 1 223.5699 355.5211)" class="st5 st6">boundaryM</text>
+</g>
+<g id="Axes">
+	<g id="J-axis">
+		<line class="st7" x1="85.58" y1="34.89" x2="85.58" y2="347.04"/>
+		<g>
+			<path class="st8" d="M85.58,28.86c-1.05,2.84-2.85,6.36-4.76,8.55l4.76-1.72l4.75,1.72C88.43,35.22,86.63,31.7,85.58,28.86z"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 75.6566 28.8595)" class="st9 st10">J</text>
+	<g id="M-axis">
+		<line class="st7" x1="80.58" y1="342.04" x2="392.73" y2="342.04"/>
+		<g>
+			<path class="st8" d="M398.76,342.04c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75
+				C392.4,339.19,395.92,340.99,398.76,342.04z"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 400.9339 355.5211)" class="st9 st10">M</text>
+</g>
+<g id="Boundary">
+	<path class="st11" d="M359.95,105.68c-12.07,23.78-65.29,112.56-147.33,175.21c-38.13,29.12-77.18,54.83-127.04,61.16"/>
+	<path class="st11" d="M85.58,47.5c42.75,3.26,96.24,9.8,155.24,23.12c47.47,10.72,87.28,23.31,119.13,35.06"/>
+	<line class="st3" x1="81.83" y1="47.5" x2="85.58" y2="47.5"/>
+	<text transform="matrix(1 0 0 1 53.9722 47.4952)" class="st5 st10">J</text>
+	<text transform="matrix(0.583 0 0 0.583 61.9615 53.4893)" class="st5 st10">max</text>
+</g>
+</svg>

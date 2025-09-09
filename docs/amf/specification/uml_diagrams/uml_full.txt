@@ -1,0 +1,283 @@
+@startuml{width=6in}
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure info($as, $type="")
+	object "$as" as $as.root {
+		!if %strlen($type) > 0
+			$type
+		!else
+			%string("aces:" + $as + "Type")
+		!endif
+		..
+	}
+	object "description" as $as.description {
+		xs:string
+		..
+	}
+	object "author" as $as.author {
+		aces:authorType
+		..
+	}
+	object "name" as $as.name {
+		xs:string
+		..
+	}
+	object "emailAddress" as $as.emailAddress {
+		aces:emailAddressType
+		..
+	}
+	object "dateTime" as $as.dateTime {
+		aces:dateTimeType
+	}
+	object "creationDateTime" as $as.creationDateTime {
+		xs:dateTime
+		..
+	}
+	object "modificationDateTime" as $as.modificationDateTime {
+		xs:dateTime
+		..
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	$as.root --> $as.description
+	$as.root --> $as.author
+	$as.root --> $as.dateTime
+	$as.root --> $as.uuid
+
+	$as.author --> $as.name
+	$as.author --> $as.emailAddress
+
+	$as.dateTime --> $as.creationDateTime
+	$as.dateTime --> $as.modificationDateTime
+!end procedure
+
+!unquoted procedure pipelineInfo($as)
+	info(pipelineInfo)
+	object "systemVersion" as $as.systemVersion {
+		aces:versionType
+		..
+	}
+	object "majorVersion" as $as.majorVersion {
+		aces:singleDigitType
+		..
+	}
+	object "minorVersion" as $as.minorVersion {
+		aces:singleDigitType
+		..
+	}
+	object "patchVersion" as $as.patchVersion {
+		aces:singleDigitType
+		..
+	}
+
+	$as.root --> $as.systemVersion
+
+ 	$as.systemVersion --> $as.majorVersion
+	$as.systemVersion --> $as.minorVersion
+ 	$as.systemVersion --> $as.patchVersion
+!end procedure
+
+
+!unquoted procedure transform($as, $tn="", $attr="")
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+		!if %strlen($attr) > 0
+			$attr
+		!endif
+	}
+	object "description" as $as.description {
+		xs: string
+		..
+	}
+	object "hash" as $as.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as $as.transformId {
+		!if %strlen($tn) > 0
+			$tn
+		!else
+			!$pre = "aces:tn"
+			!$cap = %upper(%substr($as,0,1))
+			!$post = %substr($as,1,%strlen($as))
+			%string($pre + $cap + $post)
+		!endif
+		..
+	}
+
+	$as.root --> $as.description
+	$as.root --> $as.hash
+	$as.root --> $as.uuid
+	$as.root --> $as.file
+	$as.root --> $as.transformId
+!end procedure
+
+!unquoted procedure inputTransform($as)
+	transform($as, $attr="+ applied : xs:bool")
+	transform(inverseOutputTransform)
+	transform(inverseOutputDeviceTransform)
+	transform(inverseReferenceRenderingTransform)
+
+	$as.root --> inverseOutputTransform.root
+	$as.root --> inverseOutputDeviceTransform.root
+	$as.root --> inverseReferenceRenderingTransform.root
+!end procedure
+
+!unquoted procedure lookTransform($as)
+	transform($as, $attr="+ applied : xs:bool")
+	transform(toCdlWorkingSpace, $tn="aces:tnColorSpaceConversionTransform")
+	transform(fromCdlWorkingSpace, $tn="aces:tnColorSpaceConversionTransform")
+	object "cdlWorkingSpace" as $as.cdlWorkingSpace {
+		aces:cdlWorkingSpaceType
+		..
+	}
+	object "cdl:SOPNode" as $as.cdlSOPNode {
+		cdl:SOPNodeType
+		..
+	}
+	object "cdl:SatNode" as $as.cdlSatNode {
+		cdl:SatNodeType
+		..
+	}
+	object "cdl:ColorCorrectionRef" as $as.cdlColorCorrectionRef {
+		cdl:ColorCorrectionRefType
+		..
+		+ ref : xs:anyURI
+	}
+	object "cdl:Slope" as $as.cdlSlope {
+		cdl:nonNegativeFloatListType
+		..
+	}
+	object "cdl:Offset" as $as.cdlOffset {
+		cdl:floatListType
+		..
+	}
+	object "cdl:Power" as $as.cdlPower {
+		cdl:positiveFloatListType
+		..
+	}
+	object "cdl:Saturation" as $as.cdlSaturation {
+		cdl:nonNegativeFloatType
+		..
+	}
+
+
+	$as.root --> $as.cdlWorkingSpace
+	$as.root --> $as.cdlSOPNode
+	$as.root --> $as.cdlSatNode
+	$as.root --> $as.cdlColorCorrectionRef
+
+	$as.cdlWorkingSpace --> toCdlWorkingSpace.root
+	$as.cdlWorkingSpace --> fromCdlWorkingSpace.root
+
+	$as.cdlSOPNode --> $as.cdlSlope
+	$as.cdlSOPNode --> $as.cdlOffset
+	$as.cdlSOPNode --> $as.cdlPower
+
+	$as.cdlSatNode --> $as.cdlSaturation
+
+!end procedure
+
+!unquoted procedure outputTransform($as)
+	transform($as)
+	transform(outputDeviceTransform)
+	transform(referenceRenderingTransform)
+
+	$as.root --> outputDeviceTransform.root
+	$as.root --> referenceRenderingTransform.root
+!end procedure
+
+!unquoted procedure pipeline($as)
+	pipelineInfo(pipelineInfo)
+	inputTransform(inputTransform)
+	lookTransform(lookTransform)
+	outputTransform(outputTransform)
+
+	object "$as" as $as.root{
+		aces:pipelineType
+	}
+
+	$as.root --> pipelineInfo.root
+	$as.root --> inputTransform.root
+	$as.root --> lookTransform.root
+	$as.root --> outputTransform.root
+!end procedure
+
+!unquoted procedure clipId($as)
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+	}
+	object "clipName" as $as.clipName {
+		xs:string
+		..
+	}
+	object "sequence" as $as.sequence {
+		aces:sequenceType
+		..
+		+ idx : xs:string
+		+ min : xs:nonNegativeInteger
+		+ max : xs:nonNegativeInteger
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	$as.root --> $as.clipName
+	$as.root --> $as.sequence
+	$as.root --> $as.file
+	$as.root --> $as.uuid
+
+!end procedure
+
+!unquoted procedure amf($as)
+	object "$as" as $as.root {
+		xs:complexType
+		..
+		+ version : xs:decimal
+		+ xmlns : xs:string
+	}
+	info(amfInfo, "aces:infoType")
+	clipId(clipId)
+	pipeline(pipeline)
+	object "archivedPipeline" as $as.archivedPipeline {
+		aces:pipelineType
+		..
+	}
+
+	$as.root --> amfInfo.root
+	$as.root --> clipId.root
+	$as.root --> pipeline.root
+	$as.root --> $as.archivedPipeline
+!end procedure
+
+amf(acesMetadataFile)
+@enduml

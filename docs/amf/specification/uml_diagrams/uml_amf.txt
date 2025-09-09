@@ -1,0 +1,46 @@
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+object acesMetadataFile {
+	xs:complexType
+	..
+	+ version : xs:decimal
+	+ xmlns : xs:string
+}
+
+object amfInfo {
+	aces:infoType
+	..
+}
+
+object clipId {
+	aces:clipIdType
+	..
+}
+
+object pipeline {
+	aces:pipelineType
+	..
+}
+
+object archivedPipeline {
+	aces:pipelineType
+	..
+}
+
+acesMetadataFile --> amfInfo
+acesMetadataFile --> clipId
+acesMetadataFile --> pipeline
+acesMetadataFile --> archivedPipeline
+
+@enduml

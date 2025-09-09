@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" baseProfile="basic" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 479.34 371.9" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;stroke:#231F20;stroke-width:0.5;stroke-miterlimit:10;}
+	.st2{fill:#231F20;}
+	.st3{font-family:'MyriadPro-Regular';}
+	.st4{font-size:18px;}
+	.st5{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:10;}
+	.st7{font-family:'TimesNewRomanPS-ItalicMT';}
+	.st8{fill:none;stroke:#BFBFBF;stroke-width:0.75;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#BFBFBF;stroke-width:0.75;stroke-miterlimit:10;stroke-dasharray:6.0534,2.0178;}
+	.st10{fill:#C00000;}
+	.st11{fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+	.st12{font-size:24px;}
+	.st13{font-size:12px;}
+</style>
+<g id="Background">
+	<rect class="st0" width="479.34" height="371.9"/>
+</g>
+<g id="Axes">
+	<g id="J-axis">
+		<line class="st1" x1="85.58" y1="34.89" x2="85.58" y2="347.04"/>
+		<g>
+			<path class="st2" d="M85.58,28.86c-1.05,2.84-2.85,6.36-4.76,8.55l4.76-1.72l4.75,1.72C88.43,35.22,86.63,31.7,85.58,28.86z"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 75.6566 28.8595)" class="st3 st4">J</text>
+	<g id="M-axis">
+		<line class="st1" x1="80.58" y1="342.04" x2="392.73" y2="342.04"/>
+		<g>
+			<path class="st2" d="M398.76,342.04c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75
+				C392.4,339.19,395.92,340.99,398.76,342.04z"/>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 400.9339 355.5211)" class="st3 st4">M</text>
+</g>
+<g id="Layer_2">
+	<path class="st5" d="M359.95,105.68c-12.07,23.78-65.29,112.56-147.33,175.21c-38.13,29.12-77.18,54.83-127.04,61.16"/>
+	<path class="st5" d="M85.58,47.5c42.75,3.26,96.24,9.8,155.24,23.12c47.47,10.72,87.28,23.31,119.13,35.06"/>
+	<line class="st6" x1="81.83" y1="47.5" x2="85.58" y2="47.5"/>
+	<text transform="matrix(1 0 0 1 54.4449 47.4952)" class="st7 st4">J</text>
+	<text transform="matrix(0.583 0 0 0.583 62.4341 53.4893)" class="st7 st4">max</text>
+	<g>
+		<line class="st8" x1="359.95" y1="105.68" x2="356.95" y2="105.68"/>
+		<line class="st9" x1="354.93" y1="105.68" x2="89.59" y2="105.68"/>
+		<line class="st8" x1="88.58" y1="105.68" x2="85.58" y2="105.68"/>
+	</g>
+	<g>
+		<line class="st8" x1="359.95" y1="158.9" x2="356.95" y2="158.9"/>
+		<line class="st9" x1="354.93" y1="158.9" x2="89.59" y2="158.9"/>
+		<line class="st8" x1="88.58" y1="158.9" x2="85.58" y2="158.9"/>
+	</g>
+	<circle id="cusp" class="st10" cx="359.95" cy="105.68" r="4.62"/>
+	<g>
+		<line class="st11" x1="359.95" y1="50.39" x2="359.95" y2="91.33"/>
+		<g>
+			<polygon points="349.98,88.41 359.95,105.68 369.92,88.41 			"/>
+		</g>
+	</g>
+	<text transform="matrix(0.583 0 0 0.583 346.2076 45.7946)" class="st3 st12">cusp</text>
+	<line class="st6" x1="81.83" y1="215.22" x2="85.58" y2="215.22"/>
+	<text transform="matrix(1 0 0 1 56.1187 218.3168)" class="st7 st13">midJ</text>
+	<line class="st6" x1="81.83" y1="158.9" x2="85.58" y2="158.9"/>
+	<text transform="matrix(1 0 0 1 48.7886 161.9971)" class="st7 st13">focusJ</text>
+	<line class="st6" x1="81.83" y1="105.68" x2="85.58" y2="105.68"/>
+	<text transform="matrix(1 0 0 1 52.1226 108.7751)" class="st7 st13">cuspJ</text>
+</g>
+</svg>

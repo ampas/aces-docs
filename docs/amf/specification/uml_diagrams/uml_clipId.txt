@@ -1,0 +1,48 @@
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure clipId($as)
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+	}
+	object "clipName" as $as.clipName {
+		xs:string
+		..
+	}
+	object "sequence" as $as.sequence {
+		aces:sequenceType
+		..
+		+ idx : xs:string
+		+ min : xs:nonNegativeInteger
+		+ max : xs:nonNegativeInteger
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+
+	$as.root --> $as.clipName
+	$as.root --> $as.sequence
+	$as.root --> $as.file
+	$as.root --> $as.uuid
+
+!end procedure
+
+clipId(clipId)
+
+@enduml
