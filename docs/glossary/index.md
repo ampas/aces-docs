@@ -1,5 +1,9 @@
 # Terms and Definitions
 
+!!! note
+    The Glossary remains a work in progress. More terms and defintions will be added as documentation efforts continue.
+
+
 ## A
 **Academy Color Encoding Specification (ACES)**
 : RGB color encoding for exchange of image data that have not been color rendered, between and throughout production and postproduction, within the Academy Color Encoding System. ACES is specified in SMPTE ST 2065-1.

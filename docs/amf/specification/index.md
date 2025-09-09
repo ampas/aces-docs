@@ -10,7 +10,9 @@ Scope
 -----
 This document specifies the ACES Metadata File (“AMF”), a ‘sidecar’ XML file intended to exchange the metadata required to recreate ACES viewing pipelines. 
 
-This specification supersedes "TB-2014-009 – Academy Color Encoding System – (ACES) Clip-level Metadata File Format Definition and Usage (“ACESclip”)". TB-2014-009 is now considered obsolete.
+
+??? note
+    This specification supersedes *"TB-2014-009 – Academy Color Encoding System – (ACES) Clip-level Metadata File Format Definition and Usage (“ACESclip”)"*. TB-2014-009 is now considered obsolete.
 
 
 

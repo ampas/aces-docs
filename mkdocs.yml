@@ -20,7 +20,7 @@ extra:
       link: assets/pdfs/kodak-grey-card.pdf
       name: The Great Cod
 
-extra_css: 
+extra_css:
   - stylesheets/extra.css
 
 theme:
@@ -44,6 +44,7 @@ theme:
     text: Pontano Sans
   icon:
     repo: fontawesome/brands/github
+    annotation: material/plus-circle
   palette:
 
     # Palette toggle for automatic mode
@@ -92,13 +93,13 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - meta
-      
+
 extra_javascript:
   - js/image-wipe.js
   - js/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  
+
 plugins:
   - search
   - git-revision-date-localized:
@@ -110,32 +111,30 @@ plugins:
       enabled: true
 
 nav:
-  - 'Overview': 
+  - 'Introduction':
     - 'Getting Started':
       - 'Overview': index.md
       - 'Whats New':
         - 'ACES 2': background/about-aces-2.md
         - 'Rendering Transform': background/about-rendering.md
-      - 'Contribute to ACES': background/contribute.md
-    - 'About the ACES System':
-      - 'System Overview': background/overview.md
-      - 'Encodings': encodings/overview.md
+    - 'Overview of ACES':
+      - 'ACES System': background/overview.md
+      - 'Encodings': encodings/introduction.md
       - 'Input Transforms': system-components/input-transforms/index.md
-      - 'Output Transforms': 
-        - 'Overview': system-components/output-transforms/index.md
-        - 'Structure': system-components/output-transforms/overview.md
+      - 'Output Transforms': system-components/output-transforms/index.md
       - 'Look Transforms': system-components/look-transforms/index.md
       - 'Reference Gamut Compression': rgc/overview.md
       - 'ACES Metadata File (AMF)': amf/guides/user/index.md
       - 'Reference Code': background/organization/index.md
       - 'Common LUT Format': clf/introduction.md
-    - 'Background':
+    - 'Background Information':
       - 'ACES 1 Feedback': background/v1-feedback.md
       - 'Listening Tour': background/listening-tour.md
 
   - 'Technical Details':
+    - Introduction: home-technical.md
     - Encodings:
-      - 'Derivation of the ACES White Point': white-point/index.md
+      - 'Overview': encodings/overview.md
       - 'ACES2065-1': encodings/aces2065-1.md
       - 'ACEScg': encodings/acescg.md
       - 'ACEScct': encodings/acescct.md
@@ -143,27 +142,28 @@ nav:
       - 'ACESproxy': encodings/acesproxy.md
       - 'APD (Academy Printing Density)': encodings/apd.md
       - 'ADX (Academy Density Exchange)': encodings/adx.md
+      - 'Derivation of the ACES White Point': white-point/index.md
     - 'File Formats':
-      - 'ACES Metadata File (AMF)': 
+      - 'ACES Metadata File (AMF)':
         - 'Specification': amf/specification/index.md
         - 'Implementation Guide': amf/guides/implementation/index.md
-      - 'Common LUT Format': 
+      - 'Common LUT Format':
         - 'Specification': clf/specification/index.md
         - 'Implementation Guide': clf/guides/index.md
-    - 'Input Transforms': 
+    - 'Input Transforms':
       - 'Procedure': https://www.dropbox.com/scl/fi/o0az9azz833t1sde8apfz/P-2013-001.pdf?rlkey=j7eqd4l0wpvbhpi72ayjvflka&e=1&dl=0
-      - 'Tools': system-components/input-transforms/tools.md
-    - 'Output Transforms': 
-      - 'Overview': system-components/output-transforms/index.md
+      - 'Capture Guide': system-components/input-transforms/capture-guide.md
+    - 'Output Transforms':
+      - 'Overview': system-components/output-transforms/overview.md
       - 'Tone Mapping': system-components/output-transforms/technical-details/tone-mapping/index.md
       - 'Chroma Compression': system-components/output-transforms/technical-details/chroma-compression/index.md
       - 'Gamut Compression': system-components/output-transforms/technical-details/gamut-compression/index.md
       - 'White Limiting': system-components/output-transforms/technical-details/white-limiting/index.md
       - 'Display Encoding': system-components/output-transforms/technical-details/display-encoding/index.md
-    - 'Look Transforms': 
+    - 'Look Transforms':
       - 'Use Cases': system-components/look-transforms/use-cases.md
       - 'Specification': system-components/look-transforms/specification.md
-    - 'Reference Gamut Compression': 
+    - 'Reference Gamut Compression':
       - 'Specification': rgc/specification/index.md
       - 'Implementation Guide': rgc/guides/rgc-implementation/index.md
       - 'User Guide': rgc/guides/rgc-user/index.md
@@ -174,3 +174,5 @@ nav:
   # - 'ACES Standards':  tools/index.md
   # - 'Production Tool Guides':  tools/index.md
   # - 'Recommended Procedures': procedures/index.md
+  # - 'Contribute to ACES': background/contribute.md
+  # - 'Tools': system-components/input-transforms/tools.md

@@ -9,17 +9,6 @@ There are many ways to get involved and contribute to the ongoing development of
 - Contribute code or transforms to the official ACES GitHub repositories
 - If a product manufacturer, implement ACES components in your product(s) and become an ACES Logo Program Product Partner
 
----
-
-## Working Group Participation
-ACES is an open, community-driven initiative developed in line with open source principles. Most technical work is carried out within working groups overseen by the ACES Leadership Team, and with guidance from the Architecture and Implementation Technical Advisory Committees (TACs).
-
-Working groups act as focused task forces that address specific topics or challenges. Announcements for new groups and open calls for participation are posted on [ACESCentral.com](https://www.acescentral.com). All are welcome to join, and meetings are held virtually and recorded to support broad participation across time zones.
-
-If you see a gap or opportunity in the ACES ecosystem, you’re encouraged to propose a new working group by completing the [ACES Working Group Proposal Form](https://acescentral.com/wp-content/uploads/2020/03/ACES_Working_Group_Proposal_Template_v1.0.dotx) and sending it to [aces@oscars.org](mailto:aces@oscars.org).
-
-Ongoing discussions also take place between meetings on the [ACESCentral forums](https://community.acescentral.com), making it easy to stay involved and contribute to the evolution of the system.
-
 --- 
 
 ## Join the Conversation on ACESCentral.com

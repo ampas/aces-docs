@@ -34,3 +34,6 @@
 *[VFX]: Visual Effects
 *[RCG]: Reference Gamut Compression
 *[RICD]: Reference Input Capture Device
+*[APD]: Academy Printing Density
+*[ADX]: Academy Density Exchange
+*[SSTS]: Single-Stage Tonescale
