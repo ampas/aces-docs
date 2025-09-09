@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="668px" preserveAspectRatio="none" style="width:1233px;height:668px;" version="1.1" viewBox="0 0 1233 668" width="1233px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="7" y="358.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="87" x="101" y="371.6387">lookTransform</text><line style="stroke:#000000;stroke-width:1.5;" x1="8" x2="281" y1="376.4688" y2="376.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="134" x="13" y="389.751">aces:lookTransformType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="8" x2="281" y1="396.1094" y2="396.1094"/><ellipse cx="18" cy="407.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="88" x="27" y="409.3916">applied : xs:bool</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="128"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="425.5" y="141.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="145.9688" y2="145.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="328" y="159.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="165.6094" y2="165.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="184.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="445.5" y="197.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="202.4688" y2="202.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="328" y="215.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="222.1094" y2="222.1094"/><ellipse cx="333" cy="233.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="342" y="235.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="252"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="447" y="265.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="269.9688" y2="269.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="328" y="283.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="289.6094" y2="289.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="308"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="450.5" y="321.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="325.9688" y2="325.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="328" y="339.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="345.6094" y2="345.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="364"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="425" y="377.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="381.9688" y2="381.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="121" x="328" y="395.251">aces:tnLookTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="401.6094" y2="401.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="159"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="119" x="715" y="172.1387">toCdlWorkingSpace</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="176.9688" y2="176.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="162" x="643" y="190.251">aces:toCdlWorkingSpaceType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="196.6094" y2="196.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="7"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1055.5" y="20.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="24.9688" y2="24.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="958" y="38.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="44.6094" y2="44.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="63.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1075.5" y="76.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="81.4688" y2="81.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="958" y="94.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="101.1094" y2="101.1094"/><ellipse cx="963" cy="112.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="972" y="114.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="131"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1077" y="144.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="148.9688" y2="148.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="958" y="162.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="168.6094" y2="168.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="187"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1080.5" y="200.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="204.9688" y2="204.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="958" y="218.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="224.6094" y2="224.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="243"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1055" y="256.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="260.9688" y2="260.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="219" x="958" y="274.251">aces:tnColorSpaceConversionTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="280.6094" y2="280.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="392"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="135" x="707" y="405.1387">fromCdlWorkingSpace</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="409.9688" y2="409.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="177" x="643" y="423.251">aces:fromCdlWorkingSpaceType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="429.6094" y2="429.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="299"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="68" x="1055.5" y="312.1387">description</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="316.9688" y2="316.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="47" x="958" y="330.251">xs: string</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="336.6094" y2="336.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="355.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="1075.5" y="368.6387">hash</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="373.4688" y2="373.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="81" x="958" y="386.751">aces:hashType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="393.1094" y2="393.1094"/><ellipse cx="963" cy="404.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="167" x="972" y="406.3916">algorithm : aces:hashAlgoType</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="423"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="25" x="1077" y="436.1387">uuid</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="440.9688" y2="440.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="84" x="958" y="454.251">dcml:UUIDType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="460.6094" y2="460.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="479"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="18" x="1080.5" y="492.1387">file</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="496.9688" y2="496.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="52" x="958" y="510.251">xs:anyURI</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="516.6094" y2="516.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="952" y="535"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69" x="1055" y="548.1387">transformId</text><line style="stroke:#000000;stroke-width:1.5;" x1="953" x2="1226" y1="552.9688" y2="552.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="219" x="958" y="566.251">aces:tnColorSpaceConversionTransform</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="953" x2="1226" y1="572.6094" y2="572.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="420"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="106" x="406.5" y="433.1387">cdlWorkingSpace</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="437.9688" y2="437.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="149" x="328" y="451.251">aces:cdlWorkingSpaceType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="457.6094" y2="457.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="476"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="78" x="420.5" y="489.1387">cdl:SOPNode</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="493.9688" y2="493.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="97" x="328" y="507.251">cdl:SOPNodeType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="513.6094" y2="513.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="532"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="73" x="423" y="545.1387">cdl:SatNode</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="549.9688" y2="549.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="93" x="328" y="563.251">cdl:SatNodeType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="569.6094" y2="569.6094"/><rect fill="#FFFFFF" height="57.25" style="stroke:#000000;stroke-width:1.5;" width="275" x="322" y="588.5"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="136" x="391.5" y="601.6387">cdl:ColorCorrectionRef</text><line style="stroke:#000000;stroke-width:1.5;" x1="323" x2="596" y1="606.4688" y2="606.4688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="150" x="328" y="619.751">cdl:ColorCorrectionRefType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="323" x2="596" y1="626.1094" y2="626.1094"/><ellipse cx="333" cy="637.1094" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="76" x="342" y="639.3916">ref : xs:anyURI</text><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="448"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="57" x="746" y="461.1387">cdl:Slope</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="465.9688" y2="465.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="161" x="643" y="479.251">cdl:nonNegativeFloatListType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="485.6094" y2="485.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="504"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="59" x="745" y="517.1387">cdl:Offset</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="521.9688" y2="521.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="89" x="643" y="535.251">cdl:floatListType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="541.6094" y2="541.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="560"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="59" x="745" y="573.1387">cdl:Power</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="577.9688" y2="577.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="133" x="643" y="591.251">cdl:positiveFloatListType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="597.6094" y2="597.6094"/><rect fill="#FFFFFF" height="45.6094" style="stroke:#000000;stroke-width:1.5;" width="275" x="637" y="616"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="82" x="733.5" y="629.1387">cdl:Saturation</text><line style="stroke:#000000;stroke-width:1.5;" x1="638" x2="911" y1="633.9688" y2="633.9688"/><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="143" x="643" y="647.251">cdl:nonNegativeFloatType</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="638" x2="911" y1="653.6094" y2="653.6094"/><!--MD5=[69dda3d2cb85c571ffc987f9ccc6d601]
+link lookTransform.root to lookTransform.description--><path codeLine="50" d="M62,358.062 C62,295.043 62,151 62,151 C62,151 316.868,151 316.868,151 " fill="none" id="lookTransform.root-to-lookTransform.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.868,151,312.868,147,316.868,151,312.868,155,321.868,151" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[387e2267d51c5211d036a5cd70d87619]
+link lookTransform.root to lookTransform.hash--><path codeLine="51" d="M117,358.267 C117,308.847 117,213 117,213 C117,213 316.673,213 316.673,213 " fill="none" id="lookTransform.root-to-lookTransform.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.673,213,312.673,209,316.673,213,312.673,217,321.673,213" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[28fb5e5c6b37259fb44e62d19eafb475]
+link lookTransform.root to lookTransform.uuid--><path codeLine="52" d="M172,358.448 C172,325.265 172,275 172,275 C172,275 316.645,275 316.645,275 " fill="none" id="lookTransform.root-to-lookTransform.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.645,275,312.645,271,316.645,275,312.645,279,321.645,275" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[418fe5c1d5eda47e97afd0781934c4e2]
+link lookTransform.root to lookTransform.file--><path codeLine="53" d="M227,358.344 C227,344.566 227,331 227,331 C227,331 316.902,331 316.902,331 " fill="none" id="lookTransform.root-to-lookTransform.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.902,331,312.902,327,316.902,331,312.902,335,321.902,331" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[57a87cccbc3429cc6756cc7a1bff53cd]
+link lookTransform.root to lookTransform.transformId--><path codeLine="54" d="M282.205,387 C282.205,387 316.627,387 316.627,387 " fill="none" id="lookTransform.root-to-lookTransform.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.627,387,312.627,383,316.627,387,312.627,391,321.627,387" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[70d0deb5510cf3270d6ad89f15be6bd6]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.description--><path codeLine="50" d="M729,158.914 C729,116.393 729,30 729,30 C729,30 946.925,30 946.925,30 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.925,30,942.925,26,946.925,30,942.925,34,951.925,30" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[9cb6e7f5de4142356be3059c0f1afc46]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.hash--><path codeLine="51" d="M821,158.823 C821,132.156 821,92 821,92 C821,92 946.711,92 946.711,92 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.711,92,942.711,88,946.711,92,942.711,96,951.711,92" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[18704f2558bf5aa77a65726c4abf4036]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.uuid--><path codeLine="52" d="M912.205,168 C912.205,168 946.627,168 946.627,168 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,168,942.627,164,946.627,168,942.627,172,951.627,168" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e5c47cb7bb899a3f4a2b82fcbe4c3b0b]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.file--><path codeLine="53" d="M912.205,196 C912.205,196 946.627,196 946.627,196 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,196,942.627,192,946.627,196,942.627,200,951.627,196" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[ca6677153a47689d112dcbff6ab19358]
+link toCdlWorkingSpace.root to toCdlWorkingSpace.transformId--><path codeLine="54" d="M821,205.277 C821,224.104 821,247.5 821,247.5 C821,247.5 946.711,247.5 946.711,247.5 " fill="none" id="toCdlWorkingSpace.root-to-toCdlWorkingSpace.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.711,247.5,942.711,243.5,946.711,247.5,942.711,251.5,951.711,247.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[cb66264cec54574d332014de6e656cdc]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.description--><path codeLine="50" d="M729,391.748 C729,365.527 729,326.5 729,326.5 C729,326.5 946.925,326.5 946.925,326.5 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.description" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.925,326.5,942.925,322.5,946.925,326.5,942.925,330.5,951.925,326.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[51daaf575f9b179deebb73c800dac712]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.hash--><path codeLine="51" d="M912.205,402.25 C912.205,402.25 946.627,402.25 946.627,402.25 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.hash" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,402.25,942.627,398.25,946.627,402.25,942.627,406.25,951.627,402.25" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[36f197d86fc55a5239fe0e6d55758b83]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.uuid--><path codeLine="52" d="M912.205,426.75 C912.205,426.75 946.627,426.75 946.627,426.75 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.uuid" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.627,426.75,942.627,422.75,946.627,426.75,942.627,430.75,951.627,426.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[5f7d2c3120352d12a8bdf01ef9a4966e]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.file--><path codeLine="53" d="M912.204,430.5 C928.231,430.5 939,430.5 939,430.5 C939,430.5 939,486.5 939,486.5 C939,486.5 946.832,486.5 946.832,486.5 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.file" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.832,486.5,942.832,482.5,946.832,486.5,942.832,490.5,951.832,486.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[0010b6073db6d9332f460a57244bd300]
+link fromCdlWorkingSpace.root to fromCdlWorkingSpace.transformId--><path codeLine="54" d="M912.019,434.25 C920.674,434.25 926,434.25 926,434.25 C926,434.25 926,542.5 926,542.5 C926,542.5 946.907,542.5 946.907,542.5 " fill="none" id="fromCdlWorkingSpace.root-to-fromCdlWorkingSpace.transformId" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="951.907,542.5,942.907,538.5,946.907,542.5,942.907,546.5,951.907,542.5" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[a424aaa5407982eb947662ffcdcfc10c]
+link lookTransform.root to lookTransform.cdlWorkingSpace--><path codeLine="96" d="M227,415.656 C227,429.434 227,443 227,443 C227,443 316.902,443 316.902,443 " fill="none" id="lookTransform.root-to-lookTransform.cdlWorkingSpace" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.902,443,312.902,439,316.902,443,312.902,447,321.902,443" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[d41542966b12aaf0e845f54ec98dfc47]
+link lookTransform.root to lookTransform.cdlSOPNode--><path codeLine="97" d="M172,415.552 C172,448.735 172,499 172,499 C172,499 316.645,499 316.645,499 " fill="none" id="lookTransform.root-to-lookTransform.cdlSOPNode" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.645,499,312.645,495,316.645,499,312.645,503,321.645,499" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[520f7d0b1e29d75c991ebb6b02a85413]
+link lookTransform.root to lookTransform.cdlSatNode--><path codeLine="98" d="M117,415.88 C117,463.914 117,555 117,555 C117,555 316.673,555 316.673,555 " fill="none" id="lookTransform.root-to-lookTransform.cdlSatNode" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.673,555,312.673,551,316.673,555,312.673,559,321.673,555" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[b4d35dae57b4eb5b910f6339869088c6]
+link lookTransform.root to lookTransform.cdlColorCorrectionRef--><path codeLine="99" d="M62,415.665 C62,477.32 62,617 62,617 C62,617 316.868,617 316.868,617 " fill="none" id="lookTransform.root-to-lookTransform.cdlColorCorrectionRef" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="321.868,617,312.868,613,316.868,617,312.868,621,321.868,617" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[e2924a0a3cedd67bd8540771d2a95fd3]
+link lookTransform.cdlWorkingSpace to toCdlWorkingSpace.root--><path codeLine="101" d="M597.322,426 C603.399,426 607,426 607,426 C607,426 607,194.75 607,194.75 C607,194.75 631.946,194.75 631.946,194.75 " fill="none" id="lookTransform.cdlWorkingSpace-to-toCdlWorkingSpace.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.946,194.75,627.946,190.75,631.946,194.75,627.946,198.75,636.946,194.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[74174315b9904692980563af856ad169]
+link lookTransform.cdlWorkingSpace to fromCdlWorkingSpace.root--><path codeLine="102" d="M597.205,432 C597.205,432 631.627,432 631.627,432 " fill="none" id="lookTransform.cdlWorkingSpace-to-fromCdlWorkingSpace.root" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,432,627.627,428,631.627,432,627.627,436,636.627,432" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[02013caf20c663b30f858111888a2e65]
+link lookTransform.cdlSOPNode to lookTransform.cdlSlope--><path codeLine="104" d="M597.205,485 C597.205,485 631.627,485 631.627,485 " fill="none" id="lookTransform.cdlSOPNode-to-lookTransform.cdlSlope" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,485,627.627,481,631.627,485,627.627,489,636.627,485" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[74cbb4d14816c36b7d4265a745b95e1c]
+link lookTransform.cdlSOPNode to lookTransform.cdlOffset--><path codeLine="105" d="M597.205,510 C597.205,510 631.627,510 631.627,510 " fill="none" id="lookTransform.cdlSOPNode-to-lookTransform.cdlOffset" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.627,510,627.627,506,631.627,510,627.627,514,636.627,510" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[6ce86a8f0e1f540e8c457f5ec70c355c]
+link lookTransform.cdlSOPNode to lookTransform.cdlPower--><path codeLine="106" d="M597.054,516 C614.832,516 627,516 627,516 C627,516 627,566 627,566 C627,566 631.678,566 631.678,566 " fill="none" id="lookTransform.cdlSOPNode-to-lookTransform.cdlPower" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.678,566,627.678,562,631.678,566,627.678,570,636.678,566" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[0887e9431ec2a45bde371e8f89ffdb82]
+link lookTransform.cdlSatNode to lookTransform.cdlSaturation--><path codeLine="108" d="M597.053,572 C609.192,572 617,572 617,572 C617,572 617,630.75 617,630.75 C617,630.75 631.947,630.75 631.947,630.75 " fill="none" id="lookTransform.cdlSatNode-to-lookTransform.cdlSaturation" style="stroke:#000000;stroke-width:1.0;"/><polygon fill="#000000" points="636.947,630.75,627.947,626.75,631.947,630.75,627.947,634.75,636.947,630.75" style="stroke:#000000;stroke-width:1.0;"/><!--MD5=[4d8258049ec715dc4763f4781a79d662]
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+!unquoted procedure transform($as, $tn="", $attr="")
+	object "$as" as $as.root {
+		%string("aces:" + $as + "Type")
+		..
+		!if %strlen($attr) > 0
+			$attr
+		!endif
+	}
+	object "description" as $as.description {
+		xs: string
+		..
+	}
+	object "hash" as $as.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as $as.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as $as.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as $as.transformId {
+		!if %strlen($tn) > 0
+			$tn
+		!else
+			!$pre = "aces:tn"
+			!$cap = %upper(%substr($as,0,1))
+			!$post = %substr($as,1,%strlen($as))
+			%string($pre + $cap + $post)
+		!endif
+		..
+	}
+
+	$as.root - -> $as.description
+	$as.root - -> $as.hash
+	$as.root - -> $as.uuid
+	$as.root - -> $as.file
+	$as.root - -> $as.transformId
+!end procedure
+
+!unquoted procedure lookTransform($as)
+	transform($as, $attr="+ applied : xs:bool")
+	transform(toCdlWorkingSpace, $tn="aces:tnColorSpaceConversionTransform")
+	transform(fromCdlWorkingSpace, $tn="aces:tnColorSpaceConversionTransform")
+	object "cdlWorkingSpace" as $as.cdlWorkingSpace {
+		aces:cdlWorkingSpaceType
+		..
+	}
+	object "cdl:SOPNode" as $as.cdlSOPNode {
+		cdl:SOPNodeType
+		..
+	}
+	object "cdl:SatNode" as $as.cdlSatNode {
+		cdl:SatNodeType
+		..
+	}
+	object "cdl:ColorCorrectionRef" as $as.cdlColorCorrectionRef {
+		cdl:ColorCorrectionRefType
+		..
+		+ ref : xs:anyURI
+	}
+	object "cdl:Slope" as $as.cdlSlope {
+		cdl:nonNegativeFloatListType
+		..
+	}
+	object "cdl:Offset" as $as.cdlOffset {
+		cdl:floatListType
+		..
+	}
+	object "cdl:Power" as $as.cdlPower {
+		cdl:positiveFloatListType
+		..
+	}
+	object "cdl:Saturation" as $as.cdlSaturation {
+		cdl:nonNegativeFloatType
+		..
+	}
+
+
+	$as.root - -> $as.cdlWorkingSpace
+	$as.root - -> $as.cdlSOPNode
+	$as.root - -> $as.cdlSatNode
+	$as.root - -> $as.cdlColorCorrectionRef
+
+	$as.cdlWorkingSpace - -> toCdlWorkingSpace.root
+	$as.cdlWorkingSpace - -> fromCdlWorkingSpace.root
+
+	$as.cdlSOPNode - -> $as.cdlSlope
+	$as.cdlSOPNode - -> $as.cdlOffset
+	$as.cdlSOPNode - -> $as.cdlPower
+
+	$as.cdlSatNode - -> $as.cdlSaturation
+
+!end procedure
+
+lookTransform(lookTransform)
+@enduml
+
+@startuml
+left to right direction
+skinparam {
+	linetype ortho
+	Shadowing false
+	ObjectBackgroundColor White
+	ObjectBorderColor Black
+	ArrowColor Black
+	MinClassWidth 275
+	nodesep 10
+	ranksep 40
+}
+
+
+
+		object "lookTransform" as lookTransform.root {
+		aces:lookTransformType
+		..
+			+ applied : xs:bool
+	}
+	object "description" as lookTransform.description {
+		xs: string
+		..
+	}
+	object "hash" as lookTransform.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as lookTransform.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as lookTransform.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as lookTransform.transformId {
+			aces:tnLookTransform
+		..
+	}
+
+	lookTransform.root - -> lookTransform.description
+	lookTransform.root - -> lookTransform.hash
+	lookTransform.root - -> lookTransform.uuid
+	lookTransform.root - -> lookTransform.file
+	lookTransform.root - -> lookTransform.transformId
+		object "toCdlWorkingSpace" as toCdlWorkingSpace.root {
+		aces:toCdlWorkingSpaceType
+		..
+	}
+	object "description" as toCdlWorkingSpace.description {
+		xs: string
+		..
+	}
+	object "hash" as toCdlWorkingSpace.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as toCdlWorkingSpace.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as toCdlWorkingSpace.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as toCdlWorkingSpace.transformId {
+			aces:tnColorSpaceConversionTransform
+		..
+	}
+
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.description
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.hash
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.uuid
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.file
+	toCdlWorkingSpace.root - -> toCdlWorkingSpace.transformId
+		object "fromCdlWorkingSpace" as fromCdlWorkingSpace.root {
+		aces:fromCdlWorkingSpaceType
+		..
+	}
+	object "description" as fromCdlWorkingSpace.description {
+		xs: string
+		..
+	}
+	object "hash" as fromCdlWorkingSpace.hash {
+		aces:hashType
+		..
+		+ algorithm : aces:hashAlgoType
+	}
+	object "uuid" as fromCdlWorkingSpace.uuid {
+		dcml:UUIDType
+		..
+	}
+	object "file" as fromCdlWorkingSpace.file {
+		xs:anyURI
+		..
+	}
+	object "transformId" as fromCdlWorkingSpace.transformId {
+			aces:tnColorSpaceConversionTransform
+		..
+	}
+
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.description
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.hash
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.uuid
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.file
+	fromCdlWorkingSpace.root - -> fromCdlWorkingSpace.transformId
+	object "cdlWorkingSpace" as lookTransform.cdlWorkingSpace {
+		aces:cdlWorkingSpaceType
+		..
+	}
+	object "cdl:SOPNode" as lookTransform.cdlSOPNode {
+		cdl:SOPNodeType
+		..
+	}
+	object "cdl:SatNode" as lookTransform.cdlSatNode {
+		cdl:SatNodeType
+		..
+	}
+	object "cdl:ColorCorrectionRef" as lookTransform.cdlColorCorrectionRef {
+		cdl:ColorCorrectionRefType
+		..
+		+ ref : xs:anyURI
+	}
+	object "cdl:Slope" as lookTransform.cdlSlope {
+		cdl:nonNegativeFloatListType
+		..
+	}
+	object "cdl:Offset" as lookTransform.cdlOffset {
+		cdl:floatListType
+		..
+	}
+	object "cdl:Power" as lookTransform.cdlPower {
+		cdl:positiveFloatListType
+		..
+	}
+	object "cdl:Saturation" as lookTransform.cdlSaturation {
+		cdl:nonNegativeFloatType
+		..
+	}
+
+
+	lookTransform.root - -> lookTransform.cdlWorkingSpace
+	lookTransform.root - -> lookTransform.cdlSOPNode
+	lookTransform.root - -> lookTransform.cdlSatNode
+	lookTransform.root - -> lookTransform.cdlColorCorrectionRef
+
+	lookTransform.cdlWorkingSpace - -> toCdlWorkingSpace.root
+	lookTransform.cdlWorkingSpace - -> fromCdlWorkingSpace.root
+
+	lookTransform.cdlSOPNode - -> lookTransform.cdlSlope
+	lookTransform.cdlSOPNode - -> lookTransform.cdlOffset
+	lookTransform.cdlSOPNode - -> lookTransform.cdlPower
+
+	lookTransform.cdlSatNode - -> lookTransform.cdlSaturation
+
+@enduml
+
+PlantUML version 1.2021.3beta4(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
