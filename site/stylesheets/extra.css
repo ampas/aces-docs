@@ -95,6 +95,19 @@
 	font-size: 2em;
 	line-height: 1.3;
 	margin: 0 0 1.25em;
+  font-weight: 800;
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+}
+
+.md-typeset h3 {
+  font-weight: 650;
+}
+
+.md-typeset h4 {
+  font-weight: 600;
 }
 
 /* TOC Title */
@@ -124,3 +137,57 @@
 .md-footer-meta {
   background-color: var(--md-primary-fg-color);
 }
+
+
+/* Image Wipe Widge */
+
+.img-comp-container {
+/* settings for how the container should be displayed*/
+  position: relative;
+  height: 400px;
+  width: 700px;
+  margin: 0 auto;
+  display: block;
+}
+
+.img-comp-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-comp-img img {
+  display: block;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.img-comp-overlay {
+  width: 100%; /* initial clipped width, will be overwritten by JS */
+  z-index: 1;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index: 2;
+  cursor: ew-resize;
+
+  width: 10px;
+  height: 60px;
+  background-color: #444444;
+  opacity: 0.9;
+  border-radius: 10%;
+}
+
+/* Reduce spacing between fig and figcaption */
+.md-typeset figcaption{
+  margin-top: 0em;
+  text-align: center;
+}
+
+.md-typeset img
