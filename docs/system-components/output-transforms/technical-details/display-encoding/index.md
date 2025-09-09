@@ -29,9 +29,12 @@ flowchart LR
 
 ## Overview
 
-The display encoding step prepare the colorimetry from the rendering portion of the Output Transform for the expected decoding operators of a given display. Colorimetry is encoded relative to the selected color gamut (i.e. color primaries and white chromaticity) of the display and using the inverse EOTF.
+The display encoding step prepares colorimetry from the rendering portion of the Output Transform so that it will produce the expected result after the signal is decoded by a display. 
+
+Colorimetry is encoded relative to the configured color gamut (i.e. color primaries and white chromaticity) of the display and using the inverse EOTF.
 
 ## Primaries and White Chromaticities
-[Graphics of primaries]
+[Placeholder: Charts with various display primary sets]
 
 ## Inverse EOTF
+
