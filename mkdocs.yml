@@ -154,12 +154,15 @@ nav:
       - 'Procedure': https://www.dropbox.com/scl/fi/o0az9azz833t1sde8apfz/P-2013-001.pdf?rlkey=j7eqd4l0wpvbhpi72ayjvflka&e=1&dl=0
       - 'Capture Guide': system-components/input-transforms/capture-guide.md
     - 'Output Transforms':
-      - 'Overview': system-components/output-transforms/overview.md
-      - 'Tone Mapping': system-components/output-transforms/technical-details/tone-mapping/index.md
-      - 'Chroma Compression': system-components/output-transforms/technical-details/chroma-compression/index.md
-      - 'Gamut Compression': system-components/output-transforms/technical-details/gamut-compression/index.md
-      - 'White Limiting': system-components/output-transforms/technical-details/white-limiting/index.md
-      - 'Display Encoding': system-components/output-transforms/technical-details/display-encoding/index.md
+      - 'Structure':
+        - 'Overview': system-components/output-transforms/technical-details/rendering-overview.md
+        - 'Tone Mapping': system-components/output-transforms/technical-details/tone-mapping/index.md
+        - 'Chroma Compression': system-components/output-transforms/technical-details/chroma-compression/index.md
+        - 'Gamut Compression': system-components/output-transforms/technical-details/gamut-compression/index.md
+        - 'White Limiting': system-components/output-transforms/technical-details/white-limiting/index.md
+        - 'Display Encoding': system-components/output-transforms/technical-details/display-encoding/index.md
+      - 'Preset Parameters': system-components/output-transforms/parameters.md
+      - 'Implementor Notes': system-components/output-transforms/implementer-notes.md
     - 'Look Transforms':
       - 'Use Cases': system-components/look-transforms/use-cases.md
       - 'Specification': system-components/look-transforms/specification.md

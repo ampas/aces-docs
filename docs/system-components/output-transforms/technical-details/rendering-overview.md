@@ -1,23 +1,72 @@
-Overview of Output Transfroms in ACES 2
-========
+Overview of Output Transform Structure
+======================================
+
+Overall Structure
+---------
+The Output Transform is a concatenation of two separate submodules, the "Rendering Transform" and the "Display Encoding Transform" ([Figure 1](#output-transform-structure)). 
+
+The Rendering Transform determines the image appearance, and is informed by the luminance of peak white as well as the limiting gamut (primaries and white point). 
+
+The Display Encoding Transform's role is to simply encodee the colorimetry produced by the Rendering Transform so that it is displayed as intended according to the device configuration (i.e. display primaries, calibrated white point, EOTF).
+
+<a name="output-transform-structure"></a>
+``` mermaid
+flowchart LR
+  id1((("ACES
+  2065-1")))-->id2{{"Rendering
+  Transform"}}
+  subgraph box1 ["Output Transform"]
+    id2 -->|"CIE
+    XYZ"|id3["Display
+    Encoding"]
+    end
+  id3 -->|"Code
+    values"|id4(Display)
+```
+<figcaption markdown>**Figure 1:** The two main submodules of an Output Transform.</figcaption>
 
 
-ACES 2
-------
- The ACES 2 Output Transform is applied using a simplified version of the [Hellwig 2022](https://doi.org/10.1002/col.22792) Color Appearance Model (CAM). Like most CAMs, the model helps produce a number of different color correlates. Three specific correlates are used for the purposes of applying the display rendering of the ACES 2.0 Output Transform, specifically:
+Rendering Transform Structure
+-----------------------------
 
-- **J** : perceived lightness
-- **M** : perceived colorfulness
-- **h** : perceived hue
+The Rendering Transform portion of the Output Transform follows a progression as seen in [Figure 2](#rendering-transform-structure)
+
+<a name="rendering-transform-structure"></a>
+``` mermaid
+flowchart LR
+  B[ACES 
+  to 
+  JMh]
+  C["Tonescale 
+  (J Only)"]
+  D["Chroma 
+  Compression 
+  (M Only)"]
+  E["Gamut 
+  Compression 
+  (J & M)"]
+  F[JMh to
+  Limiting RGB]
+  subgraph box1 ["Rendering Transform"]
+    direction LR
+    B --> C --> D --> E --> F
+    end;
+```
+<figcaption markdown>**Figure 2:** The main processing modules in the Rendering Transform.</figcaption>
 
 
-Looking inside the Output Transform one can see a conceptual split between the target rendering or limiting gamut and the display encoding to prepare the intended colorimetry for a particular display. This is intentional and there are distinct benefits to maintaining this segmentation when porting the CTL to native implmentations. Let's explore.
+The Rendering Transform applies tone-mapping and adjusts colorfulness based on the luminance and boundaries defined by the choice of target rendering gamut. 
 
-ACES 2 also includes the choice of the adapted white point (creative white) as part of the target rendering. This defines what chromaticity is assumed as the "neutral" white point for an observer. 
+The Rendering Transform operates in a "JMh" color correlate space derived using a simplified version of the [Hellwig 2022](https://doi.org/10.1002/col.22792) Color Appearance Model (CAM). In the JMh color space, **J** correlates to lightness, **M** is colorfulness, and **h** is hue.
+
+Operating in this JMh space allows the rendering to meet the design requirements established for ACES 2, including hue preservation and achieving a better "match" between outputs. Applying the tone-mapping to only the J component and adjusting M independently allows for the hue of the original ACES value to be maintained into the rendering space and on to the display.
 
 
+Combined Steps
+--------------
 
-### Overview of the rendering steps
+Each step is explained thoroughly on its own page.
+
 ``` mermaid
 flowchart LR
   A("ACES 
@@ -34,14 +83,11 @@ flowchart LR
   E["Gamut 
   Compression 
   (J & M)"] --> 
-  F[Display 
-  Encoding] --> 
+  H["White
+  Limiting"] --> 
+  F["Display 
+  Encoding"] --> 
   G(Display 
   RGB 
   Output);
 ```
-<figcaption>The flow of the ACES 2.0 Display Rendering Transform (DRT)</figcaption>
-
-
-Design Goals
-------------
