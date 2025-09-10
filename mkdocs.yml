@@ -109,6 +109,7 @@ plugins:
       exclude:
           - index.md
       enabled: true
+  - open-in-new-tab
 
 nav:
   - 'Introduction':
