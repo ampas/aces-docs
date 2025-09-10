@@ -6,6 +6,8 @@ title: CLF Specification
 Common LUT Format (CLF) - A Common File Format for Look-Up Tables
 ================
 
+!!! note
+    CLF is in the late stages of standardization through SMPTE (as of Sept. 2025). This specification of CLF v3.0 was the foundation for the SMPTE standard document, but a few small items have been updated and the schema has been enhanced. Backwards compatibility should be maintained once published, the SMPTE standard will supercede this specification.
 
 Scope
 -----

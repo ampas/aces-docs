@@ -1,3 +1,5 @@
+
+
 ![Academy Color Encoding System](./assets/images/aces-horizontal-color.png){ align=left }
 
 
@@ -27,15 +29,21 @@ ACES can help to:
 
 Navigating the Documentation
 ----------------------------
-This documentation is currently divided across two tabs: (1)
+<div class="grid cards" markdown>
 
-<div class="annotate" markdown>
-1. Basic introductory, foundational material to provide essentials for beginners and 
+-   [:material-text-box-multiple-outline:{ .lg .middle } __ACES Overview__](./background/overview.md)
 
-2. Technical documentation for more experienced ACES users seeking specifications or implementation guidelines. 
+    ---
+
+    Introductory information the components that make up the ACES system.
+
+-   [:material-wrench-cog-outline:{ .lg .middle } __Technical Documentation__](home-technical.md)
+
+    ---
+
+    Specifications and implementation guides.
+
 </div>
-
-1.  More documentation is pending. The site will probably be reorganized as more content is added.
 
 
 <!-- Explore
