@@ -26,7 +26,7 @@ Changes are automatically deployed through a [GitHub Action](.github/workflows/m
 
 ## License
 ACES Documentation is licensed under the 
-[Creative Commons Attribution 4.0 International License][./license].
+[Creative Commons Attribution 4.0 International License](./license).
 
 ## Support
 For support, please visit [ACESCentral.com](https://acescentral.com)
