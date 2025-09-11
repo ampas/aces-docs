@@ -8,12 +8,6 @@ extra:
   generator: false
   homepage: https://www.acescentral.com
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/academyaces
-    - icon: fontawesome/brands/facebook
-      link: https://www.facebook.com/AcademyACESColor/
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw
     - icon: fontawesome/brands/github
       link: https://www.github.com/ampas
     - icon: fontawesome/solid/fish
@@ -35,7 +29,6 @@ theme:
     - navigation.top
     - navigation.instant
     - navigation.instant.progress
-    - navigation.prue
     - toc.follow
     - content.tooltips
   favicon: assets/images/favicon.png
@@ -113,7 +106,7 @@ plugins:
 
 nav:
   - 'Introduction':
-    - 'Overview': index.md
+    - 'Getting Started': index.md
     - 'Overview of ACES':
       - 'ACES System': background/overview.md
       - 'Encodings': encodings/introduction.md
@@ -125,7 +118,7 @@ nav:
       - 'Reference Code': background/organization/index.md
       - 'Common LUT Format': clf/introduction.md
     - 'About ACES 2':
-      - 'What Is It?': background/about-aces-2.md
+      - 'General': background/about-aces-2.md
       - 'Rendering Transform': background/about-rendering.md
     - 'Background Information':
       - 'ACES 1 Feedback': background/v1-feedback.md
