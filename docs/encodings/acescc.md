@@ -2,6 +2,9 @@
 title: ACEScc Specification
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 ACEScc – A Quasi-Logarithmic Encoding of ACES Data for use within Color Grading Systems
 ========================================================================================

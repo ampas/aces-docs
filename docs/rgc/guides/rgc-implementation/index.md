@@ -2,6 +2,9 @@
 title: Reference Gamut Compression Implementation Guide
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 ACES Reference Gamut Compression Implementation Guide
 ================
@@ -12,18 +15,9 @@ Scope
 The purpose of this document is to detail and define standards for user
 interface and experience, workflow, tolerances, and tracking of the ACES
 Reference Gamut Compression (RGC) published in [ACES
-1.3](https://github.com/ampas/aces-dev/tree/v1.3). For detailed technical
-specifications, please refer to the ACES Gamut Mapping Architecture VWG -
-[Technical Documentation](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam).
+1.3](https://github.com/ampas/aces-dev/tree/v1.3). 
 
-
-References
-----------------
-
-The following standards, specifications, articles, presentations, and texts are
-referenced in this text:
-
-* [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
+For detailed technical specifications, please refer to the [Specification](../../specification/index.md).
 
 
 Introduction
@@ -74,8 +68,7 @@ Reference Implementation Specifications
 
 The Reference Gamut Compression published in ACES 1.3 uses the following ACES
 Transform ID and ACES User Name in the
-[CTL](https://github.com/ampas/aces-dev/blob/dev/transforms/ctl/lmt/LMT.Academy.
-ReferenceGamutCompress.ctl):
+[CTL](https://github.com/ampas/aces-core/blob/v1.3/transforms/ctl/lmt/LMT.Academy.GamutCompress.ctl):
 
 
 ```
@@ -105,8 +98,7 @@ the RGC setting for individual clips, if required.
   <figcaption>DaVinci Resolve clip level RGC setting</figcaption>
 </figure>
 
-Implementers may also choose to offer a parametric variation of the RGC (see
-[Section 9](#parametric-version-implementation-specifications)).
+Implementers may also choose to offer a [parametric variation of the RGC](#parametric-version-implementation-specifications)).
 
 ### Export Settings
 The user should be able to easily control whether rendered media will have the
@@ -134,10 +126,9 @@ within the “zone of trust”.
 The Python code to create the test image can be found in
 [this Google Colab](https://colab.research.google.com/drive/15RyJCkSNz9rG-Z5DUVyphag5t9eTvmu7#scrollTo=s9pfiGWsEEHu).
 The resulting test file can be downloaded from [here](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007.exr),
-and the test image processed through the [CTL implementation](https://github.com/ampas/aces-dev/blob/dev/transforms/ctl/lmt/LMT.Academy.ReferenceGamutCompress.ctl)
-of the RGC can be downloaded from [here](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007_gamut_compressed_ctlrender.exr)
-[](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007_gamut_compressed_ctlrender.exr)
-(Note: `ctlrender` adds an alpha channel to the result, which can be ignored.)
+and the test image processed through the [CTL implementation](https://github.com/ampas/aces-core/blob/v1.3/transforms/ctl/lmt/LMT.Academy.GamutCompress.ctl)
+of the RGC can be downloaded from [here](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007_gamut_compressed_ctlrender.exr).
+ (**Note**: `ctlrender` adds an alpha channel to the result, which can be ignored.)
 
 For comparison of an implementation with the reference, a relative error metric
 has been defined (see [Appendix A](#appendix-a-relative-metric-detail)).
@@ -165,11 +156,11 @@ Implementers are of course free to use their own code to perform validation, as
 long as it applies the same metric.
 
 
-Tracking via [ACES Metadata File](../../../amf/specification/index.md) (AMF)
+Tracking via ACES Metadata File (AMF)
 ----------------
 
-The Reference Gamut Compression is trackable via a `lookTransform` element in an
-AMF file. If the RCG is used in the viewing pipeline, the `lookTransform` will
+The Reference Gamut Compression is trackable via a `lookTransform` element in the
+[ACES Metadata File (AMF)](../../../amf/specification/index.md). If the RCG is used in the viewing pipeline, the `lookTransform` will
 be listed in the associated AMF. If the AMF is accompanying rendered media, use
 the `applied` flag to track whether or not the RGC has been “baked in”. See
 below for an example AMF:
@@ -258,6 +249,15 @@ $$\frac{abs(actual - aim)}{max(abs(aim), 0.1)} <= 0.002$$
 
 This is essentially a relative tolerance of +/– one part in 500 above 0.1 and an
 absolute tolerance of +/– 0.0002 below 0.1.
+
+
+References
+----------------
+
+The following standards, specifications, articles, presentations, and texts are
+referenced in this text:
+
+* [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
 
 
 

@@ -1,3 +1,7 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
+
 Technical Documentation
 =======================
 
@@ -7,4 +11,4 @@ This pages in this section contain **technical documentation** such as specifica
 
 
 
-If you need to review any ACES introductory concepts, return to the [Introduction](overview.md) tab.
+If you need to review any ACES introductory concepts, return to the [Introduction](index.md) tab.

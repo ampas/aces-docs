@@ -2,9 +2,12 @@
 title: ACES Metadata File Specification
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 ACES Metadata File (AMF) Specification
-========================================================================================
+======================================
 
 Scope
 -----
@@ -13,8 +16,6 @@ This document specifies the ACES Metadata File (“AMF”), a ‘sidecar’ XML 
 
 ??? note
     This specification supersedes *"TB-2014-009 – Academy Color Encoding System – (ACES) Clip-level Metadata File Format Definition and Usage (“ACESclip”)"*. TB-2014-009 is now considered obsolete.
-
-
 
 
 Introduction 
@@ -61,9 +62,8 @@ AMFs do not contain “timeline” metadata such as edit points. Timeline manage
 
 
 
-
 Use Cases
-----------------
+---------
 ACES Metadata Files (AMFs) are intended to contain the minimum required metadata for transferring information about ACES viewing pipelines during production, post-production, and archival.
 
 Typical use cases for AMF files are the application of “show LUT” LMTs in cameras and on-set systems,the capture of shot-to-shot looks generated on-set using ASC-CDL, and communication of both to dailies,editorial, VFX, and post-production mastering facilities.
@@ -114,11 +114,9 @@ Another method could be to use SMPTE ST.2067-9 (Sidecar Composition Map) which w
 
 
 
-
 Data Model
-----------------
+----------
 This section describes the data intended for use within the ACES Metadata file.
-
 
 ### Namespace
 All top level structures shall be tagged as being within the `aces` namespace with urn `urn:ampas:aces:amf:v2.0`.
@@ -171,7 +169,6 @@ The XSD for AMF is maintained on Github in the repository [[ampas/aces-amf](http
 
 ### Types
 Data types defined by the AMF schema can be explored interactively [[Explore Types](./schema-docs/acesMetadataFile.html)]
-
 
 
 

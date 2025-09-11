@@ -1,4 +1,9 @@
-# Terms and Definitions
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
+
+Terms and Definitions
+---------------------
 
 !!! note
     The Glossary remains a work in progress. More terms and defintions will be added as documentation efforts continue.

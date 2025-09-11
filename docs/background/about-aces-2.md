@@ -1,3 +1,7 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
+
 What is ACES 2?
 ============
 
@@ -16,9 +20,8 @@ The most significant change in ACES 2 is the introduction of a completely redesi
 - Enhanced [**AMF (ACES Metadata File) Specification**](../amf/specification/index.md)
 - Updated specification of [**ACES Transform IDs**](../system-components/transform-id-spec.md), plus a manifest of Transform IDs available at each ACES version tag since v1.0
 - Recommendations for using compression in **ACES OpenEXRs**
-- New **Recommendations** for generating Input Transforms for prosumer-level cameras
+- New [**Recommendations**](../system-components/input-transforms/capture-guide.md) for generating Input Transforms for prosumer-level cameras
 - New [**Tools**](https://beta.devtools.acescentral.com/) for generating Input Transforms
-- **Look Transform Library** for creative color grading workflows
-- **Expanded Documentation** across all components, with plans for continued contributions to add clarity of intended behavior, recommended workflows, as well as a history of the discussions and reasoning for various design decisions
+- Expanded **Documentation** across all components, with plans for continued additions to add clarity of intended behavior, user guides, document recommended workflows, as well as a history of the discussions and reasoning for various design decisions
 
-The ACES 2 feature set was developed in direct response to the [top feature requests and user feedback from ACES 1 users](./listening-tour.md). 
+The ACES 2 feature set was developed in direct response to the [top feature requests and user feedback from ACES 1 users](./v1-feedback.md). 

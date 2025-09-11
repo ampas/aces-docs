@@ -8,12 +8,6 @@ extra:
   generator: false
   homepage: https://www.acescentral.com
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/academyaces
-    - icon: fontawesome/brands/facebook
-      link: https://www.facebook.com/AcademyACESColor/
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/channel/UCnmCugF923ta50EFzxgQmjw
     - icon: fontawesome/brands/github
       link: https://www.github.com/ampas
     - icon: fontawesome/solid/fish
@@ -35,7 +29,6 @@ theme:
     - navigation.top
     - navigation.instant
     - navigation.instant.progress
-    - navigation.prue
     - toc.follow
     - content.tooltips
   favicon: assets/images/favicon.png
@@ -109,14 +102,11 @@ plugins:
       exclude:
           - index.md
       enabled: true
+  - open-in-new-tab
 
 nav:
   - 'Introduction':
-    - 'Getting Started':
-      - 'Overview': index.md
-      - 'Whats New':
-        - 'ACES 2': background/about-aces-2.md
-        - 'Rendering Transform': background/about-rendering.md
+    - 'Getting Started': index.md
     - 'Overview of ACES':
       - 'ACES System': background/overview.md
       - 'Encodings': encodings/introduction.md
@@ -127,6 +117,9 @@ nav:
       - 'ACES Metadata File (AMF)': amf/guides/user/index.md
       - 'Reference Code': background/organization/index.md
       - 'Common LUT Format': clf/introduction.md
+    - 'About ACES 2':
+      - 'General': background/about-aces-2.md
+      - 'Rendering Transform': background/about-rendering.md
     - 'Background Information':
       - 'ACES 1 Feedback': background/v1-feedback.md
       - 'Listening Tour': background/listening-tour.md
@@ -150,24 +143,29 @@ nav:
       - 'Common LUT Format':
         - 'Specification': clf/specification/index.md
         - 'Implementation Guide': clf/guides/index.md
-    - 'Input Transforms':
-      - 'Procedure': https://www.dropbox.com/scl/fi/o0az9azz833t1sde8apfz/P-2013-001.pdf?rlkey=j7eqd4l0wpvbhpi72ayjvflka&e=1&dl=0
-      - 'Capture Guide': system-components/input-transforms/capture-guide.md
-    - 'Output Transforms':
-      - 'Overview': system-components/output-transforms/overview.md
-      - 'Tone Mapping': system-components/output-transforms/technical-details/tone-mapping/index.md
-      - 'Chroma Compression': system-components/output-transforms/technical-details/chroma-compression/index.md
-      - 'Gamut Compression': system-components/output-transforms/technical-details/gamut-compression/index.md
-      - 'White Limiting': system-components/output-transforms/technical-details/white-limiting/index.md
-      - 'Display Encoding': system-components/output-transforms/technical-details/display-encoding/index.md
-    - 'Look Transforms':
-      - 'Use Cases': system-components/look-transforms/use-cases.md
-      - 'Specification': system-components/look-transforms/specification.md
-    - 'Reference Gamut Compression':
-      - 'Specification': rgc/specification/index.md
-      - 'Implementation Guide': rgc/guides/rgc-implementation/index.md
-      - 'User Guide': rgc/guides/rgc-user/index.md
-    - 'Transform IDs': system-components/transform-id-spec.md
+    - Transforms:
+      - 'Input Transforms':
+        - 'Procedure': https://www.dropbox.com/scl/fi/o0az9azz833t1sde8apfz/P-2013-001.pdf?rlkey=j7eqd4l0wpvbhpi72ayjvflka&e=1&dl=0
+        - 'Capture Guide': system-components/input-transforms/capture-guide.md
+      - 'Output Transforms':
+        - 'Structure':
+          - 'Overview': system-components/output-transforms/technical-details/rendering-overview.md
+          - 'Tone Mapping': system-components/output-transforms/technical-details/tone-mapping/index.md
+          - 'Chroma Compression': system-components/output-transforms/technical-details/chroma-compression/index.md
+          - 'Gamut Compression': system-components/output-transforms/technical-details/gamut-compression/index.md
+          - 'White Limiting': system-components/output-transforms/technical-details/white-limiting/index.md
+          - 'Display Encoding': system-components/output-transforms/technical-details/display-encoding/index.md
+        - 'Preset Parameters': system-components/output-transforms/parameters.md
+        - 'Implementor Notes': system-components/output-transforms/implementer-notes.md
+      - 'Look Transforms':
+        - 'Use Cases': system-components/look-transforms/use-cases.md
+        - 'Specification': system-components/look-transforms/specification.md
+      - 'Reference Gamut Compression':
+        - 'Specification': rgc/specification/index.md
+        - 'Implementation Guide': rgc/guides/rgc-implementation/index.md
+        - 'User Guide': rgc/guides/rgc-user/index.md
+      - 'Transform IDs': system-components/transform-id-spec.md
+    - 'ACES Standards': https://www.smpte.org/standards/aces-standards
 
   - 'Glossary': glossary/index.md
 

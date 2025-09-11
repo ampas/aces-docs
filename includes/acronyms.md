@@ -1,3 +1,6 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 *[ACES]: Academy Color Encoding System or Academy Color Encoding Specification (depending on usage)
 *[IDT]: Input Transform (aka deprecated - Input Device Transform)
 *[ODT]: Output Transform (aka deprecated - Output Device Transform)

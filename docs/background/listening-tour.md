@@ -1,7 +1,11 @@
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
+
 Full Details of Listening Tour
 ==============================
 
-For reference below is the full list of ACES points of feedback from the Listening Tour.
+The full list of ACES points of feedback from the Listening Tour is listed below for more complete summary of the points collected.
 
 | Rank | Topic |
 |---| --- |

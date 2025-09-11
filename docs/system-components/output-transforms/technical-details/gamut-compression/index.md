@@ -2,6 +2,10 @@
 title: Invertible Gamut Compression in a Perceptual Polar Space
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
+
 Gamut Compression
 ================
 
