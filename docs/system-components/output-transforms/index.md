@@ -33,7 +33,7 @@ flowchart LR
   id3 -->|"Code
     values"|id4(Display)
 ```
-<figcaption>**Figure 1:** The two main submodules of an Output Transform.</figcaption>
+<figcaption markdown>**Figure 1:** The two main submodules of an Output Transform.</figcaption>
 
 
 ??? note "ACES 1 vs ACES 2 Terminology"
@@ -69,7 +69,7 @@ flowchart LR
     B --> C --> D --> E --> F
     end;
 ```
-<figcaption>**Figure 2:** The main processing modules in the Rendering Transform.</figcaption>
+<figcaption markdown>**Figure 2:** The main processing modules in the Rendering Transform.</figcaption>
 
 The Rendering Transform in ACES 2 applies tone-mapping and adjusts colorfulness based on the luminance and boundaries defined by the choice of target rendering gamut. 
 

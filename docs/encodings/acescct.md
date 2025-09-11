@@ -5,37 +5,30 @@ title: ACEScct Specification
 <!-- SPDX-License-Identifier: CC-BY-4.0 -->
 <!-- Copyright Contributors to the ACES Documentation -->
 
-ACEScct – A Quasi-Logarithmic Encoding of ACES Data for use within Color Grading Systems
-========================================================================================
+
+ACEScct - A Quasi-Logarithmic Encoding of ACES Data for use within Color Grading Systems
+=======
 
 
 Introduction 
-----------------
-The Academy Color Encoding Specification (ACES) defines a common color encoding method using half-precision floating point values corresponding to linear exposure values encoded relative to a fixed set of extended-gamut RGB primaries. Many digital-intermediate color grading systems have been engineered assuming image data with primaries similar to the grading display and a logarithmic relationship between relative scene exposures and image code values.
+------------
+ACES2065-1 uses half-precision floating point values corresponding to linear exposure values encoded relative to a fixed set of extended-gamut RGB primaries. However, many digital-intermediate color grading systems have been engineered assuming image data with primaries more similar to the grading display and with a logarithmic relationship between relative scene exposures and image code values.
 
-This document describes a 32-bit single precision floating-point logarithm encoding of ACES known as ACEScct.
+ACEScct utilizes a piecewise function with logarithmic and linear segments to transform linear ACES values into a non-linear representation. In addition, ACEScct uses the smaller AP1 primaries in order make encoded values better suited for color grading.
 
-ACEScct uses values above 1.0 and below 0.0 to encode the entire range of ACES values. ACEScct values should not be clamped except as part of color correction needed to produce a desired artistic intent.
+ACEScct maintains values above 1.0 and below 0.0 to encode the entire range of ACES values. The ACEScct value of 1.0 corresponds to an ACES value of ~222 or just over 10 stops above middle gray. ACEScct values should not be clamped except as part of color correction needed to produce a desired artistic intent.
 
-There is no image file container format specified for use with ACEScct as the encoding is intended to be transient and internal to software or hardware systems, and is specifically not intended for interchange or archiving.
+There is no image file container format specified for use with ACEScct as the encoding is intended to be transient and internal to software or hardware systems only. ACEScct is not intended for interchange or archiving.
 
-For ACES values greater than 0.0078125, the ACEScct encoding function is identical to the pure-log encoding function of ACEScc. Below this point, the addition of a ”toe” results in a more distinct ”milking” or ”fogging” of shadows when a lift operation is applied when compared to the same operation applied in ACEScc. This difference in grading behavior is provided in response to colorist requests for behavior more similar to that of traditional legacy log film scan encodings.
+!!! note
+	For ACES values greater than the break point of 0.0078125, the ACEScct encoding function is identical to the pure-log encoding function of ACEScc. Below the breakpoint, the addition of a ”toe” results in a more distinct ”milking” or ”fogging” of shadows when a lift operation is applied when compared to the same operation applied in ACEScc. This difference in grading behavior was provided in response to colorist requests for behavior more similar to that of traditional legacy log film scan encodings and "camera log" encoding functions.
 
 
 Scope
 -----
-This document describes a 32-bit floating point encoding of ACES for use within color grading systems.
+This document describes a 32-bit floating-point encoding of ACES for use within color grading systems.
 
-Equivalent functions may be used for implementation purposes as long as correspondence of grading param- eters to this form of log implementation is properly maintained. This document is intended as a guideline to aid developers who are integrating an ACES workflow into a color correction system.
-
-
-References
-----------
-The following standards, specifications, articles, presentations, and texts are referenced in this text:
-
-* [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
-* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
-* [754-2019 - IEEE Standard for Floating-Point Arithmetic](https://ieeexplore.ieee.org/document/8766229)
+Equivalent functions may be used for implementation purposes as long as correspondence of grading parameters to this form of log implementation is properly maintained. This document is intended as a guideline to aid developers who are integrating an ACES workflow into a color correction system.
 
 
 Specification
@@ -48,10 +41,10 @@ The quasi-logarithmic encoding of ACES specified in this document shall be known
 ACEScct values are encoded as 32-bit floating-point numbers. This floating-point encoding uses 32 bits per component as described in IEEE 754.
 
 ### Color space chromaticities {#color-space}
-ACEScct uses a different set of primaries than ACES RGB primaries defined in SMPTE ST 2065-1. The CIE 1931 colorimetry of the ACEScct RGB primaries and white are specified below.
+ACEScct uses a different set of primaries than the ACES RGB primaries defined in SMPTE ST 2065-1. 
 
 #### Color primaries
-The chromaticity values of the RGB primaries (known as AP1) shall be those found below:
+The CIE x,y chromaticity values of the RGB primaries shall be as listed in [Table 1](#table-1).
 
 <div align="center" markdown>
 |       | **R** | **G** | **B** |   | **CIE x** | **CIE y** |
@@ -59,32 +52,24 @@ The chromaticity values of the RGB primaries (known as AP1) shall be those found
 | Red   |  1.0  |  0.0  |  0.0  |   |   0.713   |   0.293   |
 | Green |  0.0  |  1.0  |  0.0  |   |   0.165   |   0.830   |
 | Blue  |  0.0  |  0.0  |  1.0  |   |   0.128   |   0.044   |
-</div>
-
-<figcaption align="center">
-    ACEScct RGB primaries chromaticity values
-</figcaption> 
-
-#### White point
-The white point shall be:
-
-<div align="center" markdown>
-|       | **R** | **G** | **B** |   | **CIE x** | **CIE y** |
-|-------|-------|-------|-------|---|-----------|-----------|
 | White |  1.0  |  1.0  |  1.0  |   |  0.32168  |  0.33767  |
 </div>
+<a name="table-1"></a>
+<figcaption markdown="1" align="center">
+  <b>Table 1.</b>ACEScct RGB primaries and white point chromaticity values
+</figcaption> 
 
-<figcaption align="center">
-    ACEScct RGB white point chromaticity values
-</figcaption>
+!!! note
+	These primaries and white are commonly referred to as "AP1".
+	"AP0" is the primaries and white associated with the Academy Color Encoding Specificiation (SMPTE ST 2065-1).
 
 ### ACEScct {#acescct}
-The following functions shall be used to convert between ACES values, encoded according to SMPTE ST 2065-1, and ACEScct.
+The encoding and decoding functions for ACEScct consist of a color conversion matrix between AP0 and AP1 and the piecewise function that transforms between linear and the quasi-log encoding of ACEScct.
 
 #### Encoding Function
-ACES $R$, $G$, and $B$ values shall be converted to $lin_{AP1}$ $R$, $G$, and $B$ values using the transformation matrix ($TRA_1$) calculated and applied using the methods provided in Section 4 of SMPTE RP 177:1993.
+Linear AP0 $R$, $G$, and $B$ values shall be converted to linear AP1 $R$, $G$, and $B$ values using the transformation matrix ($TRA_1$) calculated and applied using the method defined in Section 4 of SMPTE RP 177:1993.
 
-$lin_{AP1}$ $R$, $G$, and $B$ values shall be converted to ACEScct values according to [Equation 1](#eq-1).
+Linear AP1 $R$, $G$, and $B$ values shall be converted to ACEScct values according to [Equation 1](#eq-1).
 
 <a name="eq-1"></a>
 
@@ -97,7 +82,7 @@ $lin_{AP1}$ $R$, $G$, and $B$ values shall be converted to ACEScct values accord
 \end{equation}
 
 <figcaption align="center">
-    <b>Equation 1:</b> Linear AP1 to ACEScct
+	<b>Equation 1:</b> Linear AP1 to ACEScct
 </figcaption>
 
 !!! note
@@ -148,11 +133,17 @@ ACEScct $R$, $G$, and $B$ values shall be converted to $lin_{AP1}$ values using 
 \begin{equation}
     lin_{AP1} = \left\{ 
     \begin{aligned}
-        &\dfrac{\left(ACEScct-0.0729055341958355\right)}{10.5402377416545};& ACEScct& \leq 0.155251141552511 \\[10pt]
-        &2^{(ACEScct \times 17.52-9.72)}; &0.155251141552511 \leq ACEScct& < \dfrac{\log_{2}(65504)+9.72}{17.52} \\[10pt]
-        &65504; & ACEScct& \geq \dfrac{\log_{2}(65504)+9.72}{17.52} \\    
-    \end{aligned} \right.
+        &\dfrac{\left(ACEScct-0.0729055341958355\right)}{10.5402377416545}; & ACEScct \leq Y_{break} \\
+        &2^{(ACEScct \times 17.52-9.72)}; Y_{break} \lt & ACEScct < \dfrac{\log_{2}(65504)+9.72}{17.52} \\
+        &65504; & ACEScct \geq \dfrac{\log_{2}(65504)+9.72}{17.52} \\    
+    \end{aligned} \right.	
 \end{equation}
+
+* where:	
+    * $A = 10.5402377416545$
+    * $B = 0.0729055341958355$
+  *	$X_{break} = 0.0078125$
+  *	$Y_{break} = 0.155251141552511$
 
 <figcaption align="center">
     <b>Equation 3:</b> ACEScct to linear AP1
@@ -239,9 +230,20 @@ ASC CDL Saturation is also applied with no limiting function:
 \end{gather*}
 
 
+----
+
+References
+----------
+The following standards, specifications, articles, presentations, and texts are referenced in this text:
+
+* [ST 2065-1:2021 - SMPTE Standard - Academy Color Encoding Specification (ACES)](https://doi.org/10.5594/SMPTE.ST2065-1.2021)
+* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
+* [754-2019 - IEEE Standard for Floating-Point Arithmetic](https://ieeexplore.ieee.org/document/8766229)
+
 
 
 <!-- Include section numbering -->
 <style>
     @import "../../../stylesheets/sections.css"
+	li {list-style-type: none;}
 </style>

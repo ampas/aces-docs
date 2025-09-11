@@ -11,7 +11,8 @@ Introduction to ACES Metadata File (AMF)
 *A practical guide for production workflows*
 
 
-## What is AMF?
+What is AMF?
+------------
 Think of AMF as a "color recipe" that travels with your footage. Just as a recipe ensures a dish tastes the same no matter who cooks it, AMF ensures your footage looks the same across different tools and systems.
 
 ACES provides the ingredients, and AMF is the "recipe" to put it all together. 
@@ -27,7 +28,8 @@ graph LR
     B --> F[Color]
 ```
 
-## How AMF Works
+How AMF Works
+-------------
 AMF contains three main ingredients:
 
 1. `inputTransform`: "How to interpret the camera footage"
@@ -42,7 +44,8 @@ graph LR
     D --> E[Display]
 ```
 
-## Exporting AMFs
+Exporting AMFs
+--------------
 ![Resolve Example](images/resolve_export.png "Resolve Example")
 
 AMFs can be exported from major tools such as:
@@ -58,7 +61,8 @@ AMFs can be exported from major tools such as:
     This will take any CDLs or looks and store it in the AMF, along with the Input and Output Transforms that were active when creating it.
 
 
-## Importing AMFs
+Importing AMFs
+--------------
 ![Pomfort Example](images/pomfort_import.png "Pomfort Example")
 AMFs can be imported individually (as shown above) or in some cases using a bulk-import feature.
 
@@ -71,7 +75,8 @@ Depending on the tool, this may leverage `clipId` inside the AMFs if they are lo
 </aces:clipId>
 ```
 
-## What about my LUT? Can I use CDLs?
+What about my LUT? Can I use CDLs?
+----------------------------------
 The most important ingredient in an AMF is your "creative look" - or in AMF terms, the `<lookTransform>` - and AMF supports both CDL-based looks and more advanced LUT-based looks.
 
 
@@ -120,7 +125,8 @@ To make the creative look compatible across cameras and display outputs, AMF req
 - Contains colorspace information in the header
 
 
-## Common Workflows
+Common Workflows
+----------------
 
 ### Look Development / Colorist Workflow
 1. Colorist creates a look during pre-production
@@ -142,4 +148,4 @@ To make the creative look compatible across cameras and display outputs, AMF req
 4. Artist view & editorial renders match original intent
 
 ---
-*This guide focuses on practical usage. For technical specifications and best practices, please refer to the full AMF Implementers guide.*
+*This guide focuses on practical usage. For technical specifications and best practices, please refer to the full [AMF Implementers guide](../implementation/index.md).*

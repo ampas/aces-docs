@@ -22,4 +22,4 @@ Those looking for details about CLF can find more information in the Technical D
 
 </div>
 
-1.  CLF is in the late stages of standardization through SMPTE. The standards document was based off this specification, but has changed structurally. When published, the standard will supercede this specification of CLF v3.0.
+1.  CLF is in the late stages of standardization through SMPTE. The draft SMPTE standard was based off of this specification, but has changed structurally. When published, the standard will supercede this specification of CLF v3.0.

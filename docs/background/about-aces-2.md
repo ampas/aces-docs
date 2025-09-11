@@ -24,4 +24,4 @@ The most significant change in ACES 2 is the introduction of a completely redesi
 - New [**Tools**](https://beta.devtools.acescentral.com/) for generating Input Transforms
 - Expanded **Documentation** across all components, with plans for continued additions to add clarity of intended behavior, user guides, document recommended workflows, as well as a history of the discussions and reasoning for various design decisions
 
-The ACES 2 feature set was developed in direct response to the [top feature requests and user feedback from ACES 1 users](./listening-tour.md). 
+The ACES 2 feature set was developed in direct response to the [top feature requests and user feedback from ACES 1 users](./v1-feedback.md). 

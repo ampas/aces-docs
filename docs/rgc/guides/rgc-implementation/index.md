@@ -127,8 +127,8 @@ The Python code to create the test image can be found in
 [this Google Colab](https://colab.research.google.com/drive/15RyJCkSNz9rG-Z5DUVyphag5t9eTvmu7#scrollTo=s9pfiGWsEEHu).
 The resulting test file can be downloaded from [here](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007.exr),
 and the test image processed through the [CTL implementation](https://github.com/ampas/aces-core/blob/v1.3/transforms/ctl/lmt/LMT.Academy.GamutCompress.ctl)
-of the RGC can be downloaded from [here](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007_gamut_compressed_ctlrender.exr)
- (Note: `ctlrender` adds an alpha channel to the result, which can be ignored.)
+of the RGC can be downloaded from [here](https://www.dropbox.com/sh/u6z2a0jboo4vno8/AAB-10qcflhpr0C5LWhs7Kq4a?dl=0&preview=gc_test_image_v007_gamut_compressed_ctlrender.exr).
+ (**Note**: `ctlrender` adds an alpha channel to the result, which can be ignored.)
 
 For comparison of an implementation with the reference, a relative error metric
 has been defined (see [Appendix A](#appendix-a-relative-metric-detail)).
@@ -183,7 +183,7 @@ specification section should be included in any exported AMFs, with the
 to enable proper tracking. Currently, only the Reference (i.e. static) Gamut
 Compression is trackable via AMF.
 
-Parametric Version Implementation Specifications {#parametric}
+Parametric Version Implementation Specifications
 ----------------
 
 An implementation of the gamut compression transform which exposes the

@@ -31,7 +31,8 @@ flowchart LR
   style D stroke-width:4px
 ```
 
-## Introduction
+Introduction
+------------
 
 Chroma Compression is a hue-preserving invertible photographic colour rendering technique.  Together with Tone Mapping, Chroma Compression creates the photographic base look for the transforms.  Throughout the Chroma Compression lightness (J) and hue (h) remains constant and only the colorfulness (M) is compressed.
 
@@ -39,13 +40,13 @@ Chroma Compresson is a non-linear expansion and compression of M over both the J
 
 The limiting display gamut boundary is not taken into consideration.  All out of gamut colorus will be mapped into the limiting gamut later by the gamut mapper.  The Chroma Compression mainly affects the interior of the gamut.
 
-## Forward Procedure
 
+Forward Procedure
+-----------------
 The forward direction of the Chroma Compression performs the following operations in order.  At the heart of the operations is a $toe$ function defined in later section.
 
 
 ### Rescaling
-
 The Tone Mapping step has compressed J to the target display peak luminance.  This means that the M correlate must also be compressed or rescaled down to that same range. This is done by using the $\frac{1}{cz}$ exponent defined in Hellwig2022 model in order maintain the correct M to J ratio. Maintaining the correct ratio keeps the chromaticities constant. The rescaling method is the following:
 
 $$
@@ -80,8 +81,8 @@ $c$ and $z$ are constants defined in the Hellwig2022 model
   <figcaption>Effect of rescaling M</figcaption>
 </figure>
 
-### Normalization
 
+### Normalization
 The purpose of the normalization step is to establish the maximum compression and expansion limit as a normalized distance, and to normalize the M value with a hue dependent AP1 gamut cusp value.
 
 The maximum distance is limited to AP1.  That is, the compression and expansion will not affect M values beyond what would be AP1 in chromaticity space.  Values outside AP1 will later be clipped by the transform.  This makes AP1 effectively the rendering space of the transform.  The limit value used in the $toe$ function is calculated as follows:
@@ -117,8 +118,8 @@ $$
 !!! note
     The normalization and denormalization steps are the same in forward and inverse directions of the transform.
 
-### Expansion
 
+### Expansion
 The expansion step is crucial to bring “life” into the image. After the rescaling step the colors come out dull in the mid-tones and shadows are very desaturated. The expansion step increases saturation in the shadows and mid-tones but not in the highlights.
 
 The expansion applies the $toe$ function in *reverse direction* with the following parameters:
@@ -160,8 +161,8 @@ $$
 !!! note
     The illustrations show the intermediate results with the normalization and denormalization steps always applied.
 
-### Compression
 
+### Compression
 The compression step creates the saturation roll-off in the highlights. It compresses less saturated colors more and more saturated colors less, preserving pure colors from compression. The compression affects highlights and mid-tones and does not compress shadows.  The compression step has a large effect on skin tone rendering and how they desaturate at higher intensity levels.
 
 The compression applies the $toe$ function in *forward direction* with the following parameters:
@@ -194,8 +195,8 @@ $$
   <figcaption>Effect of compression of M</figcaption>
 </figure>
 
-### Denormalization
 
+### Denormalization
 After completing all the operations the resulting compressed M is then denormalized as follows:
 
 $$
@@ -206,27 +207,21 @@ The denormalization is the final step in the Chroma Compression.
 
 
 ## Inverse Procedure
-
 The chroma compression is fully invertible by applying the same set of operations described above but in reverse order and in inverse direction.
 
 ### Normalization
-
 Normlization step in the inverse is the same as in the forward procedure.
 
 ### Inverse of Compression
-
 Inverse of compression applies the $toe$ function in *inverse direction* with the same parameters as defined in the forward procedure.
 
 ### Inverse of Expansion
-
 Inverse of expansion applies the $toe$ function in *inverse of reverse direction* with the same parameters as defined in the forward procedure.
 
 ### Denormalization
-
 Denormalization step in the inverse is the same as in the forward procedure.
 
 ### Inverse of Rescaling
-
 The inverse of the rescaling step is the following:
 
 $$
@@ -237,7 +232,6 @@ The resulting M is the fully inverted colorfulness.
 
 
 ## The toe function
-
 At the heart of the Chroma Compression and expansion is an invertible “toe” function ([https://www.desmos.com/calculator/6vplvw14ti](https://www.desmos.com/calculator/6vplvw14ti)). The toe in the function will compress less saturated colors more than more saturated colors, and the size and shape of the toe will determine the aggressiveness of the compression.
 
 In the forward direction the function performs compression and in the reverse direction it performs expansion.  The function has an inverse for both forward and reverse directions.

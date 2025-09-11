@@ -3,13 +3,13 @@
 
 
 ACES 2 Presets
---------------
+==============
 
 The reference Output Transforms provided in CTL support a number of gamuts, white points, luminances, and display configurations.
 
-### Rendering Transform Presets
+## Rendering Transform Presets
 
-#### Color Primaries and Peak Luminance
+### Color Primaries and Peak Luminance
 The limiting gamuts and peak luminance combinations that are provided as presets include:
 
 | Target Gamut | Target Luminance |
@@ -27,17 +27,17 @@ The limiting gamuts and peak luminance combinations that are provided as presets
 | Rec.2020 | 2000 nit |
 | Rec.2020 | 4000 nit |
 
-#### Creative white point
+### Creative white point
 Each of the above are also provided two different preset creative white points: 
 
   * D65 white
   * ACES (~D60) white
 
 
-### Display Encoding Transform Presets
+## Display Encoding Transform Presets
 The encoding gamut is defined with (x,y) chromaticities for red, green, blue and white. 
 
-#### Color Primaries
+### Color Primaries
 The preset display gamuts are as follows:
 
   * Rec.709 / sRGB
@@ -45,7 +45,7 @@ The preset display gamuts are as follows:
   * Rec.2100
   * XYZ
 
-#### Inverse EOTF
+### Inverse EOTF
 The inverse EOTF is defined via a functional definition of the EOTF$^{-1}$.
 
 In the CTL, the EOTF$^{-1}$ options are selected with enum values:

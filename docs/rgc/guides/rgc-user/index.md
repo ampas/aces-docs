@@ -317,8 +317,3 @@ The following standards, specifications, articles, presentations, and texts are 
 <style>
     @import "../../stylesheets/sections.css"
 </style>
-
-<script>
-    /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
-    initComparisons();
-</script>
