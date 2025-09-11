@@ -12,21 +12,13 @@ Scope
 This document introduces a Reference Gamut Compression (RGC) operator, published in ACES 1.3, which may be applied to ACES image data to “heal” pixel values outside the AP1 gamut. The Reference Gamut Compression algorithm is intended to replace the Blue Light Artifact LMT, which is now deprecated.
 
 
-References
-----------------
-The following standards, specifications, articles, presentations, and texts are referenced in this text:
-
-* [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
-* [ISO 17321-1:2012 - Colour characterisation of digital still cameras (DSCs) - Part 1: Stimuli, metrology and test procedures](https://www.iso.org/standard/56537.html)
-* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
-* [S-2014-004: ACEScg — A Working Space for CGI Render and Compositing](../../encodings/acescg.md)
-
 
 Introduction
 ----------------
 A common complaint from users of ACES has been the artifacts resulting from out of gamut values in source images. These artifacts are most known for appearing in highly saturated, bright LED light sources such as police car lights, stoplights, etc - but also appear frequently in LED sources used to light scenes. In an ACES workflow, these artifacts appear at two stages - first in the conversion from camera raw RGB via an Input Transform (IDT) into ACES AP0 - and second in the conversion from ACES AP0 into ACES AP1 (ACEScg and ACEScct). These out of gamut pixel values are problematic when their negative components cause issues in compositing, and may also produce visual artifacts when viewed through an ACES Output Transform.
 
-A Look Modification Transform (LMT) referred to as the [blue light artifact fix](https://github.com/ampas/aces-dev/blob/master/transforms/ctl/lmt/LMT.Academy.BlueLightArtifactFix.ctl) was created as a temporary solution, but this affected all pixels in the image, rather than just the problem areas. A new solution was needed which preserved colors within a “zone of trust”, only altering the most saturated values.
+A Look Modification Transform (LMT) referred to as the [blue light artifact fix](https://github.com/ampas/aces-core/blob/v1.3/transforms/ctl/lmt/LMT.Academy.BlueLightArtifactFix.ctl) was created as a temporary solution, but this affected all pixels in the image, rather than just the problem areas. A new solution was needed which preserved colors within a “zone of trust”, only altering the most saturated values.
+
 
 
 Specification
@@ -173,10 +165,12 @@ $$
 !!! note
     $l$, $t$, $p$, $s$ and $d_p$ are as defined in Equation 4.
 
+
+
 Tracking
 ----------------
 
-The Reference Gamut Compression is defined as a [Look Transform (LMT) in CTL](https://github.com/ampas/aces-dev/blob/master/transforms/ctl/lmt/LMT.Academy.GamutCompress.ctl) and has the following ACES Transform ID:
+The Reference Gamut Compression is defined as a [Look Transform (LMT) in CTL](https://github.com/ampas/aces-core/blob/v1.3/transforms/ctl/lmt/LMT.Academy.GamutCompress.ctl) and has the following ACES Transform ID:
 
 ```
 <ACEStransformID>urn:ampas:aces:transformId:v1.5:LMT.Academy.GamutCompress.a1.3.0</ACEStransformID>
@@ -188,13 +182,15 @@ If using the RGC in a viewing pipeline, this lookTransform should appear directl
 
 The Transform ID should be included in any exported AMFs, with the applied flag set as appropriate, and the description set to the ACESuserName to enable proper tracking. Currently, only the Reference (i.e. static) Gamut Compression is trackable via AMF.
 
+
+
 Appendix A - History / Research
 ----------------
 
 The Architecture Virtual Working Group, chaired by Carol Payne (Netflix) and Matthias Scharfenberg (ILM), to investigate gamut mapping in ACES began its work in January 2020, with a proposal outlining the main issue as:
 
 
-<div style="padding-left: 30px;" markdown="1"> 
+<div style="padding-left: 30px;" markdown> 
     Users of ACES are experiencing problems with out of gamut colors and the resulting artifacts (loss of texture, intensification of color fringes). This issue occurs at two stages in the pipeline. 
 
  * Conversion from camera raw RGB or from the manufacturer’s encoding space into ACES AP0 
@@ -250,10 +246,12 @@ Once the working group settled on the baseline algorithm and its properties a se
 
 Overall, the results of the user testing were positive and uncovered no major issues in the algorithm functionality. 75% of compositors and 96% of colorists stated that using the algorithm helped them complete their work and achieve their creative goals. For full user testing results, please refer to the [working group historical repository](https://github.com/ampas/aces-vwg-gamut-mapping-2020).
 
+
+
 Appendix B  – Implementation Considerations
 ----------------
 
-### **Invertibility**
+### Invertibility
 
 Invertibility of the transformation is an aspect that was discussed at length. The consensus was that while an inverse transform should be defined it comes with the caveat that gamut expansion can create undesirable results when used with highly saturated pixel values, such as those added as part of graphics or CG rendered imagery As this operation is considered more of a “pixel healing” technical operation, inversion should not be a required part of the workflow. It is more akin to a despill after pulling a key, or a bit of sharpening on a scale operation.
 
@@ -271,6 +269,8 @@ Some implementations may also choose to offer a parametric variation of the RGC.
 
 Suggested parameter names, and default values for a parametric version are given in Section 9 of the [RGC Implementation guide](../guides/rgc-implementation/index.md#parametric-version-implementation-specifications).
 
+
+
 Appendix C: Illustrations
 ----------------
 
@@ -283,8 +283,6 @@ Appendix C: Illustrations
 ![Gamut Compression](./images/rgc-cc24.jpg){ width="480" }
   <figcaption>Compression Threshold and ColorChecker 24 Patches (CIExy Chromaticity Plot)</figcaption>
 </figure>
-
-
 
 <figure markdown>
 ![Before Gamut Compression (ACES Rec. 709 Output Transform)](./images/rgc-before.jpg)
@@ -308,122 +306,17 @@ Note that the red value has also been moved slightly, because although it was no
   <figcaption>Gamut Compression Polar Chromaticity Grid</figcaption>
 </figure>
 
-Appendix D: CTL Reference Implementation
+
+
+References
 ----------------
+The following standards, specifications, articles, presentations, and texts are referenced in this text:
 
-```
-// <ACEStransformID>urn:ampas:aces:transformId:v1.5:LMT.Academy.ReferenceGamutCompress.a1.v1.0</ACEStransformID>
-// <ACESuserName>ACES 1.3 Look - Reference Gamut Compress</ACESuserName>
-//
-// Gamut compression algorithm to bring out-of-gamut scene-referred values into AP1
-//
-//
-// Usage:
-//  This transform is intended to be applied to AP0 data, immediately after the IDT, so
-//  that all grading or compositing operations are downstream of the compression, and
-//  therefore work only with positive AP1 values.
-//
-// Note:
-//  It is not recommended to bake the compression into VFX pulls, as it may be beneficial
-//  for compositors to have access to the unmodified image data.
-//
-//
-// Input and output: ACES2065-1
-//
+* [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
+* [ISO 17321-1:2012 - Colour characterisation of digital still cameras (DSCs) - Part 1: Stimuli, metrology and test procedures](https://www.iso.org/standard/56537.html)
+* [RP 177:1993 - SMPTE Recommended Practice - Derivation of Basic Television Color Equations](https://doi.org/10.5594/SMPTE.RP177.1993)
+* [S-2014-004: ACEScg — A Working Space for CGI Render and Compositing](../../encodings/acescg.md)
 
-
-import "ACESlib.Transform_Common";
-
-
-/* --- Gamut Compress Parameters --- */
-// Distance from achromatic which will be compressed to the gamut boundary
-// Values calculated to encompass the encoding gamuts of common digital cinema cameras
-const float LIM_CYAN =  1.147;
-const float LIM_MAGENTA = 1.264;
-const float LIM_YELLOW = 1.312;
-// Percentage of the core gamut to protect
-// Values calculated to protect all the colors of the ColorChecker Classic 24 as given by
-// ISO 17321-1 and Ohta (1997)
-const float THR_CYAN = 0.815;
-const float THR_MAGENTA = 0.803;
-const float THR_YELLOW = 0.880;
-// Aggressiveness of the compression curve
-const float PWR = 1.2;
-
-
-// Calculate compressed distance
-float compress(float dist, float lim, float thr, float pwr)
-{
-    float comprDist;
-    float scl;
-    float nd;
-    float p;
-    if (dist < thr) {
-        comprDist = dist; // No compression below threshold
-    }
-    else {
-        // Calculate scale factor for y = 1 intersect
-        scl = (lim - thr) / pow(pow((1.0 - thr) / (lim - thr), -pwr) - 1.0, 1.0 / pwr);
-        // Normalize distance outside threshold by scale factor
-        nd = (dist - thr) / scl;
-        p = pow(nd, pwr);
-        comprDist = thr + scl * nd / (pow(1.0 + p, 1.0 / pwr)); // Compress
-    }
-    return comprDist;
-}
-
-
-void main 
-(
-    input varying float rIn, 
-    input varying float gIn, 
-    input varying float bIn, 
-    input varying float aIn,
-    output varying float rOut,
-    output varying float gOut,
-    output varying float bOut,
-    output varying float aOut
-) 
-{ 
-    // Source values
-    float ACES[3] = {rIn, gIn, bIn};
-    // Convert to ACEScg
-    float linAP1[3] = mult_f3_f44(ACES, AP0_2_AP1_MAT);
-    // Achromatic axis
-    float ach = max_f3(linAP1);
-    // Distance from the achromatic axis for each color component aka inverse RGB ratios
-    float dist[3];
-    if (ach == 0.0) {
-        dist[0] = 0.0;
-        dist[1] = 0.0;
-        dist[2] = 0.0;
-    }
-    else {
-        dist[0] = (ach - linAP1[0]) / fabs(ach);
-        dist[1] = (ach - linAP1[1]) / fabs(ach);
-        dist[2] = (ach - linAP1[2]) / fabs(ach);
-    }
-    // Compress distance with parameterized shaper function
-    float comprDist[3] = {
-        compress(dist[0], LIM_CYAN, THR_CYAN, PWR),
-        compress(dist[1], LIM_MAGENTA, THR_MAGENTA, PWR),
-        compress(dist[2], LIM_YELLOW, THR_YELLOW, PWR)
-    };
-    // Recalculate RGB from compressed distance and achromatic
-    float comprLinAP1[3] = {
-        ach - comprDist[0] * fabs(ach),
-        ach - comprDist[1] * fabs(ach),
-        ach - comprDist[2] * fabs(ach)
-    };
-    // Convert back to ACES2065-1
-    ACES = mult_f3_f44(comprLinAP1, AP1_2_AP0_MAT);
-    // Write output
-    rOut = ACES[0];
-    gOut = ACES[1];
-    bOut = ACES[2];
-    aOut = aIn;
-}
-```
 
 
 

@@ -15,15 +15,6 @@ Compression (RGC). For detailed technical specifications, please refer to the
 ACES Gamut Mapping Architecture VWG - Technical Documentation.
 
 
-References 
-----------------
-
-The following standards, specifications, articles, presentations, and texts are referenced in this text:
-
-* [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
-
-
-
 Introduction
 ----------------
 
@@ -277,25 +268,45 @@ please see our [Implementation Guide](../rgc-implementation/index.md).
 Appendix
 ----------------
 
-Before and after images, viewed through the Rec. 709 Output Transform
+Before (left) and after (right) images, viewed through the Rec. 709 Output Transform.
+
+<div class="grid" markdown>
 
 ![DJ Before](./images/dj-before.jpeg)
+
 ![DJ After](./images/dj-after.jpeg)
 
 ![Guitarist Before](./images/guitarist-before.jpeg)
+
 ![Guitarist After](./images/guitarist-after.jpeg)
 
 ![Red Xmas Before](./images/red-xmas-before.jpeg)
+
 ![Red Xmas After](./images/red-xmas-after.jpeg)
 
 ![Blue-screen Before](./images/bluescreen-before.jpeg)
+
 ![Blue-screen After](./images/bluescreen-after.jpeg)
 
 ![Blue Bar Before](./images/blue-bar-before.jpeg)
+
 ![Blue Bar After](./images/blue-bar-after.jpeg)
 
 ![Pronto Films Before](./images/pronto-before.jpeg)
+
 ![Pronto Films After](./images/pronto-after.jpeg)
+
+</div>
+
+
+
+
+References 
+----------------
+
+The following standards, specifications, articles, presentations, and texts are referenced in this text:
+
+* [ACES Gamut Mapping Architecture VWG - Technical Documentation Deliverable](https://paper.dropbox.com/doc/tZHiuOCj0RdYw8PPkrTam)
 
 
 
@@ -303,3 +314,8 @@ Before and after images, viewed through the Rec. 709 Output Transform
 <style>
     @import "../../stylesheets/sections.css"
 </style>
+
+<script>
+    /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+    initComparisons();
+</script>
