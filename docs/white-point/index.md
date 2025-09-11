@@ -2,6 +2,9 @@
 title: Deriviation of the ACES White Point
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 Derivation of the ACES White Point CIE Chromaticity Coordinates
 ================

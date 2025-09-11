@@ -2,7 +2,12 @@
 title: AMF User Guide
 ---
 
-# Introduction to ACES Metadata File (AMF)
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
+
+Introduction to ACES Metadata File (AMF)
+========================================
 *A practical guide for production workflows*
 
 

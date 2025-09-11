@@ -2,6 +2,9 @@
 title: CLF Specification
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 Common LUT Format (CLF) - A Common File Format for Look-Up Tables
 ================

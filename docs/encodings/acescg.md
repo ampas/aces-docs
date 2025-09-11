@@ -2,6 +2,9 @@
 title: ACEScg Specification
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 ACEScg - A Working Space for CGI Render and Compositing
 =======================================================

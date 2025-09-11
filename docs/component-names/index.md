@@ -2,6 +2,9 @@
 title: ACES Component Names
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 Preferred ACES 1.0 Component Names
 ================

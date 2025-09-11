@@ -2,6 +2,9 @@
 title: ACESproxy Specification
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 ACESproxy – An Integer Log Encoding of ACES Image Data
 ========================================================================================

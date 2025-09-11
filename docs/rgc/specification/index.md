@@ -2,6 +2,9 @@
 title: Reference Gamut Compression Specification
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 Reference Gamut Compression (RGC) Specification
 ================

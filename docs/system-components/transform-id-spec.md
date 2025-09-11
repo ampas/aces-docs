@@ -1,4 +1,9 @@
-# Transform IDs and User Names
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
+
+Transform IDs and User Names
+============================
 
 ACES transforms shall be assigned both a Transform Identifier (`<ACEStransformID>`) and a user-facing name (`<ACESuserName>`).
 

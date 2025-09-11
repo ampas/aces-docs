@@ -2,6 +2,8 @@
 title: Design, Integration and Use of ACES Look Transforms
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
 
 
 Design, Integration and Use of ACES Look Transforms

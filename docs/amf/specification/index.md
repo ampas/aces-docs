@@ -2,6 +2,9 @@
 title: ACES Metadata File Specification
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 ACES Metadata File (AMF) Specification
 ========================================================================================

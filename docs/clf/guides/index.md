@@ -2,6 +2,9 @@
 title: CLF Implementation Guide
 ---
 
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- Copyright Contributors to the ACES Documentation -->
+
 
 Common LUT Format (CLF) Implementation Guide
 ================
